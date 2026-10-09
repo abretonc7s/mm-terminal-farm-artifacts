@@ -1,0 +1,66 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/order/queries/fee-quote.test.tsx -t consecutive live price ticks
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+(node:46335) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ src/features/perpetuals/order/queries/fee-quote.test.tsx (18 tests | 2 failed | 16 skipped) 132ms
+   ↓ useFeeQuote > requests the order's USD notional and keeps all quote metadata
+   ↓ useFeeQuote > drops the previous quote when size changes and requests the new amount
+   × useFeeQuote > retains the 'limit open' quote through consecutive live price ticks 72ms
+     → expected undefined to deeply equal { feeRate: 0.0008, …(5) }
+   × useFeeQuote > retains the 'partial market close' quote through consecutive live price ticks 59ms
+     → expected undefined to deeply equal { feeRate: 0.0008, …(5) }
+   ↓ useFeeQuote > clears a retained quote on 'amount' edits
+   ↓ useFeeQuote > clears a retained quote on 'limit price' edits
+   ↓ useFeeQuote > clears a retained quote on 'trigger price' edits
+   ↓ useFeeQuote > clears a retained quote on 'order type' edits
+   ↓ useFeeQuote > clears a retained quote on 'symbol' edits
+   ↓ useFeeQuote > clears a retained quote on 'account' edits
+   ↓ useFeeQuote > clears a retained quote on 'network' edits
+   ↓ useFeeQuote > clears a retained quote on 'empty amount' edits
+   ↓ useFeeQuote > clears a retained close quote when sizing changes to { size: -3 }
+   ↓ useFeeQuote > clears a retained close quote when sizing changes to { sizePercent: 50 }
+   ↓ useFeeQuote > re-quotes changed limit prices, accounts and networks
+   ↓ useFeeQuote > requests partial-close notional through the same helper
+   ↓ useFeeQuote > keeps a disabled quote idle without showing loading
+   ↓ useFeeQuote > keeps a disabled quote idle without showing loading
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/perpetuals/order/queries/fee-quote.test.tsx > useFeeQuote > retains the 'limit open' quote through consecutive live price ticks
+ FAIL  src/features/perpetuals/order/queries/fee-quote.test.tsx > useFeeQuote > retains the 'partial market close' quote through consecutive live price ticks
+AssertionError: expected undefined to deeply equal { feeRate: 0.0008, …(5) }
+
+- Expected: 
+{
+  "feeAmount": 0.6,
+  "feeRate": 0.0008,
+  "feeSource": "rewards",
+  "metamaskFeeDiscountBips": 6500,
+  "metamaskFeeRate": 0.00035,
+  "undiscountedMetamaskFeeRate": 0.001,
+}
+
++ Received: 
+undefined
+
+ ❯ src/features/perpetuals/order/queries/fee-quote.test.tsx:135:37
+    133|           }),
+    134|         );
+    135|         expect(result.current.data).toEqual(quote);
+       |                                     ^
+    136|         expect(result.current.isLoading).toBe(false);
+    137|         expect(result.current.isFetching).toBe(true);
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  2 failed | 16 skipped (18)
+   Start at  21:16:24
+   Duration  1.35s (transform 125ms, setup 167ms, collect 509ms, tests 132ms, environment 175ms, prepare 43ms)
+

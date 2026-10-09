@@ -1,0 +1,19 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /private/tmp/terminal-181-ci-baseline
+
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 3644ms
+   ✓ useLiveOrders > connection and error states > sets isConnected to true when receiving valid orders  301ms
+   ✓ useLiveOrders > loading states > hides isInitialLoading when connected  720ms
+   ✓ useLiveOrders > order filtering > returns all orders when hideTpSl is false  349ms
+   ✓ useLiveOrders > order filtering > filters out position-attached TP/SL when hideTpSl is true  413ms
+   ✓ useLiveOrders > caching behavior > reads data from React Query cache when WebSocket updates arrive  433ms
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  21:11:40
+   Duration  24.61s (transform 988ms, setup 2.80s, collect 1.69s, tests 3.64s, environment 4.14s, prepare 532ms)
+

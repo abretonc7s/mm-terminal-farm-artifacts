@@ -1,0 +1,15 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /private/tmp/terminal-181-ci-baseline
+
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 2564ms
+   ✓ useLiveOrders > connection and error states > recovers from error state when receiving valid orders  308ms
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  21:11:39
+   Duration  21.37s (transform 636ms, setup 2.32s, collect 1.65s, tests 2.56s, environment 3.91s, prepare 2.42s)
+

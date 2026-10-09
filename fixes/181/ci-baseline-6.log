@@ -1,0 +1,15 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /private/tmp/terminal-181-ci-baseline
+
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 1754ms
+   ✓ useLiveOrders > state reset on disable > resets connection state when becoming disabled  305ms
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  21:10:11
+   Duration  9.84s (transform 1.23s, setup 930ms, collect 1.03s, tests 1.75s, environment 1.33s, prepare 1.50s)
+

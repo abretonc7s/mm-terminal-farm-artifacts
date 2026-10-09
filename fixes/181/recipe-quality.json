@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "verdict": "pass",
+  "compact": {
+    "verdict": "PASS",
+    "reasons": [
+      "Baseline fails at the first new quoted-rate node after the regression guard passes.",
+      "Final recipe passed 117 nodes and inspected screenshots show both quoted previews.",
+      "Notional and discount math are covered by unit tests under revised AC4."
+    ],
+    "better_version_guidance": []
+  },
+  "dimensions": {
+    "coverage": {
+      "status": "pass",
+      "reason": "AC2 and revised AC4 have recipe nodes and screenshots; AC1/AC3/AC5 map to unit/static checks.",
+      "evidence": [
+        "recipe-run/trace.json",
+        "recipe-coverage.md"
+      ]
+    },
+    "composition": {
+      "status": "pass",
+      "reason": "Session, order, close, signatures, console and cleanup use the Terminal library.",
+      "evidence": [
+        "recipe-run/trace.json",
+        "recipe-coverage.md"
+      ]
+    },
+    "evidence": {
+      "status": "pass",
+      "reason": "Screenshots immediately follow the claimed target wait, with visible settled fee rates and HUD.",
+      "evidence": [
+        "recipe-run/trace.json",
+        "recipe-coverage.md"
+      ]
+    },
+    "flake_risk": {
+      "status": "pass",
+      "reason": "Modal dismissal uses the explicit Close modal button and an absence wait before library close.",
+      "evidence": [
+        "recipe-run/trace.json",
+        "recipe-coverage.md"
+      ]
+    }
+  },
+  "structural_findings": [],
+  "contextual_findings": [],
+  "suggested_recipe_delta": [],
+  "training_fields": {
+    "farm": "macwork-mmt-1",
+    "project": "va-mmcx-terminal-farm",
+    "flow_type": "dev",
+    "task_type": "fee-preview",
+    "claim_is_visual": true,
+    "proof_mode": "mixed",
+    "anti_patterns": [],
+    "good_patterns": [
+      "library composition",
+      "baseline negative control",
+      "explicit dialog dismissal",
+      "guarded testnet cleanup"
+    ]
+  },
+  "meta": {
+    "producer": "worker",
+    "fallback_used": false,
+    "legacy_task": false,
+    "artifact_required": true,
+    "source_signals": [
+      "recipe.json",
+      "recipe-run/summary.json",
+      "recipe-run/trace.json",
+      "recipe-coverage.md",
+      "evidence-manifest.json",
+      "inputs/lead-ac4.md"
+    ]
+  }
+}

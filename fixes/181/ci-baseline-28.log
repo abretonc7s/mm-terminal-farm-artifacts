@@ -1,0 +1,17 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /private/tmp/terminal-181-ci-baseline
+
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 2957ms
+   ✓ useLiveOrders > connection and error states > recovers from error state when receiving valid orders  346ms
+   ✓ useLiveOrders > order filtering > filters out position-attached TP/SL when hideTpSl is true  475ms
+   ✓ useLiveOrders > state reset on disable > resets connection state when becoming disabled  695ms
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  21:11:39
+   Duration  23.03s (transform 943ms, setup 2.14s, collect 1.68s, tests 2.96s, environment 4.73s, prepare 331ms)
+

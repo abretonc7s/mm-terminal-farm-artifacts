@@ -1,0 +1,16 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/order/queries/fee-quote.test.tsx -t consecutive live price ticks
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+(node:48034) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/queries/fee-quote.test.tsx (18 tests | 16 skipped) 238ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed | 16 skipped (18)
+   Start at  21:17:11
+   Duration  1.26s (transform 115ms, setup 146ms, collect 494ms, tests 238ms, environment 170ms, prepare 35ms)
+

@@ -1,0 +1,14 @@
+
+> terminal@0.1.0 test
+> vitest run electron/services/wallet-signer.test.ts
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+ ✓ electron/services/wallet-signer.test.ts (5 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  21:16:24
+   Duration  795ms (transform 86ms, setup 161ms, collect 83ms, tests 3ms, environment 302ms, prepare 70ms)
+

@@ -1,0 +1,31 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/order/utils/fee-notional.test.ts src/features/perpetuals/order/queries/fee-quote.test.tsx src/features/perpetuals/order/components/OrderForm/OrderFormSummary/FeePreview.test.tsx src/features/perpetuals/order/components/OrderForm/OrderFormSummary/OrderFormSummary.test.tsx src/features/perpetuals/order/components/TradeActivityPanel/CloseFeePreview.test.tsx src/features/perpetuals/order/utils/deriveOrderMetrics.test.ts src/features/perpetuals/infra/perps-controller/ControllerPerpsProvider.test.ts src/features/charting/tradingview/providers/HyperliquidTradingDataProvider.test.ts
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+ ✓ src/features/perpetuals/order/utils/deriveOrderMetrics.test.ts (2 tests) 7ms
+ ✓ src/features/perpetuals/order/utils/fee-notional.test.ts (7 tests) 57ms
+ ✓ src/features/charting/tradingview/providers/HyperliquidTradingDataProvider.test.ts (6 tests) 52ms
+(node:39631) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:39621) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:39627) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:39610) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:39616) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/perps-controller/ControllerPerpsProvider.test.ts (68 tests) 522ms
+ ✓ src/features/perpetuals/order/components/TradeActivityPanel/CloseFeePreview.test.tsx (2 tests) 202ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormSummary/FeePreview.test.tsx (7 tests) 518ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormSummary/OrderFormSummary.test.tsx (18 tests) 1308ms
+ ✓ src/features/perpetuals/order/queries/fee-quote.test.tsx (18 tests) 1630ms
+
+ Test Files  8 passed (8)
+      Tests  128 passed (128)
+   Start at  21:12:01
+   Duration  11.79s (transform 2.41s, setup 6.63s, collect 23.50s, tests 4.30s, environment 13.28s, prepare 5.38s)
+

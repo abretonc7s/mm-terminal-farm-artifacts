@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "scope": "recipe-run-application",
+  "status": "clean",
+  "nonBlocking": true,
+  "note": "No application warnings or errors were emitted during the recipe run.",
+  "source": {
+    "label": "app-console",
+    "path": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/recipe/runtime/terminal/app-console.log",
+    "startOffset": 255756,
+    "endOffset": 265472,
+    "inode": 893648935,
+    "bytesRead": 9716,
+    "truncated": false,
+    "inAppBuffer": "n/a",
+    "rawArtifact": "diagnostics-app-log.txt",
+    "redacted": true
+  },
+  "counts": {
+    "total": 0,
+    "warning": 0,
+    "error": 0,
+    "exception": 0,
+    "info": 5
+  },
+  "allowlist": {
+    "entries": 10,
+    "applied": 5,
+    "problems": []
+  },
+  "capture": {
+    "verified": true,
+    "detail": "console collector pid 3630 on CDP 9541; control line from the http://localhost:9341 page reached app-console.log"
+  },
+  "displayedFindingCount": 5,
+  "omittedFindingCount": 0,
+  "findings": [
+    {
+      "level": "info",
+      "fingerprint": "9512f4cead5b",
+      "preview": "10:11:26.703 [dapp:page:BTC] WARNING  MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added. Use emitter.setMaxListeners() to increase limit  (at n chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/scripts/contentscript.js:14083:35745)",
+      "source": "page",
+      "signature": "MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added. Use emitter.setMaxListeners() to increase limit",
+      "firstFrame": "n chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/scripts/contentscript.js:14083:35745",
+      "allowlisted": {
+        "reason": "MetaMask's injected provider stream (inpage ObjectMultiplex) adds close/end listeners per substream; third-party, not the terminal's code.",
+        "entry": 0,
+        "file": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/diagnostics/console-allowlist.json"
+      },
+      "count": 4
+    },
+    {
+      "level": "info",
+      "fingerprint": "c8d8620ed231",
+      "preview": "10:11:26.704 [dapp:page:BTC] WARNING  MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 end listeners added. Use emitter.setMaxListeners() to increase limit  (at n chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/scripts/contentscript.js:14083:35745)",
+      "source": "page",
+      "signature": "MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 end listeners added. Use emitter.setMaxListeners() to increase limit",
+      "firstFrame": "n chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/scripts/contentscript.js:14083:35745",
+      "allowlisted": {
+        "reason": "MetaMask's injected provider stream (inpage ObjectMultiplex) adds close/end listeners per substream; third-party, not the terminal's code.",
+        "entry": 1,
+        "file": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/diagnostics/console-allowlist.json"
+      },
+      "count": 4
+    },
+    {
+      "level": "info",
+      "fingerprint": "1ef282535967",
+      "preview": "10:11:26.724 [dapp:page:BTC] WARNING  ObjectMultiplex - orphaned data for stream \"app-init-liveness\"  (at warn chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/scripts/contentscript.js:14083:506016)",
+      "source": "page",
+      "signature": "ObjectMultiplex - orphaned data for stream \"app-init-liveness\"",
+      "firstFrame": "warn chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/scripts/contentscript.js:14083:506016",
+      "allowlisted": {
+        "reason": "MetaMask's injected provider liveness streams reach the page before its multiplex subscribes; third-party, not the terminal's code.",
+        "entry": 2,
+        "file": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/diagnostics/console-allowlist.json"
+      },
+      "count": 8
+    },
+    {
+      "level": "info",
+      "fingerprint": "7b355fc4aa91",
+      "preview": "10:11:26.724 [dapp:page:BTC] WARNING  ObjectMultiplex - orphaned data for stream \"background-liveness\"  (at warn chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/scripts/contentscript.js:14083:506016)",
+      "source": "page",
+      "signature": "ObjectMultiplex - orphaned data for stream \"background-liveness\"",
+      "firstFrame": "warn chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/scripts/contentscript.js:14083:506016",
+      "allowlisted": {
+        "reason": "MetaMask's injected provider liveness streams reach the page before its multiplex subscribes; third-party, not the terminal's code.",
+        "entry": 3,
+        "file": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/diagnostics/console-allowlist.json"
+      },
+      "count": 8
+    },
+    {
+      "level": "info",
+      "fingerprint": "698b0e49edce",
+      "preview": "10:11:27.930 [dapp:page:BTC] WARNING  2026-10-09T10:11:27.929Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9341/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)",
+      "source": "page",
+      "signature": "<time>:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.",
+      "firstFrame": "w http://localhost:9341/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23",
+      "allowlisted": {
+        "reason": "TradingView warns that the terminal's theme override paneProperties.border_around_the_chart is not a property of this library version. pre-existing on base 5fc00243 (org main 4b1d5bbc, same tree), seen in base recipe runs (they stop at connect on base) and a connected base flow; not in the perps-controller PR's code paths. Suggested upstream fix: drop that override from tradingViewTheme.ts.",
+        "entry": 4,
+        "file": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/diagnostics/console-allowlist.json"
+      },
+      "count": 4
+    }
+  ]
+}

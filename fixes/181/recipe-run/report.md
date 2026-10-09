@@ -1,0 +1,124 @@
+# MetaMask Recipe Run
+
+Status: pass
+Duration: 68s
+Nodes: 117/117 passed
+
+## Steps
+- PASS setup-session/session/launch (metamask.app.launch, 23s): network=testnet, proof=terminal-browser-launch
+- PASS setup-session/session/open_window (metamask.wallet.read_signatures, 468ms): proof=terminal-wallet-request-log
+- PASS setup-session/session/open_market (ui.navigate, 1.2s): page=order
+- PASS setup-session/session/choose_connect (switch, 86ms): matched=true, value=connect-true, expected=connect-true
+- PASS setup-session/session/connect_visible (ui.wait_for, 630ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-session/session/connect (ui.press, 596ms): clicked=true, selector=[data-testid="header-connect-wallet"], [data-test-id="header-connect-wallet"], [data-test="header-connect-wallet"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS setup-session/session/approve_connect/choose (switch, 8ms): matched=true, value=extension, expected=extension
+- PASS setup-session/session/approve_connect/metamask_prompt (ui.wait_for, 986ms): matched=true, surface=wallet, cdpPort=9541, targetUrl=chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/sidepanel.html#/connect/JbiROqYciEJ-CklHuusGm
+- PASS setup-session/session/approve_connect/capture_request (ui.screenshot, 543ms): path=setup-session/session/approve_connect/capture_request.png
+- PASS setup-session/session/approve_connect/choose_kind (switch, 29ms): matched=false, value=connect, expected=signature
+- PASS setup-session/session/approve_connect/approve (ui.press, 1.4s): clicked=true, selector=[data-testid=confirm-btn], [data-testid=confirm-footer-button], tagName=BUTTON, surface=wallet, cdpPort=9541
+- PASS setup-session/session/approve_connect/approved (end, 0ms)
+- PASS setup-session/session/approve_connect (call, 3.1s): ref=terminal.perps.confirm-wallet-request, status=pass
+- PASS setup-session/session/connected (ui.wait_for, 445ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-session/session/capture_connected (ui.screenshot, 102ms): path=setup-session/session/capture_connected.png
+- PASS setup-session/session/session_signatures (metamask.wallet.assert_signatures, 236ms): count=2, proof=terminal-wallet-request-log
+- PASS setup-session/session/done (end, 0ms)
+- PASS setup-session/session (call, 30s): ref=terminal.perps.ensure-session, status=pass
+- PASS setup-session/assert_connected (metamask.wallet.assert_connected, 343ms): account=0x8Dc6...9003, proof=dapp-connected-account
+- PASS setup-session/capture (ui.screenshot, 102ms): path=setup-session/capture.png
+- PASS setup-session/done (end, 0ms)
+- PASS setup-session (call, 31s): ref=terminal.perps.ensure-connected, status=pass
+- PASS setup-flat/before_snapshot (metamask.perps.read_snapshot, 581ms): network=testnet, account=0x8Dc6...9003, proof=venue-snapshot
+- PASS setup-flat/converge/clean_market (metamask.perps.teardown_state, 859ms): network=testnet, account=0x8Dc6...9003, proof=venue-cleanup
+- PASS setup-flat/converge/assert_no_positions (metamask.perps.assert_positions, 586ms): network=testnet, account=0x8Dc6...9003, matching=0, proof=venue-clearinghouseState
+- PASS setup-flat/converge/assert_no_orders (metamask.perps.assert_orders, 634ms): network=testnet, account=0x8Dc6...9003, matching=0, proof=venue-frontendOpenOrders
+- PASS setup-flat/converge/done (end, 0ms)
+- PASS setup-flat/converge (call, 2.1s): ref=terminal.perps.clean-market-testnet, status=pass
+- PASS setup-flat/done (end, 0ms)
+- PASS setup-flat (call, 2.7s): ref=terminal.perps.ensure-flat-market, status=pass
+- PASS setup-hud (app.hud, 7ms): hud=true, seq=48, status=running, tabs=1
+- PASS setup-order-page/navigate (ui.navigate, 996ms): page=order
+- PASS setup-order-page/header (ui.wait_for, 1.3s): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-order-page/form (ui.wait_for, 450ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-order-page/chart (ui.wait_for, 534ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-order-page/capture (ui.screenshot, 106ms): path=setup-order-page/capture.png
+- PASS setup-order-page/done (end, 0ms)
+- PASS setup-order-page (call, 3.5s): ref=terminal.perps.open-order-page, status=pass
+- PASS setup-market (ui.press, 360ms): clicked=true, selector=[data-testid="order-form-tab-market"], [data-test-id="order-form-tab-market"], [data-test="order-form-tab-market"], tagName=DIV, partiallyCovered=false, surface=app
+- PASS setup-amount (ui.set_input, 527ms): set=true, selector=[data-testid="order-form-amount"], [data-test-id="order-form-amount"], [data-test="order-form-amount"], tagName=INPUT, previousValue=$0, value=$25
+- PASS ac4-regression-fees-label (ui.wait_for, 353ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS ac2-order-quote (ui.wait_for, 664ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS ac2-order-capture (ui.screenshot, 91ms): path=evidence-ac2-order-quote.png
+- PASS ac4-sized-order-preview (ui.wait_for, 348ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS ac4-order-capture (ui.screenshot, 99ms): path=evidence-ac4-sized-order-preview.png
+- PASS setup-open-position/fresh_page/navigate (ui.navigate, 1.1s): page=order
+- PASS setup-open-position/fresh_page/header (ui.wait_for, 736ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-open-position/fresh_page/form (ui.wait_for, 1.0s): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-open-position/fresh_page/chart (ui.wait_for, 551ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-open-position/fresh_page/capture (ui.screenshot, 90ms): path=setup-open-position/fresh_page/capture.png
+- PASS setup-open-position/fresh_page/done (end, 0ms)
+- PASS setup-open-position/fresh_page (call, 3.6s): ref=terminal.perps.open-order-page, status=pass
+- PASS setup-open-position/no_position (metamask.perps.assert_positions, 544ms): network=testnet, account=0x8Dc6...9003, matching=0, proof=venue-clearinghouseState
+- PASS setup-open-position/tab_market (ui.press, 374ms): clicked=true, selector=[data-testid="order-form-tab-market"], [data-test-id="order-form-tab-market"], [data-test="order-form-tab-market"], tagName=DIV, partiallyCovered=false, surface=app
+- PASS setup-open-position/direction (ui.press, 604ms): clicked=true, selector=[data-testid="order-form-direction-long"], [data-test-id="order-form-direction-long"], [data-test="order-form-direction-long"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS setup-open-position/enter_size (ui.set_input, 383ms): set=true, selector=[data-testid="order-form-amount"], [data-test-id="order-form-amount"], [data-test="order-form-amount"], tagName=INPUT, previousValue=$25, value=$25
+- PASS setup-open-position/boxes_off (ui.wait_for, 585ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-open-position/tpsl/open_editor (ui.press, 381ms): clicked=true, selector=[data-testid="order-form-tpsl"], [data-test-id="order-form-tpsl"], [data-test="order-form-tpsl"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS setup-open-position/tpsl/choose (switch, 9ms): matched=true, value=tp--sl-, expected=tp--sl-
+- PASS setup-open-position/tpsl/reset (ui.press, 354ms): clicked=true, selector=[data-testid="tpsl-set"] + button, tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS setup-open-position/tpsl/set_off (ui.press, 584ms): clicked=true, selector=[data-testid="tpsl-set"], [data-test-id="tpsl-set"], [data-test="tpsl-set"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS setup-open-position/tpsl/shown_off (ui.wait_for, 354ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-open-position/tpsl/done (end, 0ms)
+- PASS setup-open-position/tpsl (call, 1.7s): ref=terminal.perps.set-order-tpsl, status=pass
+- PASS setup-open-position/submit (ui.press, 632ms): clicked=true, selector=[data-testid="order-form-submit"], [data-test-id="order-form-submit"], [data-test="order-form-submit"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS setup-open-position/choose_approve (switch, 8ms): matched=true, value=approve-true, expected=approve-true
+- PASS setup-open-position/approve/choose (switch, 6ms): matched=true, value=extension, expected=extension
+- PASS setup-open-position/approve/metamask_prompt (ui.wait_for, 1.1s): matched=true, surface=wallet, cdpPort=9541, targetUrl=chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/sidepanel.html#/confirm-transaction/da5da8d0-c3c9-11f1-a7ee-bba16a52e2d3/signature-request
+- PASS setup-open-position/approve/capture_request (ui.screenshot, 798ms): path=setup-open-position/approve/capture_request.png
+- PASS setup-open-position/approve/choose_kind (switch, 7ms): matched=true, value=signature, expected=signature
+- PASS setup-open-position/approve/assert_primary_type (ui.wait_for, 1.0s): matched=true, surface=wallet, cdpPort=9541, targetUrl=chrome-extension://hebhblbkkdabgoldnojllkipeoacjioc/sidepanel.html#/confirm-transaction/da5da8d0-c3c9-11f1-a7ee-bba16a52e2d3/signature-request
+- PASS setup-open-position/approve/approve (ui.press, 1.1s): clicked=true, selector=[data-testid=confirm-btn], [data-testid=confirm-footer-button], tagName=BUTTON, surface=wallet, cdpPort=9541
+- PASS setup-open-position/approve/approved (end, 0ms)
+- PASS setup-open-position/approve (call, 4.1s): ref=terminal.perps.confirm-wallet-request, status=pass
+- PASS setup-open-position/position_open (metamask.perps.assert_positions, 3.6s): network=testnet, account=0x8Dc6...9003, matching=1, proof=venue-clearinghouseState
+- PASS setup-open-position/position_proof (assert_output, 8ms): source=position_open, stream=stdout
+- PASS setup-open-position/choose_tpsl_check (switch, 7ms): matched=true, value=tp--sl-, expected=tp--sl-
+- PASS setup-open-position/no_triggers (metamask.perps.assert_orders, 1.1s): network=testnet, account=0x8Dc6...9003, matching=0, proof=venue-frontendOpenOrders
+- PASS setup-open-position/no_triggers_proof (assert_output, 12ms): source=no_triggers, stream=stdout
+- PASS setup-open-position/capture (ui.screenshot, 90ms): path=setup-open-position/capture.png
+- PASS setup-open-position/done (end, 0ms)
+- PASS setup-open-position (call, 17s): ref=terminal.perps.place-market-order, status=pass
+- PASS setup-positions-tab (ui.press, 383ms): clicked=true, selector=[data-testid="user-positions-tab-positions"], [data-test-id="user-positions-tab-positions"], [data-test="user-positions-tab-positions"], tagName=DIV, partiallyCovered=false, surface=app
+- PASS setup-close-dialog (ui.press, 1.8s): clicked=true, selector=[data-testid="position-action-close"], [data-test-id="position-action-close"], [data-test="position-action-close"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS ac2-close-quote (ui.wait_for, 366ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS ac2-close-capture (ui.screenshot, 124ms): path=evidence-ac2-close-quote.png
+- PASS setup-dismiss-close (ui.press, 553ms): clicked=true, selector=[role="dialog"][aria-label="Close Position"] button[aria-label="Close modal"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS gate-close-dismissed (ui.wait_for, 354ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-close-position/before_close (metamask.perps.read_positions, 452ms): network=testnet, account=0x8Dc6...9003, count=2, matching=1, proof=venue-clearinghouseState
+- PASS setup-close-position/positions_tab (ui.press, 363ms): clicked=true, selector=[data-testid="user-positions-tab-positions"], [data-test-id="user-positions-tab-positions"], [data-test="user-positions-tab-positions"], tagName=DIV, partiallyCovered=false, surface=app
+- PASS setup-close-position/on_market (ui.wait_for, 558ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-close-position/close (ui.press, 377ms): clicked=true, selector=[data-testid="position-action-close"], [data-test-id="position-action-close"], [data-test="position-action-close"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS setup-close-position/close_size (ui.set_input, 609ms): set=true, selector=[role="dialog"][aria-label="Close Position"] label:nth-of-type(1) input, tagName=INPUT, previousValue=100, value=100
+- PASS setup-close-position/close_confirm (ui.press, 365ms): clicked=true, selector=[data-testid="close-position-confirm"], [data-test-id="close-position-confirm"], [data-test="close-position-confirm"], tagName=BUTTON, partiallyCovered=false, surface=app
+- PASS setup-close-position/dialog_closed (ui.wait_for, 960ms): matched=true, surface=app, cdpPort=9541, targetUrl=http://localhost:9341/order/ETH
+- PASS setup-close-position/choose_full (switch, 8ms): matched=true, value=percent-100, expected=percent-100
+- PASS setup-close-position/position_closed (metamask.perps.assert_positions, 1.1s): network=testnet, account=0x8Dc6...9003, matching=0, proof=venue-clearinghouseState
+- PASS setup-close-position/closed_proof (assert_output, 13ms): source=position_closed, stream=stdout
+- PASS setup-close-position/after_close (metamask.perps.read_positions, 581ms): network=testnet, account=0x8Dc6...9003, count=1, matching=0, proof=venue-clearinghouseState
+- PASS setup-close-position/capture (ui.screenshot, 116ms): path=setup-close-position/capture.png
+- PASS setup-close-position/done (end, 0ms)
+- PASS setup-close-position (call, 5.6s): ref=terminal.perps.close-position, status=pass
+- PASS gate-signatures/signatures (metamask.wallet.assert_signatures, 139ms): count=4, proof=terminal-wallet-request-log
+- PASS gate-signatures/no_l1_proof (assert_output, 7ms): source=signatures, stream=stdout
+- PASS gate-signatures/done (end, 0ms)
+- PASS gate-signatures (call, 165ms): ref=terminal.perps.assert-agent-only-signatures, status=pass
+- PASS gate-console/console (metamask.app.assert_no_console_errors, 230ms): proof=terminal-console-capture
+- PASS gate-console/done (end, 0ms)
+- PASS gate-console (call, 241ms): ref=terminal.perps.assert-clean-console, status=pass
+- PASS gate-done (end, 0ms)
+- PASS teardown-owned (assert_output, 8ms): source=setup-flat, stream=stdout
+- PASS teardown-clean/clean_market (metamask.perps.teardown_state, 679ms): network=testnet, account=0x8Dc6...9003, proof=venue-cleanup
+- PASS teardown-clean/assert_no_positions (metamask.perps.assert_positions, 458ms): network=testnet, account=0x8Dc6...9003, matching=0, proof=venue-clearinghouseState
+- PASS teardown-clean/assert_no_orders (metamask.perps.assert_orders, 564ms): network=testnet, account=0x8Dc6...9003, matching=0, proof=venue-frontendOpenOrders
+- PASS teardown-clean/done (end, 0ms)
+- PASS teardown-clean (call, 1.7s): ref=terminal.perps.clean-market-testnet, status=pass
+- PASS teardown-done (end, 0ms)

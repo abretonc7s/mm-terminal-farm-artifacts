@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "adapter": "terminal",
+  "repository": "va-mmcx-terminal-1",
+  "git_ref": "a75930a11972e2310f74768e1303c93054cd1cca",
+  "branch": "TAT-4094-feat-terminal-update-metamaskperps",
+  "dirty": true
+}

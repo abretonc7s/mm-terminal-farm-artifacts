@@ -1,0 +1,16 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/order/queries/fee-quote.test.tsx
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+(node:43653) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/queries/fee-quote.test.tsx (18 tests) 1393ms
+
+ Test Files  1 passed (1)
+      Tests  18 passed (18)
+   Start at  21:14:35
+   Duration  8.06s (transform 992ms, setup 1.19s, collect 3.26s, tests 1.39s, environment 756ms, prepare 225ms)
+

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Connect the Web Terminal to the reserved account and prove it",
+  "description": "Web Terminal block: start a fresh slot browser, open the market's order page and connect the reserved fixture account (terminal.perps.ensure-session), then prove the app really holds that connection: the page's own provider answers eth_accounts with the reserved address first, the header shows it, and no Connect wallet button remains. With signer=injected the strict wallet answers eth_accounts with its account either way, so there the header is the connection proof. Listing the fixture accounts is not proof of a connection; this reads what the app got. Does not trade.",
+  "workflow": {
+    "entry": "session",
+    "nodes": {
+      "session": {
+        "action": "call",
+        "ref": "terminal.perps.ensure-session",
+        "params": {
+          "signer": "{{params.signer}}",
+          "account": "{{params.account}}",
+          "market": "{{params.market}}",
+          "connect": true
+        },
+        "intent": "Start a fresh slot browser and connect the reserved account to the Web Terminal",
+        "next": "assert_connected"
+      },
+      "assert_connected": {
+        "action": "metamask.wallet.assert_connected",
+        "account": "{{params.account}}",
+        "intent": "Prove the Web Terminal is connected to the reserved account, as its own provider and header report",
+        "next": "capture"
+      },
+      "capture": {
+        "action": "ui.screenshot",
+        "label": "connected-{{params.account}}",
+        "category": "proof",
+        "intent": "Keep a picture of the header showing the connected account",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "signer": {
+        "type": "string",
+        "enum": [
+          "extension",
+          "injected"
+        ],
+        "default": "extension",
+        "description": "extension: the real MetaMask extension confirms the connection (acceptance mode). injected: the strict test wallet answers it (fast mode)."
+      },
+      "account": {
+        "type": "string",
+        "default": "dev1",
+        "description": "Wallet fixture account reserved for this slot (dev1 on mmt-1, Trading on mmt-2)."
+      },
+      "market": {
+        "type": "string",
+        "default": "ETH",
+        "description": "Testnet market whose order page opens."
+      }
+    }
+  }
+}

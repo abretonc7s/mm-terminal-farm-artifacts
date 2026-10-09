@@ -1,0 +1,84 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /private/tmp/terminal-181-ci-baseline
+
+ ❯ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests | 1 failed) 3473ms
+   ✓ useLiveOrders > disabled state > returns empty orders when enabled is false 139ms
+   ✓ useLiveOrders > disabled state > returns empty orders when userAddress is empty 20ms
+   ✓ useLiveOrders > disabled state > does not subscribe when disabled 37ms
+   ✓ useLiveOrders > subscription management > subscribes with correct parameters when enabled 11ms
+   ✓ useLiveOrders > subscription management > passes undefined throttleMs when not specified 90ms
+   ✓ useLiveOrders > subscription management > unsubscribes on unmount 9ms
+   ✓ useLiveOrders > subscription management > resubscribes when userAddress changes 5ms
+   ✓ useLiveOrders > connection and error states > sets isConnected to true when receiving valid orders 228ms
+   ✓ useLiveOrders > connection and error states > does not set isError when WebSocket fails but REST succeeds 34ms
+   ✓ useLiveOrders > connection and error states > sets isError to true when WebSocket and REST both fail 101ms
+   ✓ useLiveOrders > connection and error states > uses REST orders when WebSocket has not connected 84ms
+   ✓ useLiveOrders > connection and error states > keeps REST orders when the first WebSocket snapshot is empty 58ms
+   ✓ useLiveOrders > connection and error states > recovers from error state when receiving valid orders  339ms
+   ✓ useLiveOrders > loading states > shows isInitialLoading when not connected and no data 6ms
+   ✓ useLiveOrders > loading states > hides isInitialLoading when connected  355ms
+   ✓ useLiveOrders > order filtering > returns all orders when hideTpSl is false 180ms
+   × useLiveOrders > order filtering > filters out position-attached TP/SL when hideTpSl is true 1052ms
+     → expected [] to deeply equal [ 'regular', 'market', …(2) ]
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+   ✓ useLiveOrders > order filtering > handles orders without detailedOrderType when filtering 159ms
+   ✓ useLiveOrders > caching behavior > reads data from React Query cache when WebSocket updates arrive 120ms
+   ✓ useLiveOrders > caching behavior > returns empty array before WebSocket delivers data 3ms
+   ✓ useLiveOrders > caching behavior > uses pre-existing cache when subscribing 134ms
+   ✓ useLiveOrders > state reset on disable > resets connection state when becoming disabled 108ms
+   ✓ useLiveOrders > state reset on disable > resets error state when becoming disabled 180ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/perpetuals/queries/live-orders-query.test.tsx > useLiveOrders > order filtering > filters out position-attached TP/SL when hideTpSl is true
+AssertionError: expected [] to deeply equal [ 'regular', 'market', …(2) ]
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+
+- Expected
++ Received
+
+- [
+-   "regular",
+-   "market",
+-   "standalone-stop",
+-   "standalone-tp",
+- ]
++ []
+
+ ❯ src/features/perpetuals/queries/live-orders-query.test.tsx:529:61
+    527| 
+    528|       await waitFor(() => {
+    529|         expect(result.current.orders.map((o) => o.orderId)).toEqual([
+       |                                                             ^
+    530|           "regular",
+    531|           "market",
+ ❯ runWithExpensiveErrorDiagnosticsDisabled ../../../Users/deeeed/dev/metamask/va-mmcx-terminal-2/node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback ../../../Users/deeeed/dev/metamask/va-mmcx-terminal-2/node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback ../../../Users/deeeed/dev/metamask/va-mmcx-terminal-2/node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 22 passed (23)
+   Start at  21:11:39
+   Duration  20.03s (transform 1.36s, setup 2.81s, collect 1.26s, tests 3.47s, environment 7.65s, prepare 2.33s)
+

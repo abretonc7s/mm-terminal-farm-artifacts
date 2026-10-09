@@ -1,0 +1,189 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Close a position from its row",
+  "description": "Web Terminal block (testnet): from the positions tab, open the position's Close dialog, enter the close size in percent, confirm at market and wait for the dialog to close. percent=100 proves no position remains on the venue; a partial close proves the position is still open on the same side with an entry notional at or below max_notional_after (the caller's bound, since templates cannot read the earlier size).",
+  "workflow": {
+    "entry": "before_close",
+    "nodes": {
+      "before_close": {
+        "action": "metamask.perps.read_positions",
+        "market": "{{params.market}}",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "intent": "Record the position size before the close",
+        "next": "positions_tab"
+      },
+      "positions_tab": {
+        "action": "ui.press",
+        "test_id": "user-positions-tab-positions",
+        "intent": "Open the trader's positions",
+        "next": "on_market"
+      },
+      "on_market": {
+        "action": "ui.wait_for",
+        "selector": "[aria-label=\"Switch market, current {{params.market}}\"]",
+        "timeout_ms": 10000,
+        "intent": "Confirm the order page shows the market whose position is closed",
+        "next": "close"
+      },
+      "close": {
+        "action": "ui.press",
+        "test_id": "position-action-close",
+        "intent": "Ask to close the position",
+        "next": "close_size"
+      },
+      "close_size": {
+        "action": "ui.set_input",
+        "selector": "[role=\"dialog\"][aria-label=\"Close Position\"] label:nth-of-type(1) input",
+        "value": "{{params.percent}}",
+        "intent": "Choose how much of the position to close, in percent",
+        "next": "close_confirm"
+      },
+      "close_confirm": {
+        "action": "ui.press",
+        "test_id": "close-position-confirm",
+        "intent": "Confirm the close at market",
+        "next": "dialog_closed"
+      },
+      "dialog_closed": {
+        "action": "ui.wait_for",
+        "selector": "[role=\"dialog\"][aria-label=\"Close Position\"]",
+        "expected": "absent",
+        "timeout_ms": 30000,
+        "intent": "Confirm the close went through (the dialog stays open with its error when the close is refused)",
+        "next": "choose_full"
+      },
+      "choose_full": {
+        "action": "switch",
+        "value": "percent-{{params.percent}}",
+        "equals": "percent-100",
+        "cases": {
+          "match": "position_closed"
+        },
+        "default": "position_reduced",
+        "intent": "Check a full close and a partial close differently"
+      },
+      "position_closed": {
+        "action": "metamask.perps.assert_positions",
+        "market": "{{params.market}}",
+        "state": "none",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 45000,
+        "intent": "Prove the close left no position on the venue",
+        "next": "closed_proof"
+      },
+      "closed_proof": {
+        "action": "assert_output",
+        "source": "position_closed",
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 0
+        },
+        "intent": "Bind the proof to the venue read: no position left",
+        "next": "after_close"
+      },
+      "position_reduced": {
+        "action": "metamask.perps.assert_positions",
+        "market": "{{params.market}}",
+        "state": "open",
+        "side": "{{params.side}}",
+        "expect_count": 1,
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 45000,
+        "intent": "Prove a partial close left the position open on the same side",
+        "next": "reduced_proof"
+      },
+      "reduced_proof": {
+        "action": "assert_output",
+        "source": "position_reduced",
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "intent": "Bind the proof to the venue read: the position is still open",
+        "next": "after_partial"
+      },
+      "after_partial": {
+        "action": "metamask.perps.read_positions",
+        "market": "{{params.market}}",
+        "side": "{{params.side}}",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "intent": "Read what the partial close left",
+        "next": "reduced_size"
+      },
+      "reduced_size": {
+        "action": "assert_output",
+        "source": "after_partial",
+        "assert": {
+          "path": "$.positions[0].notional",
+          "operator": "lte",
+          "value": "{{params.max_notional_after}}"
+        },
+        "intent": "Prove the partial close shrank the position to at most max_notional_after USD",
+        "next": "after_close"
+      },
+      "after_close": {
+        "action": "metamask.perps.read_positions",
+        "market": "{{params.market}}",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "intent": "Record the position size after the close",
+        "next": "capture"
+      },
+      "capture": {
+        "action": "ui.screenshot",
+        "label": "position-closed-{{params.percent}}pct",
+        "category": "proof",
+        "intent": "Keep a picture of the positions tab after the close",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "account": {
+        "type": "string",
+        "default": "dev1",
+        "description": "Wallet fixture account reserved for this slot (dev1 on mmt-1, Trading on mmt-2)."
+      },
+      "market": {
+        "type": "string",
+        "default": "ETH",
+        "description": "Testnet market reserved for this run."
+      },
+      "side": {
+        "type": "string",
+        "enum": [
+          "long",
+          "short"
+        ],
+        "default": "long",
+        "description": "Order or position direction."
+      },
+      "percent": {
+        "type": "integer",
+        "minimum": 1,
+        "default": 100,
+        "description": "Share of the position to close, in percent (1-100; the schema has no maximum)."
+      },
+      "max_notional_after": {
+        "type": "number",
+        "minimum": 0,
+        "default": 0,
+        "description": "Partial close only: the largest entry notional in USD the position may keep. The default 0 makes a partial close fail until the caller sets it."
+      }
+    }
+  }
+}

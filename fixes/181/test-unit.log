@@ -1,0 +1,907 @@
+
+> terminal@0.1.0 test:unit
+> vitest run --coverage --maxWorkers=4 --coverage.include=src/** --coverage.include=electron/**
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+      Coverage enabled with v8
+
+ ✓ src/features/perpetuals/domain/OrderBook/helpers/OrderBookHelper.test.ts (83 tests) 46ms
+stdout | electron/services/bot-runner.test.ts > BotRunner > does not decrease isolated leverage on an existing position when starting
+[BotRunner] Auto-adopted orphan BTC position for bot BTC Simple Buy/Sell (buy 0.25 @ 100).
+
+ ✓ electron/services/bot-runner.test.ts (12 tests) 223ms
+(node:39878) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:39881) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/perps-controller/ControllerPerpsProvider.test.ts (68 tests) 331ms
+(node:39975) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:39982) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/submit-order-mutation.test.tsx (26 tests) 268ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBook.test.tsx (34 tests) 1289ms
+ ❯ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests | 1 failed) 3231ms
+   ✓ useLiveOrders > disabled state > returns empty orders when enabled is false 23ms
+   ✓ useLiveOrders > disabled state > returns empty orders when userAddress is empty 2ms
+   ✓ useLiveOrders > disabled state > does not subscribe when disabled 4ms
+   ✓ useLiveOrders > subscription management > subscribes with correct parameters when enabled 5ms
+   ✓ useLiveOrders > subscription management > passes undefined throttleMs when not specified 9ms
+   ✓ useLiveOrders > subscription management > unsubscribes on unmount 9ms
+   ✓ useLiveOrders > subscription management > resubscribes when userAddress changes 5ms
+   ✓ useLiveOrders > connection and error states > sets isConnected to true when receiving valid orders 162ms
+   ✓ useLiveOrders > connection and error states > does not set isError when WebSocket fails but REST succeeds 5ms
+   ✓ useLiveOrders > connection and error states > sets isError to true when WebSocket and REST both fail 55ms
+   ✓ useLiveOrders > connection and error states > uses REST orders when WebSocket has not connected 57ms
+   ✓ useLiveOrders > connection and error states > keeps REST orders when the first WebSocket snapshot is empty 53ms
+   ✓ useLiveOrders > connection and error states > recovers from error state when receiving valid orders  409ms
+   ✓ useLiveOrders > loading states > shows isInitialLoading when not connected and no data 3ms
+   ✓ useLiveOrders > loading states > hides isInitialLoading when connected 113ms
+   ✓ useLiveOrders > order filtering > returns all orders when hideTpSl is false 108ms
+   ✓ useLiveOrders > order filtering > filters out position-attached TP/SL when hideTpSl is true 105ms
+   ✓ useLiveOrders > order filtering > handles orders without detailedOrderType when filtering  311ms
+   ✓ useLiveOrders > caching behavior > reads data from React Query cache when WebSocket updates arrive 112ms
+   ✓ useLiveOrders > caching behavior > returns empty array before WebSocket delivers data 11ms
+   ✓ useLiveOrders > caching behavior > uses pre-existing cache when subscribing 8ms
+   ✓ useLiveOrders > state reset on disable > resets connection state when becoming disabled  631ms
+   × useLiveOrders > state reset on disable > resets error state when becoming disabled 1025ms
+     → expected false to be true // Object.is equality
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+(node:40250) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:40256) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPage > renders the header data when the symbol is present in the API response
+Received `true` for a non-boolean attribute `unoptimized`.
+
+If you want to write it to the DOM, pass a string instead: unoptimized="true" or unoptimized={value.toString()}.
+
+(node:40338) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/components/ui/Table/Table.test.tsx (21 tests) 2708ms
+   ✓ Table > Pagination > paginates data and resets when page size changes  481ms
+ ✓ src/features/perpetuals/queries/close-position-mutation.test.tsx (16 tests) 399ms
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPageLayout - Tab Synchronization > renders orders, positions, and holdings tabs in bot strategy mode for the selected bot
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET wss://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPageLayout - Tab Synchronization > renders orders, positions, and holdings tabs in bot strategy mode for the selected bot
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET https://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookFilters.test.tsx (24 tests) 4451ms
+   ✓ OrderBookFilters > calls onAggregationChange when aggregation is selected  491ms
+   ✓ OrderBookFilters > renders all available aggregation options  308ms
+   ✓ OrderBookFilters > renders both base and quote asset options in size unit menu  324ms
+(node:40411) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.test.ts > PerpsControllerHost > retries prepareTradingWallet while it is not ready
+[perps] prepareTradingWallet not ready: undefined
+
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.test.ts > PerpsControllerHost > retries prepareTradingWallet while it is not ready
+[perps] prepareTradingWallet not ready: undefined
+
+(node:40413) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/perps-controller/controller-host.test.ts (19 tests) 232ms
+ ✓ src/core/clients/rewards-api/RewardsApiClient.test.ts (34 tests) 609ms
+ ✓ src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx (20 tests) 7477ms
+   ✓ OrderPage > renders the header data when the symbol is present in the API response  594ms
+   ✓ OrderPage > opens the markets drawer from the header market selector  2018ms
+   ✓ OrderPage > opens the markets drawer on arrival when requested by the URL  367ms
+   ✓ OrderPageLayout - Tab Synchronization > renders orders, positions, and holdings tabs in bot strategy mode for the selected bot  815ms
+   ✓ OrderPageLayout - Tab Synchronization > shows the same position card with TP/SL in bot-strategy mode  302ms
+   ✓ OrderPageLayout - Tab Synchronization > defaults to chart tab when transitioning from large to small viewport  392ms
+   ✓ OrderPageLayout - Tab Synchronization > syncs largePanelTab from smallViewportTab when transitioning from small to large viewport  321ms
+   ✓ OrderPageLayout - Tab Synchronization > preserves orderbook selection when transitioning from small to large  520ms
+   ✓ OrderPageLayout - Tab Synchronization > sets smallViewportTab to chart when transitioning from small to large  316ms
+   ✓ OrderPageLayout - Tab Synchronization > does not sync chart tab to largePanelTab when transitioning from small to large  307ms
+ ✓ src/components/layout/HeaderNav.test.tsx (27 tests) 3314ms
+   ✓ HeaderNav > Accessibility > More menu items are keyboard navigable with arrow keys  312ms
+ ✓ src/components/ui/Modal/Modal.test.tsx (25 tests) 1514ms
+(node:40524) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:40547) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/components/ui/Tooltip/Tooltip.test.tsx (19 tests) 1656ms
+(node:40808) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/UserPositions/CurrentPosition.test.tsx (27 tests) 1635ms
+ ✓ src/features/charting/components/TradingViewChart/TradingViewChart.test.tsx (15 tests | 7 skipped) 195ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormInner/OrderFormInner.test.tsx (21 tests) 822ms
+ ✓ src/features/perpetuals/infra/hyperliquid/market-data/aggregation.test.ts (51 tests) 17ms
+(node:40956) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:40959) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/live-trades-query.test.tsx (19 tests) 173ms
+ ✓ electron/services/bot-store.test.ts (5 tests) 9ms
+(node:40981) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormEditors/OrderFormEditors.test.tsx (25 tests) 871ms
+ ✓ src/features/charting/overlays/ChartOverlayManager.test.ts (7 tests) 20ms
+ ✓ src/features/perpetuals/order/components/PaneErrorBoundary/PaneErrorBoundary.test.tsx (15 tests) 785ms
+(node:40989) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41004) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/live-orderbook-query.test.tsx (14 tests) 131ms
+ ✓ src/features/perpetuals/order/components/BotStrategyPanel/BotStrategyPanel.test.tsx (7 tests) 1066ms
+   ✓ BotStrategyPanel > shows a delete action in the overflow menu  354ms
+ ✓ src/features/bots/components/StrategyConfigurator/StrategyConfigurator.test.tsx (10 tests) 1373ms
+(node:41070) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderForm/AmountInput/AmountInput.test.tsx (19 tests) 899ms
+(node:41077) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41079) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41081) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/live-positions-query.test.tsx (14 tests) 392ms
+ ✓ src/features/perpetuals/order/components/UserPositions/LimitOrders.test.tsx (18 tests) 859ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormSummary/OrderFormSummary.test.tsx (18 tests) 669ms
+(node:41126) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with invalid price (NaN)
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"not-a-number","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with zero price
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"0","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with negative price
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"-100","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with invalid size (NaN)
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"invalid","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with zero size
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"0","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with negative size
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"-1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with invalid side
+Skipping malformed trade: {"coin":"BTC","side":"X","px":"50000","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with non-numeric tid
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":"not-a-number","users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > returns empty array when all trades are malformed
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"invalid","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"0","time":1234567890,"hash":"0xabc123","tid":2,"users":["0xmaker","0xtaker"]}
+Skipping malformed trade: {"coin":"BTC","side":"X","px":"50000","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":3,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptTradesEvent > malformed data handling > skips malformed trades gracefully
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"invalid","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+ ✓ src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts (25 tests) 16ms
+ ✓ src/components/ButtonToggle/ButtonToggle.test.tsx (18 tests) 946ms
+ ✓ electron/services/agentic-cli-service.test.ts (7 tests) 23ms
+(node:41169) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41170) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/hooks/use-order-bot-strategy.test.tsx (3 tests) 194ms
+ ✓ src/features/perpetuals/infra/hyperliquid/market-data/orderBook.test.ts (22 tests) 10ms
+ ✓ src/features/perpetuals/queries/live-trading-cache.test.ts (7 tests) 9ms
+ ✓ src/features/perpetuals/order/components/MarketDataTabs/MarketDataTabs.test.tsx (22 tests) 1529ms
+(node:41234) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41237) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41236) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/perps-controller/mappers.test.ts (17 tests) 10ms
+ ✓ src/features/perpetuals/queries/cancel-order-mutation.test.tsx (11 tests) 323ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx (12 tests) 951ms
+ ✓ src/features/perpetuals/order/components/OrderPage/OrderPage.streaming.test.tsx (6 tests) 653ms
+(node:41282) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41285) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ electron/strategies/simple-buy-sell.test.ts (11 tests) 15ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormAmountField/OrderFormAmountField.test.tsx (11 tests) 630ms
+(node:41303) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/queries/fee-quote.test.tsx (18 tests) 1337ms
+(node:41320) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41340) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/PerpsProviderRegistry.test.ts (17 tests) 17ms
+ ✓ src/features/perpetuals/queries/live-prices-query.test.tsx (11 tests) 117ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderParametersModals/OrderFormLeverageEditor.test.tsx (10 tests) 1047ms
+ ✓ src/features/bots/utils/simple-buy-sell-defaults.test.ts (10 tests) 4ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderParametersModals/OrderFormLimitPriceEditor.test.tsx (11 tests) 1477ms
+   ✓ OrderFormLimitPriceEditor > applies selected percentage to the mid price  482ms
+(node:41380) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41382) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/UserPositions/OtherPositions.test.tsx (11 tests) 495ms
+(node:41402) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41405) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/components/TokenDetailView/TokenDetailView.test.tsx (8 tests) 982ms
+ ✓ src/features/perpetuals/infra/perps-controller/ControllerPerpsProvider.agent-refusal.test.ts (3 tests) 1044ms
+ ✓ src/features/perpetuals/order/components/OrderBook/stacked/OrderBookLevelsStacked.test.tsx (12 tests) 852ms
+ ✓ electron/services/mm-perps-executor.test.ts (7 tests) 72ms
+(node:41519) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41526) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderBook/useOrderBookLayout.test.ts (14 tests) 59ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookRow.test.tsx (16 tests) 652ms
+(node:41579) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderParametersModals/OrderFormAutoCloseEditor.test.tsx (7 tests) 1190ms
+   ✓ OrderFormAutoCloseEditor > applies quick percentage buttons based on the live market price  370ms
+(node:41617) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/portfolio/components/PortfolioBreakdown/PortfolioBreakdown.test.tsx (6 tests) 344ms
+(node:41631) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/charting/tradingview/providers/HyperliquidTradingDataProvider.test.ts (6 tests) 12ms
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts > PerpsControllerHost with the real controller > places an order without the controller logging an error
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET wss://api.hyperliquid-testnet.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts > PerpsControllerHost with the real controller > places an order without the controller logging an error
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET https://api.hyperliquid-testnet.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+(node:41637) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41641) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts > PerpsControllerHost with the real controller > quotes a fee preview without the controller logging an error
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET wss://api.hyperliquid-testnet.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts > PerpsControllerHost with the real controller > quotes a fee preview without the controller logging an error
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET https://api.hyperliquid-testnet.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ ✓ src/features/ecosystems/components/EcosystemCard/EcosystemCard.test.tsx (14 tests) 503ms
+ ✓ src/core/hooks/useCurrency.test.tsx (15 tests) 492ms
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts > PerpsControllerHost with the real controller > answers a venue refusal of the agent as this order's own KEYRING_LOCKED and drops the agent
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET wss://api.hyperliquid-testnet.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts > PerpsControllerHost with the real controller > answers a venue refusal of the agent as this order's own KEYRING_LOCKED and drops the agent
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET https://api.hyperliquid-testnet.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ ✓ src/features/perpetuals/components/MarketsDrawer/MarketsDrawer.test.tsx (9 tests) 3160ms
+   ✓ MarketsDrawer > opens with search focused, tabs, sort options and markets by volume  357ms
+   ✓ MarketsDrawer > filters by search and sorts by top movers  482ms
+   ✓ MarketsDrawer > keeps starred markets in a persisted watchlist  667ms
+   ✓ MarketsDrawer > closes from the close button and with Escape  307ms
+   ✓ MarketsDrawer > has no accessibility violations  562ms
+ ✓ src/features/perpetuals/domain/OrderBook/helpers/OrderBookLevelHelper.test.ts (19 tests) 7ms
+ ✓ src/features/charting/components/TradingViewChart/chart-order-lines.test.ts (5 tests) 9ms
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts > PerpsControllerHost with the real controller > reports a successful mainnet order without a sign-in token quietly
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET wss://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts > PerpsControllerHost with the real controller > reports a successful mainnet order without a sign-in token quietly
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET https://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+(node:41719) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41721) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41724) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/portfolio/components/PortfolioTotalValue/PortfolioTotalValue.test.tsx (11 tests) 431ms
+ ✓ src/features/perpetuals/infra/perps-controller/controller-host.console.test.ts (4 tests) 6065ms
+   ✓ PerpsControllerHost with the real controller > places an order without the controller logging an error  1431ms
+   ✓ PerpsControllerHost with the real controller > quotes a fee preview without the controller logging an error  1162ms
+   ✓ PerpsControllerHost with the real controller > answers a venue refusal of the agent as this order's own KEYRING_LOCKED and drops the agent  1111ms
+   ✓ PerpsControllerHost with the real controller > reports a successful mainnet order without a sign-in token quietly  2358ms
+ ✓ src/features/perpetuals/components/PerpetualsTable/PerpetualsTable.test.tsx (10 tests) 752ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormSubmitButton/OrderFormSubmitButton.test.tsx (14 tests) 590ms
+ ✓ src/features/charting/components/TradingViewChart/useChartOrderLines.test.tsx (4 tests) 37ms
+(node:41760) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41762) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41767) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/ecosystems/services/ecosystem.service.test.ts (6 tests) 52ms
+ ✓ src/features/accounts/AccountSessionProvider.test.tsx (6 tests) 270ms
+ ✓ src/features/auth/components/AccountMenu.test.tsx (6 tests) 679ms
+(node:41774) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41812) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/components/ui/Menu/Menu.test.tsx (8 tests) 996ms
+ ✓ src/features/card/components/CardPage/CardPage.test.tsx (2 tests) 86ms
+(node:41814) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41816) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/explorer/components/TransactionDetailView/TransactionDetailView.test.tsx (2 tests) 424ms
+   ✓ TransactionDetailView > renders overview, gas, transfers, and logs with Terminal table chrome  349ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderParametersModals/ParameterEditor.test.tsx (12 tests) 587ms
+ ✓ src/features/perpetuals/infra/perps-controller/agent-approval.test.ts (5 tests) 89ms
+(node:41826) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormWrapper/OrderFormWrapper.test.tsx (7 tests) 274ms
+ ✓ src/core/hooks/useViewportTier.test.ts (6 tests) 45ms
+(node:41845) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41846) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/modify-order-mutation.test.tsx (4 tests) 49ms
+ ✓ electron/strategies/bollinger-band.test.ts (5 tests) 11ms
+(node:41857) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ electron/services/app-updater.test.ts (6 tests) 4ms
+ ✓ src/features/perpetuals/infra/perps-controller/account-signer.test.ts (6 tests) 5ms
+ ✓ src/features/portfolio/components/AccountsPane.test.tsx (6 tests) 1180ms
+   ✓ AccountsPane > keeps a deselected account's sidebar balance  363ms
+(node:41879) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/components/ui/Skeleton/Skeleton.test.tsx (19 tests) 598ms
+(node:41908) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:41909) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | src/features/tokens/components/TokenSearchBar/TokenSearchBar.test.tsx > TokenSearchBar > submits the query to the search results page
+The tag <search> is unrecognized in this browser. If you meant to render a React component, start its name with an uppercase letter.
+
+(node:41932) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/card/components/CardHeroSection/CardHeroSection.test.tsx (4 tests) 258ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormParameters/OrderFormParameters.test.tsx (4 tests) 476ms
+   ✓ OrderFormParameters > calls onOpenParameterModal with the correct parameter keys  305ms
+(node:41975) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/ecosystems/components/EcosystemsNetworkPage/EcosystemsNetworkPage.test.tsx (2 tests) 181ms
+ ✓ src/features/tokens/components/TokenSearchBar/TokenSearchBar.test.tsx (6 tests) 2233ms
+   ✓ TokenSearchBar > shows token results that link to network-specific pages  593ms
+   ✓ TokenSearchBar > keeps one market request alive while a zero-hit search is pending  570ms
+   ✓ TokenSearchBar > still shows markets when the focus prefetch fails  468ms
+   ✓ TokenSearchBar > routes a transaction hash to the transaction details page  421ms
+stderr | src/features/perpetuals/order/components/OrderHeader/OrderHeader.integration.test.tsx > OrderHeader Integration Tests > uses cached perpetuals data from trade page without refetching
+Received `true` for a non-boolean attribute `unoptimized`.
+
+If you want to write it to the DOM, pass a string instead: unoptimized="true" or unoptimized={value.toString()}.
+
+ ✓ src/features/perpetuals/order/components/OrderHeader/OrderHeader.integration.test.tsx (3 tests) 164ms
+(node:41988) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/domain/OrderBook/helpers/OrderBookSpreadHelper.test.ts (14 tests) 11ms
+ ✓ src/features/perpetuals/order/components/UserPositions/UserPositionsWrapper.test.tsx (3 tests) 153ms
+(node:42023) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/bots/utils/bot-chart.test.ts (5 tests) 7ms
+ ✓ src/features/card/components/HubspotForm/HubspotWaitlistModal.test.tsx (3 tests) 304ms
+ ✓ src/features/perpetuals/order/components/OrderBook/useHasConnected.test.ts (8 tests) 30ms
+(node:42048) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/charting/tradingview/MockTradingViewDatafeed.test.ts (5 tests) 11ms
+(node:42055) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | src/features/perpetuals/order/components/OrderHeader/OrderHeader.test.tsx > OrderHeader > renders the header stats when data is available
+Received `true` for a non-boolean attribute `unoptimized`.
+
+If you want to write it to the DOM, pass a string instead: unoptimized="true" or unoptimized={value.toString()}.
+
+ ✓ src/features/perpetuals/order/components/OrderHeader/OrderHeader.test.tsx (5 tests) 356ms
+ ✓ src/features/perpetuals/order/components/Trades/Trades.test.tsx (5 tests) 246ms
+(node:42072) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42085) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/ecosystems/components/FeaturedSitesSection.test.tsx (2 tests) 130ms
+(node:42099) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42101) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/explorer/components/BlockDetailView/BlockDetailView.test.tsx (3 tests) 276ms
+ ✓ src/features/portfolio/domain/derive-portfolio.test.ts (2 tests) 9ms
+ ✓ src/features/tokens/components/TokenActivity/TokenActivity.test.tsx (3 tests) 533ms
+   ✓ TokenActivity > loads more transfer rows from the current page before paginating  309ms
+ ✓ src/features/charting/components/TradingViewMarketChart/depthChart.test.ts (7 tests) 10ms
+ ✓ src/features/perpetuals/domain/Position/helpers/tpslFromOrders.test.ts (5 tests) 7ms
+ ✓ src/features/trade/components/TradePage/TradePage.test.tsx (5 tests) 3058ms
+   ✓ TradePage > renders trending perps, discovery, and explore tokens  935ms
+   ✓ TradePage > deep-links spot tokens to in-app token detail  539ms
+   ✓ TradePage > opens a wallet swap deep link from the quick buy icon  729ms
+   ✓ TradePage > navigates trending perpetual cards to the order page  460ms
+   ✓ TradePage > shows watched tokens in the first row  392ms
+ ✓ src/lib/throttled-callback.test.ts (10 tests) 14ms
+(node:42146) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/perps-controller/trigger-edit.test.ts (14 tests) 8ms
+(node:42148) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42149) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42151) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/ecosystems/components/ExploreSitesSection.test.tsx (2 tests) 167ms
+ ✓ src/features/card/components/MetalCardSection/MetalCardSection.test.tsx (3 tests) 539ms
+ ✓ src/features/bots/components/TradeHistoryTable/TradeHistoryTable.test.tsx (5 tests) 749ms
+(node:42164) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormSummary/FeePreview.test.tsx (7 tests) 326ms
+(node:42234) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42243) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42245) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/card/hooks/useSupportedRegions.test.tsx (3 tests) 151ms
+ ✓ src/features/ecosystems/components/EventsSection.test.tsx (2 tests) 104ms
+ ✓ src/features/ecosystems/components/PremiumPartnersSection.test.tsx (2 tests) 48ms
+(node:42265) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/core/services/featureFlag.server.test.ts (5 tests) 27ms
+ ✓ src/features/perpetuals/domain/Order/order-line.test.ts (11 tests) 3ms
+stderr | src/core/providers/client.ssr.test.tsx > AppProviders server render > does not carry one request's wallet connection into the next
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+
+stderr | src/core/providers/client.ssr.test.tsx > AppProviders server render > does not carry one request's wallet connection into the next
+The current testing environment is not configured to support act(...)
+
+ ✓ src/core/providers/client.ssr.test.tsx (1 test) 198ms
+ ✓ src/features/accounts/other-networks.test.ts (6 tests) 6ms
+(node:42342) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/charting/tradingview/providers/PriceApiTradingDataProvider.test.ts (2 tests) 44ms
+(node:42347) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/portfolio/components/tabs/TokensTab.hyperliquid.test.tsx (3 tests) 351ms
+ ✓ src/components/ui/Popover/Popover.test.tsx (4 tests) 589ms
+(node:42380) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/core/shortcuts/useTradingShortcuts.test.tsx (6 tests) 124ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormTabs/OrderFormTabs.test.tsx (5 tests) 394ms
+ ✓ src/core/integrations/launchdarkly.server.test.ts (3 tests) 25ms
+(node:42461) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42473) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/domain/Order/helpers/OrderBuilder.test.ts (6 tests) 6ms
+ ✓ src/features/card/components/CardGeoAvailableSection/CardGeoAvailableSection.test.tsx (2 tests) 179ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormDirectionToggle/OrderFormDirectionToggle.test.tsx (3 tests) 284ms
+(node:42520) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/utils/fee-notional.test.ts (7 tests) 8ms
+ ✓ src/components/layout/AppUpdateButton.test.tsx (4 tests) 341ms
+ ✓ src/features/accounts/wallet-accounts.test.ts (6 tests) 7ms
+(node:42523) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/utils/buildOrderHeaderStats.test.ts (3 tests) 30ms
+ ✓ src/features/ecosystems/components/NetworkSelector/NetworkSelector.test.tsx (3 tests) 145ms
+ ✓ src/features/portfolio/domain/resolve-trade-market.test.ts (8 tests) 7ms
+ ✓ src/features/accounts/storage.test.ts (5 tests) 6ms
+(node:42567) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ electron/services/app-update-state.test.ts (6 tests) 9ms
+ ✓ src/features/perpetuals/order/queries/order-queries.open-orders.test.tsx (1 test) 86ms
+ ✓ src/features/accounts/components/AddAccountModal.test.tsx (2 tests) 442ms
+   ✓ AddAccountModal > offers Coinbase and Binance connect actions without writing tokens to localStorage  412ms
+ ✓ src/features/perpetuals/domain/select-drawer-markets.test.ts (6 tests) 7ms
+(node:42583) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/ramps/ramps-client.test.ts (2 tests) 8ms
+(node:42586) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/ecosystems/components/Hero.test.tsx (2 tests) 163ms
+(node:42627) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | src/features/portfolio/components/PortfolioDashboard.test.tsx > PortfolioDashboard > shows connect empty state and action buttons
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+stderr | src/features/portfolio/components/PortfolioDashboard.test.tsx > PortfolioDashboard > shows a unified total after a watched address is imported
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+(node:42690) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+stderr | src/features/portfolio/components/PortfolioDashboard.test.tsx > PortfolioDashboard > hides balances when the visibility toggle is pressed
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+A PressResponder was rendered without a pressable child. Either call the usePress hook, or wrap your DOM node with <Pressable> component.
+
+ ✓ src/features/portfolio/domain/derive-hyperliquid-portfolio.test.ts (2 tests) 12ms
+ ✓ src/features/perpetuals/order/components/OrderForm/AmountToggleButton/AmountToggleButton.test.tsx (6 tests) 614ms
+ ✓ src/features/portfolio/components/PortfolioDashboard.test.tsx (3 tests) 2978ms
+   ✓ PortfolioDashboard > shows connect empty state and action buttons  744ms
+   ✓ PortfolioDashboard > shows a unified total after a watched address is imported  972ms
+   ✓ PortfolioDashboard > hides balances when the visibility toggle is pressed  1250ms
+ ✓ src/features/card/hooks/useCardData.test.tsx (4 tests) 383ms
+ ✓ src/features/perpetuals/infra/perps-controller/PerpsControllerSession.test.tsx (4 tests) 44ms
+(node:42789) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42798) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/card/components/HubspotForm/HubSpotScript.test.tsx (2 tests) 355ms
+ ✓ src/features/perpetuals/order/utils/orderSizing.test.ts (9 tests) 9ms
+ ✓ src/features/send/components/TransferPage.test.tsx (2 tests) 710ms
+   ✓ TransferPage > renders send and receive tabs  420ms
+stderr | src/features/perpetuals/order/components/OrderHeader/OrderHeader.hydration.test.tsx > OrderHeader hydration > renders the prefetched price on the server and hydrates without a mismatch
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+
+stderr | src/features/perpetuals/order/components/OrderHeader/OrderHeader.hydration.test.tsx > OrderHeader hydration > renders the prefetched price on the server and hydrates without a mismatch
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+The current testing environment is not configured to support act(...)
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+
+stderr | src/features/perpetuals/order/components/OrderHeader/OrderHeader.hydration.test.tsx > OrderHeader hydration > renders the prefetched price on the server and hydrates without a mismatch
+The current testing environment is not configured to support act(...)
+
+ ✓ src/features/perpetuals/order/components/OrderHeader/OrderHeader.hydration.test.tsx (1 test) 174ms
+ ✓ src/features/perpetuals/domain/market-watchlist-storage.test.ts (5 tests) 13ms
+ ✓ src/features/card/hooks/useEligibleCountries.test.ts (2 tests) 26ms
+(node:42923) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42940) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ electron/strategies/ema-crossover.test.ts (2 tests) 5ms
+ ✓ src/features/tokens/domain/watchlist-storage.test.ts (3 tests) 10ms
+ ✓ src/features/perpetuals/order/components/TradeActivityPanel/CloseFeePreview.test.tsx (2 tests) 151ms
+ ✓ src/components/layout/ElectronMasterBalance.test.tsx (3 tests) 254ms
+ ✓ src/features/perpetuals/infra/perps-controller/agent-key-store.test.ts (2 tests) 8ms
+ ✓ electron/services/hyperliquid-order-intents.test.ts (2 tests) 14ms
+(node:42957) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:42970) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/api/token-holders.test.ts (3 tests) 89ms
+ ✓ src/features/perpetuals/order/components/OrderHeaderItem/OrderHeaderItem.test.tsx (4 tests) 285ms
+(node:43026) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43032) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/explorer/api/block-detail.test.ts (3 tests) 50ms
+(node:43066) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43081) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/portfolio/components/tabs/TokensTab.test.tsx (2 tests) 804ms
+   ✓ TokensTab > shows aggregated token rows for a watched account  470ms
+   ✓ TokensTab > navigates to the network token page when a token row is activated  329ms
+ ✓ src/features/ecosystems/components/MobileDetectionButton/MobileDetectionButton.test.tsx (2 tests) 223ms
+ ✓ src/core/config/pilot-routes.test.ts (4 tests) 6ms
+ ✓ src/features/perpetuals/order/components/OrderForm/TradingAccountCard.test.tsx (2 tests) 128ms
+ ✓ src/features/perpetuals/domain/filter-and-sort-markets.test.ts (2 tests) 7ms
+ ✓ src/features/portfolio/queries/use-unified-portfolio.test.ts (2 tests) 5ms
+(node:43131) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43133) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/cex/domain/derive-cex-portfolio.test.ts (1 test) 11ms
+(node:43135) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/cex/components/CexTransferPanel.test.tsx (1 test) 337ms
+   ✓ CexTransferPanel > sends the selected imported wallet as the Mesh destination  332ms
+ ✓ src/features/tokens/api/trending-tokens.test.ts (3 tests) 108ms
+ ✓ src/features/portfolio/components/PortfolioFilters.test.tsx (1 test) 889ms
+   ✓ PortfolioFilters > opens account and network menus with Portfolio-style labels  883ms
+ ✓ src/features/card/services/card.service.test.ts (3 tests) 8ms
+(node:43194) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/utils/persist-order-draft.test.ts (3 tests) 10ms
+(node:43208) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookSpread.test.tsx (6 tests) 320ms
+(node:43215) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/explorer/api/decode-input.test.ts (3 tests) 33ms
+ ✓ src/features/tokens/domain/format-token-market.test.ts (9 tests) 14ms
+ ✓ src/features/perpetuals/order/hooks/useFundingCountdown.test.ts (4 tests) 41ms
+ ✓ src/features/stake/components/StakePage.test.tsx (1 test) 450ms
+   ✓ StakePage > opens a review dialog and continues in MetaMask  446ms
+(node:43253) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/core/cex/session-crypto.test.ts (2 tests) 163ms
+(node:43263) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/components/TokenSearchPage/TokenSearchPage.test.tsx (2 tests) 252ms
+(node:43287) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderParametersModals/OrderFormMarginModeEditor.test.tsx (2 tests) 364ms
+(node:43350) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/portfolio/components/PortfolioActionBar.test.tsx (2 tests) 742ms
+   ✓ PortfolioActionBar > opens the wallet deeplink for swap and routes MetaMask buy  545ms
+ ✓ src/features/auth/components/login-button.test.tsx (2 tests) 206ms
+(node:43390) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/useActivePerpsProvider.test.ts (3 tests) 27ms
+stderr | src/features/trade/components/TrendingPerpsRow/TrendingPerpsRow.hydration.test.tsx > TrendingPerpsRow hydration > server-renders the prefetched markets and hydrates without a mismatch
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+
+stderr | src/features/trade/components/TrendingPerpsRow/TrendingPerpsRow.hydration.test.tsx > TrendingPerpsRow hydration > server-renders the prefetched markets and hydrates without a mismatch
+Detected multiple renderers concurrently rendering the same context provider. This is currently unsupported.
+
+stderr | src/features/trade/components/TrendingPerpsRow/TrendingPerpsRow.hydration.test.tsx > TrendingPerpsRow hydration > server-renders the prefetched markets and hydrates without a mismatch
+The current testing environment is not configured to support act(...)
+
+ ✓ src/features/explorer/api/transaction-detail.test.ts (3 tests) 159ms
+ ✓ src/features/trade/components/TrendingPerpsRow/TrendingPerpsRow.hydration.test.tsx (1 test) 130ms
+ ✓ src/features/tokens/domain/token-page-query.test.ts (3 tests) 6ms
+ ✓ src/features/perpetuals/order/components/OrderBook/getDecimalPlaces.test.ts (8 tests) 16ms
+(node:43438) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43454) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43453) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/card/components/CardFeatureCard/CardFeatureCard.test.tsx (3 tests) 329ms
+ ✓ src/features/explorer/components/TxInputData/TxInputData.test.tsx (1 test) 409ms
+   ✓ TxInputData > shows decoded parameters in a table and can switch to hex  405ms
+ ✓ src/app/settings/page.test.tsx (2 tests) 666ms
+   ✓ SettingsPage > has no accessibility violations  406ms
+(node:43487) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/app/api/accounts/[...path]/route.test.ts (1 test) 18ms
+ ✓ src/features/bots/components/LiveOpenOrdersTable.test.tsx (2 tests) 413ms
+   ✓ LiveOpenOrdersTable > keeps the named order summary and cancel button keyboard accessible  391ms
+(node:43606) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43646) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/components/ui/SegmentedControl/SegmentedControl.test.tsx (2 tests) 337ms
+ ✓ src/features/tokens/components/TokenHoldersTable/TokenHoldersTable.test.tsx (1 test) 408ms
+   ✓ TokenHoldersTable > loads more holders from the bottom of the table  404ms
+ ✓ src/core/clients/accounts-api/AccountsApiClient.test.ts (4 tests) 264ms
+(node:43701) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/api/token-search.test.ts (3 tests) 71ms
+ ✓ src/features/tokens/domain/decode-transfer.test.ts (6 tests) 54ms
+ ✓ src/features/explorer/api/internal-transactions.test.ts (2 tests) 14ms
+(node:43783) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/utils/deriveOrderMetrics.test.ts (2 tests) 6ms
+ ✓ src/features/perpetuals/order/utils/calculateLiquidationPrice.test.ts (4 tests) 7ms
+ ✓ src/features/explorer/domain/address-routes.test.ts (4 tests) 9ms
+ ✓ src/components/ui/InlineOptionTabs/InlineOptionTabs.test.tsx (2 tests) 354ms
+ ✓ src/features/portfolio/token-icon.test.ts (4 tests) 8ms
+ ✓ src/features/ecosystems/utils/isValidNextImageSrc.test.ts (5 tests) 7ms
+ ✓ src/features/tokens/domain/wallet-swap-url.test.ts (3 tests) 6ms
+(node:43822) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/api/explore-snapshot.test.ts (2 tests) 148ms
+(node:43834) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43838) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/bots/components/RenameBotButton.test.tsx (1 test) 768ms
+   ✓ RenameBotButton > renames a bot with trimmed input  758ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormErrorBoundary/OrderFormErrorBoundary.test.tsx (2 tests) 201ms
+ ✓ src/features/explorer/domain/block-routes.test.ts (3 tests) 16ms
+ ✓ src/features/tokens/components/TokenPriceChart/TokenPriceChart.test.tsx (2 tests) 115ms
+ ✓ src/features/tokens/api/token-activity.test.ts (2 tests) 119ms
+ ✓ src/lib/hyperliquid/account-balances.test.ts (3 tests) 6ms
+ ✓ src/features/tokens/domain/token-routes.test.ts (4 tests) 8ms
+(node:43962) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/domain/token-security.test.ts (3 tests) 7ms
+ ✓ src/features/tokens/domain/parse-token-route.test.ts (3 tests) 2ms
+ ✓ src/components/ui/AvatarAccount/AvatarAccount.test.tsx (2 tests) 222ms
+ ✓ src/features/perpetuals/utils/deriveChangeMeta.test.ts (3 tests) 15ms
+(node:44006) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/utils/orderFormatters.test.ts (5 tests) 14ms
+ ✓ src/features/tokens/components/WalletSwapLink/WalletSwapLink.test.tsx (1 test) 207ms
+(node:44013) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/domain/search-perpetual-markets.test.ts (3 tests) 7ms
+ ✓ src/components/ui/SliderField/SliderField.test.tsx (1 test) 260ms
+ ✓ src/features/portfolio/hide-balances.test.ts (2 tests) 5ms
+ ✓ src/features/explorer/domain/tx-routes.test.ts (3 tests) 6ms
+ ✓ src/features/perpetuals/utils/deriveFundingMeta.test.ts (3 tests) 9ms
+ ✓ src/lib/open-external-url.test.ts (2 tests) 3ms
+ ✓ src/features/explorer/domain/format-tx.test.ts (3 tests) 25ms
+ ✓ src/features/tokens/api/token-detail.test.ts (2 tests) 83ms
+(node:44053) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/domain/token-description.test.ts (4 tests) 6ms
+ ✓ src/features/perpetuals/order/components/OrderForm/BotStrategyCta/BotStrategyCta.test.tsx (3 tests) 395ms
+ ✓ src/features/perpetuals/utils/formatPercentage.test.ts (5 tests) 35ms
+(node:44064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/tokens/domain/parse-asset-id.test.ts (3 tests) 3ms
+ ✓ src/features/tax/TaxHubPage.test.tsx (1 test) 207ms
+ ✓ src/features/ecosystems/utils/formatDateRange.test.ts (3 tests) 10ms
+ ✓ src/features/perpetuals/order/components/TradeActivityPanel/close-all-mark-price.test.ts (5 tests) 6ms
+ ✓ src/features/tokens/api/token-history.test.ts (2 tests) 52ms
+ ✓ src/app/api/cex/origin.test.ts (2 tests) 12ms
+ ✓ src/features/tokens/api/watchlist-tokens.test.ts (2 tests) 87ms
+(node:44128) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/utils/toNumber.test.ts (5 tests) 7ms
+ ✓ src/features/perpetuals/utils/formatUsd.test.ts (4 tests) 22ms
+ ✓ src/features/send/components/ReceiveAddressQr.test.tsx (1 test) 101ms
+ ✓ src/features/tokens/domain/explore-movers.test.ts (1 test) 6ms
+ ✓ src/features/tokens/api/token-insights.test.ts (1 test) 92ms
+ ✓ src/features/perpetuals/order/utils/limit-price.test.ts (2 tests) 5ms
+ ✓ src/features/ecosystems/utils/isValidNetwork.test.ts (4 tests) 6ms
+(node:44191) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ electron/cex-session-store.test.ts (2 tests) 7ms
+ ✓ src/features/ramps/components/RampPage.test.tsx (1 test) 216ms
+ ✓ src/core/shortcuts/ShortcutsProvider.test.tsx (1 test) 130ms
+(node:44248) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/core/config/wagmi-config.test.ts (1 test) 5ms
+ ✓ src/features/perpetuals/order/utils/order-direction-param.test.ts (2 tests) 4ms
+ ✓ src/features/perpetuals/order/queries/order-queries.keys.test.ts (1 test) 2ms
+ ✓ src/features/explorer/domain/explorer-networks.test.ts (2 tests) 2ms
+ ✓ src/features/accounts/networks.test.ts (1 test) 6ms
+ ✓ src/features/tokens/api/token-security.test.ts (1 test) 73ms
+ ✓ src/features/tokens/domain/token-asset-id.test.ts (1 test) 6ms
+ ✓ src/features/tokens/domain/network-icon.test.ts (1 test) 4ms
+ ✓ src/features/tokens/domain/native-token.test.ts (1 test) 4ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  electron/services/wallet-signer.test.ts [ electron/services/wallet-signer.test.ts ]
+Error: Electron failed to install correctly, please delete node_modules/electron and try installing again
+ ❯ getElectronPath node_modules/electron/index.js:17:11
+     15|     return path.join(__dirname, 'dist', executablePath);
+     16|   } else {
+     17|     throw new Error('Electron failed to install correctly, please dele…
+       |           ^
+     18|   }
+     19| }
+ ❯ Object.<anonymous> node_modules/electron/index.js:21:18
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/perpetuals/queries/live-orders-query.test.tsx > useLiveOrders > state reset on disable > resets error state when becoming disabled
+AssertionError: expected false to be true // Object.is equality
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/features/perpetuals/queries/live-orders-query.test.tsx:716:40
+    714|       // Wait for error state
+    715|       await waitFor(() => {
+    716|         expect(result.current.isError).toBe(true);
+       |                                        ^
+    717|       });
+    718| 
+ ❯ runWithExpensiveErrorDiagnosticsDisabled node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 256 passed (258)
+      Tests  1 failed | 1842 passed | 7 skipped (1850)
+   Start at  21:12:08
+   Duration  182.72s (transform 9.08s, setup 89.41s, collect 241.08s, tests 102.90s, environment 144.90s, prepare 28.62s)
+

@@ -1,0 +1,53 @@
+{
+  "cursor": 197,
+  "total": 199,
+  "expectations": {
+    "action": "metamask.wallet.assert_signatures",
+    "methods": {
+      "wallet_requestPermissions": 1
+    },
+    "max_typed_data_requests": 0,
+    "max_l1_requests": 0,
+    "timeout_ms": 5000,
+    "intent": "Prove connecting asked for one account permission and no signature",
+    "next": "done"
+  },
+  "ok": true,
+  "failures": [],
+  "summary": {
+    "requests": 1,
+    "typedDataRequests": 0,
+    "l1Requests": 0,
+    "confirmationsShown": 1,
+    "blockedMainnet": 0,
+    "refusedMainnet": 0,
+    "unattributed": 0,
+    "outsideAppFrame": 0,
+    "byPrimaryType": {},
+    "byMethod": {
+      "wallet_requestPermissions": 1
+    }
+  },
+  "entries": [
+    {
+      "seq": 197,
+      "signer": "extension",
+      "kind": "confirmation-shown",
+      "t": 1791540693279,
+      "surface": "sidepanel",
+      "route": "/connect/JbiROqYciEJ-CklHuusGm"
+    },
+    {
+      "seq": 198,
+      "signer": "extension",
+      "kind": "request",
+      "method": "wallet_requestPermissions",
+      "t": 1791540692972,
+      "url": "/order/ETH",
+      "source": "eip6963:io.metamask",
+      "activeChainId": 1,
+      "outcome": "approved",
+      "durationMs": 3247
+    }
+  ]
+}

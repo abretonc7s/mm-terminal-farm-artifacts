@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "preferred_mode": "screenshots",
+  "summary": "Final visible testnet recipe passed 117 nodes. Charged-fill comparison is outside revised AC4.",
+  "standalone": [
+    {
+      "label": "Order quoted fee rate",
+      "covers": [
+        "AC2"
+      ],
+      "file": "artifacts/recipe-run/evidence-ac2-order-quote.png"
+    },
+    {
+      "label": "Sized order fee preview with HUD",
+      "covers": [
+        "AC4"
+      ],
+      "file": "artifacts/recipe-run/evidence-ac4-sized-order-preview.png"
+    },
+    {
+      "label": "Close quoted fee rate",
+      "covers": [
+        "AC2"
+      ],
+      "file": "artifacts/recipe-run/evidence-ac2-close-quote.png"
+    }
+  ],
+  "videos": {
+    "note": "BLOCKED: --record-video is not implemented for the terminal adapter."
+  }
+}

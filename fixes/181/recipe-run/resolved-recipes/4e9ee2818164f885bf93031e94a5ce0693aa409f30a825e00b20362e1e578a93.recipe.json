@@ -1,0 +1,264 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Open a position with a market order",
+  "description": "Web Terminal block (testnet): reload the order page (Reduce only and TWAP start unticked; the market is checked), require no position in the market, place a market order on the requested side with TP and SL set at entry or explicitly cleared (the form keeps them per market), confirm the agent approval when it is the first write, and prove the venue position and its triggers (two reduce-only triggers, or none). Leaves the position open; the caller closes or cleans.",
+  "workflow": {
+    "entry": "fresh_page",
+    "nodes": {
+      "fresh_page": {
+        "action": "call",
+        "ref": "terminal.perps.open-order-page",
+        "params": {
+          "market": "{{params.market}}"
+        },
+        "intent": "Start the market order from a freshly loaded order form",
+        "next": "no_position"
+      },
+      "no_position": {
+        "action": "metamask.perps.assert_positions",
+        "market": "{{params.market}}",
+        "state": "none",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 10000,
+        "intent": "Require no position in the market, so the fill check can only see this order",
+        "next": "tab_market"
+      },
+      "tab_market": {
+        "action": "ui.press",
+        "test_id": "order-form-tab-market",
+        "intent": "Switch the order form to a market order",
+        "next": "direction"
+      },
+      "direction": {
+        "action": "ui.press",
+        "test_id": "order-form-direction-{{params.side}}",
+        "intent": "Choose the position direction",
+        "next": "enter_size"
+      },
+      "enter_size": {
+        "action": "ui.set_input",
+        "test_id": "order-form-amount",
+        "value": "${{params.notional}}",
+        "intent": "Enter how many dollars the trader commits",
+        "next": "boxes_off"
+      },
+      "boxes_off": {
+        "action": "ui.wait_for",
+        "selector": "label:has(input[type=\"checkbox\"]:checked)",
+        "expected": "absent",
+        "timeout_ms": 5000,
+        "intent": "Confirm TWAP and Reduce only start unticked",
+        "next": "tpsl"
+      },
+      "tpsl": {
+        "action": "call",
+        "ref": "terminal.perps.set-order-tpsl",
+        "params": {
+          "take_profit": "{{params.take_profit}}",
+          "stop_loss": "{{params.stop_loss}}"
+        },
+        "intent": "Attach the requested TP/SL to the order, or clear any the form kept",
+        "next": "submit"
+      },
+      "submit": {
+        "action": "ui.press",
+        "test_id": "order-form-submit",
+        "intent": "Place the market order",
+        "next": "choose_approve"
+      },
+      "choose_approve": {
+        "action": "switch",
+        "value": "approve-{{params.approve_agent}}",
+        "equals": "approve-true",
+        "cases": {
+          "match": "approve"
+        },
+        "default": "position_open",
+        "intent": "Confirm the agent approval only on the session's first write"
+      },
+      "approve": {
+        "action": "call",
+        "ref": "terminal.perps.confirm-wallet-request",
+        "params": {
+          "signer": "{{params.signer}}",
+          "kind": "signature",
+          "primary_type": "HyperliquidTransaction:ApproveAgent"
+        },
+        "intent": "Approve the trading agent in MetaMask the first time the trader writes to the venue",
+        "next": "position_open"
+      },
+      "position_open": {
+        "action": "metamask.perps.assert_positions",
+        "market": "{{params.market}}",
+        "state": "open",
+        "side": "{{params.side}}",
+        "expect_count": 1,
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 45000,
+        "intent": "Prove the market order filled into a position on the requested side",
+        "next": "position_proof"
+      },
+      "position_proof": {
+        "action": "assert_output",
+        "source": "position_open",
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "intent": "Bind the proof to the venue read: one position on the requested side",
+        "next": "choose_tpsl_check"
+      },
+      "choose_tpsl_check": {
+        "action": "switch",
+        "value": "tp-{{params.take_profit}}-sl-{{params.stop_loss}}",
+        "equals": "tp--sl-",
+        "cases": {
+          "match": "no_triggers"
+        },
+        "default": "tp_at_entry",
+        "intent": "Check the triggers that were attached, or that none were"
+      },
+      "no_triggers": {
+        "action": "metamask.perps.assert_orders",
+        "market": "{{params.market}}",
+        "state": "none",
+        "order_kind": "trigger",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 10000,
+        "intent": "Prove the order opened the position with no TP or SL",
+        "next": "no_triggers_proof"
+      },
+      "no_triggers_proof": {
+        "action": "assert_output",
+        "source": "no_triggers",
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 0
+        },
+        "intent": "Bind the proof to the venue read: no trigger order on the market",
+        "next": "capture"
+      },
+      "tp_at_entry": {
+        "action": "metamask.perps.assert_orders",
+        "market": "{{params.market}}",
+        "state": "open",
+        "order_kind": "trigger",
+        "trigger_kind": "take_profit",
+        "expect_count": 1,
+        "expect_trigger_price": "{{params.take_profit}}",
+        "expect_reduce_only": true,
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 45000,
+        "intent": "Prove one reduce-only take profit rests at the entry TP price",
+        "next": "sl_at_entry"
+      },
+      "sl_at_entry": {
+        "action": "metamask.perps.assert_orders",
+        "market": "{{params.market}}",
+        "state": "open",
+        "order_kind": "trigger",
+        "trigger_kind": "stop_loss",
+        "expect_count": 1,
+        "expect_trigger_price": "{{params.stop_loss}}",
+        "expect_reduce_only": true,
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 45000,
+        "intent": "Prove one reduce-only stop loss rests at the entry SL price",
+        "next": "tpsl_proof"
+      },
+      "tpsl_proof": {
+        "action": "assert_output",
+        "source": "sl_at_entry",
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "intent": "Bind the proof to the venue read: one stop loss at the entry price (the take profit was asserted just before)",
+        "next": "capture"
+      },
+      "capture": {
+        "action": "ui.screenshot",
+        "label": "order-market-{{params.side}}",
+        "category": "proof",
+        "intent": "Keep a picture of the order page with the new position",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "signer": {
+        "type": "string",
+        "enum": [
+          "extension",
+          "injected"
+        ],
+        "default": "extension",
+        "description": "extension: the real MetaMask extension confirms every wallet request (acceptance mode). injected: the strict test wallet signs in the harness (fast mode)."
+      },
+      "account": {
+        "type": "string",
+        "default": "dev1",
+        "description": "Wallet fixture account reserved for this slot (dev1 on mmt-1, Trading on mmt-2)."
+      },
+      "market": {
+        "type": "string",
+        "default": "ETH",
+        "description": "Testnet market reserved for this run."
+      },
+      "side": {
+        "type": "string",
+        "enum": [
+          "long",
+          "short"
+        ],
+        "default": "long",
+        "description": "Order or position direction."
+      },
+      "notional": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "default": "25",
+        "description": "Order amount in USD typed into the order form; at least the venue minimum."
+      },
+      "take_profit": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "default": "",
+        "description": "Take-profit trigger price set at entry; empty for none. Set together with stop_loss."
+      },
+      "stop_loss": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "default": "",
+        "description": "Stop-loss trigger price set at entry; empty for none. Set together with take_profit."
+      },
+      "approve_agent": {
+        "type": "boolean",
+        "default": false,
+        "description": "true when this submit is the session's first write: confirm the one ApproveAgent request (MetaMask in extension mode) before the venue check."
+      }
+    }
+  }
+}

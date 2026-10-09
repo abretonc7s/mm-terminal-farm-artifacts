@@ -1,0 +1,79 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /private/tmp/terminal-181-ci-baseline
+
+ ❯ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests | 1 failed) 4318ms
+   ✓ useLiveOrders > disabled state > returns empty orders when enabled is false 66ms
+   ✓ useLiveOrders > disabled state > returns empty orders when userAddress is empty 10ms
+   ✓ useLiveOrders > disabled state > does not subscribe when disabled 26ms
+   ✓ useLiveOrders > subscription management > subscribes with correct parameters when enabled 30ms
+   ✓ useLiveOrders > subscription management > passes undefined throttleMs when not specified 13ms
+   ✓ useLiveOrders > subscription management > unsubscribes on unmount 2ms
+   ✓ useLiveOrders > subscription management > resubscribes when userAddress changes 3ms
+   ✓ useLiveOrders > connection and error states > sets isConnected to true when receiving valid orders  479ms
+   ✓ useLiveOrders > connection and error states > does not set isError when WebSocket fails but REST succeeds 3ms
+   ✓ useLiveOrders > connection and error states > sets isError to true when WebSocket and REST both fail 60ms
+   ✓ useLiveOrders > connection and error states > uses REST orders when WebSocket has not connected 89ms
+   ✓ useLiveOrders > connection and error states > keeps REST orders when the first WebSocket snapshot is empty 67ms
+   ✓ useLiveOrders > connection and error states > recovers from error state when receiving valid orders 259ms
+   ✓ useLiveOrders > loading states > shows isInitialLoading when not connected and no data 2ms
+   ✓ useLiveOrders > loading states > hides isInitialLoading when connected 55ms
+   ✓ useLiveOrders > order filtering > returns all orders when hideTpSl is false  859ms
+   ✓ useLiveOrders > order filtering > filters out position-attached TP/SL when hideTpSl is true 236ms
+   ✓ useLiveOrders > order filtering > handles orders without detailedOrderType when filtering 233ms
+   ✓ useLiveOrders > caching behavior > reads data from React Query cache when WebSocket updates arrive  570ms
+   ✓ useLiveOrders > caching behavior > returns empty array before WebSocket delivers data 3ms
+   ✓ useLiveOrders > caching behavior > uses pre-existing cache when subscribing 141ms
+   ✓ useLiveOrders > state reset on disable > resets connection state when becoming disabled 76ms
+   × useLiveOrders > state reset on disable > resets error state when becoming disabled 1028ms
+     → expected false to be true // Object.is equality
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/perpetuals/queries/live-orders-query.test.tsx > useLiveOrders > state reset on disable > resets error state when becoming disabled
+AssertionError: expected false to be true // Object.is equality
+
+Ignored nodes: comments, script, style
+[36m<html>[39m
+  [36m<head />[39m
+  [36m<body>[39m
+    [36m<div />[39m
+  [36m</body>[39m
+[36m</html>[39m
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ src/features/perpetuals/queries/live-orders-query.test.tsx:716:40
+    714|       // Wait for error state
+    715|       await waitFor(() => {
+    716|         expect(result.current.isError).toBe(true);
+       |                                        ^
+    717|       });
+    718| 
+ ❯ runWithExpensiveErrorDiagnosticsDisabled ../../../Users/deeeed/dev/metamask/va-mmcx-terminal-2/node_modules/@testing-library/dom/dist/config.js:47:12
+ ❯ checkCallback ../../../Users/deeeed/dev/metamask/va-mmcx-terminal-2/node_modules/@testing-library/dom/dist/wait-for.js:124:77
+ ❯ Timeout.checkRealTimersCallback ../../../Users/deeeed/dev/metamask/va-mmcx-terminal-2/node_modules/@testing-library/dom/dist/wait-for.js:118:16
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 22 passed (23)
+   Start at  21:11:40
+   Duration  25.76s (transform 1.02s, setup 2.71s, collect 2.08s, tests 4.32s, environment 4.19s, prepare 261ms)
+

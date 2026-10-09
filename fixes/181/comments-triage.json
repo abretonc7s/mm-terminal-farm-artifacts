@@ -1,0 +1,62 @@
+[
+  {
+    "comment_id": 4229155854,
+    "author_login": "cursor[bot]",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/order/components/OrderForm/OrderFormSummary/FeePreview.tsx",
+    "line": 40,
+    "triage": "REAL",
+    "action": "Previously fixed and resolved; verified isLoading callers and disabled-query tests. Existing reply 4230097036 retained; no duplicate reply.",
+    "fixed_in_commit": "af81d282d932b82de843d2b25c150d636b6818f7"
+  },
+  {
+    "comment_id": 4230097036,
+    "author_login": "abretonc7s",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/order/components/OrderForm/OrderFormSummary/FeePreview.tsx",
+    "line": 40,
+    "triage": "OUT OF SCOPE",
+    "action": "Existing reply to resolved finding; no new action or duplicate reply.",
+    "fixed_in_commit": "af81d282d932b82de843d2b25c150d636b6818f7"
+  },
+  {
+    "comment_id": 4230133698,
+    "author_login": "cursor[bot]",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/order/queries/fee-quote.ts",
+    "line": 35,
+    "triage": "REAL",
+    "action": "Retain quote only across live market repricing; exact-notional requests and explicit-edit isolation preserved. Replied inline as 4230509384.",
+    "fixed_in_commit": "62e17c5e794f99a3327d28ea95604515e3e3a8bb"
+  },
+  {
+    "comment_id": 6079065246,
+    "author_login": "vercel[bot]",
+    "source_kind": "issue_comment",
+    "path": null,
+    "line": null,
+    "triage": "OUT OF SCOPE",
+    "action": "Status-only automation; skipped without reply.",
+    "fixed_in_commit": null
+  },
+  {
+    "comment_id": 6079077121,
+    "author_login": "socket-security[bot]",
+    "source_kind": "issue_comment",
+    "path": null,
+    "line": null,
+    "triage": "OUT OF SCOPE",
+    "action": "Status-only automation; skipped without reply.",
+    "fixed_in_commit": null
+  },
+  {
+    "comment_id": 6079272537,
+    "author_login": "sonarqubecloud[bot]",
+    "source_kind": "issue_comment",
+    "path": null,
+    "line": null,
+    "triage": "OUT OF SCOPE",
+    "action": "Status-only automation; skipped without reply.",
+    "fixed_in_commit": null
+  }
+]

@@ -1,0 +1,90 @@
+{
+  "cursor": 197,
+  "total": 201,
+  "expectations": {
+    "action": "metamask.wallet.assert_signatures",
+    "allowed_primary_types": [
+      "ApproveAgent",
+      "ApproveBuilderFee"
+    ],
+    "max_l1_requests": 0,
+    "require_active_chain": true,
+    "counts": {
+      "ApproveAgent": 1
+    },
+    "timeout_ms": 5000,
+    "intent": "Prove the main wallet only approved the trading agent and never saw an order, cancel, edit, TP/SL or close payload",
+    "next": "no_l1_proof"
+  },
+  "ok": true,
+  "failures": [],
+  "summary": {
+    "requests": 2,
+    "typedDataRequests": 1,
+    "l1Requests": 0,
+    "confirmationsShown": 2,
+    "blockedMainnet": 0,
+    "refusedMainnet": 0,
+    "unattributed": 0,
+    "outsideAppFrame": 0,
+    "byPrimaryType": {
+      "ApproveAgent": {
+        "requested": 1,
+        "signed": 1,
+        "rejected": 0,
+        "chainIds": [
+          1
+        ]
+      }
+    },
+    "byMethod": {
+      "wallet_requestPermissions": 1,
+      "eth_signTypedData_v4": 1
+    }
+  },
+  "entries": [
+    {
+      "seq": 197,
+      "signer": "extension",
+      "kind": "confirmation-shown",
+      "t": 1791540693279,
+      "surface": "sidepanel",
+      "route": "/connect/JbiROqYciEJ-CklHuusGm"
+    },
+    {
+      "seq": 198,
+      "signer": "extension",
+      "kind": "request",
+      "method": "wallet_requestPermissions",
+      "t": 1791540692972,
+      "url": "/order/ETH",
+      "source": "eip6963:io.metamask",
+      "activeChainId": 1,
+      "outcome": "approved",
+      "durationMs": 3247
+    },
+    {
+      "seq": 199,
+      "signer": "extension",
+      "kind": "confirmation-shown",
+      "t": 1791540714674,
+      "surface": "sidepanel",
+      "route": "/confirm-transaction/da5da8d0-c3c9-11f1-a7ee-bba16a52e2d3/signature-request"
+    },
+    {
+      "seq": 200,
+      "signer": "extension",
+      "kind": "request",
+      "method": "eth_signTypedData_v4",
+      "t": 1791540714457,
+      "url": "/order/ETH",
+      "primaryType": "HyperliquidTransaction:ApproveAgent",
+      "domainName": "HyperliquidSignTransaction",
+      "domainChainId": 1,
+      "source": "eip6963:io.metamask",
+      "activeChainId": 1,
+      "outcome": "signed",
+      "durationMs": 4386
+    }
+  ]
+}

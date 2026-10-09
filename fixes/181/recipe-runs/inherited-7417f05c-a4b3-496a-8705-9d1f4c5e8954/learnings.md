@@ -1,0 +1,4 @@
+- OrderDraft.amount stores USD even when the input displays base units. Limit previews must price the submitted base size at the selected execution price.
+- feeSource alone does not imply savings. Use the quoted discount and original/resolved rates, and never discount metamaskFeeRate again.
+- Terminal ui.press text can match a containing section. Prefer the dialog's explicit button selector and assert dismissal before the next interaction.
+- Collect coverage from application source in this slot. Generated browser fixtures and dev output are not application coverage targets; npm ci also inherits the Electron binary-download skip flag.

@@ -1,0 +1,16 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /private/tmp/terminal-181-ci-baseline
+
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 2714ms
+   ✓ useLiveOrders > loading states > hides isInitialLoading when connected  595ms
+   ✓ useLiveOrders > order filtering > handles orders without detailedOrderType when filtering  552ms
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  21:11:40
+   Duration  24.25s (transform 965ms, setup 2.75s, collect 2.13s, tests 2.71s, environment 4.02s, prepare 336ms)
+

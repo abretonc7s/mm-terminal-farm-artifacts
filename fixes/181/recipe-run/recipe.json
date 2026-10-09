@@ -1,0 +1,243 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Terminal controller quoted fee previews",
+  "description": "Inspect a sized testnet order and close fee preview with HUD enabled. Quote math and discount attribution are proven in unit tests.",
+  "proofTargets": [
+    {
+      "id": "AC2",
+      "claim": "Fee previews (order form, close, any other fee display) pass the current USD notional and show the controller's quoted rate; any discount badge and struck-through rate come from the quote fields, not a separate rewards lookup."
+    },
+    {
+      "id": "AC4",
+      "claim": "A Terminal recipe run on testnet (HUD on) shows the fee preview for an order; unit tests prove the preview requests the quote with the order's notional and renders the quote's rate and discount fields. Charged-fill comparison is out of scope (no catalog fill-fee read)."
+    }
+  ],
+  "workflow": {
+    "entry": "setup-session",
+    "nodes": {
+      "setup-session": {
+        "action": "call",
+        "ref": "terminal.perps.ensure-connected",
+        "params": {
+          "signer": "extension",
+          "account": "dev1",
+          "market": "ETH"
+        },
+        "intent": "Connect the reserved testnet trading account",
+        "next": "setup-flat"
+      },
+      "setup-flat": {
+        "action": "call",
+        "ref": "terminal.perps.ensure-flat-market",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "intent": "Start from a flat reserved testnet market",
+        "next": "setup-hud"
+      },
+      "setup-hud": {
+        "action": "app.hud",
+        "title": "TAT-4094 fee previews",
+        "text": "Testnet fee preview proof",
+        "status": "running",
+        "intent": "Show the proof run progress on the trading page",
+        "next": "setup-order-page"
+      },
+      "setup-order-page": {
+        "action": "call",
+        "ref": "terminal.perps.open-order-page",
+        "params": {
+          "market": "ETH"
+        },
+        "intent": "Open the ETH order page",
+        "next": "setup-market"
+      },
+      "setup-market": {
+        "action": "ui.press",
+        "test_id": "order-form-tab-market",
+        "intent": "Choose a market order",
+        "next": "setup-amount"
+      },
+      "setup-amount": {
+        "action": "ui.set_input",
+        "test_id": "order-form-amount",
+        "value": "$25",
+        "intent": "Size the order to 25 USD",
+        "next": "ac4-regression-fees-label"
+      },
+      "ac4-regression-fees-label": {
+        "action": "ui.wait_for",
+        "text": "Fees",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC4"
+        ],
+        "intent": "Confirm the existing fee summary remains visible for a sized order",
+        "next": "ac2-order-quote"
+      },
+      "ac2-order-quote": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-fee-rate\"]",
+        "text_match": "%",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Show the resolved total quoted fee rate beside the order fee amount",
+        "next": "ac2-order-capture"
+      },
+      "ac2-order-capture": {
+        "action": "ui.screenshot",
+        "path": "evidence-ac2-order-quote.png",
+        "category": "proof",
+        "intent": "Keep a picture of the sized order with its quoted fees",
+        "next": "ac4-sized-order-preview",
+        "proves": [
+          "AC2"
+        ]
+      },
+      "ac4-sized-order-preview": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-fee-amount\"]",
+        "text_match": "\\$",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC4"
+        ],
+        "intent": "Show the fee dollar amount for the 25 USD order",
+        "next": "ac4-order-capture"
+      },
+      "ac4-order-capture": {
+        "action": "ui.screenshot",
+        "path": "evidence-ac4-sized-order-preview.png",
+        "category": "proof",
+        "intent": "Keep a picture of the sized order with its quoted fees",
+        "next": "setup-open-position",
+        "proves": [
+          "AC4"
+        ]
+      },
+      "setup-open-position": {
+        "action": "call",
+        "ref": "terminal.perps.place-market-order",
+        "params": {
+          "signer": "extension",
+          "account": "dev1",
+          "market": "ETH",
+          "side": "long",
+          "notional": "25",
+          "approve_agent": true
+        },
+        "intent": "Open a small testnet position to inspect its close quote",
+        "next": "setup-positions-tab"
+      },
+      "setup-positions-tab": {
+        "action": "ui.press",
+        "test_id": "user-positions-tab-positions",
+        "intent": "Open positions for the close preview",
+        "next": "setup-close-dialog"
+      },
+      "setup-close-dialog": {
+        "action": "ui.press",
+        "test_id": "position-action-close",
+        "intent": "Preview the cost of closing the ETH position",
+        "next": "ac2-close-quote"
+      },
+      "ac2-close-quote": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"close-fee-rate\"]",
+        "text_match": "%",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Show the controller quoted close fee rate",
+        "next": "ac2-close-capture"
+      },
+      "ac2-close-capture": {
+        "action": "ui.screenshot",
+        "path": "evidence-ac2-close-quote.png",
+        "category": "proof",
+        "intent": "Keep a picture of the close dialog with its fee quote",
+        "next": "setup-dismiss-close",
+        "proves": [
+          "AC2"
+        ]
+      },
+      "setup-dismiss-close": {
+        "action": "ui.press",
+        "intent": "Dismiss the preview before closing through the library",
+        "next": "gate-close-dismissed",
+        "selector": "[role=\"dialog\"][aria-label=\"Close Position\"] button[aria-label=\"Close modal\"]"
+      },
+      "setup-close-position": {
+        "action": "call",
+        "ref": "terminal.perps.close-position",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "side": "long",
+          "percent": 100
+        },
+        "intent": "Close the testnet position and verify the market is flat",
+        "next": "gate-signatures"
+      },
+      "gate-signatures": {
+        "action": "call",
+        "ref": "terminal.perps.assert-agent-only-signatures",
+        "params": {
+          "approve_agent_count": 1
+        },
+        "intent": "Verify the main wallet only approved the trading agent",
+        "next": "gate-console"
+      },
+      "gate-console": {
+        "action": "call",
+        "ref": "terminal.perps.assert-clean-console",
+        "intent": "Verify the app raised no unexplained console error",
+        "next": "gate-done"
+      },
+      "gate-done": {
+        "action": "end",
+        "status": "pass"
+      },
+      "teardown-owned": {
+        "action": "assert_output",
+        "source": "setup-flat",
+        "intent": "Clean only after the reserved market was made flat",
+        "next": "teardown-clean",
+        "assert": {
+          "path": "$.status",
+          "operator": "eq",
+          "value": "pass"
+        }
+      },
+      "teardown-clean": {
+        "action": "call",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "intent": "Restore the reserved testnet market to flat",
+        "next": "teardown-done"
+      },
+      "teardown-done": {
+        "action": "end",
+        "status": "pass"
+      },
+      "gate-close-dismissed": {
+        "action": "ui.wait_for",
+        "selector": "[role=\"dialog\"][aria-label=\"Close Position\"]",
+        "expected": "absent",
+        "timeout_ms": 10000,
+        "intent": "Confirm the close preview is dismissed before using the positions table",
+        "next": "setup-close-position"
+      }
+    },
+    "teardown": "teardown-owned"
+  }
+}

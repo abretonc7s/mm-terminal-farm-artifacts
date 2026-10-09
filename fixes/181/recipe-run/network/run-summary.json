@@ -1,0 +1,1070 @@
+{
+  "schemaVersion": 1,
+  "id": "run-network",
+  "status": "partial",
+  "startedAtEpochMs": 1791540664817,
+  "endedAtEpochMs": 1791540737653,
+  "maxDurationMs": 3600000,
+  "reconnects": 3,
+  "droppedRequests": 0,
+  "unavailableReasons": [],
+  "coverageGapReasons": [
+    "Extension CDP command failed on every target: Error: Browser CDP socket closed (the browser exited or disconnected).",
+    "Extension CDP command failed on every target: Error: Browser CDP socket closed (the browser exited or disconnected)."
+  ],
+  "uninspectableBodyRequests": 0,
+  "projectedBodyFields": [
+    "type"
+  ],
+  "totalRequests": 0,
+  "requestsByMethod": {},
+  "requestsByHost": {},
+  "requestsByType": {},
+  "requests": [],
+  "nodeEvents": [
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 2293,
+      "nodeId": "setup-session/session/launch",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 25622,
+      "nodeId": "setup-session/session/launch",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.read_signatures",
+      "elapsedMs": 25648,
+      "nodeId": "setup-session/session/open_window",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.read_signatures",
+      "elapsedMs": 26102,
+      "nodeId": "setup-session/session/open_window",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 26118,
+      "nodeId": "setup-session/session/open_market",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 27339,
+      "nodeId": "setup-session/session/open_market",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 27438,
+      "nodeId": "setup-session/session/choose_connect",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 27438,
+      "nodeId": "setup-session/session/choose_connect",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 27489,
+      "nodeId": "setup-session/session/connect_visible",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 28087,
+      "nodeId": "setup-session/session/connect_visible",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 28115,
+      "nodeId": "setup-session/session/connect",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 28692,
+      "nodeId": "setup-session/session/connect",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 28713,
+      "nodeId": "setup-session/session/approve_connect/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 28713,
+      "nodeId": "setup-session/session/approve_connect/choose",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 28730,
+      "nodeId": "setup-session/session/approve_connect/metamask_prompt",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 29707,
+      "nodeId": "setup-session/session/approve_connect/metamask_prompt",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 29727,
+      "nodeId": "setup-session/session/approve_connect/capture_request",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 30257,
+      "nodeId": "setup-session/session/approve_connect/capture_request",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 30294,
+      "nodeId": "setup-session/session/approve_connect/choose_kind",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 30295,
+      "nodeId": "setup-session/session/approve_connect/choose_kind",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 30328,
+      "nodeId": "setup-session/session/approve_connect/approve",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 31745,
+      "nodeId": "setup-session/session/approve_connect/approve",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 31774,
+      "nodeId": "setup-session/session/connected",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 32207,
+      "nodeId": "setup-session/session/connected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 32222,
+      "nodeId": "setup-session/session/capture_connected",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 32316,
+      "nodeId": "setup-session/session/capture_connected",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 32329,
+      "nodeId": "setup-session/session/session_signatures",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 32558,
+      "nodeId": "setup-session/session/session_signatures",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_connected",
+      "elapsedMs": 32576,
+      "nodeId": "setup-session/assert_connected",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_connected",
+      "elapsedMs": 32912,
+      "nodeId": "setup-session/assert_connected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 32926,
+      "nodeId": "setup-session/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 33020,
+      "nodeId": "setup-session/capture",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.read_snapshot",
+      "elapsedMs": 33049,
+      "nodeId": "setup-flat/before_snapshot",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.read_snapshot",
+      "elapsedMs": 33622,
+      "nodeId": "setup-flat/before_snapshot",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 33641,
+      "nodeId": "setup-flat/converge/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 34493,
+      "nodeId": "setup-flat/converge/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 34508,
+      "nodeId": "setup-flat/converge/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 35086,
+      "nodeId": "setup-flat/converge/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 35114,
+      "nodeId": "setup-flat/converge/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 35729,
+      "nodeId": "setup-flat/converge/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "app.hud",
+      "elapsedMs": 35757,
+      "nodeId": "setup-hud",
+      "status": "running"
+    },
+    {
+      "action": "app.hud",
+      "elapsedMs": 35762,
+      "nodeId": "setup-hud",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 35777,
+      "nodeId": "setup-order-page/navigate",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 36765,
+      "nodeId": "setup-order-page/navigate",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 36785,
+      "nodeId": "setup-order-page/header",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 38121,
+      "nodeId": "setup-order-page/header",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 38140,
+      "nodeId": "setup-order-page/form",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 38577,
+      "nodeId": "setup-order-page/form",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 38590,
+      "nodeId": "setup-order-page/chart",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 39116,
+      "nodeId": "setup-order-page/chart",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 39130,
+      "nodeId": "setup-order-page/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 39228,
+      "nodeId": "setup-order-page/capture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 39248,
+      "nodeId": "setup-market",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 39602,
+      "nodeId": "setup-market",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 39637,
+      "nodeId": "setup-amount",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 40144,
+      "nodeId": "setup-amount",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 40161,
+      "nodeId": "ac4-regression-fees-label",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 40506,
+      "nodeId": "ac4-regression-fees-label",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 40520,
+      "nodeId": "ac2-order-quote",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 41177,
+      "nodeId": "ac2-order-quote",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 41193,
+      "nodeId": "ac2-order-capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 41276,
+      "nodeId": "ac2-order-capture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 41290,
+      "nodeId": "ac4-sized-order-preview",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 41630,
+      "nodeId": "ac4-sized-order-preview",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 41644,
+      "nodeId": "ac4-order-capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 41736,
+      "nodeId": "ac4-order-capture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 41763,
+      "nodeId": "setup-open-position/fresh_page/navigate",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 42869,
+      "nodeId": "setup-open-position/fresh_page/navigate",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 42892,
+      "nodeId": "setup-open-position/fresh_page/header",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 43616,
+      "nodeId": "setup-open-position/fresh_page/header",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 43632,
+      "nodeId": "setup-open-position/fresh_page/form",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 44669,
+      "nodeId": "setup-open-position/fresh_page/form",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 44683,
+      "nodeId": "setup-open-position/fresh_page/chart",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 45226,
+      "nodeId": "setup-open-position/fresh_page/chart",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 45244,
+      "nodeId": "setup-open-position/fresh_page/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 45323,
+      "nodeId": "setup-open-position/fresh_page/capture",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 45344,
+      "nodeId": "setup-open-position/no_position",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 45880,
+      "nodeId": "setup-open-position/no_position",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 45896,
+      "nodeId": "setup-open-position/tab_market",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 46261,
+      "nodeId": "setup-open-position/tab_market",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 46280,
+      "nodeId": "setup-open-position/direction",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 46874,
+      "nodeId": "setup-open-position/direction",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 46888,
+      "nodeId": "setup-open-position/enter_size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 47263,
+      "nodeId": "setup-open-position/enter_size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 47277,
+      "nodeId": "setup-open-position/boxes_off",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 47855,
+      "nodeId": "setup-open-position/boxes_off",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 47876,
+      "nodeId": "setup-open-position/tpsl/open_editor",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 48249,
+      "nodeId": "setup-open-position/tpsl/open_editor",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 48264,
+      "nodeId": "setup-open-position/tpsl/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 48264,
+      "nodeId": "setup-open-position/tpsl/choose",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 48280,
+      "nodeId": "setup-open-position/tpsl/reset",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 48626,
+      "nodeId": "setup-open-position/tpsl/reset",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 48639,
+      "nodeId": "setup-open-position/tpsl/set_off",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 49216,
+      "nodeId": "setup-open-position/tpsl/set_off",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 49231,
+      "nodeId": "setup-open-position/tpsl/shown_off",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 49576,
+      "nodeId": "setup-open-position/tpsl/shown_off",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 49598,
+      "nodeId": "setup-open-position/submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 50220,
+      "nodeId": "setup-open-position/submit",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 50235,
+      "nodeId": "setup-open-position/choose_approve",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 50235,
+      "nodeId": "setup-open-position/choose_approve",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 50255,
+      "nodeId": "setup-open-position/approve/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 50255,
+      "nodeId": "setup-open-position/approve/choose",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 50267,
+      "nodeId": "setup-open-position/approve/metamask_prompt",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 51402,
+      "nodeId": "setup-open-position/approve/metamask_prompt",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 51416,
+      "nodeId": "setup-open-position/approve/capture_request",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 52206,
+      "nodeId": "setup-open-position/approve/capture_request",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 52219,
+      "nodeId": "setup-open-position/approve/choose_kind",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 52219,
+      "nodeId": "setup-open-position/approve/choose_kind",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 52232,
+      "nodeId": "setup-open-position/approve/assert_primary_type",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 53268,
+      "nodeId": "setup-open-position/approve/assert_primary_type",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 53283,
+      "nodeId": "setup-open-position/approve/approve",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 54377,
+      "nodeId": "setup-open-position/approve/approve",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 54409,
+      "nodeId": "setup-open-position/position_open",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 58026,
+      "nodeId": "setup-open-position/position_open",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 58038,
+      "nodeId": "setup-open-position/position_proof",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 58039,
+      "nodeId": "setup-open-position/position_proof",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 58052,
+      "nodeId": "setup-open-position/choose_tpsl_check",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 58052,
+      "nodeId": "setup-open-position/choose_tpsl_check",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 58072,
+      "nodeId": "setup-open-position/no_triggers",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 59110,
+      "nodeId": "setup-open-position/no_triggers",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 59129,
+      "nodeId": "setup-open-position/no_triggers_proof",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 59129,
+      "nodeId": "setup-open-position/no_triggers_proof",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 59145,
+      "nodeId": "setup-open-position/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 59226,
+      "nodeId": "setup-open-position/capture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 59243,
+      "nodeId": "setup-positions-tab",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 59619,
+      "nodeId": "setup-positions-tab",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 59633,
+      "nodeId": "setup-close-dialog",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 61385,
+      "nodeId": "setup-close-dialog",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 61405,
+      "nodeId": "ac2-close-quote",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 61759,
+      "nodeId": "ac2-close-quote",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 61773,
+      "nodeId": "ac2-close-capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 61889,
+      "nodeId": "ac2-close-capture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 61903,
+      "nodeId": "setup-dismiss-close",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 62448,
+      "nodeId": "setup-dismiss-close",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 62478,
+      "nodeId": "gate-close-dismissed",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 62819,
+      "nodeId": "gate-close-dismissed",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.read_positions",
+      "elapsedMs": 62839,
+      "nodeId": "setup-close-position/before_close",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.read_positions",
+      "elapsedMs": 63283,
+      "nodeId": "setup-close-position/before_close",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 63296,
+      "nodeId": "setup-close-position/positions_tab",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 63652,
+      "nodeId": "setup-close-position/positions_tab",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 63668,
+      "nodeId": "setup-close-position/on_market",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 64217,
+      "nodeId": "setup-close-position/on_market",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 64230,
+      "nodeId": "setup-close-position/close",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 64600,
+      "nodeId": "setup-close-position/close",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 64612,
+      "nodeId": "setup-close-position/close_size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 65215,
+      "nodeId": "setup-close-position/close_size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 65229,
+      "nodeId": "setup-close-position/close_confirm",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 65587,
+      "nodeId": "setup-close-position/close_confirm",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 65600,
+      "nodeId": "setup-close-position/dialog_closed",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 66553,
+      "nodeId": "setup-close-position/dialog_closed",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 66566,
+      "nodeId": "setup-close-position/choose_full",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 66566,
+      "nodeId": "setup-close-position/choose_full",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 66579,
+      "nodeId": "setup-close-position/position_closed",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 67664,
+      "nodeId": "setup-close-position/position_closed",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 67693,
+      "nodeId": "setup-close-position/closed_proof",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 67693,
+      "nodeId": "setup-close-position/closed_proof",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.read_positions",
+      "elapsedMs": 67714,
+      "nodeId": "setup-close-position/after_close",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.read_positions",
+      "elapsedMs": 68283,
+      "nodeId": "setup-close-position/after_close",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 68325,
+      "nodeId": "setup-close-position/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 68417,
+      "nodeId": "setup-close-position/capture",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 68442,
+      "nodeId": "gate-signatures/signatures",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 68574,
+      "nodeId": "gate-signatures/signatures",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 68585,
+      "nodeId": "gate-signatures/no_l1_proof",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 68585,
+      "nodeId": "gate-signatures/no_l1_proof",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.app.assert_no_console_errors",
+      "elapsedMs": 68611,
+      "nodeId": "gate-console/console",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.assert_no_console_errors",
+      "elapsedMs": 68834,
+      "nodeId": "gate-console/console",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 68855,
+      "nodeId": "teardown-owned",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 68855,
+      "nodeId": "teardown-owned",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 68874,
+      "nodeId": "teardown-clean/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 69547,
+      "nodeId": "teardown-clean/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 69562,
+      "nodeId": "teardown-clean/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 70012,
+      "nodeId": "teardown-clean/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 70026,
+      "nodeId": "teardown-clean/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 70582,
+      "nodeId": "teardown-clean/assert_no_orders",
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "root": {
+    "ref": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+    "digest": "sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449"
+  },
+  "dependencies": [
+    {
+      "ref": "terminal.perps.assert-agent-only-signatures",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/assert-agent-only-signatures.recipe.json",
+      "digest": "sha256:69bf0481b192c0db382b16775882299787adc69b6affe34e3434dd66e04e4e5c",
+      "artifact": "resolved-recipes/69bf0481b192c0db382b16775882299787adc69b6affe34e3434dd66e04e4e5c.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.assert-clean-console",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/assert-clean-console.recipe.json",
+      "digest": "sha256:960ccc20f75f9d253cce3086c3c8d98b5f09d6c469d083e1bb42fe1cb15b5924",
+      "artifact": "resolved-recipes/960ccc20f75f9d253cce3086c3c8d98b5f09d6c469d083e1bb42fe1cb15b5924.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.clean-market-testnet",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+      "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+      "artifact": "resolved-recipes/a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.close-position",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/close-position.recipe.json",
+      "digest": "sha256:f5c6afa1dcb657763831507874018ec19446917f04c8aaffcc87ab38d216ce0c",
+      "artifact": "resolved-recipes/f5c6afa1dcb657763831507874018ec19446917f04c8aaffcc87ab38d216ce0c.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.confirm-wallet-request",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/confirm-wallet-request.recipe.json",
+      "digest": "sha256:57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a",
+      "artifact": "resolved-recipes/57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.ensure-connected",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/ensure-connected.recipe.json",
+      "digest": "sha256:48e1457e8c00735a2c5170adb372f11e1ef7e3436ddf4e4e7a25ced41be479f7",
+      "artifact": "resolved-recipes/48e1457e8c00735a2c5170adb372f11e1ef7e3436ddf4e4e7a25ced41be479f7.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.ensure-flat-market",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/ensure-flat-market.recipe.json",
+      "digest": "sha256:50a127fb8dce7d03c20a15bd3ef29f52d818dd8830075d53db013bec0fbe7c6a",
+      "artifact": "resolved-recipes/50a127fb8dce7d03c20a15bd3ef29f52d818dd8830075d53db013bec0fbe7c6a.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.ensure-session",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/ensure-session.recipe.json",
+      "digest": "sha256:84f2bd0983c0b5a6b9258e9e4ca43ae33c09959ba2ff12fcb5c0b886c471b24e",
+      "artifact": "resolved-recipes/84f2bd0983c0b5a6b9258e9e4ca43ae33c09959ba2ff12fcb5c0b886c471b24e.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.open-order-page",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/open-order-page.recipe.json",
+      "digest": "sha256:228d76a5ea394289943fc06ca4c0723844864961d5009057a153741c6e347e2d",
+      "artifact": "resolved-recipes/228d76a5ea394289943fc06ca4c0723844864961d5009057a153741c6e347e2d.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.place-market-order",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/place-market-order.recipe.json",
+      "digest": "sha256:4e9ee2818164f885bf93031e94a5ce0693aa409f30a825e00b20362e1e578a93",
+      "artifact": "resolved-recipes/4e9ee2818164f885bf93031e94a5ce0693aa409f30a825e00b20362e1e578a93.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.set-order-tpsl",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/set-order-tpsl.recipe.json",
+      "digest": "sha256:43f8f411c0adf1d3a323a471ae94c6f7bc5335421c86d1ff7a209a76460f4ac0",
+      "artifact": "resolved-recipes/43f8f411c0adf1d3a323a471ae94c6f7bc5335421c86d1ff7a209a76460f4ac0.recipe.json",
+      "adapter": "terminal"
+    }
+  ],
+  "edges": [
+    {
+      "from": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+      "to": "terminal.perps.assert-agent-only-signatures"
+    },
+    {
+      "from": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+      "to": "terminal.perps.assert-clean-console"
+    },
+    {
+      "from": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+      "to": "terminal.perps.clean-market-testnet"
+    },
+    {
+      "from": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+      "to": "terminal.perps.close-position"
+    },
+    {
+      "from": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+      "to": "terminal.perps.ensure-connected"
+    },
+    {
+      "from": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+      "to": "terminal.perps.ensure-flat-market"
+    },
+    {
+      "from": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+      "to": "terminal.perps.open-order-page"
+    },
+    {
+      "from": "$root:sha256:0c51c3c3276ed7c1415e0434728d90bea4ee34ecb6ef6bb3bc0a860a29d8b449",
+      "to": "terminal.perps.place-market-order"
+    },
+    {
+      "from": "terminal.perps.ensure-connected",
+      "to": "terminal.perps.ensure-session"
+    },
+    {
+      "from": "terminal.perps.ensure-flat-market",
+      "to": "terminal.perps.clean-market-testnet"
+    },
+    {
+      "from": "terminal.perps.ensure-session",
+      "to": "terminal.perps.confirm-wallet-request"
+    },
+    {
+      "from": "terminal.perps.place-market-order",
+      "to": "terminal.perps.confirm-wallet-request"
+    },
+    {
+      "from": "terminal.perps.place-market-order",
+      "to": "terminal.perps.open-order-page"
+    },
+    {
+      "from": "terminal.perps.place-market-order",
+      "to": "terminal.perps.set-order-tpsl"
+    }
+  ]
+}

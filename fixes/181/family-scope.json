@@ -1,0 +1,6 @@
+{
+  "originalFamilyScopeSummary": "[Terminal] Update @metamask/perps-controller to 20.0.0",
+  "currentTriggerSummary": "pr-complete: feat(perps): update @metamask/perps-controller to 20.0.0",
+  "scopeVerdict": "full-scope-addressed",
+  "notes": "Inherited report and evidence cover controller 20 manifests, shared notional sizing, quoted rate/discount fields, HUD-on testnet order/close previews and changelog review. This pass fixes the only unresolved live-price quote-reset finding with context-restricted placeholder data; exact-notional, continuity and edit-isolation tests pass. 128 affected tests and application typecheck pass. Standard typecheck has identical slot-template errors on unchanged origin/main; full suite live-orders error-reset failure is confirmed pre-existing. Electron install gap repaired and signer suite passes. One regular branch push and mandatory inline reply completed; existing resolved reply preserved. External Vercel permission failure remains a deployment limitation."
+}

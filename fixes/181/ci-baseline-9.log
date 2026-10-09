@@ -1,0 +1,14 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /private/tmp/terminal-181-ci-baseline
+
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 986ms
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  21:10:57
+   Duration  10.74s (transform 711ms, setup 1.09s, collect 852ms, tests 986ms, environment 1.39s, prepare 1.03s)
+

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Assert the main wallet only approved the trading agent",
+  "description": "Web Terminal block: on the current wallet request window, assert the main wallet signed only ApproveAgent/ApproveBuilderFee typed data on its active chain, exactly approve_agent_count ApproveAgent, and never an L1 (agent) payload such as an order, cancel, edit, TP/SL or close.",
+  "workflow": {
+    "entry": "signatures",
+    "nodes": {
+      "signatures": {
+        "action": "metamask.wallet.assert_signatures",
+        "allowed_primary_types": [
+          "ApproveAgent",
+          "ApproveBuilderFee"
+        ],
+        "max_l1_requests": 0,
+        "require_active_chain": true,
+        "counts": {
+          "ApproveAgent": "{{params.approve_agent_count}}"
+        },
+        "timeout_ms": 5000,
+        "intent": "Prove the main wallet only approved the trading agent and never saw an order, cancel, edit, TP/SL or close payload",
+        "next": "no_l1_proof"
+      },
+      "no_l1_proof": {
+        "action": "assert_output",
+        "source": "signatures",
+        "assert": {
+          "path": "$.summary.l1Requests",
+          "operator": "eq",
+          "value": 0
+        },
+        "intent": "Bind the proof to the recorded wallet window: no agent (L1) payload reached the main wallet",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "approve_agent_count": {
+        "type": "integer",
+        "minimum": 0,
+        "default": 1,
+        "description": "Exact number of ApproveAgent signatures expected in the window."
+      }
+    }
+  }
+}

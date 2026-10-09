@@ -1,0 +1,98 @@
+{
+  "invocationDigest": "sha256:04c28ecd9cc811fe94c3d47c728171ccabf58fc7283258ad7d9d35467cbeff7e",
+  "status": "pass",
+  "total": 117,
+  "passed": 117,
+  "failed": 0,
+  "cause_counts": {
+    "subject": 0,
+    "harness": 0,
+    "environment": 0,
+    "unknown": 0
+  },
+  "startedAt": "2026-10-09T10:11:07.042Z",
+  "endedAt": "2026-10-09T10:12:15.415Z",
+  "durationMs": 68373,
+  "harness": {
+    "name": "@farmslot/recipe-runner",
+    "version": "0.28.0",
+    "action_manifest_schema": "https://farmslot.io/schemas/action-manifest-v1.schema.json"
+  },
+  "runner": {
+    "source": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness",
+    "git_ref": "unknown",
+    "name": "@metamask/recipe-runner"
+  },
+  "recipeLibraries": {
+    "sources": [
+      {
+        "name": "perps",
+        "root": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-perps",
+        "recipeCount": 5,
+        "provenance": {
+          "kind": "library",
+          "trust": "trusted",
+          "name": "perps",
+          "revision": "f9f8cb914c4c0fd1f7a592b9b4507b410a5d8651",
+          "dirty": false
+        }
+      },
+      {
+        "name": "terminal",
+        "root": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal",
+        "recipeCount": 34,
+        "provenance": {
+          "kind": "library",
+          "trust": "trusted",
+          "name": "terminal",
+          "revision": "8a44aee270a42a949c3e9b59605ee71c9e51868e",
+          "dirty": false
+        }
+      },
+      {
+        "name": "metamask",
+        "root": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library",
+        "recipeCount": 16,
+        "provenance": {
+          "kind": "bundled",
+          "trust": "trusted",
+          "name": "metamask"
+        }
+      }
+    ],
+    "shadowed": [
+      {
+        "ref": "perps.clean-market-testnet",
+        "source": "perps",
+        "file": "recipes/shared/perps/clean-market-testnet.recipe.json",
+        "shadows": [
+          "terminal"
+        ]
+      },
+      {
+        "ref": "perps.ensure-session",
+        "source": "perps",
+        "file": "recipes/shared/perps/ensure-session.recipe.json",
+        "shadows": [
+          "terminal"
+        ]
+      }
+    ]
+  },
+  "sideFindings": {
+    "status": "clean",
+    "nonBlocking": true,
+    "counts": {
+      "total": 0,
+      "warning": 0,
+      "error": 0,
+      "exception": 0,
+      "info": 5
+    },
+    "diagnosticsPath": "diagnostics.json",
+    "appLogPath": "diagnostics-app-log.txt",
+    "appLogRedacted": true
+  },
+  "recovered": [],
+  "mutations": []
+}

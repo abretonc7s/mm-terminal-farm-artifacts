@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "preferred_mode": "screenshots",
+  "summary": "Inherited family testnet run passed 117 nodes before this follow-up. No fresh runtime run in this PR-complete pass; live-price quote continuity and exact notionals are proven by current regression tests.",
+  "standalone": [
+    {
+      "label": "Order quoted fee rate",
+      "covers": [
+        "AC2"
+      ],
+      "file": "artifacts/recipe-runs/inherited-7417f05c-a4b3-496a-8705-9d1f4c5e8954/recipe-run/evidence-ac2-order-quote.png"
+    },
+    {
+      "label": "Sized order fee preview with HUD",
+      "covers": [
+        "AC4"
+      ],
+      "file": "artifacts/recipe-runs/inherited-7417f05c-a4b3-496a-8705-9d1f4c5e8954/recipe-run/evidence-ac4-sized-order-preview.png"
+    },
+    {
+      "label": "Close quoted fee rate",
+      "covers": [
+        "AC2"
+      ],
+      "file": "artifacts/recipe-runs/inherited-7417f05c-a4b3-496a-8705-9d1f4c5e8954/recipe-run/evidence-ac2-close-quote.png"
+    }
+  ],
+  "videos": {
+    "note": "BLOCKED: --record-video is not implemented for the terminal adapter."
+  }
+}
