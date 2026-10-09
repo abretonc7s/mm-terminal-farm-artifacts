@@ -1,0 +1,6 @@
+{
+  "originalFamilyScopeSummary": "TAT-4036: Sentry, product analytics, gated access/kill switch, and reliability guardrails.",
+  "currentTriggerSummary": "PR 176 completion: live/stale/disconnected feed status for order book and trades; address timestamp review feedback.",
+  "scopeVerdict": "partial-symptom-only",
+  "notes": "All three fetched inline timestamp comments are fixed and replied to in 211478eda2bd0df789cba6ffd0467e730077884b. This PR covers feed badges only. Sentry setup, analytics taxonomy, gating/kill-switch provisioning and the provider default-aggregation drop remain outside this PR as recorded in inherited context. New proof confirms Connecting without timestamp until the first WebSocket frame and Live timestamps afterward; received-feed stale/disconnect behavior remains covered by tests."
+}

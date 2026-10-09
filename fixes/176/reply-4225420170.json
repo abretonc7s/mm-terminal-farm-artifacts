@@ -1,0 +1,1 @@
+{"body": "Fixed in 211478e. lastUpdatedAt is now stamped only in the WebSocket onData callback beside setQueryData, scoped to the active symbol and aggregation. Dummy fetches and cached snapshots leave it null. Regression tests await dummy fetch completion and verify aggregation changes cannot manufacture an update time."}

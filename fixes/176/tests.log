@@ -1,0 +1,80 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orderbook-query.test.tsx src/features/perpetuals/queries/live-trades-query.test.tsx src/features/perpetuals/order/components/FeedStatus src/features/perpetuals/order/components/OrderBook src/features/perpetuals/order/components/Trades src/features/perpetuals/order/components/OrderPage src/features/perpetuals/order/components/MarketDataTabs src/features/perpetuals/queries/live-orders-query.test.tsx src/features/perpetuals/domain/Order/helpers/OrderBuilder.test.ts src/features/perpetuals/order/components/OrderForm/OrderParametersModals/OrderFormLimitPriceEditor.test.tsx
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-3
+
+ ✓ src/features/perpetuals/domain/Order/helpers/OrderBuilder.test.ts (6 tests) 5ms
+ ✓ src/features/perpetuals/order/components/OrderBook/useHasConnected.test.ts (8 tests) 15ms
+ ✓ src/features/perpetuals/order/components/OrderBook/useOrderBookLayout.test.ts (14 tests) 20ms
+ ✓ src/features/perpetuals/order/components/FeedStatus/feed-status.test.ts (7 tests) 3ms
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 1187ms
+(node:97740) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97731) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97729) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97727) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97736) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97732) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97734) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97737) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97733) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97738) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:97739) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/live-orderbook-query.test.tsx (16 tests) 118ms
+ ✓ src/features/perpetuals/queries/live-trades-query.test.tsx (21 tests) 131ms
+(node:98050) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:98045) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderBook/getDecimalPlaces.test.ts (8 tests) 3ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookRow.test.tsx (16 tests) 209ms
+ ✓ src/features/perpetuals/order/components/OrderBook/stacked/OrderBookLevelsStacked.test.tsx (12 tests) 250ms
+ ✓ src/features/perpetuals/order/components/Trades/Trades.test.tsx (7 tests) 112ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBook.test.tsx (36 tests) 356ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookSpread.test.tsx (6 tests) 86ms
+ ✓ src/features/perpetuals/order/components/FeedStatus/FeedStatus.test.tsx (6 tests) 85ms
+ ✓ src/features/perpetuals/order/components/MarketDataTabs/MarketDataTabs.test.tsx (22 tests) 551ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookFilters.test.tsx (24 tests) 958ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderParametersModals/OrderFormLimitPriceEditor.test.tsx (11 tests) 478ms
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPage > renders the header data when the symbol is present in the API response
+Received `true` for a non-boolean attribute `unoptimized`.
+
+If you want to write it to the DOM, pass a string instead: unoptimized="true" or unoptimized={value.toString()}.
+
+ ✓ src/features/perpetuals/order/components/OrderPage/OrderPage.streaming.test.tsx (6 tests) 204ms
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPageLayout - Tab Synchronization > defaults to chart tab when transitioning from large to small viewport
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET wss://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPageLayout - Tab Synchronization > defaults to chart tab when transitioning from large to small viewport
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET https://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ ✓ src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx (20 tests) 2032ms
+   ✓ OrderPage > opens the markets drawer from the header market selector  715ms
+
+ Test Files  19 passed (19)
+      Tests  269 passed (269)
+   Start at  17:41:15
+   Duration  7.51s (transform 2.62s, setup 8.37s, collect 37.44s, tests 6.80s, environment 12.83s, prepare 1.65s)
+

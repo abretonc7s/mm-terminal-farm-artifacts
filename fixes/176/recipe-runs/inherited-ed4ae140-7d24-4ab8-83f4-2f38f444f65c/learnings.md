@@ -1,0 +1,5 @@
+- The Web Terminal order book can freeze silently on testnet. `adaptL2BookResponse` guesses the aggregation from the gap between the top two bids, and `matchesAggregation` then drops every l2Book update at the default aggregation on sparse books. A recipe asserting live order book updates should select a coarse aggregation (100 for BTC) until that is fixed.
+- The terminal adapter hides the recipe HUD during `ui.screenshot` by design (`web-dapp/platform/page.mjs`), so `--hud show` does not put the HUD in evidence screenshots. Getting it there needs a harness change.
+- `--record-video` is refused by the terminal adapter before any node runs (`RECORDING_UNSUPPORTED`).
+- On this slot, `npm run lint` is red before any change: `biome check .` scans `temp/` (excluded only through `.git/info/exclude`), and `src/` has 63 errors on base. Check changed files with `npx biome check <paths>`, and never run `biome check --write` on a whole folder (it reformatted ~30 unrelated files).
+- A stale slot browser can hang `metamask.app.launch` (timeout after 305s). Killing the leftover Chrome for Testing on the slot CDP port fixed it.

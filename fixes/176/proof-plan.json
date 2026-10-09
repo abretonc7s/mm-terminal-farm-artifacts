@@ -1,0 +1,27 @@
+{
+  "targets": [
+    {
+      "id": "AC1",
+      "claim": "The order book keeps rendering live price levels on the BTC order page (regression guard).",
+      "proof": "mixed"
+    },
+    {
+      "id": "AC2",
+      "claim": "The order book panel shows a live feed status with a last-updated timestamp.",
+      "proof": "mixed"
+    },
+    {
+      "id": "AC3",
+      "claim": "The trades panel shows its feed status with a last-updated timestamp.",
+      "proof": "mixed"
+    },
+    {
+      "id": "AC4",
+      "claim": "Before the first WebSocket frame, cached order book levels stay visible with Connecting and no last-updated timestamp.",
+      "proof": "mixed"
+    }
+  ],
+  "timestampRegressionProof": "state: hook tests await dummy fetch completion, assert null before WebSocket writes and after key switches",
+  "runtime": "prepared slot macwork-mmt-3; no capability providers",
+  "recipe": "artifacts/runtime-recipe.json"
+}

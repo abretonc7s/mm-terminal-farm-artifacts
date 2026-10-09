@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "preferred_mode": "screenshots",
+  "summary": "BTC order page: the order book and trades panels now show a feed status badge with the last-updated time (Live while updating, Stale when the order book stops updating at the default aggregation); before shots from base 79374ac use the same recipe nodes.",
+  "before_after_pairs": [
+    {
+      "label": "AC1 order book still renders price levels (regression guard)",
+      "covers": [
+        "AC1"
+      ],
+      "before": "artifacts/before-ac1-orderbook-levels.png",
+      "after": "artifacts/after-ac1-orderbook-levels.png"
+    },
+    {
+      "label": "AC2 order book: no status vs '\u25cf Live \u00b7 Updated <time>' in the filters row",
+      "covers": [
+        "AC2"
+      ],
+      "before": "artifacts/before-ac2-orderbook-feed-status.png",
+      "after": "artifacts/after-ac2-orderbook-feed-status.png"
+    },
+    {
+      "label": "AC3 trades: no status vs '\u25cf Live \u00b7 Updated <time>' above the list",
+      "covers": [
+        "AC3"
+      ],
+      "before": "artifacts/before-ac3-trades-feed-status.png",
+      "after": "artifacts/after-ac3-trades-feed-status.png"
+    },
+    {
+      "label": "AC4 order book at default aggregation: frozen book with no status vs '\u25cf Stale \u00b7 Updated <time>' with levels still shown",
+      "covers": [
+        "AC4"
+      ],
+      "before": "artifacts/before-ac4-orderbook-default-aggregation.png",
+      "after": "artifacts/after-ac4-orderbook-default-aggregation-stale.png"
+    }
+  ],
+  "videos": {
+    "note": "BLOCKED: --record-video is not implemented for the terminal adapter. Screenshots come from the terminal adapter's ui.screenshot (headless Chrome viewport capture); the adapter hides the recipe HUD during capture by design, so the HUD is not visible even with --hud show."
+  }
+}

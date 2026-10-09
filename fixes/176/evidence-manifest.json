@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "preferred_mode": "screenshots",
+  "summary": "Follow-up proof of cached levels, receipt-only feed timestamps and live badges. Four inspected screenshots from the 19-node passing recipe.",
+  "standalone": [
+    {
+      "label": "Cached book price levels remain visible.",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/recipe-run/screenshots/recipe/evidence-ac1-orderbook-levels.png"
+    },
+    {
+      "label": "Order book shows Live with a timestamp after a WebSocket frame.",
+      "covers": [
+        "AC2"
+      ],
+      "file": "artifacts/recipe-run/screenshots/recipe/evidence-ac2-orderbook-feed-status.png"
+    },
+    {
+      "label": "Trades shows Live with a timestamp after a WebSocket frame.",
+      "covers": [
+        "AC3"
+      ],
+      "file": "artifacts/recipe-run/screenshots/recipe/evidence-ac3-trades-feed-status.png"
+    },
+    {
+      "label": "Before the first frame, the cached book shows Connecting without a fabricated timestamp.",
+      "covers": [
+        "AC4"
+      ],
+      "file": "artifacts/recipe-run/screenshots/recipe/evidence-ac4-orderbook-awaiting-frame.png"
+    }
+  ],
+  "videos": {
+    "note": "BLOCKED: --record-video is not implemented for the terminal adapter. Exact response in recipe-video.log."
+  }
+}

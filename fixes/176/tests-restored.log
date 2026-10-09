@@ -1,0 +1,19 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orderbook-query.test.tsx src/features/perpetuals/queries/live-trades-query.test.tsx
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-3
+
+(node:31019) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:31020) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/live-orderbook-query.test.tsx (16 tests) 116ms
+ ✓ src/features/perpetuals/queries/live-trades-query.test.tsx (21 tests) 132ms
+
+ Test Files  2 passed (2)
+      Tests  37 passed (37)
+   Start at  17:43:06
+   Duration  2.10s (transform 291ms, setup 558ms, collect 1.91s, tests 249ms, environment 681ms, prepare 114ms)
+

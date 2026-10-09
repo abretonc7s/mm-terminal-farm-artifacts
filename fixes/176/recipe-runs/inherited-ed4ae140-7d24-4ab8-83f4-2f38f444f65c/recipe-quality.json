@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "verdict": "warn",
+  "compact": {
+    "verdict": "WARN",
+    "reasons": [
+      "AC1-AC3 are proven by recipe-run (15/15, --hud show), and the strict baseline on base 79374ac fails at the first new-behavior node ac2-orderbook-feed-live.",
+      "Each evidence row has its own before/after screenshot pair, captured by the same recipe node.",
+      "Video BLOCKED: --record-video is not implemented for the terminal adapter.",
+      "The terminal adapter hides the HUD during ui.screenshot by design, so no screenshot shows it.",
+      "AC2 selects the 100 aggregation first to work around a pre-existing provider bug that drops testnet l2Book updates at the default aggregation.",
+      "AC4 (disconnected/stale states) is unit-only because no recipe action can inject a WebSocket fault."
+    ],
+    "better_version_guidance": [
+      "Add a terminal-adapter action to simulate a WebSocket disconnect (CDP Network.emulateNetworkConditions offline) so AC4 can be proven visually.",
+      "Once the provider aggregation-estimate bug is fixed, drop the aggregation-100 step and assert Live at the default aggregation."
+    ]
+  },
+  "dimensions": {},
+  "structural_findings": [],
+  "contextual_findings": [],
+  "suggested_recipe_delta": [],
+  "training_fields": {
+    "proof_mode": "unknown"
+  },
+  "meta": {
+    "producer": "worker",
+    "fallback_used": false,
+    "legacy_task": false,
+    "artifact_required": true,
+    "source_signals": [
+      "recipe-quality.json"
+    ]
+  }
+}

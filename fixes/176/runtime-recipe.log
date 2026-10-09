@@ -1,0 +1,65 @@
+Recipe libraries: perps=/Users/deeeed/dev/metamask/experimental-metamask-recipe-perps (5 recipes), terminal=/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal (34 recipes), metamask=/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library (16 recipes)
+Recipe libraries: perps=/Users/deeeed/dev/metamask/experimental-metamask-recipe-perps (5 recipes), terminal=/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal (34 recipes), metamask=/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library (16 recipes)
+{
+  "schemaVersion": 1,
+  "command": "run",
+  "context": {
+    "adapter": {
+      "value": "terminal",
+      "source": "flag",
+      "detail": "--adapter"
+    },
+    "target": {
+      "value": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3",
+      "source": "flag",
+      "detail": "--target"
+    },
+    "slot": {
+      "value": "macwork-mmt-3",
+      "source": "slot",
+      "detail": "slot-config",
+      "session": "mmt-3",
+      "poolFile": "/Users/deeeed/dev/farmslot/pool/macwork.json",
+      "ports": {
+        "port": 9343,
+        "metro_port": 9443,
+        "cdp_port": 9543
+      }
+    },
+    "ports": {
+      "cdp": {
+        "value": 9543,
+        "source": "flag"
+      },
+      "watcher": {
+        "value": 9343,
+        "source": "flag"
+      }
+    }
+  },
+  "adapter": "terminal",
+  "status": "pass",
+  "exitCode": 0,
+  "recovered": [],
+  "mutations": [],
+  "reportPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/176-1009-173602/artifacts/runtime-recipe-run/report.md",
+  "result": {
+    "status": "pass",
+    "summaryPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/176-1009-173602/artifacts/runtime-recipe-run/summary.json",
+    "tracePath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/176-1009-173602/artifacts/runtime-recipe-run/trace.json",
+    "artifactManifestPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/176-1009-173602/artifacts/runtime-recipe-run/artifact-manifest.json",
+    "recipePath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/176-1009-173602/artifacts/runtime-recipe-run/recipe.json",
+    "diagnosticsPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/176-1009-173602/artifacts/runtime-recipe-run/diagnostics.json",
+    "sideFindings": {
+      "status": "clean",
+      "note": "No application warnings or errors were emitted during the recipe run.",
+      "counts": {
+        "total": 0,
+        "warning": 0,
+        "error": 0,
+        "exception": 0,
+        "info": 1
+      }
+    }
+  }
+}

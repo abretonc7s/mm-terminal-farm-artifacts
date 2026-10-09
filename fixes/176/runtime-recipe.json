@@ -1,0 +1,235 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "TAT-4036 feed status and last-updated time on order book and trades",
+  "description": "Read-only feed badge regression proof. Cached default-aggregation levels stay visible with Connecting and no feed timestamp before the first WebSocket frame. The 100 aggregation and trades display Live with a timestamp after frames arrive. Disconnect and stale derivation are covered by behavioral tests.",
+  "proofTargets": [
+    {
+      "id": "AC1",
+      "claim": "The order book keeps rendering live price levels on the BTC order page (regression guard)."
+    },
+    {
+      "id": "AC2",
+      "claim": "The order book panel shows a live feed status with a last-updated timestamp."
+    },
+    {
+      "id": "AC3",
+      "claim": "The trades panel shows its feed status with a last-updated timestamp."
+    },
+    {
+      "id": "AC4",
+      "claim": "Before the first WebSocket frame, cached order book levels stay visible with Connecting and no last-updated timestamp."
+    }
+  ],
+  "workflow": {
+    "entry": "setup-launch",
+    "nodes": {
+      "setup-launch": {
+        "action": "metamask.app.launch",
+        "signer": "injected",
+        "account": "{{params.account}}",
+        "fresh_profile": true,
+        "headless": true,
+        "timeout_ms": 300000,
+        "intent": "Start a fresh headless slot browser; the market data panels need no wallet connection",
+        "next": "setup-open-order"
+      },
+      "setup-open-order": {
+        "action": "ui.navigate",
+        "page": "order",
+        "market": "{{params.market}}",
+        "timeout_ms": 180000,
+        "intent": "Open the market's order page on the slot dev server",
+        "next": "gate-orderbook-tab"
+      },
+      "gate-orderbook-tab": {
+        "action": "ui.wait_for",
+        "selector": "[role=\"tablist\"][aria-label=\"Order panel\"] [role=\"tab\"][aria-selected=\"true\"]",
+        "text": "Order book",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "intent": "Confirm the large-viewport panel shows the Order book tab selected",
+        "next": "ac1-orderbook-levels"
+      },
+      "ac1-orderbook-levels": {
+        "action": "ui.wait_for",
+        "selector": "button[aria-label^=\"Bid at\"]",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm the order book renders live bid levels",
+        "next": "ac1-screenshot"
+      },
+      "ac1-screenshot": {
+        "action": "ui.screenshot",
+        "path": "screenshots/recipe/evidence-ac1-orderbook-levels.png",
+        "label": "AC1 order book renders price levels",
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Keep a picture of the order book levels",
+        "next": "ac4-default-aggregation-stale"
+      },
+      "ac4-default-aggregation-stale": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-book-feed-status\"][data-status=\"connecting\"]",
+        "text": "Connecting",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC4"
+        ],
+        "intent": "Confirm the cached snapshot has not been mistaken for a received WebSocket frame",
+        "next": "ac4-default-aggregation-time"
+      },
+      "ac4-default-aggregation-time": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-book-feed-status\"] time[datetime]",
+        "expected": "hidden",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC4"
+        ],
+        "intent": "Confirm no feed update timestamp appears before the first frame",
+        "next": "ac4-default-aggregation-levels"
+      },
+      "ac4-default-aggregation-levels": {
+        "action": "ui.wait_for",
+        "selector": "button[aria-label^=\"Bid at\"]",
+        "expected": "visible",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC4"
+        ],
+        "intent": "Confirm the stalled order book keeps showing its last price levels",
+        "next": "ac4-screenshot"
+      },
+      "ac4-screenshot": {
+        "action": "ui.screenshot",
+        "path": "screenshots/recipe/evidence-ac4-orderbook-awaiting-frame.png",
+        "label": "AC4 cached book Connecting without fabricated last-updated time",
+        "proves": [
+          "AC4"
+        ],
+        "intent": "Keep a picture of the default-view badge state",
+        "next": "ac2-open-aggregation"
+      },
+      "ac2-open-aggregation": {
+        "action": "ui.press",
+        "selector": "button[aria-haspopup=\"true\"]",
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Open the order book price-aggregation menu (first menu trigger on the page)",
+        "next": "ac2-pick-aggregation"
+      },
+      "ac2-pick-aggregation": {
+        "action": "ui.press",
+        "selector": "[role=\"menu\"][aria-label=\"Price aggregation\"] [role=\"menuitem\"][data-key=\"100\"]",
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Select the 100 aggregation so testnet l2Book updates reach the panel",
+        "next": "ac2-orderbook-feed-live"
+      },
+      "ac2-orderbook-feed-live": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-book-feed-status\"][data-status=\"live\"]",
+        "text": "Live",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Confirm the order book panel labels its WebSocket feed as Live",
+        "next": "ac2-orderbook-feed-time"
+      },
+      "ac2-orderbook-feed-time": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-book-feed-status\"] time[datetime]",
+        "text": "Updated",
+        "expected": "visible",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Confirm the order book status shows the last-updated timestamp",
+        "next": "ac2-screenshot"
+      },
+      "ac2-screenshot": {
+        "action": "ui.screenshot",
+        "path": "screenshots/recipe/evidence-ac2-orderbook-feed-status.png",
+        "label": "AC2 order book feed status with last-updated time",
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Keep a picture of the order book status badge",
+        "next": "ac3-open-trades"
+      },
+      "ac3-open-trades": {
+        "action": "ui.press",
+        "selector": "[role=\"tablist\"][aria-label=\"Order panel\"] [role=\"tab\"]:nth-child(2)",
+        "intent": "Switch the market data panel to Trades",
+        "proves": [
+          "AC3"
+        ],
+        "next": "ac3-trades-feed-status"
+      },
+      "ac3-trades-feed-status": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"trades-feed-status\"][data-status=\"live\"]",
+        "text": "Live",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Confirm the trades panel labels its WebSocket feed as Live",
+        "next": "ac3-trades-feed-time"
+      },
+      "ac3-trades-feed-time": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"trades-feed-status\"] time[datetime]",
+        "text": "Updated",
+        "expected": "visible",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Confirm the trades status shows the last-updated timestamp",
+        "next": "ac3-screenshot"
+      },
+      "ac3-screenshot": {
+        "action": "ui.screenshot",
+        "path": "screenshots/recipe/evidence-ac3-trades-feed-status.png",
+        "label": "AC3 trades feed status with last-updated time",
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Keep a picture of the trades status badge",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "account": {
+        "type": "string",
+        "default": "Trading",
+        "description": "Wallet fixture account for the slot browser (unused; no connection is made)."
+      },
+      "market": {
+        "type": "string",
+        "default": "BTC"
+      }
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "id": "run-network",
+  "status": "unavailable",
+  "startedAtEpochMs": 1791538995772,
+  "endedAtEpochMs": 1791539007880,
+  "maxDurationMs": 3600000,
+  "reconnects": 0,
+  "droppedRequests": 0,
+  "unavailableReasons": [
+    "No browser CDP endpoint on 127.0.0.1:9543 within 10000ms."
+  ],
+  "coverageGapReasons": [],
+  "uninspectableBodyRequests": 0,
+  "projectedBodyFields": [
+    "type"
+  ],
+  "totalRequests": 0,
+  "requestsByMethod": {},
+  "requestsByHost": {},
+  "requestsByType": {},
+  "requests": [],
+  "nodeEvents": [
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 367,
+      "nodeId": "setup-launch",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 4541,
+      "nodeId": "setup-launch",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 4561,
+      "nodeId": "setup-open-order",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 5046,
+      "nodeId": "setup-open-order",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 5058,
+      "nodeId": "gate-orderbook-tab",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 6037,
+      "nodeId": "gate-orderbook-tab",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 6057,
+      "nodeId": "ac1-orderbook-levels",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 6579,
+      "nodeId": "ac1-orderbook-levels",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 6593,
+      "nodeId": "ac1-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 6699,
+      "nodeId": "ac1-screenshot",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 6720,
+      "nodeId": "ac4-default-aggregation-stale",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7231,
+      "nodeId": "ac4-default-aggregation-stale",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7241,
+      "nodeId": "ac4-default-aggregation-time",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7575,
+      "nodeId": "ac4-default-aggregation-time",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7588,
+      "nodeId": "ac4-default-aggregation-levels",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7928,
+      "nodeId": "ac4-default-aggregation-levels",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 7943,
+      "nodeId": "ac4-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 8017,
+      "nodeId": "ac4-screenshot",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 8034,
+      "nodeId": "ac2-open-aggregation",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 8566,
+      "nodeId": "ac2-open-aggregation",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 8586,
+      "nodeId": "ac2-pick-aggregation",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 9054,
+      "nodeId": "ac2-pick-aggregation",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 9065,
+      "nodeId": "ac2-orderbook-feed-live",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 9577,
+      "nodeId": "ac2-orderbook-feed-live",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 9590,
+      "nodeId": "ac2-orderbook-feed-time",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 9927,
+      "nodeId": "ac2-orderbook-feed-time",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9940,
+      "nodeId": "ac2-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 10030,
+      "nodeId": "ac2-screenshot",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 10040,
+      "nodeId": "ac3-open-trades",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 10569,
+      "nodeId": "ac3-open-trades",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 10580,
+      "nodeId": "ac3-trades-feed-status",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 11118,
+      "nodeId": "ac3-trades-feed-status",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 11133,
+      "nodeId": "ac3-trades-feed-time",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 11566,
+      "nodeId": "ac3-trades-feed-time",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 11588,
+      "nodeId": "ac3-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 11672,
+      "nodeId": "ac3-screenshot",
+      "status": "passed"
+    }
+  ]
+}

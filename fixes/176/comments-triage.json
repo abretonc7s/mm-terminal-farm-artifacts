@@ -1,0 +1,32 @@
+[
+  {
+    "comment_id": 4225420170,
+    "author_login": "cursor[bot]",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
+    "line": 227,
+    "triage": "REAL",
+    "action": "Stamp receipt time only on WebSocket writes; validate completed dummy fetch and aggregation fallback.",
+    "fixed_in_commit": "211478eda2bd0df789cba6ffd0467e730077884b"
+  },
+  {
+    "comment_id": 4228583202,
+    "author_login": "aganglada",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
+    "line": 227,
+    "triage": "REAL",
+    "action": "Scope receipt time to symbol/aggregation and reset on resubscription; preserve shared cache payloads.",
+    "fixed_in_commit": "211478eda2bd0df789cba6ffd0467e730077884b"
+  },
+  {
+    "comment_id": 4228583209,
+    "author_login": "aganglada",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/queries/live-trades-query.ts",
+    "line": 208,
+    "triage": "REAL",
+    "action": "Stamp trades frames explicitly; validate seeded snapshots, key changes, duplicate frames and error retention.",
+    "fixed_in_commit": "211478eda2bd0df789cba6ffd0467e730077884b"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "verdict": "warn",
+  "compact": {
+    "verdict": "WARN",
+    "reasons": [
+      "Current 19-node follow-up recipe passes with four inspected screenshots.",
+      "AC4 now asserts Connecting and no timestamp before the first frame, matching reviewer-requested semantics.",
+      "Received-feed stale/disconnected state has behavioral tests but no runtime fault-injection proof.",
+      "Video recording is unsupported by the terminal adapter.",
+      "Aggregation 100 is needed because the pre-existing provider filter drops default-book testnet updates."
+    ],
+    "better_version_guidance": [
+      "Add adapter WebSocket fault injection for visual stale/disconnected proof.",
+      "Remove aggregation workaround after the provider filter is fixed."
+    ]
+  },
+  "dimensions": {},
+  "structural_findings": [],
+  "contextual_findings": [],
+  "suggested_recipe_delta": [],
+  "training_fields": {
+    "proof_mode": "mixed"
+  },
+  "meta": {
+    "producer": "worker",
+    "fallback_used": false,
+    "legacy_task": false,
+    "artifact_required": true,
+    "source_signals": [
+      "recipe.json",
+      "recipe-coverage.md",
+      "recipe-run/summary.json",
+      "evidence-manifest.json",
+      "regression-control.log"
+    ]
+  }
+}

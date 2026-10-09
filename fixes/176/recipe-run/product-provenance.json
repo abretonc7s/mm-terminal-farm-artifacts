@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "adapter": "terminal",
+  "repository": "va-mmcx-terminal-3",
+  "git_ref": "8185a5dbd7b931447fdfc4bbc3c206f1fb7217a3",
+  "branch": "TAT-4036-feat-tat-4036",
+  "dirty": true
+}
