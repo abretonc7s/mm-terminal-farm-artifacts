@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "recipeDigest": "sha256:f5257ae6060e8a439d6bfafe3f4685608bfcff8c53aa893e51bc511a00b1b80a",
+  "startedAt": "2026-10-09T12:25:10.818Z",
+  "params": {
+    "account": "Trading",
+    "market": "BTC"
+  },
+  "redactedPaths": []
+}

@@ -1,0 +1,30 @@
+commit 4cbae0b4cf30c90b40e1a6e89c0aabfbee47f7d9
+gpg: Signature made Fri Oct  9 20:34:44 2026 HKT
+gpg:                using EDDSA key 6DADC9450892C679EAED32F2A41FEC143503D502
+gpg: Good signature from "Arthur Breton <4800095+deeeed@users.noreply.github.com>" [unknown]
+gpg:                 aka "Arthur Breton <arthur.breton@consensys.net>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+      6DADC9450892C679EAED32F2A41FEC143503D502
+Author:     abretonc7s <arthur.breton@consensys.net>
+AuthorDate: Fri Oct 9 20:29:33 2026 +0800
+Commit:     abretonc7s <arthur.breton@consensys.net>
+CommitDate: Fri Oct 9 20:34:44 2026 +0800
+
+    fix: address PR feedback
+
+commit ab8ed605d7280324c379471b40713c30eb7cb692
+gpg: Signature made Fri Oct  9 20:34:15 2026 HKT
+gpg:                using EDDSA key 6DADC9450892C679EAED32F2A41FEC143503D502
+gpg: Good signature from "Arthur Breton <4800095+deeeed@users.noreply.github.com>" [unknown]
+gpg:                 aka "Arthur Breton <arthur.breton@consensys.net>" [unknown]
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+      6DADC9450892C679EAED32F2A41FEC143503D502
+Merge: 211478e a0c70d3
+Author:     abretonc7s <arthur.breton@consensys.net>
+AuthorDate: Fri Oct 9 20:34:15 2026 +0800
+Commit:     abretonc7s <arthur.breton@consensys.net>
+CommitDate: Fri Oct 9 20:34:15 2026 +0800
+
+    Merge remote-tracking branch 'origin/main' into TAT-4036-feat-tat-4036

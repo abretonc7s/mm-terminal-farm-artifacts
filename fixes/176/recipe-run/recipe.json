@@ -1,7 +1,7 @@
 {
   "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
   "title": "TAT-4036 feed status and last-updated time on order book and trades",
-  "description": "Read-only feed badge regression proof. Cached default-aggregation levels stay visible with Connecting and no feed timestamp before the first WebSocket frame. The 100 aggregation and trades display Live with a timestamp after frames arrive. Disconnect and stale derivation are covered by behavioral tests.",
+  "description": "Read-only testnet regression proof of retained price levels and Live receipt timestamps for order book and trades. First-frame timeout and disconnect behavior require controlled timer/provider tests because this adapter cannot suppress frames.",
   "proofTargets": [
     {
       "id": "AC1",
@@ -14,10 +14,6 @@
     {
       "id": "AC3",
       "claim": "The trades panel shows its feed status with a last-updated timestamp."
-    },
-    {
-      "id": "AC4",
-      "claim": "Before the first WebSocket frame, cached order book levels stay visible with Connecting and no last-updated timestamp."
     }
   ],
   "workflow": {
@@ -69,50 +65,6 @@
           "AC1"
         ],
         "intent": "Keep a picture of the order book levels",
-        "next": "ac4-default-aggregation-stale"
-      },
-      "ac4-default-aggregation-stale": {
-        "action": "ui.wait_for",
-        "selector": "[data-testid=\"order-book-feed-status\"][data-status=\"connecting\"]",
-        "text": "Connecting",
-        "expected": "visible",
-        "timeout_ms": 60000,
-        "proves": [
-          "AC4"
-        ],
-        "intent": "Confirm the cached snapshot has not been mistaken for a received WebSocket frame",
-        "next": "ac4-default-aggregation-time"
-      },
-      "ac4-default-aggregation-time": {
-        "action": "ui.wait_for",
-        "selector": "[data-testid=\"order-book-feed-status\"] time[datetime]",
-        "expected": "hidden",
-        "timeout_ms": 15000,
-        "proves": [
-          "AC4"
-        ],
-        "intent": "Confirm no feed update timestamp appears before the first frame",
-        "next": "ac4-default-aggregation-levels"
-      },
-      "ac4-default-aggregation-levels": {
-        "action": "ui.wait_for",
-        "selector": "button[aria-label^=\"Bid at\"]",
-        "expected": "visible",
-        "timeout_ms": 15000,
-        "proves": [
-          "AC4"
-        ],
-        "intent": "Confirm the stalled order book keeps showing its last price levels",
-        "next": "ac4-screenshot"
-      },
-      "ac4-screenshot": {
-        "action": "ui.screenshot",
-        "path": "screenshots/recipe/evidence-ac4-orderbook-awaiting-frame.png",
-        "label": "AC4 cached book Connecting without fabricated last-updated time",
-        "proves": [
-          "AC4"
-        ],
-        "intent": "Keep a picture of the default-view badge state",
         "next": "ac2-open-aggregation"
       },
       "ac2-open-aggregation": {

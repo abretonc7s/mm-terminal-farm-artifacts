@@ -1,0 +1,22 @@
+{
+  "mergeCommit": "ab8ed605d7280324c379471b40713c30eb7cb692",
+  "fixCommit": "4cbae0b4cf30c90b40e1a6e89c0aabfbee47f7d9",
+  "githubVerification": {
+    "merge": {
+      "verified": true,
+      "reason": "valid"
+    },
+    "fix": {
+      "verified": true,
+      "reason": "valid"
+    }
+  },
+  "pushSucceeded": true,
+  "recoveryPushAttempts": 1,
+  "bugbotReplyId": 4230095140,
+  "testsPassed": 397,
+  "recipePassed": 15,
+  "projectTypecheckExitCode": 0,
+  "changedFileBiomeExitCode": 0,
+  "tempOnlyTypecheckDiagnostics": 231
+}

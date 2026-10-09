@@ -1,0 +1,50 @@
+Recipe libraries: perps=/Users/deeeed/dev/metamask/experimental-metamask-recipe-perps (5 recipes), terminal=/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal (34 recipes), metamask=/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library (16 recipes)
+Recipe libraries: perps=/Users/deeeed/dev/metamask/experimental-metamask-recipe-perps (5 recipes), terminal=/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal (34 recipes), metamask=/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library (16 recipes)
+{
+  "schemaVersion": 1,
+  "command": "run",
+  "context": {
+    "adapter": {
+      "value": "terminal",
+      "source": "flag",
+      "detail": "--adapter"
+    },
+    "target": {
+      "value": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1",
+      "source": "flag",
+      "detail": "--target"
+    },
+    "slot": {
+      "value": null,
+      "source": "none",
+      "detail": "not-in-pool",
+      "poolDir": "/Users/deeeed/dev/farmslot/pool"
+    },
+    "ports": {
+      "cdp": {
+        "value": 9541,
+        "source": "flag"
+      },
+      "watcher": {
+        "value": 9341,
+        "source": "flag"
+      }
+    }
+  },
+  "status": "fail",
+  "recoverable": false,
+  "recovered": [],
+  "mutations": [],
+  "attemptedRecoveries": [],
+  "summaryPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/tasks/fix/176-1009-201707/artifacts/recipe-run/summary.json",
+  "tracePath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/tasks/fix/176-1009-201707/artifacts/recipe-run/trace.json",
+  "artifactManifestPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/tasks/fix/176-1009-201707/artifacts/recipe-run/artifact-manifest.json",
+  "exitCode": 1,
+  "error": {
+    "code": "APP_LOGIC_FAILURE",
+    "message": "failure looks like app-logic — healing cannot help; surface verbatim.",
+    "retryable": false,
+    "userAction": "inspect /Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/tasks/fix/176-1009-201707/artifacts/recipe-run/summary.json and /Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/tasks/fix/176-1009-201707/artifacts/recipe-run/trace.json; fix the application or recipe failure before retrying",
+    "originalError": "Error: ui.wait_for timed out\n    at <anonymous>:84:343"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "command": "run",
+  "context": {
+    "adapter": {
+      "value": "terminal",
+      "source": "flag",
+      "detail": "--adapter"
+    },
+    "target": {
+      "value": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1",
+      "source": "flag",
+      "detail": "--target"
+    },
+    "slot": {
+      "value": null,
+      "source": "none",
+      "detail": "not-in-pool",
+      "poolDir": "/Users/deeeed/dev/farmslot/pool"
+    },
+    "ports": {
+      "cdp": {
+        "value": 9541,
+        "source": "flag"
+      },
+      "watcher": {
+        "value": 9341,
+        "source": "flag"
+      }
+    }
+  },
+  "mode": "plan",
+  "status": "pass",
+  "adapter": "terminal",
+  "recipe": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/tasks/fix/176-1009-201707/artifacts/recipe.json",
+  "params": {
+    "account": "Trading",
+    "market": "BTC"
+  },
+  "findings": [],
+  "plan": [
+    {
+      "step": "resolve.recipe",
+      "confidence": "static",
+      "status": "ok",
+      "detail": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/tasks/fix/176-1009-201707/artifacts/recipe.json"
+    },
+    {
+      "step": "resolve.adapter",
+      "confidence": "static",
+      "status": "ok",
+      "detail": "terminal"
+    },
+    {
+      "step": "resolve.artifactsDir",
+      "confidence": "static",
+      "status": "ok",
+      "detail": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/tasks/fix/176-1009-201707/artifacts/recipe-plan-2"
+    },
+    {
+      "step": "validate.manifest",
+      "confidence": "static",
+      "status": "ok",
+      "detail": "action manifest is well-formed"
+    },
+    {
+      "step": "validate.schema",
+      "confidence": "static",
+      "status": "ok",
+      "detail": "recipe document schema + action existence/platform vs the adapter manifest"
+    },
+    {
+      "step": "validate.proofBindings",
+      "confidence": "static",
+      "status": "ok",
+      "detail": "checks possible behavioral assertion bindings only; runtime order, branches, results and proof artifact indexing remain unverified"
+    },
+    {
+      "step": "fixture.file",
+      "confidence": "static",
+      "status": "ok",
+      "detail": "present: /Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp/recipe/runtime/wallet-fixture.json"
+    },
+    {
+      "step": "overlay.ensure",
+      "confidence": "conditional",
+      "status": "planned",
+      "detail": "would auto-ensure the runtime overlay if missing (install phase)"
+    },
+    {
+      "step": "launch.app",
+      "confidence": "conditional",
+      "status": "planned",
+      "detail": "would launch/attach the app + heal transport (Metro/Chrome/CDP) before executing"
+    },
+    {
+      "step": "execute.nodes",
+      "confidence": "conditional",
+      "status": "planned",
+      "detail": "would execute 20 recipe node(s)"
+    }
+  ]
+}

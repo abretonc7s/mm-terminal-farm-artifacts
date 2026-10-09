@@ -1,0 +1,10 @@
+{
+  "extends": "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/tsconfig.json",
+  "exclude": [
+    "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/node_modules",
+    "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/electron",
+    "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/dist-electron",
+    "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/dist-app",
+    "/Users/deeeed/dev/metamask/va-mmcx-terminal-1/temp"
+  ]
+}

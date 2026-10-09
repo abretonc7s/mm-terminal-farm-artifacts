@@ -1,0 +1,314 @@
+{
+  "reviewDecision": "CHANGES_REQUESTED",
+  "reviews": [
+    {
+      "id": "PRR_kwDOPqTvds8AAAABRbM4CA",
+      "author": {
+        "login": "cursor"
+      },
+      "authorAssociation": "NONE",
+      "body": "<!-- BUGBOT_REVIEW -->\n<!-- BUGBOT_REVIEW_STALE -->\nStale Bugbot comment from a previous run.",
+      "submittedAt": "2026-10-09T00:14:27Z",
+      "includesCreatedEdit": false,
+      "reactionGroups": [],
+      "state": "COMMENTED",
+      "commit": {
+        "oid": "6039010e4e060650bc52be16d5de3a93605e23d5"
+      }
+    },
+    {
+      "id": "PRR_kwDOPqTvds8AAAABRe3TFA",
+      "author": {
+        "login": "aganglada"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "`deriveFeedStatus` is clear, the 15s order-book threshold is reasonable, and leaving trades without a time-based stale state is right. A quiet market is not a dead feed.\n\nRequesting changes on `lastUpdatedAt`. It comes from React Query `dataUpdatedAt`, and the query function is `() => null` with `staleTime: Infinity`. A new cache key (aggregation change, or the first subscribe) stamps \"updated now\" when that dummy fetch resolves. With `placeholderData: keepPreviousData`, the badge can read Live over the previous book. Stamp the time on the WebSocket write, and leave it unset until that write happens. The trades query has the same pattern.\n\nThe description is also right that default aggregation still drops `l2Book` frames in `ControllerPerpsProvider` when `matchesAggregation` guesses the level wrong. #180's finest socket feeds the slippage estimate only. The visible book still uses the controller, so this badge will sit on Stale for that book until the drop is fixed.\n\nThese five PRs all target `main` and overlap. Suggested merge order is #178, #179, #176, #177, then #180.",
+      "submittedAt": "2026-10-09T09:19:09Z",
+      "includesCreatedEdit": false,
+      "reactionGroups": [],
+      "state": "CHANGES_REQUESTED",
+      "commit": {
+        "oid": "6039010e4e060650bc52be16d5de3a93605e23d5"
+      }
+    },
+    {
+      "id": "PRR_kwDOPqTvds8AAAABRfGliA",
+      "author": {
+        "login": "abretonc7s"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "",
+      "submittedAt": "2026-10-09T09:45:02Z",
+      "includesCreatedEdit": false,
+      "reactionGroups": [],
+      "state": "COMMENTED",
+      "commit": {
+        "oid": "211478eda2bd0df789cba6ffd0467e730077884b"
+      }
+    },
+    {
+      "id": "PRR_kwDOPqTvds8AAAABRfGmmQ",
+      "author": {
+        "login": "abretonc7s"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "",
+      "submittedAt": "2026-10-09T09:45:03Z",
+      "includesCreatedEdit": false,
+      "reactionGroups": [],
+      "state": "COMMENTED",
+      "commit": {
+        "oid": "211478eda2bd0df789cba6ffd0467e730077884b"
+      }
+    },
+    {
+      "id": "PRR_kwDOPqTvds8AAAABRfGnoQ",
+      "author": {
+        "login": "abretonc7s"
+      },
+      "authorAssociation": "MEMBER",
+      "body": "",
+      "submittedAt": "2026-10-09T09:45:04Z",
+      "includesCreatedEdit": false,
+      "reactionGroups": [],
+      "state": "COMMENTED",
+      "commit": {
+        "oid": "211478eda2bd0df789cba6ffd0467e730077884b"
+      }
+    },
+    {
+      "id": "PRR_kwDOPqTvds8AAAABRfJcJQ",
+      "author": {
+        "login": "cursor"
+      },
+      "authorAssociation": "NONE",
+      "body": "<!-- BUGBOT_REVIEW -->\nCursor Bugbot has reviewed your changes and found 1 potential issue.\n\n\n\n<!-- BUGBOT_FIX_ALL -->\n<a href=\"https://cursor.com/open?link=eyJ2ZXJzaW9uIjoxLCJ0eXBlIjoiQlVHQk9UX0ZJWF9BTExfSU5fQ1VSU09SIiwiZGF0YSI6eyJyZWRpc0tleSI6ImJ1Z2JvdC1tdWx0aTpkODE5MThhMi01MTM0LTQ3NTgtYWMzZS0yYmQyOTZhNGQ3YTkiLCJlbmNyeXB0aW9uS2V5IjoiYWJXVS0yMDhXMjUzUlVXRG5OQ19WLXlMNnlFQU1qRWpCZ2NMbjJ3Zk5tUSIsImJyYW5jaCI6IlRBVC00MDM2LWZlYXQtdGF0LTQwMzYiLCJyZXBvT3duZXIiOiJjb25zZW5zeXMtdmVydGljYWwtYXBwcyIsInJlcG9OYW1lIjoidmEtbW1jeC10ZXJtaW5hbCIsInByb3ZpZGVyIjoiZ2l0aHViIn19\" target=\"_blank\" rel=\"noopener noreferrer\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://cursor.com/assets/images/fix-in-cursor-dark.png\"><source media=\"(prefers-color-scheme: light)\" srcset=\"https://cursor.com/assets/images/fix-in-cursor-light.png\"><img alt=\"Fix All in Cursor\" width=\"115\" height=\"28\" src=\"https://cursor.com/assets/images/fix-in-cursor-dark.png\"></picture></a>\n<!-- /BUGBOT_FIX_ALL -->\n\n<!-- BUGBOT_AUTOFIX_REVIEW_FOOTNOTE_BEGIN -->\n<sup>❌ Bugbot Autofix is OFF. To automatically fix reported issues with cloud agents, have a team admin enable autofix in the [Cursor dashboard](https://www.cursor.com/dashboard/bugbot).</sup>\n<!-- BUGBOT_AUTOFIX_REVIEW_FOOTNOTE_END -->\n\n<sup>Reviewed by [Cursor Bugbot](https://cursor.com/bugbot) for commit 211478eda2bd0df789cba6ffd0467e730077884b. Configure [here](https://www.cursor.com/dashboard/bugbot).</sup>",
+      "submittedAt": "2026-10-09T09:49:51Z",
+      "includesCreatedEdit": false,
+      "reactionGroups": [],
+      "state": "COMMENTED",
+      "commit": {
+        "oid": "211478eda2bd0df789cba6ffd0467e730077884b"
+      }
+    }
+  ],
+  "statusCheckRollup": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:47:06Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113763187325",
+      "name": "validate-code / linters",
+      "startedAt": "2026-10-09T09:44:55Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:46:33Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113763186942",
+      "name": "validate-code / audit",
+      "startedAt": "2026-10-09T09:44:53Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:44:59Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113763187253",
+      "name": "validate-code / setup-unit-tests",
+      "startedAt": "2026-10-09T09:44:54Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:56:50Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113763234329",
+      "name": "validate-code / unit-tests (test:unit)",
+      "startedAt": "2026-10-09T09:45:02Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:58:13Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113767340571",
+      "name": "validate-code / sonarcloud-scan",
+      "startedAt": "2026-10-09T09:56:53Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:44:59Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113763187189",
+      "name": "fetch-secrets / fetch-secrets",
+      "startedAt": "2026-10-09T09:44:53Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:58:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113767810665",
+      "name": "build / prepare-build-matrix",
+      "startedAt": "2026-10-09T09:58:16Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:58:23Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113767810712",
+      "name": "build / prepare-trivy-matrix",
+      "startedAt": "2026-10-09T09:58:16Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:59:17Z",
+      "conclusion": "FAILURE",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113767846713",
+      "name": "build / build-image (linux/amd64, ubuntu-latest, false)",
+      "startedAt": "2026-10-09T09:58:22Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:59:17Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113768175194",
+      "name": "build / Merge and prepare OCI artifacts",
+      "startedAt": "2026-10-09T09:59:18Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:59:17Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113768176093",
+      "name": "build / trivy-scan",
+      "startedAt": "2026-10-09T09:59:18Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:59:17Z",
+      "conclusion": "SKIPPED",
+      "detailsUrl": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/actions/runs/37913247520/job/113768175844",
+      "name": "build / kics-scan",
+      "startedAt": "2026-10-09T09:59:18Z",
+      "status": "COMPLETED",
+      "workflowName": "Validate PR"
+    },
+    {
+      "__typename": "StatusContext",
+      "context": "Vercel",
+      "startedAt": "2026-10-09T09:44:45Z",
+      "state": "FAILURE",
+      "targetUrl": "https://vercel.com/docs/accounts/team-members-and-roles"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:49:54Z",
+      "conclusion": "NEUTRAL",
+      "detailsUrl": "https://cursor.com/docs/bugbot",
+      "name": "Cursor Bugbot",
+      "startedAt": "2026-10-09T09:44:50Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:44:50Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://socket.dev/dashboard/org/consensys-vertical-apps/sbom/1aa6786f-2341-4bb9-8638-5a5008edc4e3",
+      "name": "Socket Security: Project Report",
+      "startedAt": "2026-10-09T09:44:48Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:44:53Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://socket.dev",
+      "name": "Socket Security: Pull Request Alerts",
+      "startedAt": "2026-10-09T09:44:51Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:58:10Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://sonarcloud.io/dashboard?id=terminal&pullRequest=176",
+      "name": "SonarCloud Code Analysis",
+      "startedAt": "2026-10-09T09:57:17Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:45:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://app.wiz.io/findings/code-cicd-scans#~(event~(~%27006ac8b7-8e0b-8663-bdbb-9ad0d9d61d83*2cCI_CD_SCAN*2c2026-10-09T09*3a44*3a46.171693551Z))",
+      "name": "Wiz Data Scanner",
+      "startedAt": "2026-10-09T09:44:46Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:45:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://app.wiz.io/findings/code-cicd-scans#~(event~(~%27006ac8b7-8e0b-8663-bdbb-9ad0d9d61d83*2cCI_CD_SCAN*2c2026-10-09T09*3a44*3a46.171693551Z))",
+      "name": "Wiz IaC Scanner",
+      "startedAt": "2026-10-09T09:44:47Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:45:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://app.wiz.io/findings/code-cicd-scans#~(event~(~%27006ac8b7-8e0b-8663-bdbb-9ad0d9d61d83*2cCI_CD_SCAN*2c2026-10-09T09*3a44*3a46.171693551Z))",
+      "name": "Wiz SAST Scanner",
+      "startedAt": "2026-10-09T09:44:46Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:45:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://app.wiz.io/findings/code-cicd-scans#~(event~(~%27006ac8b7-8e0b-8663-bdbb-9ad0d9d61d83*2cCI_CD_SCAN*2c2026-10-09T09*3a44*3a46.171693551Z))",
+      "name": "Wiz Secret Scanner",
+      "startedAt": "2026-10-09T09:44:46Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-09T09:45:20Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://app.wiz.io/findings/code-cicd-scans#~(event~(~%27006ac8b7-8e0b-8663-bdbb-9ad0d9d61d83*2cCI_CD_SCAN*2c2026-10-09T09*3a44*3a46.171693551Z))",
+      "name": "Wiz Vulnerability Scanner",
+      "startedAt": "2026-10-09T09:44:46Z",
+      "status": "COMPLETED",
+      "workflowName": ""
+    }
+  ]
+}

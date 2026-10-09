@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "id": "run-network",
+  "status": "unavailable",
+  "startedAtEpochMs": 1791548710663,
+  "endedAtEpochMs": 1791548733871,
+  "maxDurationMs": 3600000,
+  "reconnects": 0,
+  "droppedRequests": 0,
+  "unavailableReasons": [
+    "No browser CDP endpoint on 127.0.0.1:9541 within 10000ms."
+  ],
+  "coverageGapReasons": [],
+  "uninspectableBodyRequests": 0,
+  "projectedBodyFields": [
+    "type"
+  ],
+  "totalRequests": 0,
+  "requestsByMethod": {},
+  "requestsByHost": {},
+  "requestsByType": {},
+  "requests": [],
+  "nodeEvents": [
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 160,
+      "nodeId": "setup-launch",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 5150,
+      "nodeId": "setup-launch",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 5190,
+      "nodeId": "setup-open-order",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 5884,
+      "nodeId": "setup-open-order",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 5903,
+      "nodeId": "gate-orderbook-tab",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 6823,
+      "nodeId": "gate-orderbook-tab",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 6835,
+      "nodeId": "ac1-orderbook-levels",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 8002,
+      "nodeId": "ac1-orderbook-levels",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 8061,
+      "nodeId": "ac4-initial-connecting",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 23086,
+      "nodeId": "ac4-initial-connecting",
+      "status": "failed"
+    }
+  ]
+}

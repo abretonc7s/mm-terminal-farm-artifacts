@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "valid": true,
+  "snapshots": [
+    {
+      "phase": "start",
+      "capturedAt": "2026-10-09T12:25:00.600Z",
+      "recipeDigest": "sha256:f5257ae6060e8a439d6bfafe3f4685608bfcff8c53aa893e51bc511a00b1b80a",
+      "product": {
+        "head": "8e29b19903c49aeb5840147ba839a2a2a15bbe48",
+        "status": " M src/features/perpetuals/order/components/FeedStatus/FeedStatus.test.tsx\n M src/features/perpetuals/order/components/FeedStatus/FeedStatus.tsx\n M src/features/perpetuals/order/components/FeedStatus/feed-status.test.ts\n M src/features/perpetuals/order/components/FeedStatus/feed-status.ts\n M src/features/perpetuals/order/components/OrderBook/OrderBook.test.tsx\n M src/features/perpetuals/order/components/OrderBook/OrderBook.tsx\n",
+        "sourceFingerprint": "b5cb01d4c039909960bdf32d9475a601d30a106cf76f2abda7e12b4354d1e0cc"
+      },
+      "runner": {
+        "head": null,
+        "status": "not-a-git-checkout",
+        "sourceFingerprint": "8152a95061c8da78bfc27859415c1e4b99c8ffa45cc9eaa5e3f5c4cc08f82913"
+      },
+      "libraries": [
+        {
+          "name": "perps",
+          "head": "4229069c5ab79c5bf512855665c08dbb4cc5345c",
+          "status": "",
+          "sourceFingerprint": "5a129519553a712580c75ec264d93413f00d4e72410265fab29a610c5c032806"
+        },
+        {
+          "name": "terminal",
+          "head": "8a44aee270a42a949c3e9b59605ee71c9e51868e",
+          "status": "",
+          "sourceFingerprint": "ed83c0cf321ddedd16254d14fce386296442afffde006b1cf9f3b263b086a44b"
+        },
+        {
+          "name": "metamask",
+          "head": null,
+          "status": "not-a-git-checkout",
+          "sourceFingerprint": "51d96943a77c71a6ec9c02f288cf237b1311bc9b97d8da9f280ef782de53f476"
+        }
+      ],
+      "helpers": []
+    },
+    {
+      "phase": "pre-execute",
+      "capturedAt": "2026-10-09T12:25:10.736Z",
+      "recipeDigest": "sha256:f5257ae6060e8a439d6bfafe3f4685608bfcff8c53aa893e51bc511a00b1b80a",
+      "product": {
+        "head": "8e29b19903c49aeb5840147ba839a2a2a15bbe48",
+        "status": " M src/features/perpetuals/order/components/FeedStatus/FeedStatus.test.tsx\n M src/features/perpetuals/order/components/FeedStatus/FeedStatus.tsx\n M src/features/perpetuals/order/components/FeedStatus/feed-status.test.ts\n M src/features/perpetuals/order/components/FeedStatus/feed-status.ts\n M src/features/perpetuals/order/components/OrderBook/OrderBook.test.tsx\n M src/features/perpetuals/order/components/OrderBook/OrderBook.tsx\n",
+        "sourceFingerprint": "b5cb01d4c039909960bdf32d9475a601d30a106cf76f2abda7e12b4354d1e0cc"
+      },
+      "runner": {
+        "head": null,
+        "status": "not-a-git-checkout",
+        "sourceFingerprint": "8152a95061c8da78bfc27859415c1e4b99c8ffa45cc9eaa5e3f5c4cc08f82913"
+      },
+      "libraries": [
+        {
+          "name": "perps",
+          "head": "4229069c5ab79c5bf512855665c08dbb4cc5345c",
+          "status": "",
+          "sourceFingerprint": "5a129519553a712580c75ec264d93413f00d4e72410265fab29a610c5c032806"
+        },
+        {
+          "name": "terminal",
+          "head": "8a44aee270a42a949c3e9b59605ee71c9e51868e",
+          "status": "",
+          "sourceFingerprint": "ed83c0cf321ddedd16254d14fce386296442afffde006b1cf9f3b263b086a44b"
+        },
+        {
+          "name": "metamask",
+          "head": null,
+          "status": "not-a-git-checkout",
+          "sourceFingerprint": "51d96943a77c71a6ec9c02f288cf237b1311bc9b97d8da9f280ef782de53f476"
+        }
+      ],
+      "helpers": []
+    },
+    {
+      "phase": "end",
+      "capturedAt": "2026-10-09T12:25:33.811Z",
+      "recipeDigest": "sha256:f5257ae6060e8a439d6bfafe3f4685608bfcff8c53aa893e51bc511a00b1b80a",
+      "product": {
+        "head": "8e29b19903c49aeb5840147ba839a2a2a15bbe48",
+        "status": " M src/features/perpetuals/order/components/FeedStatus/FeedStatus.test.tsx\n M src/features/perpetuals/order/components/FeedStatus/FeedStatus.tsx\n M src/features/perpetuals/order/components/FeedStatus/feed-status.test.ts\n M src/features/perpetuals/order/components/FeedStatus/feed-status.ts\n M src/features/perpetuals/order/components/OrderBook/OrderBook.test.tsx\n M src/features/perpetuals/order/components/OrderBook/OrderBook.tsx\n",
+        "sourceFingerprint": "b5cb01d4c039909960bdf32d9475a601d30a106cf76f2abda7e12b4354d1e0cc"
+      },
+      "runner": {
+        "head": null,
+        "status": "not-a-git-checkout",
+        "sourceFingerprint": "8152a95061c8da78bfc27859415c1e4b99c8ffa45cc9eaa5e3f5c4cc08f82913"
+      },
+      "libraries": [
+        {
+          "name": "perps",
+          "head": "4229069c5ab79c5bf512855665c08dbb4cc5345c",
+          "status": "",
+          "sourceFingerprint": "5a129519553a712580c75ec264d93413f00d4e72410265fab29a610c5c032806"
+        },
+        {
+          "name": "terminal",
+          "head": "8a44aee270a42a949c3e9b59605ee71c9e51868e",
+          "status": "",
+          "sourceFingerprint": "ed83c0cf321ddedd16254d14fce386296442afffde006b1cf9f3b263b086a44b"
+        },
+        {
+          "name": "metamask",
+          "head": null,
+          "status": "not-a-git-checkout",
+          "sourceFingerprint": "51d96943a77c71a6ec9c02f288cf237b1311bc9b97d8da9f280ef782de53f476"
+        }
+      ],
+      "helpers": []
+    }
+  ],
+  "drift": []
+}

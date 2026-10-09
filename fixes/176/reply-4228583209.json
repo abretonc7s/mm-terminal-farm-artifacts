@@ -1,1 +1,0 @@
-{"body": "Fixed in 211478e. Trades now records receipt time in the WebSocket onData callback, clears it on resubscription, and scopes it to the symbol. The dummy fetch and seeded snapshots cannot stamp the feed. Tests cover completed dummy fetches, symbol switches, identical frames advancing the timestamp, and errors preserving the last received time."}

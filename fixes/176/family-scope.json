@@ -1,6 +1,6 @@
 {
-  "originalFamilyScopeSummary": "TAT-4036: Sentry, product analytics, gated access/kill switch, and reliability guardrails.",
-  "currentTriggerSummary": "PR 176 completion: live/stale/disconnected feed status for order book and trades; address timestamp review feedback.",
+  "originalFamilyScopeSummary": "TAT-4036: add Sentry, mobile-parity analytics, allowlist/kill-switch and reliability guardrails.",
+  "currentTriggerSummary": "PR 176 follow-up: show live, stale and disconnected feed status on order book and trades; resolve cached books remaining Connecting before first frame.",
   "scopeVerdict": "partial-symptom-only",
-  "notes": "All three fetched inline timestamp comments are fixed and replied to in 211478eda2bd0df789cba6ffd0467e730077884b. This PR covers feed badges only. Sentry setup, analytics taxonomy, gating/kill-switch provisioning and the provider default-aggregation drop remain outside this PR as recorded in inherited context. New proof confirms Connecting without timestamp until the first WebSocket frame and Live timestamps afterward; received-feed stale/disconnect behavior remains covered by tests."
+  "notes": "Published fix 4cbae0b covers first-frame wait timeout independently of receipt timestamps and passes 397 tests plus 15 runtime regression nodes. Both recreated commits have valid verified signatures; publication blocker is resolved. The broader family remains partial: Sentry credentials, analytics taxonomy, allowlist decisions and LaunchDarkly provisioning remain deferred in inherited context. Existing skeletons and rejected-order input preservation are unchanged. Runtime timeout injection is unsupported; timer/provider behavior is covered by component tests."
 }

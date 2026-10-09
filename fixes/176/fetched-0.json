@@ -1,0 +1,488 @@
+[
+  {
+    "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4225420170",
+    "pull_request_review_id": 5464340488,
+    "id": 4225420170,
+    "node_id": "PRRC_kwDOPqTvds772suK",
+    "diff_hunk": "@@ -219,6 +224,7 @@ export function useLiveOrderBook(\n     isInitialLoading,\n     isConnected,\n     isError,\n+    lastUpdatedAt: dataUpdatedAt > 0 ? dataUpdatedAt : null,",
+    "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
+    "commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "original_commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "user": {
+      "login": "cursor[bot]",
+      "id": 206951365,
+      "node_id": "BOT_kgDODFXTxQ",
+      "avatar_url": "https://avatars.githubusercontent.com/in/1210556?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cursor%5Bbot%5D",
+      "html_url": "https://github.com/apps/cursor",
+      "followers_url": "https://api.github.com/users/cursor%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/cursor%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cursor%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cursor%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cursor%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/cursor%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/cursor%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/cursor%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cursor%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "### Dummy fetch stamps last-updated time\n\n**Medium Severity**\n\n<!-- DESCRIPTION START -->\n`lastUpdatedAt` is taken from React Query `dataUpdatedAt`, which the dummy `queryFn` stamps as soon as a new cache key mounts. Changing aggregation therefore shows `Updated` as now while the panel still renders the previous book from fallback, so the timestamp does not describe the visible levels.\n<!-- DESCRIPTION END -->\n\n<!-- BUGBOT_BUG_ID: 3226f38d-1ba0-4b61-8bca-e5567402a4fa -->\n\n<!-- LOCATIONS START\nsrc/features/perpetuals/queries/live-orderbook-query.ts#L226-L227\nLOCATIONS END -->\n<div><a href=\"https://cursor.com/open?link=eyJ2ZXJzaW9uIjoxLCJ0eXBlIjoiQlVHQk9UX0ZJWF9JTl9DVVJTT1IiLCJkYXRhIjp7InJlZGlzS2V5IjoiYnVnYm90OjQ1OTI5YmMyLTdjOWItNDg4Ny04OWZjLTRkOWM5NzM4YWE2YSIsImVuY3J5cHRpb25LZXkiOiJQY1JtOXJWYW8tdTB2eHpsSEVDbklJM3hPbnRWanlMaVZ0bzFrS3R5ZlNzIiwiYnJhbmNoIjoiVEFULTQwMzYtZmVhdC10YXQtNDAzNiIsInJlcG9Pd25lciI6ImNvbnNlbnN5cy12ZXJ0aWNhbC1hcHBzIiwicmVwb05hbWUiOiJ2YS1tbWN4LXRlcm1pbmFsIiwicHJvdmlkZXIiOiJnaXRodWIifX0\" target=\"_blank\" rel=\"noopener noreferrer\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://cursor.com/assets/images/fix-in-cursor-dark.png\"><source media=\"(prefers-color-scheme: light)\" srcset=\"https://cursor.com/assets/images/fix-in-cursor-light.png\"><img alt=\"Fix in Cursor\" width=\"115\" height=\"28\" src=\"https://cursor.com/assets/images/fix-in-cursor-dark.png\"></picture></a>&nbsp;<a href=\"https://cursor.com/agents?link=eyJ2ZXJzaW9uIjoxLCJ0eXBlIjoiQlVHQk9UX0ZJWF9JTl9XRUIiLCJkYXRhIjp7InJlZGlzS2V5IjoiYnVnYm90OjQ1OTI5YmMyLTdjOWItNDg4Ny04OWZjLTRkOWM5NzM4YWE2YSIsImVuY3J5cHRpb25LZXkiOiJQY1JtOXJWYW8tdTB2eHpsSEVDbklJM3hPbnRWanlMaVZ0bzFrS3R5ZlNzIiwiYnJhbmNoIjoiVEFULTQwMzYtZmVhdC10YXQtNDAzNiIsInJlcG9Pd25lciI6ImNvbnNlbnN5cy12ZXJ0aWNhbC1hcHBzIiwicmVwb05hbWUiOiJ2YS1tbWN4LXRlcm1pbmFsIiwicHJOdW1iZXIiOjE3NiwiY29tbWl0U2hhIjoiNjAzOTAxMGU0ZTA2MDY1MGJjNTJiZTE2ZDVkZTNhOTM2MDVlMjNkNSIsInByb3ZpZGVyIjoiZ2l0aHViIn19\" target=\"_blank\" rel=\"noopener noreferrer\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://cursor.com/assets/images/fix-in-web-dark.png\"><source media=\"(prefers-color-scheme: light)\" srcset=\"https://cursor.com/assets/images/fix-in-web-light.png\"><img alt=\"Fix in Web\" width=\"99\" height=\"28\" src=\"https://cursor.com/assets/images/fix-in-web-dark.png\"></picture></a></div>\n\n\n<sup>Reviewed by [Cursor Bugbot](https://cursor.com/bugbot) for commit 6039010e4e060650bc52be16d5de3a93605e23d5. Configure [here](https://www.cursor.com/dashboard/bugbot).</sup>\n",
+    "created_at": "2026-10-09T00:14:27Z",
+    "updated_at": "2026-10-09T00:14:27Z",
+    "html_url": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4225420170",
+    "pull_request_url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4225420170"
+      },
+      "html": {
+        "href": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4225420170"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4225420170/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 227,
+    "side": "RIGHT",
+    "author_association": "NONE",
+    "original_position": 44,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228583202",
+    "pull_request_review_id": 5468181268,
+    "id": 4228583202,
+    "node_id": "PRRC_kwDOPqTvds78Cw8i",
+    "diff_hunk": "@@ -219,6 +224,7 @@ export function useLiveOrderBook(\n     isInitialLoading,\n     isConnected,\n     isError,\n+    lastUpdatedAt: dataUpdatedAt > 0 ? dataUpdatedAt : null,",
+    "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
+    "commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "original_commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "user": {
+      "login": "aganglada",
+      "id": 922348,
+      "node_id": "MDQ6VXNlcjkyMjM0OA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/922348?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aganglada",
+      "html_url": "https://github.com/aganglada",
+      "followers_url": "https://api.github.com/users/aganglada/followers",
+      "following_url": "https://api.github.com/users/aganglada/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aganglada/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aganglada/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aganglada/subscriptions",
+      "organizations_url": "https://api.github.com/users/aganglada/orgs",
+      "repos_url": "https://api.github.com/users/aganglada/repos",
+      "events_url": "https://api.github.com/users/aganglada/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aganglada/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "`dataUpdatedAt` moves when `queryFn` returns `null`, not only when a book frame is written. On an aggregation change this reports the moment the new key's dummy fetch finished, while `keepPreviousData` is still showing the previous levels. Record the timestamp in the WebSocket `setQueryData` path and leave `lastUpdatedAt` unset until that write.",
+    "created_at": "2026-10-09T09:19:09Z",
+    "updated_at": "2026-10-09T09:19:09Z",
+    "html_url": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228583202",
+    "pull_request_url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228583202"
+      },
+      "html": {
+        "href": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228583202"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228583202/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 227,
+    "side": "RIGHT",
+    "author_association": "MEMBER",
+    "original_position": 44,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228583209",
+    "pull_request_review_id": 5468181268,
+    "id": 4228583209,
+    "node_id": "PRRC_kwDOPqTvds78Cw8p",
+    "diff_hunk": "@@ -202,6 +205,7 @@ export function useLiveTrades(\n     isInitialLoading,\n     isConnected,\n     isError,\n+    lastUpdatedAt: dataUpdatedAt > 0 ? dataUpdatedAt : null,",
+    "path": "src/features/perpetuals/queries/live-trades-query.ts",
+    "commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "original_commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "user": {
+      "login": "aganglada",
+      "id": 922348,
+      "node_id": "MDQ6VXNlcjkyMjM0OA==",
+      "avatar_url": "https://avatars.githubusercontent.com/u/922348?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/aganglada",
+      "html_url": "https://github.com/aganglada",
+      "followers_url": "https://api.github.com/users/aganglada/followers",
+      "following_url": "https://api.github.com/users/aganglada/following{/other_user}",
+      "gists_url": "https://api.github.com/users/aganglada/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/aganglada/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/aganglada/subscriptions",
+      "organizations_url": "https://api.github.com/users/aganglada/orgs",
+      "repos_url": "https://api.github.com/users/aganglada/repos",
+      "events_url": "https://api.github.com/users/aganglada/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/aganglada/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "Same timestamp source as the order book. A dummy `queryFn` resolution marks the trades feed updated before any trade message arrives.",
+    "created_at": "2026-10-09T09:19:09Z",
+    "updated_at": "2026-10-09T09:19:09Z",
+    "html_url": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228583209",
+    "pull_request_url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228583209"
+      },
+      "html": {
+        "href": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228583209"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228583209/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 208,
+    "side": "RIGHT",
+    "author_association": "MEMBER",
+    "original_position": 30,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791484",
+    "pull_request_review_id": 5468431752,
+    "id": 4228791484,
+    "node_id": "PRRC_kwDOPqTvds78Djy8",
+    "diff_hunk": "@@ -219,6 +224,7 @@ export function useLiveOrderBook(\n     isInitialLoading,\n     isConnected,\n     isError,\n+    lastUpdatedAt: dataUpdatedAt > 0 ? dataUpdatedAt : null,",
+    "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
+    "commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "original_commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "user": {
+      "login": "abretonc7s",
+      "id": 107169956,
+      "node_id": "U_kgDOBmNIpA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/107169956?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/abretonc7s",
+      "html_url": "https://github.com/abretonc7s",
+      "followers_url": "https://api.github.com/users/abretonc7s/followers",
+      "following_url": "https://api.github.com/users/abretonc7s/following{/other_user}",
+      "gists_url": "https://api.github.com/users/abretonc7s/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/abretonc7s/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/abretonc7s/subscriptions",
+      "organizations_url": "https://api.github.com/users/abretonc7s/orgs",
+      "repos_url": "https://api.github.com/users/abretonc7s/repos",
+      "events_url": "https://api.github.com/users/abretonc7s/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/abretonc7s/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "Fixed in 211478e. lastUpdatedAt is now stamped only in the WebSocket onData callback beside setQueryData, scoped to the active symbol and aggregation. Dummy fetches and cached snapshots leave it null. Regression tests await dummy fetch completion and verify aggregation changes cannot manufacture an update time.",
+    "created_at": "2026-10-09T09:45:01Z",
+    "updated_at": "2026-10-09T09:45:02Z",
+    "html_url": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228791484",
+    "pull_request_url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791484"
+      },
+      "html": {
+        "href": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228791484"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791484/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 227,
+    "side": "RIGHT",
+    "in_reply_to_id": 4225420170,
+    "author_association": "MEMBER",
+    "original_position": 44,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791677",
+    "pull_request_review_id": 5468432025,
+    "id": 4228791677,
+    "node_id": "PRRC_kwDOPqTvds78Dj19",
+    "diff_hunk": "@@ -219,6 +224,7 @@ export function useLiveOrderBook(\n     isInitialLoading,\n     isConnected,\n     isError,\n+    lastUpdatedAt: dataUpdatedAt > 0 ? dataUpdatedAt : null,",
+    "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
+    "commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "original_commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "user": {
+      "login": "abretonc7s",
+      "id": 107169956,
+      "node_id": "U_kgDOBmNIpA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/107169956?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/abretonc7s",
+      "html_url": "https://github.com/abretonc7s",
+      "followers_url": "https://api.github.com/users/abretonc7s/followers",
+      "following_url": "https://api.github.com/users/abretonc7s/following{/other_user}",
+      "gists_url": "https://api.github.com/users/abretonc7s/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/abretonc7s/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/abretonc7s/subscriptions",
+      "organizations_url": "https://api.github.com/users/abretonc7s/orgs",
+      "repos_url": "https://api.github.com/users/abretonc7s/repos",
+      "events_url": "https://api.github.com/users/abretonc7s/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/abretonc7s/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "Fixed in 211478e. The order book now records receipt time only when onData writes a WebSocket frame, clears it on resubscription, and returns null for a different subscription key. Cached levels stay visible during aggregation changes. A book that has never received a frame now shows Connecting without an Updated time. The default-aggregation provider drop remains follow-up work. Changed-file lint/typecheck, 269 affected tests, and the 19-node runtime recipe pass.",
+    "created_at": "2026-10-09T09:45:03Z",
+    "updated_at": "2026-10-09T09:45:03Z",
+    "html_url": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228791677",
+    "pull_request_url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791677"
+      },
+      "html": {
+        "href": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228791677"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791677/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 227,
+    "side": "RIGHT",
+    "in_reply_to_id": 4228583202,
+    "author_association": "MEMBER",
+    "original_position": 44,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791877",
+    "pull_request_review_id": 5468432289,
+    "id": 4228791877,
+    "node_id": "PRRC_kwDOPqTvds78Dj5F",
+    "diff_hunk": "@@ -202,6 +205,7 @@ export function useLiveTrades(\n     isInitialLoading,\n     isConnected,\n     isError,\n+    lastUpdatedAt: dataUpdatedAt > 0 ? dataUpdatedAt : null,",
+    "path": "src/features/perpetuals/queries/live-trades-query.ts",
+    "commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "original_commit_id": "6039010e4e060650bc52be16d5de3a93605e23d5",
+    "user": {
+      "login": "abretonc7s",
+      "id": 107169956,
+      "node_id": "U_kgDOBmNIpA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/107169956?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/abretonc7s",
+      "html_url": "https://github.com/abretonc7s",
+      "followers_url": "https://api.github.com/users/abretonc7s/followers",
+      "following_url": "https://api.github.com/users/abretonc7s/following{/other_user}",
+      "gists_url": "https://api.github.com/users/abretonc7s/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/abretonc7s/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/abretonc7s/subscriptions",
+      "organizations_url": "https://api.github.com/users/abretonc7s/orgs",
+      "repos_url": "https://api.github.com/users/abretonc7s/repos",
+      "events_url": "https://api.github.com/users/abretonc7s/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/abretonc7s/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "Fixed in 211478e. Trades now records receipt time in the WebSocket onData callback, clears it on resubscription, and scopes it to the symbol. The dummy fetch and seeded snapshots cannot stamp the feed. Tests cover completed dummy fetches, symbol switches, identical frames advancing the timestamp, and errors preserving the last received time.",
+    "created_at": "2026-10-09T09:45:04Z",
+    "updated_at": "2026-10-09T09:45:04Z",
+    "html_url": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228791877",
+    "pull_request_url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791877"
+      },
+      "html": {
+        "href": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228791877"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228791877/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": null,
+    "original_line": 208,
+    "side": "RIGHT",
+    "in_reply_to_id": 4228583209,
+    "author_association": "MEMBER",
+    "original_position": 30,
+    "position": 1,
+    "subject_type": "line"
+  },
+  {
+    "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228830920",
+    "pull_request_review_id": 5468478501,
+    "id": 4228830920,
+    "node_id": "PRRC_kwDOPqTvds78DtbI",
+    "diff_hunk": "@@ -219,6 +229,10 @@ export function useLiveOrderBook(\n     isInitialLoading,\n     isConnected,\n     isError,\n+    lastUpdatedAt:\n+      lastUpdate?.symbol === symbol && lastUpdate.aggregation === aggregation\n+        ? lastUpdate.at\n+        : null,",
+    "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
+    "commit_id": "211478eda2bd0df789cba6ffd0467e730077884b",
+    "original_commit_id": "211478eda2bd0df789cba6ffd0467e730077884b",
+    "user": {
+      "login": "cursor[bot]",
+      "id": 206951365,
+      "node_id": "BOT_kgDODFXTxQ",
+      "avatar_url": "https://avatars.githubusercontent.com/in/1210556?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/cursor%5Bbot%5D",
+      "html_url": "https://github.com/apps/cursor",
+      "followers_url": "https://api.github.com/users/cursor%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/cursor%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/cursor%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/cursor%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/cursor%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/cursor%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/cursor%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/cursor%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/cursor%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "body": "### Cached book never turns stale\n\n**High Severity**\n\n<!-- DESCRIPTION START -->\n`lastUpdatedAt` stays `null` until a WebSocket write, so a book sitting on its SSR snapshot never ages out. `deriveFeedStatus` treats a missing timestamp as `Connecting` forever, and the last-updated time never appears, even after `staleAfterMs`.\n<!-- DESCRIPTION END -->\n\n<!-- BUGBOT_BUG_ID: b1db29f1-089b-4df1-8a2e-be4755545481 -->\n\n<!-- LOCATIONS START\nsrc/features/perpetuals/queries/live-orderbook-query.ts#L231-L235\nsrc/features/perpetuals/order/components/OrderBook/OrderBook.tsx#L160-L167\nLOCATIONS END -->\n<details>\n<summary>Additional Locations (1)</summary>\n\n- [`src/features/perpetuals/order/components/OrderBook/OrderBook.tsx#L160-L167`](https://github.com/consensys-vertical-apps/va-mmcx-terminal/blob/211478eda2bd0df789cba6ffd0467e730077884b/src/features/perpetuals/order/components/OrderBook/OrderBook.tsx#L160-L167)\n\n</details>\n\n<div><a href=\"https://cursor.com/open?link=eyJ2ZXJzaW9uIjoxLCJ0eXBlIjoiQlVHQk9UX0ZJWF9JTl9DVVJTT1IiLCJkYXRhIjp7InJlZGlzS2V5IjoiYnVnYm90OmY0ZGVmZmM4LWZlNTQtNGIwMi1hMzYzLWUyZGY2MWI2MWM0YiIsImVuY3J5cHRpb25LZXkiOiJaRFI5TFk4eE9QYkFWUllJNWloNUVjS0xsX21Gb0VULXFEanpnZkl2ZlFNIiwiYnJhbmNoIjoiVEFULTQwMzYtZmVhdC10YXQtNDAzNiIsInJlcG9Pd25lciI6ImNvbnNlbnN5cy12ZXJ0aWNhbC1hcHBzIiwicmVwb05hbWUiOiJ2YS1tbWN4LXRlcm1pbmFsIiwicHJvdmlkZXIiOiJnaXRodWIifX0\" target=\"_blank\" rel=\"noopener noreferrer\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://cursor.com/assets/images/fix-in-cursor-dark.png\"><source media=\"(prefers-color-scheme: light)\" srcset=\"https://cursor.com/assets/images/fix-in-cursor-light.png\"><img alt=\"Fix in Cursor\" width=\"115\" height=\"28\" src=\"https://cursor.com/assets/images/fix-in-cursor-dark.png\"></picture></a>&nbsp;<a href=\"https://cursor.com/agents?link=eyJ2ZXJzaW9uIjoxLCJ0eXBlIjoiQlVHQk9UX0ZJWF9JTl9XRUIiLCJkYXRhIjp7InJlZGlzS2V5IjoiYnVnYm90OmY0ZGVmZmM4LWZlNTQtNGIwMi1hMzYzLWUyZGY2MWI2MWM0YiIsImVuY3J5cHRpb25LZXkiOiJaRFI5TFk4eE9QYkFWUllJNWloNUVjS0xsX21Gb0VULXFEanpnZkl2ZlFNIiwiYnJhbmNoIjoiVEFULTQwMzYtZmVhdC10YXQtNDAzNiIsInJlcG9Pd25lciI6ImNvbnNlbnN5cy12ZXJ0aWNhbC1hcHBzIiwicmVwb05hbWUiOiJ2YS1tbWN4LXRlcm1pbmFsIiwicHJOdW1iZXIiOjE3NiwiY29tbWl0U2hhIjoiMjExNDc4ZWRhMmJkMGRmNzg5Y2JhNmZmZDA0NjdlNzMwMDc3ODg0YiIsInByb3ZpZGVyIjoiZ2l0aHViIn19\" target=\"_blank\" rel=\"noopener noreferrer\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://cursor.com/assets/images/fix-in-web-dark.png\"><source media=\"(prefers-color-scheme: light)\" srcset=\"https://cursor.com/assets/images/fix-in-web-light.png\"><img alt=\"Fix in Web\" width=\"99\" height=\"28\" src=\"https://cursor.com/assets/images/fix-in-web-dark.png\"></picture></a></div>\n\n\n<sup>Reviewed by [Cursor Bugbot](https://cursor.com/bugbot) for commit 211478eda2bd0df789cba6ffd0467e730077884b. Configure [here](https://www.cursor.com/dashboard/bugbot).</sup>\n",
+    "created_at": "2026-10-09T09:49:51Z",
+    "updated_at": "2026-10-09T09:49:51Z",
+    "html_url": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228830920",
+    "pull_request_url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176",
+    "_links": {
+      "self": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228830920"
+      },
+      "html": {
+        "href": "https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/176#discussion_r4228830920"
+      },
+      "pull_request": {
+        "href": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/176"
+      }
+    },
+    "reactions": {
+      "url": "https://api.github.com/repos/consensys-vertical-apps/va-mmcx-terminal/pulls/comments/4228830920/reactions",
+      "total_count": 0,
+      "+1": 0,
+      "-1": 0,
+      "laugh": 0,
+      "hooray": 0,
+      "confused": 0,
+      "heart": 0,
+      "rocket": 0,
+      "eyes": 0
+    },
+    "start_line": null,
+    "original_start_line": null,
+    "start_side": null,
+    "line": 235,
+    "original_line": 235,
+    "side": "RIGHT",
+    "author_association": "NONE",
+    "original_position": 51,
+    "position": 51,
+    "subject_type": "line"
+  }
+]

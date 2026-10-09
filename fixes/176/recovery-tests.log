@@ -1,0 +1,137 @@
+
+> terminal@0.1.0 test
+> vitest run FeedStatus OrderBook Trades live-orderbook-query live-trades-query OrderPage MarketDataTabs
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-1
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with invalid price (NaN)
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"not-a-number","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with zero price
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"0","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with negative price
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"-100","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with invalid size (NaN)
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"invalid","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with zero size
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"0","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with negative size
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"-1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with invalid side
+Skipping malformed trade: {"coin":"BTC","side":"X","px":"50000","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > skips trades with non-numeric tid
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":"not-a-number","users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptRecentTradesResponse > malformed data handling > returns empty array when all trades are malformed
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"invalid","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"50000","sz":"0","time":1234567890,"hash":"0xabc123","tid":2,"users":["0xmaker","0xtaker"]}
+Skipping malformed trade: {"coin":"BTC","side":"X","px":"50000","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":3,"users":["0xmaker","0xtaker"]}
+
+stderr | src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts > adaptTradesEvent > malformed data handling > skips malformed trades gracefully
+Skipping malformed trade: {"coin":"BTC","side":"B","px":"invalid","sz":"1.5","time":1234567890,"hash":"0xabc123","tid":1,"users":["0xmaker","0xtaker"]}
+
+ ✓ src/features/perpetuals/infra/hyperliquid/market-data/trades.test.ts (25 tests) 107ms
+ ✓ src/features/perpetuals/domain/OrderBook/helpers/OrderBookLevelHelper.test.ts (19 tests) 23ms
+ ✓ src/features/perpetuals/domain/OrderBook/helpers/OrderBookHelper.test.ts (83 tests) 212ms
+ ✓ src/features/perpetuals/order/components/OrderBook/useHasConnected.test.ts (8 tests) 105ms
+ ✓ src/features/perpetuals/order/components/OrderBook/useOrderBookLayout.test.ts (14 tests) 158ms
+(node:17615) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17610) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17601) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17614) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17613) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17617) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17600) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17611) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17602) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17599) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17608) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:17603) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderBook/getDecimalPlaces.test.ts (8 tests) 9ms
+ ✓ src/features/perpetuals/domain/OrderBook/helpers/OrderBookSpreadHelper.test.ts (14 tests) 8ms
+ ✓ src/features/perpetuals/infra/hyperliquid/market-data/orderBook.test.ts (22 tests) 136ms
+ ✓ src/features/perpetuals/order/components/FeedStatus/feed-status.test.ts (9 tests) 31ms
+ ✓ src/features/perpetuals/queries/live-orderbook-query.test.tsx (16 tests) 419ms
+ ✓ src/features/perpetuals/queries/live-trades-query.test.tsx (21 tests) 717ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookSpread.test.tsx (6 tests) 459ms
+ ✓ src/features/perpetuals/order/components/FeedStatus/FeedStatus.test.tsx (8 tests) 552ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookRow.test.tsx (16 tests) 1783ms
+   ✓ OrderBookRow > calls onClick handler when clicked  322ms
+ ✓ src/features/perpetuals/order/components/Trades/Trades.test.tsx (7 tests) 1095ms
+   ✓ Trades > feed status > labels the trades feed with its last-updated time  409ms
+ ✓ src/features/perpetuals/order/components/OrderBook/stacked/OrderBookLevelsStacked.test.tsx (12 tests) 2085ms
+   ✓ OrderBookLevelsStacked > renders order book levels  360ms
+   ✓ OrderBookLevelsStacked > calls onOrderClick when ask level is clicked  397ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBook.test.tsx (37 tests) 2805ms
+ ✓ src/features/perpetuals/order/components/MarketDataTabs/MarketDataTabs.test.tsx (22 tests) 3996ms
+   ✓ MarketDataTabs > tab rendering > renders only the tabs specified in props  630ms
+   ✓ MarketDataTabs > accessibility > navigates between tabs with arrow keys  336ms
+   ✓ MarketDataTabs > accessibility > wraps focus from first to last tab with ArrowLeft  377ms
+   ✓ MarketDataTabs > accessibility > activates focused tab with Enter key  327ms
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPage > renders the header data when the symbol is present in the API response
+Received `true` for a non-boolean attribute `unoptimized`.
+
+If you want to write it to the DOM, pass a string instead: unoptimized="true" or unoptimized={value.toString()}.
+
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookFilters.test.tsx (24 tests) 6946ms
+   ✓ OrderBookFilters > renders aggregation button with active value  303ms
+   ✓ OrderBookFilters > calls onAggregationChange when aggregation is selected  834ms
+   ✓ OrderBookFilters > calls onSizeUnitChange when size unit is selected  492ms
+   ✓ OrderBookFilters > does not call onAggregationChange when prop is not provided  423ms
+   ✓ OrderBookFilters > Accessibility > supports keyboard navigation through aggregation menu items  495ms
+   ✓ OrderBookFilters > Accessibility > selects aggregation option with Enter key  586ms
+   ✓ OrderBookFilters > Accessibility > selects size unit option with Enter key  417ms
+   ✓ OrderBookFilters > Accessibility > indicates selected size unit option  438ms
+ ✓ src/features/perpetuals/order/components/OrderPage/OrderPage.streaming.test.tsx (6 tests) 2545ms
+   ✓ OrderPage Suspense Streaming > Component Rendering > renders all panes when data is available  980ms
+   ✓ OrderPage Suspense Streaming > Data Hydration > renders different data for different symbols  305ms
+   ✓ OrderPage Suspense Streaming > Pane-Level Error Isolation > verifies each pane has independent error boundaries  409ms
+   ✓ OrderPage Suspense Streaming > Pane-Level Error Isolation > renders each pane with independent boundaries  347ms
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPageLayout - Tab Synchronization > renders orders, positions, and holdings tabs in bot strategy mode for the selected bot
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET wss://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPageLayout - Tab Synchronization > renders orders, positions, and holdings tabs in bot strategy mode for the selected bot
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET https://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ ✓ src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx (20 tests) 7359ms
+   ✓ OrderPage > renders the header data when the symbol is present in the API response  1151ms
+   ✓ OrderPage > opens the markets drawer from the header market selector  2473ms
+   ✓ OrderPageLayout - Tab Synchronization > renders orders, positions, and holdings tabs in bot strategy mode for the selected bot  499ms
+   ✓ OrderPageLayout - Tab Synchronization > preserves orderbook selection when transitioning from small to large  468ms
+   ✓ OrderPageLayout - Tab Synchronization > sets smallViewportTab to chart when transitioning from small to large  703ms
+   ✓ OrderPageLayout - Tab Synchronization > has no accessibility violations  484ms
+
+ Test Files  21 passed (21)
+      Tests  397 passed (397)
+   Start at  20:35:03
+   Duration  24.81s (transform 7.25s, setup 29.00s, collect 106.21s, tests 31.55s, environment 43.67s, prepare 8.14s)
+

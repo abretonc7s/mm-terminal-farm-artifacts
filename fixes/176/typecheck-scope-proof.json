@@ -1,0 +1,17 @@
+{
+  "lint.log": {
+    "diagnosticCount": 231,
+    "outsideTemp": []
+  },
+  "main-typecheck.log": {
+    "diagnosticCount": 231,
+    "outsideTemp": []
+  },
+  "typecheck-project-only.log": {
+    "diagnosticCount": 0,
+    "outsideTemp": []
+  },
+  "mainAndPrDiagnosticsMatch": true,
+  "mainTypecheckExitCode": 2,
+  "projectOnlyTypecheckExitCode": 0
+}

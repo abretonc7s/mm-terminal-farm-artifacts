@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "runner": {
+      "source": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness",
+      "git_ref": "unknown",
+      "name": "@metamask/recipe-runner"
+    }
+  },
+  "entries": [
+    {
+      "nodeId": "setup-launch",
+      "action": "metamask.app.launch",
+      "intent": "Start a fresh headless slot browser; the market data panels need no wallet connection",
+      "startedAt": "2026-10-09T12:25:10.820Z",
+      "endedAt": "2026-10-09T12:25:15.813Z",
+      "durationMs": 4993,
+      "ok": true,
+      "next": "setup-open-order",
+      "output": {
+        "action": "metamask.app.launch",
+        "status": "ready",
+        "reused": false,
+        "signer": "injected",
+        "network": "testnet",
+        "account": {
+          "name": "Trading",
+          "address": "0x316BDE155acd07609872a56Bc32CcfB0B13201fA"
+        },
+        "cdpPort": 9541,
+        "appOrigin": "http://localhost:9341",
+        "browser": {
+          "bin": "/Users/deeeed/Library/Caches/ms-playwright/chromium-1217/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+          "version": "Google Chrome for Testing 147.0.7727.15",
+          "source": "chrome-for-testing",
+          "headless": true,
+          "launchMethod": "launch-services"
+        },
+        "window": null,
+        "slowMoMs": 0,
+        "extension": null,
+        "freshProfile": true,
+        "proofPath": "terminal-browser-launch",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/launch.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-open-order",
+      "action": "ui.navigate",
+      "intent": "Open the market's order page on the slot dev server",
+      "startedAt": "2026-10-09T12:25:15.833Z",
+      "endedAt": "2026-10-09T12:25:16.547Z",
+      "durationMs": 714,
+      "ok": true,
+      "next": "gate-orderbook-tab",
+      "output": {
+        "action": "ui.navigate",
+        "url": "http://localhost:9341/order/BTC",
+        "page": "order",
+        "market": "BTC",
+        "surface": "app",
+        "cdpPort": 9541,
+        "targetUrl": "http://localhost:9341/order/BTC",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+      }
+    },
+    {
+      "nodeId": "gate-orderbook-tab",
+      "action": "ui.wait_for",
+      "intent": "Confirm the large-viewport panel shows the Order book tab selected",
+      "startedAt": "2026-10-09T12:25:16.554Z",
+      "endedAt": "2026-10-09T12:25:17.486Z",
+      "durationMs": 932,
+      "ok": true,
+      "next": "ac1-orderbook-levels",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9541,
+        "targetUrl": "http://localhost:9341/order/BTC"
+      }
+    },
+    {
+      "nodeId": "ac1-orderbook-levels",
+      "action": "ui.wait_for",
+      "intent": "Confirm the order book renders live bid levels",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T12:25:17.491Z",
+      "endedAt": "2026-10-09T12:25:18.666Z",
+      "durationMs": 1175,
+      "ok": true,
+      "next": "ac4-initial-connecting",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9541,
+        "targetUrl": "http://localhost:9341/order/BTC"
+      }
+    },
+    {
+      "nodeId": "ac4-initial-connecting",
+      "action": "ui.wait_for",
+      "intent": "Confirm initial first-frame wait is Connecting",
+      "proves": [
+        "AC4"
+      ],
+      "startedAt": "2026-10-09T12:25:18.702Z",
+      "endedAt": "2026-10-09T12:25:33.758Z",
+      "durationMs": 15056,
+      "ok": false,
+      "cause_class": "unknown",
+      "error": "Error: ui.wait_for timed out\n    at <anonymous>:84:343"
+    }
+  ]
+}

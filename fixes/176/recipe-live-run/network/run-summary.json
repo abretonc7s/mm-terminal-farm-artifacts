@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "id": "run-network",
+  "status": "unavailable",
+  "startedAtEpochMs": 1791548884445,
+  "endedAtEpochMs": 1791548893952,
+  "maxDurationMs": 3600000,
+  "reconnects": 0,
+  "droppedRequests": 0,
+  "unavailableReasons": [
+    "Extension hebhblbkkdabgoldnojllkipeoacjioc has no attachable CDP targets (service worker stopped and no extension page open?)."
+  ],
+  "coverageGapReasons": [],
+  "uninspectableBodyRequests": 0,
+  "projectedBodyFields": [
+    "type"
+  ],
+  "totalRequests": 0,
+  "requestsByMethod": {},
+  "requestsByHost": {},
+  "requestsByType": {},
+  "requests": [],
+  "nodeEvents": [
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 222,
+      "nodeId": "setup-launch",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 3300,
+      "nodeId": "setup-launch",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 3365,
+      "nodeId": "setup-open-order",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 3734,
+      "nodeId": "setup-open-order",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 3741,
+      "nodeId": "gate-orderbook-tab",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 4690,
+      "nodeId": "gate-orderbook-tab",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 4700,
+      "nodeId": "ac1-orderbook-levels",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 5861,
+      "nodeId": "ac1-orderbook-levels",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 5868,
+      "nodeId": "ac1-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 5952,
+      "nodeId": "ac1-screenshot",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 5960,
+      "nodeId": "ac2-open-aggregation",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 6579,
+      "nodeId": "ac2-open-aggregation",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 6587,
+      "nodeId": "ac2-pick-aggregation",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 7255,
+      "nodeId": "ac2-pick-aggregation",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7263,
+      "nodeId": "ac2-orderbook-feed-live",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7586,
+      "nodeId": "ac2-orderbook-feed-live",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7594,
+      "nodeId": "ac2-orderbook-feed-time",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7936,
+      "nodeId": "ac2-orderbook-feed-time",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 7944,
+      "nodeId": "ac2-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 8019,
+      "nodeId": "ac2-screenshot",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 8025,
+      "nodeId": "ac3-open-trades",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 8396,
+      "nodeId": "ac3-open-trades",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 8410,
+      "nodeId": "ac3-trades-feed-status",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 8753,
+      "nodeId": "ac3-trades-feed-status",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 8766,
+      "nodeId": "ac3-trades-feed-time",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 9264,
+      "nodeId": "ac3-trades-feed-time",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9283,
+      "nodeId": "ac3-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9374,
+      "nodeId": "ac3-screenshot",
+      "status": "passed"
+    }
+  ]
+}

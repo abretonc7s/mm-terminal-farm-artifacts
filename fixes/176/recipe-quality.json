@@ -4,15 +4,14 @@
   "compact": {
     "verdict": "WARN",
     "reasons": [
-      "Current 19-node follow-up recipe passes with four inspected screenshots.",
-      "AC4 now asserts Connecting and no timestamp before the first frame, matching reviewer-requested semantics.",
-      "Received-feed stale/disconnected state has behavioral tests but no runtime fault-injection proof.",
-      "Video recording is unsupported by the terminal adapter.",
-      "Aggregation 100 is needed because the pre-existing provider filter drops default-book testnet updates."
+      "Final read-only testnet recipe passed 15/15 nodes with clean application diagnostics.",
+      "All three screenshots were inspected and show the claimed levels and Live receipt timestamps. The recipe HUD is visible and does not cover those targets.",
+      "Missing-first-frame timeout, recovery, error priority and subscription reset have deterministic behavioral test evidence; the Terminal adapter has no frame-suppression or clock-control action.",
+      "The first runtime attempt's Connecting assumption failed because the BTC feed was already Live. Failed evidence is retained separately and not counted as proof.",
+      "Video is unsupported by the Terminal adapter."
     ],
     "better_version_guidance": [
-      "Add adapter WebSocket fault injection for visual stale/disconnected proof.",
-      "Remove aggregation workaround after the provider filter is fixed."
+      "Add a supported frame-suppression and clock-control action for deterministic timeout runtime proof."
     ]
   },
   "dimensions": {},
@@ -25,14 +24,10 @@
   "meta": {
     "producer": "worker",
     "fallback_used": false,
-    "legacy_task": false,
     "artifact_required": true,
+    "legacy_task": false,
     "source_signals": [
-      "recipe.json",
-      "recipe-coverage.md",
-      "recipe-run/summary.json",
-      "evidence-manifest.json",
-      "regression-control.log"
+      "recipe-quality.json"
     ]
   }
 }

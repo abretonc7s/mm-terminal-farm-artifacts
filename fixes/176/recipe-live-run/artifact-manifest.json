@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "runStatus": "pass",
+  "provenance": {
+    "runner": {
+      "source": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness",
+      "git_ref": "unknown",
+      "name": "@metamask/recipe-runner"
+    }
+  },
+  "artifacts": [
+    {
+      "path": "recipe.json",
+      "type": "recipe",
+      "label": "Executed recipe",
+      "category": "system"
+    },
+    {
+      "path": "recipe-invocation.json",
+      "type": "json",
+      "label": "Executed recipe parameters",
+      "category": "system"
+    },
+    {
+      "path": "recipe-resolution.json",
+      "type": "json",
+      "label": "Resolved recipe dependency graph",
+      "category": "system"
+    },
+    {
+      "path": "screenshots/recipe/evidence-ac1-orderbook-levels.png",
+      "type": "screenshot",
+      "nodeId": "ac1-screenshot",
+      "label": "AC1 order book renders price levels",
+      "category": "evidence",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "screenshots/recipe/evidence-ac2-orderbook-feed-status.png",
+      "type": "screenshot",
+      "nodeId": "ac2-screenshot",
+      "label": "AC2 order book feed status with last-updated time",
+      "category": "evidence",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "screenshots/recipe/evidence-ac3-trades-feed-status.png",
+      "type": "screenshot",
+      "nodeId": "ac3-screenshot",
+      "label": "AC3 trades feed status with last-updated time",
+      "category": "evidence",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "summary.json",
+      "type": "summary",
+      "label": "Run summary",
+      "category": "system"
+    },
+    {
+      "path": "trace.json",
+      "type": "trace",
+      "label": "Execution trace",
+      "category": "system"
+    },
+    {
+      "path": "execution-provenance.json",
+      "type": "json",
+      "label": "Execution provenance",
+      "category": "system",
+      "metadata": {
+        "valid": true,
+        "errorCode": null
+      }
+    },
+    {
+      "path": "diagnostics.json",
+      "type": "json",
+      "label": "Run-scoped application diagnostics",
+      "category": "diagnostic"
+    },
+    {
+      "path": "diagnostics-app-log.txt",
+      "type": "log",
+      "label": "Redacted run-scoped application log slice",
+      "category": "diagnostic"
+    },
+    {
+      "path": "network/run-summary.json",
+      "type": "report",
+      "label": "Automatic network observation",
+      "category": "diagnostic"
+    },
+    {
+      "path": "product-provenance.json",
+      "type": "json",
+      "label": "Product checkout provenance",
+      "category": "system",
+      "metadata": {
+        "adapter": "terminal",
+        "git_ref": "8e29b19903c49aeb5840147ba839a2a2a15bbe48",
+        "branch": "TAT-4036-feat-tat-4036",
+        "dirty": true
+      }
+    },
+    {
+      "path": "report.md",
+      "type": "report",
+      "label": "Human run report",
+      "category": "system"
+    }
+  ],
+  "recovered": [],
+  "mutations": []
+}

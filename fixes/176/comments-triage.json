@@ -6,7 +6,7 @@
     "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
     "line": 227,
     "triage": "REAL",
-    "action": "Stamp receipt time only on WebSocket writes; validate completed dummy fetch and aggregation fallback.",
+    "action": "Existing receipt-only timestamp fix verified; existing reply retained without duplication.",
     "fixed_in_commit": "211478eda2bd0df789cba6ffd0467e730077884b"
   },
   {
@@ -16,7 +16,7 @@
     "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
     "line": 227,
     "triage": "REAL",
-    "action": "Scope receipt time to symbol/aggregation and reset on resubscription; preserve shared cache payloads.",
+    "action": "Existing receipt-only timestamp and key-scoping fix verified; existing reply retained.",
     "fixed_in_commit": "211478eda2bd0df789cba6ffd0467e730077884b"
   },
   {
@@ -26,7 +26,17 @@
     "path": "src/features/perpetuals/queries/live-trades-query.ts",
     "line": 208,
     "triage": "REAL",
-    "action": "Stamp trades frames explicitly; validate seeded snapshots, key changes, duplicate frames and error retention.",
+    "action": "Existing trades receipt-only timestamp fix verified; existing reply retained.",
     "fixed_in_commit": "211478eda2bd0df789cba6ffd0467e730077884b"
+  },
+  {
+    "comment_id": 4228830920,
+    "author_login": "cursor[bot]",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/queries/live-orderbook-query.ts",
+    "line": 235,
+    "triage": "REAL",
+    "action": "Separate first-frame deadline and subscription reset published after signed commit recreation; 397 tests and 15 runtime regression nodes passed. Existing Bugbot reply 4230095140 updated in place.",
+    "fixed_in_commit": "4cbae0b4cf30c90b40e1a6e89c0aabfbee47f7d9"
   }
 ]
