@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "preferred_mode": "screenshots",
+  "summary": "Real testnet venue assertions and inspected UI screenshots; video is unsupported by the Terminal adapter.",
+  "before_after_pairs": [
+    {
+      "label": "AC1 pro order controls",
+      "covers": [
+        "AC1"
+      ],
+      "before": "artifacts/recipe-baseline-run/setup-session/session/capture_connected.png",
+      "after": "artifacts/self-review-fix-recipe-run-2/evidence-ac1-stop-fields.png"
+    }
+  ],
+  "standalone": [
+    {
+      "label": "evidence-ac1-chase-picture",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/self-review-fix-recipe-run-2/evidence-ac1-chase-picture.png",
+      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+    },
+    {
+      "label": "evidence-ac1-scale-picture",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/self-review-fix-recipe-run-2/evidence-ac1-scale-picture.png",
+      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+    },
+    {
+      "label": "evidence-ac1-stop-fields",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/self-review-fix-recipe-run-2/evidence-ac1-stop-fields.png",
+      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+    },
+    {
+      "label": "evidence-ac1-stop_limit-picture",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/self-review-fix-recipe-run-2/evidence-ac1-stop_limit-picture.png",
+      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+    },
+    {
+      "label": "evidence-ac1-take_profit_limit-picture",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/self-review-fix-recipe-run-2/evidence-ac1-take_profit_limit-picture.png",
+      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+    },
+    {
+      "label": "evidence-ac1-take_profit_market-picture",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/self-review-fix-recipe-run-2/evidence-ac1-take_profit_market-picture.png",
+      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+    },
+    {
+      "label": "evidence-ac1-twap-picture",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/self-review-fix-recipe-run-2/evidence-ac1-twap-picture.png",
+      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+    },
+    {
+      "label": "evidence-ac2-estimate-picture",
+      "covers": [
+        "AC2"
+      ],
+      "file": "artifacts/self-review-fix-recipe-run-2/evidence-ac2-estimate-picture.png",
+      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+    }
+  ],
+  "videos": {
+    "preferred": false,
+    "note": "BLOCKED: --record-video is not implemented for the terminal adapter."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "run-network",
+  "status": "unavailable",
+  "startedAtEpochMs": 1791538676220,
+  "endedAtEpochMs": 1791538689597,
+  "maxDurationMs": 3600000,
+  "reconnects": 0,
+  "droppedRequests": 0,
+  "unavailableReasons": [
+    "No browser CDP endpoint on 127.0.0.1:9542 within 10000ms."
+  ],
+  "coverageGapReasons": [],
+  "uninspectableBodyRequests": 0,
+  "projectedBodyFields": [
+    "type"
+  ],
+  "totalRequests": 0,
+  "requestsByMethod": {},
+  "requestsByHost": {},
+  "requestsByType": {},
+  "requests": [],
+  "nodeEvents": [
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 3877,
+      "nodeId": "launch",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 9966,
+      "nodeId": "launch",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 9982,
+      "nodeId": "open",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 10508,
+      "nodeId": "open",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 10516,
+      "nodeId": "ready",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 12245,
+      "nodeId": "ready",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 12263,
+      "nodeId": "fractional-cap",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 12280,
+      "nodeId": "fractional-cap",
+      "status": "failed"
+    }
+  ]
+}

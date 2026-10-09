@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "command": "recipe-quality",
+  "action": "build",
+  "status": "ok",
+  "outputPath": "temp/tasks/fix/180-1009-172653/artifacts/recipe-quality.json",
+  "artifact": {
+    "version": 1,
+    "verdict": "pass",
+    "compact": {
+      "verdict": "PASS",
+      "reasons": [
+        "Inherited full-feature recipe proof and screenshots remain indexed by path; no order routing or click-to-fill code changed in this follow-up.",
+        "Current cap recipe passes all 10 nodes with valid provenance; screenshot was inspected. Deterministic long/short boundary tests reject estimates between raw and floored caps.",
+        "Before the fix, the two submission regressions and form cap-display assertion fail. No orders were placed during the runtime proof."
+      ],
+      "better_version_guidance": []
+    },
+    "dimensions": {},
+    "structural_findings": [],
+    "contextual_findings": [],
+    "suggested_recipe_delta": [],
+    "training_fields": {
+      "proof_mode": "mixed",
+      "project": "va-mmcx-terminal-farm",
+      "flow_type": "pr-complete"
+    },
+    "meta": {
+      "producer": "worker",
+      "fallback_used": false,
+      "legacy_task": false,
+      "artifact_required": true,
+      "source_signals": [
+        "recipe-quality.json"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+09:38:05.109 [dapp:page:BTC] [attached]
+09:38:05.086 [dapp:page:BTC] INFO  %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold  (at info http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+09:38:05.123 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT  (at https://api.hyperliquid.xyz/info?[REDACTED_QUERY]
+09:38:05.124 [dapp:page:BTC] LOG  [HMR] connected  (at log http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+09:38:05.133 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: net::ERR_NAME_NOT_RESOLVED  (at https://api.hyperliquid.xyz:444/info?[REDACTED_QUERY]
+09:38:05.138 [dapp:page:BTC] [browser:network] ERROR  WebSocket connection to 'wss://api.hyperliquid.xyz/ws?mm-harness-probe=1' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED
+09:38:05.953 [dapp:page:BTC] WARNING  2026-10-09T09:38:05.952Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9342/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)
+09:38:06.562 [dapp:page:BTC] INFO  %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold  (at info http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+09:38:06.582 [dapp:page:BTC] LOG  [HMR] connected  (at log http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+09:38:07.166 [dapp:page:BTC] WARNING  2026-10-09T09:38:07.166Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9342/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)
+09:38:09.590 [dapp:page:BTC] INFO  [mm-harness-capture-control] f3285f2e-99ba-4f4c-8b98-5675c3554c0c  (at info http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)

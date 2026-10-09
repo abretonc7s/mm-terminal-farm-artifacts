@@ -1,0 +1,96 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Whole-bps slippage cap shown before submission",
+  "description": "Focused AC2 feedback proof on the prepared Terminal slot. No wallet connection or orders. Unit tests cover the deterministic live-depth rejection boundary.",
+  "proofTargets": [
+    {
+      "id": "AC2",
+      "claim": "The maximum-slippage field displays the same whole-bps cap used at submission."
+    }
+  ],
+  "workflow": {
+    "entry": "launch",
+    "nodes": {
+      "launch": {
+        "action": "metamask.app.launch",
+        "signer": "injected",
+        "account": "Trading",
+        "network": "testnet",
+        "fresh_profile": true,
+        "timeout_ms": 120000,
+        "intent": "Open the prepared testnet Terminal without placing orders",
+        "next": "open"
+      },
+      "open": {
+        "action": "ui.navigate",
+        "page": "order",
+        "market": "SOL",
+        "timeout_ms": 120000,
+        "intent": "Open the slot’s reserved market",
+        "next": "ready"
+      },
+      "ready": {
+        "action": "ui.wait_for",
+        "test_id": "order-form-max-slippage",
+        "timeout_ms": 45000,
+        "intent": "Confirm the trader can configure execution tolerance before submitting",
+        "next": "fractional-cap"
+      },
+      "fractional-cap": {
+        "action": "ui.set_input",
+        "test_id": "order-form-max-slippage",
+        "value": "0.01",
+        "intent": "Choose a one-basis-point maximum before refining its precision",
+        "next": "fractional-digit"
+      },
+      "effective-cap": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-form-max-slippage\"][value=\"0.01\"]",
+        "timeout_ms": 10000,
+        "intent": "Verify the field shows the conservative one-basis-point cap",
+        "proves": [
+          "AC2"
+        ],
+        "next": "amount"
+      },
+      "amount": {
+        "action": "ui.set_input",
+        "test_id": "order-form-amount",
+        "value": "$25",
+        "intent": "Request a live-depth estimate without submitting",
+        "next": "estimate"
+      },
+      "estimate": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-form-slippage-estimate\"]",
+        "text": "%",
+        "timeout_ms": 45000,
+        "intent": "Verify the live estimate appears beside the effective cap",
+        "proves": [
+          "AC2"
+        ],
+        "next": "capture"
+      },
+      "capture": {
+        "action": "ui.screenshot",
+        "path": "effective-slippage-cap.png",
+        "category": "proof",
+        "intent": "Keep a picture of the estimate and whole-bps maximum",
+        "proves": [
+          "AC2"
+        ],
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      },
+      "fractional-digit": {
+        "action": "ui.key_press",
+        "key": "5",
+        "intent": "Add fractional precision to the execution tolerance",
+        "next": "effective-cap"
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/submit-order-mutation.test.tsx src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+(node:93825) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:93826) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ❯ src/features/perpetuals/queries/submit-order-mutation.test.tsx (49 tests | 2 failed) 174ms
+   ✓ useSubmitOrder > initial state > returns handleValidSubmit function and isPending as false 12ms
+   ✓ useSubmitOrder > missing symbol > does not submit when symbol is undefined 3ms
+   ✓ useSubmitOrder > invalid amount > calls onError when amount is null 2ms
+   ✓ useSubmitOrder > invalid amount > calls onError when amount is zero 1ms
+   ✓ useSubmitOrder > invalid amount > calls onError when amount is negative 2ms
+   ✓ useSubmitOrder > wallet not connected > returns error when wallet is not connected 2ms
+   ✓ useSubmitOrder > successful submission > converts OrderDraft to OrderSubmissionParams correctly for market order 2ms
+   ✓ useSubmitOrder > successful submission > prices a market order from the live price, not a limit price left in the draft 1ms
+   ✓ useSubmitOrder > successful submission > converts OrderDraft to OrderSubmissionParams correctly for limit order 2ms
+   ✓ useSubmitOrder > successful submission > includes TP/SL prices when specified 2ms
+   ✓ useSubmitOrder > successful submission > omits attached TP/SL when reduce-only is set 1ms
+   ✓ useSubmitOrder > successful submission > omits attached TP/SL when TWAP is set 1ms
+   ✓ useSubmitOrder > successful submission > calls onSuccess callback on successful submission 1ms
+   ✓ useSubmitOrder > successful submission > invalidates orders, positions, and user info cache on success 1ms
+   ✓ useSubmitOrder > failed submission > calls onError callback when provider returns failure 2ms
+   ✓ useSubmitOrder > failed submission > calls onError with default message when no error provided 1ms
+   ✓ useSubmitOrder > failed submission > calls onError callback when mutation throws 2ms
+   ✓ useSubmitOrder > failed submission > handles non-Error thrown values 2ms
+   ✓ useSubmitOrder > failed submission > does not invalidate cache on failure 1ms
+   ✓ useSubmitOrder > loading state > sets isPending to true while submitting 105ms
+   ✓ useSubmitOrder > event handling > prevents default and stops propagation on event 1ms
+   ✓ useSubmitOrder > price conversion edge cases > blocks submission and calls onError when price is unavailable 1ms
+   ✓ useSubmitOrder > price conversion edge cases > blocks submission and calls onError when price is zero 1ms
+   ✓ useSubmitOrder > TP/SL formatting > omits TP/SL when values are null 1ms
+   ✓ useSubmitOrder > TP/SL formatting > omits TP/SL when values are undefined 1ms
+   ✓ useSubmitOrder > TP/SL formatting > formats TP/SL values as strings 1ms
+   ✓ pro order submission > submits 'stop_market' through the existing provider 1ms
+   ✓ pro order submission > submits 'stop_limit' through the existing provider 1ms
+   ✓ pro order submission > submits 'take_profit_market' through the existing provider 1ms
+   ✓ pro order submission > submits 'take_profit_limit' through the existing provider 1ms
+   ✓ pro order submission > submits 'twap' through the existing provider 1ms
+   ✓ pro order submission > submits 'scale' through the existing provider 1ms
+   ✓ pro order submission > submits 'chase' through the existing provider 1ms
+   ✓ pro order submission > submits 'limit' through the existing provider 1ms
+   ✓ pro order submission > supplies the scale ladder and chase limits, without hidden TP/SL 1ms
+   ✓ pro order submission > rejects invalid 'stop_market' before signing 1ms
+   ✓ pro order submission > rejects invalid 'stop_limit' before signing 1ms
+   ✓ pro order submission > rejects invalid 'take_profit_market' before signing 1ms
+   ✓ pro order submission > rejects invalid 'take_profit_limit' before signing 1ms
+   ✓ pro order submission > rejects invalid 'scale' before signing 1ms
+   ✓ pro order submission > rejects invalid 'chase' before signing 1ms
+   ✓ pro order submission > rejects invalid 'twap' before signing 2ms
+   ✓ pro order submission > rejects invalid 'limit' before signing 1ms
+   ✓ pro order submission > rejects invalid 'market' before signing 1ms
+   ✓ pro order submission > rejects invalid 'market' before signing 1ms
+   × pro order submission > rejects a long estimate below the raw cap but above its whole-bps cap 3ms
+     → expected "spy" to be called with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+   × pro order submission > rejects a short estimate below the raw cap but above its whole-bps cap 1ms
+     → expected "spy" to be called with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+   ✓ pro order submission > submits a long estimate below the whole-bps cap 1ms
+   ✓ pro order submission > submits a short estimate below the whole-bps cap 1ms
+ ❯ src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx (31 tests | 1 failed) 567ms
+   ✓ OrderFormManualPanel > keeps order type selection in the tabs 67ms
+   ✓ OrderFormManualPanel > shows limit price only on the Limit tab 25ms
+   ✓ OrderFormManualPanel > attaches TP / SL to the current Market or Limit order 42ms
+   ✓ OrderFormManualPanel > hides TP / SL when reduce-only is enabled 26ms
+   ✓ OrderFormManualPanel > uses the TWAP tab as its single type selector 11ms
+   ✓ OrderFormManualPanel > prefills limit price and direction from an order-book tap 9ms
+   ✓ OrderFormManualPanel > scales position size when leverage changes 22ms
+   ✓ OrderFormManualPanel > test ids > renders order-form-leverage on the leverage button 7ms
+   ✓ OrderFormManualPanel > test ids > renders order-form-tpsl on the TP/SL button (market mode) 7ms
+   ✓ OrderFormManualPanel > test ids > renders order-form-limit-price on the limit price input (limit mode) 9ms
+   ✓ OrderFormManualPanel > test ids > renders order-form-error when submissionError is set 9ms
+   ✓ OrderFormManualPanel > renders editable fields for stop_market 34ms
+   ✓ OrderFormManualPanel > renders editable fields for take_profit_market 28ms
+   ✓ OrderFormManualPanel > renders editable fields for scale 28ms
+   ✓ OrderFormManualPanel > renders editable fields for chase 29ms
+   ✓ OrderFormManualPanel > renders editable fields for twap 28ms
+   ✓ OrderFormManualPanel > displays estimated slippage and an editable maximum before submission 6ms
+   ✓ OrderFormManualPanel > keeps Market submission disabled until the shared quote is ready 8ms
+   ✓ OrderFormManualPanel > uses the shared quote for the displayed estimate and enables Market submission 23ms
+   ✓ OrderFormManualPanel > does not offer unsupported TIF for stop_limit 6ms
+   ✓ OrderFormManualPanel > does not offer unsupported TIF for take_profit_limit 8ms
+   ✓ OrderFormManualPanel > displays the slippage percentage without float noise for 0.009 6ms
+   ✓ OrderFormManualPanel > displays the slippage percentage without float noise for 0.0045 7ms
+   ✓ OrderFormManualPanel > displays the slippage percentage without float noise for 0.0023 8ms
+   × OrderFormManualPanel > shows the submitted whole-bps cap and flags estimates above it 9ms
+     → expect(element).toHaveValue(0.01)
+
+Expected the element to have value:
+  0.01
+Received:
+  0.015
+   ✓ OrderFormManualPanel > explains insufficient depth instead of silently disabling Market 9ms
+   ✓ OrderFormManualPanel > normalizes fractional Chase seconds without rejecting valid intervals 59ms
+   ✓ OrderFormManualPanel > keeps the initial estimate text consistent before live data, with amount 0 5ms
+   ✓ OrderFormManualPanel > keeps the initial estimate text consistent before live data, with amount 25 4ms
+   ✓ OrderFormManualPanel > renders the selected Market layout before effects despite saved type market 7ms
+   ✓ OrderFormManualPanel > renders the selected Market layout before effects despite saved type limit 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/perpetuals/queries/submit-order-mutation.test.tsx > pro order submission > rejects a long estimate below the raw cap but above its whole-bps cap
+ FAIL  src/features/perpetuals/queries/submit-order-mutation.test.tsx > pro order submission > rejects a short estimate below the raw cap but above its whole-bps cap
+AssertionError: expected "spy" to be called with arguments: [ Array(1) ]
+
+Number of calls: 0
+
+ ❯ src/features/perpetuals/queries/submit-order-mutation.test.tsx:1010:23
+    1008|         ),
+    1009|       );
+    1010|       expect(onError).toHaveBeenCalledWith(
+       |                       ^
+    1011|         "Estimated slippage exceeds your max slippage. Reduce the amou…
+    1012|       );
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx > OrderFormManualPanel > shows the submitted whole-bps cap and flags estimates above it
+Error: expect(element).toHaveValue(0.01)
+
+Expected the element to have value:
+  0.01
+Received:
+  0.015
+ ❯ src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx:429:59
+    427|       { defaultValues: { amount: 25, slippage: 0.00015 } },
+    428|     );
+    429|     expect(screen.getByTestId("order-form-max-slippage")).toHaveValue(…
+       |                                                           ^
+    430|     expect(screen.getByTestId("order-form-slippage-estimate")).toHaveT…
+    431|       "0.0120%",
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  3 failed | 77 passed (80)
+   Start at  17:32:57
+   Duration  3.40s (transform 414ms, setup 648ms, collect 2.68s, tests 741ms, environment 981ms, prepare 188ms)
+

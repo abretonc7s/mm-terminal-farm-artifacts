@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "command": "run",
+  "context": {
+    "adapter": {
+      "value": "terminal",
+      "source": "flag",
+      "detail": "--adapter"
+    },
+    "target": {
+      "value": "/Users/deeeed/dev/metamask/va-mmcx-terminal-2",
+      "source": "flag",
+      "detail": "--target"
+    },
+    "slot": {
+      "value": "macwork-mmt-2",
+      "source": "slot",
+      "detail": "slot-config",
+      "session": "mmt-2",
+      "poolFile": "/Users/deeeed/dev/farmslot/pool/macwork.json",
+      "ports": {
+        "port": 9342,
+        "metro_port": 9442,
+        "cdp_port": 9542
+      }
+    },
+    "ports": {
+      "cdp": {
+        "value": 9542,
+        "source": "flag"
+      },
+      "watcher": {
+        "value": 9342,
+        "source": "flag"
+      }
+    }
+  },
+  "adapter": "terminal",
+  "status": "pass",
+  "exitCode": 0,
+  "recovered": [],
+  "mutations": [],
+  "reportPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-2/temp/tasks/fix/180-1009-172653/artifacts/cap-runtime-run-2/report.md",
+  "result": {
+    "status": "pass",
+    "summaryPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-2/temp/tasks/fix/180-1009-172653/artifacts/cap-runtime-run-2/summary.json",
+    "tracePath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-2/temp/tasks/fix/180-1009-172653/artifacts/cap-runtime-run-2/trace.json",
+    "artifactManifestPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-2/temp/tasks/fix/180-1009-172653/artifacts/cap-runtime-run-2/artifact-manifest.json",
+    "recipePath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-2/temp/tasks/fix/180-1009-172653/artifacts/cap-runtime-run-2/recipe.json",
+    "diagnosticsPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-2/temp/tasks/fix/180-1009-172653/artifacts/cap-runtime-run-2/diagnostics.json",
+    "sideFindings": {
+      "status": "clean",
+      "note": "No application warnings or errors were emitted during the recipe run.",
+      "counts": {
+        "total": 0,
+        "warning": 0,
+        "error": 0,
+        "exception": 0,
+        "info": 1
+      }
+    }
+  }
+}

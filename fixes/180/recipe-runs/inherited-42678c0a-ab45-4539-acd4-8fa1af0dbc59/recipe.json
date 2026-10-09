@@ -1,0 +1,1466 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Pro order types and order-book click-to-fill",
+  "description": "Testnet proof for TAT-4034. Existing Limit guard precedes new controls. Native TWAP is observed through its resulting position after the scheduling window.",
+  "proofTargets": [
+    {
+      "id": "AC1",
+      "claim": "All six order types (Stop, Take, Scale, Chase, TWAP, reduce-only \u2014 plus existing Market/Limit) are selectable and place real orders against Hyperliquid."
+    },
+    {
+      "id": "AC2",
+      "claim": "Slippage estimate displays before submit; max-slippage is enforced."
+    },
+    {
+      "id": "AC3",
+      "claim": "Clicking any order-book price row fills the limit-price field."
+    }
+  ],
+  "workflow": {
+    "entry": "setup-session",
+    "nodes": {
+      "setup-session": {
+        "action": "call",
+        "intent": "Open the slot and connect its reserved testnet wallet",
+        "ref": "terminal.perps.ensure-connected",
+        "params": {
+          "signer": "injected",
+          "account": "dev1",
+          "market": "ETH"
+        },
+        "next": "setup-flat"
+      },
+      "setup-flat": {
+        "action": "call",
+        "intent": "Converge the reserved testnet market to a flat starting state",
+        "ref": "terminal.perps.ensure-flat-market",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "ac1-regression-limit"
+      },
+      "ac1-regression-limit": {
+        "action": "ui.press",
+        "intent": "Select the existing Limit order",
+        "test_id": "order-form-tab-limit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-regression-limit-field"
+      },
+      "ac1-regression-limit-field": {
+        "action": "ui.wait_for",
+        "intent": "Confirm the existing limit-price input renders",
+        "test_id": "order-form-limit-price",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-market"
+      },
+      "setup-market": {
+        "action": "ui.press",
+        "intent": "Return to Market before the new order controls",
+        "test_id": "order-form-tab-market",
+        "next": "ac1-stop-select"
+      },
+      "ac1-stop-select": {
+        "action": "ui.press",
+        "intent": "Select the new Stop order",
+        "test_id": "order-form-tab-stop_market",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-stop-field"
+      },
+      "ac1-stop-field": {
+        "action": "ui.wait_for",
+        "intent": "Confirm Stop exposes its trigger price",
+        "test_id": "order-form-trigger-price",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-stop-fields"
+      },
+      "ac1-stop-fields": {
+        "action": "ui.screenshot",
+        "intent": "Keep visual proof of the prices and risk controls available to this trader",
+        "path": "evidence-ac1-stop-fields.png",
+        "category": "proof",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-stop-trigger"
+      },
+      "setup-stop-trigger": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-trigger-price",
+        "value": "5000.5",
+        "next": "setup-stop-size"
+      },
+      "setup-stop-size": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-amount",
+        "value": "$25",
+        "next": "ac1-stop-submit"
+      },
+      "ac1-stop-submit": {
+        "action": "ui.press",
+        "intent": "Place the Stop order",
+        "test_id": "order-form-submit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-approve"
+      },
+      "setup-approve": {
+        "action": "call",
+        "intent": "Approve the trading agent for this testnet session",
+        "ref": "terminal.perps.confirm-wallet-request",
+        "params": {
+          "signer": "injected",
+          "kind": "signature",
+          "primary_type": "HyperliquidTransaction:ApproveAgent"
+        },
+        "next": "ac1-stop-venue"
+      },
+      "ac1-stop-venue": {
+        "action": "metamask.perps.assert_orders",
+        "intent": "Read the resulting Hyperliquid orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "open",
+        "expect_count": 1,
+        "timeout_ms": 45000,
+        "next": "ac1-stop-venue-assert",
+        "proves": [
+          "AC1"
+        ],
+        "order_kind": "trigger",
+        "expect_trigger_price": 5000.5,
+        "expect_reduce_only": false,
+        "expect_trigger_order_type": "stop_market"
+      },
+      "ac1-stop-venue-assert": {
+        "action": "assert_output",
+        "intent": "Assert the venue read matches the order just submitted",
+        "source": "ac1-stop-venue",
+        "proves": [
+          "AC1"
+        ],
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "next": "teardown-stop"
+      },
+      "teardown-stop": {
+        "action": "call",
+        "intent": "Cancel the stop before testing the next order",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "ac1-take_profit_market-select"
+      },
+      "ac1-take_profit_market-select": {
+        "action": "ui.press",
+        "intent": "Select take profit market orders",
+        "test_id": "order-form-tab-take_profit_market",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-take_profit_market-trigger-price"
+      },
+      "setup-take_profit_market-trigger-price": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-trigger-price",
+        "value": "1000.5",
+        "next": "ac1-take_profit_market-fields"
+      },
+      "ac1-take_profit_market-fields": {
+        "action": "ui.wait_for",
+        "intent": "Confirm the selected order exposes its fields",
+        "test_id": "order-form-trigger-price",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-take_profit_market-picture"
+      },
+      "ac1-take_profit_market-picture": {
+        "action": "ui.screenshot",
+        "intent": "Keep visual proof of the prices and risk controls available to this trader",
+        "path": "evidence-ac1-take_profit_market-picture.png",
+        "category": "proof",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-take_profit_market-size"
+      },
+      "setup-take_profit_market-size": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-amount",
+        "value": "$50",
+        "next": "ac1-take_profit_market-submit"
+      },
+      "ac1-take_profit_market-submit": {
+        "action": "ui.press",
+        "intent": "Place the take profit market order",
+        "test_id": "order-form-submit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-take_profit_market-venue"
+      },
+      "ac1-take_profit_market-venue": {
+        "action": "metamask.perps.assert_orders",
+        "intent": "Read the resulting Hyperliquid orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "open",
+        "expect_count": 1,
+        "timeout_ms": 45000,
+        "next": "ac1-take_profit_market-venue-assert",
+        "proves": [
+          "AC1"
+        ],
+        "order_kind": "trigger",
+        "expect_trigger_price": 1000.5,
+        "expect_reduce_only": false,
+        "expect_trigger_order_type": "take_profit_market"
+      },
+      "ac1-take_profit_market-venue-assert": {
+        "action": "assert_output",
+        "intent": "Assert the venue read matches the order just submitted",
+        "source": "ac1-take_profit_market-venue",
+        "proves": [
+          "AC1"
+        ],
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "next": "teardown-take_profit_market"
+      },
+      "teardown-take_profit_market": {
+        "action": "call",
+        "intent": "Cancel this strategy before the next order",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "ac1-stop_limit-select"
+      },
+      "ac1-stop_limit-select": {
+        "action": "ui.press",
+        "intent": "Select stop limit orders",
+        "test_id": "order-form-tab-stop_limit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-stop_limit-trigger-price"
+      },
+      "setup-stop_limit-trigger-price": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-trigger-price",
+        "value": "5000.5",
+        "next": "setup-stop_limit-limit-price"
+      },
+      "setup-stop_limit-limit-price": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-limit-price",
+        "value": "5001.5",
+        "next": "ac1-stop_limit-fields"
+      },
+      "ac1-stop_limit-fields": {
+        "action": "ui.wait_for",
+        "intent": "Confirm the selected order exposes its fields",
+        "test_id": "order-form-trigger-price",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-stop_limit-picture"
+      },
+      "ac1-stop_limit-picture": {
+        "action": "ui.screenshot",
+        "intent": "Keep visual proof of the prices and risk controls available to this trader",
+        "path": "evidence-ac1-stop_limit-picture.png",
+        "category": "proof",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-stop_limit-size"
+      },
+      "setup-stop_limit-size": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-amount",
+        "value": "$50",
+        "next": "ac1-stop_limit-submit"
+      },
+      "ac1-stop_limit-submit": {
+        "action": "ui.press",
+        "intent": "Place the stop limit order",
+        "test_id": "order-form-submit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-stop_limit-venue"
+      },
+      "ac1-stop_limit-venue": {
+        "action": "metamask.perps.assert_orders",
+        "intent": "Read the resulting Hyperliquid orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "open",
+        "expect_count": 1,
+        "timeout_ms": 45000,
+        "next": "ac1-stop_limit-venue-assert",
+        "proves": [
+          "AC1"
+        ],
+        "order_kind": "trigger",
+        "expect_trigger_price": 5000.5,
+        "expect_reduce_only": false,
+        "expect_trigger_order_type": "stop_limit"
+      },
+      "ac1-stop_limit-venue-assert": {
+        "action": "assert_output",
+        "intent": "Assert the venue read matches the order just submitted",
+        "source": "ac1-stop_limit-venue",
+        "proves": [
+          "AC1"
+        ],
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "next": "teardown-stop_limit"
+      },
+      "teardown-stop_limit": {
+        "action": "call",
+        "intent": "Cancel this strategy before the next order",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "ac1-take_profit_limit-select"
+      },
+      "ac1-take_profit_limit-select": {
+        "action": "ui.press",
+        "intent": "Select take profit limit orders",
+        "test_id": "order-form-tab-take_profit_limit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-take_profit_limit-trigger-price"
+      },
+      "setup-take_profit_limit-trigger-price": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-trigger-price",
+        "value": "1000.5",
+        "next": "setup-take_profit_limit-limit-price"
+      },
+      "setup-take_profit_limit-limit-price": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-limit-price",
+        "value": "1000.7",
+        "next": "ac1-take_profit_limit-fields"
+      },
+      "ac1-take_profit_limit-fields": {
+        "action": "ui.wait_for",
+        "intent": "Confirm the selected order exposes its fields",
+        "test_id": "order-form-trigger-price",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-take_profit_limit-picture"
+      },
+      "ac1-take_profit_limit-picture": {
+        "action": "ui.screenshot",
+        "intent": "Keep visual proof of the prices and risk controls available to this trader",
+        "path": "evidence-ac1-take_profit_limit-picture.png",
+        "category": "proof",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-take_profit_limit-size"
+      },
+      "setup-take_profit_limit-size": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-amount",
+        "value": "$50",
+        "next": "ac1-take_profit_limit-submit"
+      },
+      "ac1-take_profit_limit-submit": {
+        "action": "ui.press",
+        "intent": "Place the take profit limit order",
+        "test_id": "order-form-submit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-take_profit_limit-venue"
+      },
+      "ac1-take_profit_limit-venue": {
+        "action": "metamask.perps.assert_orders",
+        "intent": "Read the resulting Hyperliquid orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "open",
+        "expect_count": 1,
+        "timeout_ms": 45000,
+        "next": "ac1-take_profit_limit-venue-assert",
+        "proves": [
+          "AC1"
+        ],
+        "order_kind": "trigger",
+        "expect_trigger_price": 1000.5,
+        "expect_reduce_only": false,
+        "expect_trigger_order_type": "take_profit_limit"
+      },
+      "ac1-take_profit_limit-venue-assert": {
+        "action": "assert_output",
+        "intent": "Assert the venue read matches the order just submitted",
+        "source": "ac1-take_profit_limit-venue",
+        "proves": [
+          "AC1"
+        ],
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "next": "teardown-take_profit_limit"
+      },
+      "teardown-take_profit_limit": {
+        "action": "call",
+        "intent": "Cancel this strategy before the next order",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "ac1-scale-select"
+      },
+      "ac1-scale-select": {
+        "action": "ui.press",
+        "intent": "Select scale orders",
+        "test_id": "order-form-tab-scale",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-scale-scale-min-price"
+      },
+      "setup-scale-scale-min-price": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-scale-min-price",
+        "value": "1000",
+        "next": "setup-scale-scale-max-price"
+      },
+      "setup-scale-scale-max-price": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-scale-max-price",
+        "value": "1100",
+        "next": "setup-scale-scale-num-orders"
+      },
+      "setup-scale-scale-num-orders": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-scale-num-orders",
+        "value": "2",
+        "next": "ac1-scale-fields"
+      },
+      "ac1-scale-fields": {
+        "action": "ui.wait_for",
+        "intent": "Confirm the selected order exposes its fields",
+        "test_id": "order-form-scale-min-price",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-scale-picture"
+      },
+      "ac1-scale-picture": {
+        "action": "ui.screenshot",
+        "intent": "Keep visual proof of the prices and risk controls available to this trader",
+        "path": "evidence-ac1-scale-picture.png",
+        "category": "proof",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-scale-size"
+      },
+      "setup-scale-size": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-amount",
+        "value": "$50",
+        "next": "ac1-scale-submit"
+      },
+      "ac1-scale-submit": {
+        "action": "ui.press",
+        "intent": "Place the scale order",
+        "test_id": "order-form-submit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-scale-venue"
+      },
+      "ac1-scale-venue": {
+        "action": "metamask.perps.assert_orders",
+        "intent": "Read the resulting Hyperliquid orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "open",
+        "expect_count": 2,
+        "timeout_ms": 45000,
+        "next": "ac1-scale-venue-assert",
+        "proves": [
+          "AC1"
+        ],
+        "order_kind": "limit"
+      },
+      "ac1-scale-venue-assert": {
+        "action": "assert_output",
+        "intent": "Assert the venue read matches the order just submitted",
+        "source": "ac1-scale-venue",
+        "proves": [
+          "AC1"
+        ],
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 2
+        },
+        "next": "teardown-scale"
+      },
+      "teardown-scale": {
+        "action": "call",
+        "intent": "Cancel this strategy before the next order",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "ac1-chase-select"
+      },
+      "ac1-chase-select": {
+        "action": "ui.press",
+        "intent": "Select chase orders",
+        "test_id": "order-form-tab-chase",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-chase-short"
+      },
+      "setup-chase-chase-duration": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-chase-duration",
+        "value": "5",
+        "next": "setup-chase-chase-distance"
+      },
+      "setup-chase-chase-distance": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-chase-distance",
+        "value": "1",
+        "next": "ac1-chase-fields"
+      },
+      "ac1-chase-fields": {
+        "action": "ui.wait_for",
+        "intent": "Confirm the selected order exposes its fields",
+        "test_id": "order-form-chase-duration",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-chase-picture"
+      },
+      "ac1-chase-picture": {
+        "action": "ui.screenshot",
+        "intent": "Keep visual proof of the prices and risk controls available to this trader",
+        "path": "evidence-ac1-chase-picture.png",
+        "category": "proof",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-chase-size"
+      },
+      "setup-chase-size": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-amount",
+        "value": "$50",
+        "next": "ac1-chase-submit"
+      },
+      "ac1-chase-submit": {
+        "action": "ui.press",
+        "intent": "Place the chase order",
+        "test_id": "order-form-submit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "gate-chase-settle-1"
+      },
+      "ac1-chase-venue": {
+        "action": "metamask.perps.assert_orders",
+        "intent": "Read the resulting Hyperliquid orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "open",
+        "expect_count": 1,
+        "timeout_ms": 45000,
+        "next": "ac1-chase-venue-assert",
+        "proves": [
+          "AC1"
+        ],
+        "order_kind": "limit",
+        "side": "short"
+      },
+      "ac1-chase-venue-assert": {
+        "action": "assert_output",
+        "intent": "Assert the venue read matches the order just submitted",
+        "source": "ac1-chase-venue",
+        "proves": [
+          "AC1"
+        ],
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "next": "teardown-chase"
+      },
+      "teardown-chase": {
+        "action": "call",
+        "intent": "Cancel this strategy before the next order",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "ac1-market-place"
+      },
+      "ac1-market-place": {
+        "action": "ui.press",
+        "test_id": "order-form-tab-market",
+        "intent": "Select the existing Market order after the strategy checks",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-market-long"
+      },
+      "ac1-reduce-only-place": {
+        "action": "call",
+        "intent": "Place a reduce-only sell limit against the position",
+        "ref": "terminal.perps.place-limit-order",
+        "params": {
+          "signer": "injected",
+          "account": "dev1",
+          "market": "ETH",
+          "side": "short",
+          "notional": "25",
+          "limit_price": "10000",
+          "reduce_only": true
+        },
+        "proves": [
+          "AC1"
+        ],
+        "next": "teardown-market"
+      },
+      "teardown-market": {
+        "action": "call",
+        "intent": "Clear the market before proving native TWAP",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "setup-twap-market"
+      },
+      "setup-twap-market": {
+        "action": "ui.press",
+        "intent": "Choose the buy side for TWAP",
+        "test_id": "order-form-tab-market",
+        "next": "setup-twap-long"
+      },
+      "setup-twap-long": {
+        "action": "ui.press",
+        "intent": "Choose a long TWAP",
+        "test_id": "order-form-direction-long",
+        "next": "setup-twap-reduce-off"
+      },
+      "ac1-twap-select": {
+        "action": "ui.press",
+        "intent": "Select native TWAP",
+        "test_id": "order-form-tab-twap",
+        "proves": [
+          "AC1"
+        ],
+        "next": "setup-twap-duration"
+      },
+      "setup-twap-duration": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-twap-duration",
+        "value": "5",
+        "next": "setup-twap-size"
+      },
+      "setup-twap-size": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-amount",
+        "value": "$110",
+        "next": "ac1-twap-field"
+      },
+      "ac1-twap-field": {
+        "action": "ui.wait_for",
+        "intent": "Confirm TWAP duration is visible",
+        "test_id": "order-form-twap-duration",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-twap-picture"
+      },
+      "ac1-twap-picture": {
+        "action": "ui.screenshot",
+        "intent": "Keep visual proof of the prices and risk controls available to this trader",
+        "path": "evidence-ac1-twap-picture.png",
+        "category": "proof",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-twap-submit"
+      },
+      "ac1-twap-submit": {
+        "action": "ui.press",
+        "intent": "Start the native TWAP",
+        "test_id": "order-form-submit",
+        "proves": [
+          "AC1"
+        ],
+        "next": "gate-twap-elapsed-0"
+      },
+      "gate-twap-elapsed-0": {
+        "action": "wait",
+        "intent": "Allow native TWAP slices to finish before cleanup",
+        "duration_ms": 55000,
+        "next": "gate-twap-elapsed-1"
+      },
+      "gate-twap-elapsed-1": {
+        "action": "wait",
+        "intent": "Allow native TWAP slices to finish before cleanup",
+        "duration_ms": 55000,
+        "next": "gate-twap-elapsed-2"
+      },
+      "gate-twap-elapsed-2": {
+        "action": "wait",
+        "intent": "Allow native TWAP slices to finish before cleanup",
+        "duration_ms": 55000,
+        "next": "gate-twap-elapsed-3"
+      },
+      "gate-twap-elapsed-3": {
+        "action": "wait",
+        "intent": "Allow native TWAP slices to finish before cleanup",
+        "duration_ms": 55000,
+        "next": "gate-twap-elapsed-4"
+      },
+      "gate-twap-elapsed-4": {
+        "action": "wait",
+        "intent": "Allow native TWAP slices to finish before cleanup",
+        "duration_ms": 55000,
+        "next": "gate-twap-elapsed-5"
+      },
+      "gate-twap-elapsed-5": {
+        "action": "wait",
+        "intent": "Allow native TWAP slices to finish before cleanup",
+        "duration_ms": 55000,
+        "next": "ac1-twap-venue"
+      },
+      "ac1-twap-venue": {
+        "action": "metamask.perps.assert_positions",
+        "intent": "Read the resulting Hyperliquid positions",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "open",
+        "expect_count": 1,
+        "timeout_ms": 45000,
+        "next": "ac1-twap-venue-assert",
+        "proves": [
+          "AC1"
+        ]
+      },
+      "ac1-twap-venue-assert": {
+        "action": "assert_output",
+        "intent": "Assert the venue read matches the order just submitted",
+        "source": "ac1-twap-venue",
+        "proves": [
+          "AC1"
+        ],
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "next": "teardown-twap"
+      },
+      "teardown-twap": {
+        "action": "call",
+        "intent": "Close the filled TWAP after its scheduling window ends",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "next": "setup-slippage-market"
+      },
+      "setup-slippage-market": {
+        "action": "ui.press",
+        "intent": "Return to Market for price impact checks",
+        "test_id": "order-form-tab-market",
+        "next": "setup-slippage-size"
+      },
+      "setup-slippage-size": {
+        "action": "ui.set_input",
+        "intent": "Use a valid larger notional so the cap proof covers depth beyond a transient best-price quote",
+        "test_id": "order-form-amount",
+        "value": "$500",
+        "next": "setup-slippage-short"
+      },
+      "ac2-estimate": {
+        "action": "ui.wait_for",
+        "intent": "Confirm estimated slippage is displayed before submit",
+        "test_id": "order-form-slippage-estimate",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC2"
+        ],
+        "next": "ac2-estimate-picture"
+      },
+      "ac2-estimate-picture": {
+        "action": "ui.screenshot",
+        "intent": "Keep visual proof of the prices and risk controls available to this trader",
+        "path": "evidence-ac2-estimate-picture.png",
+        "category": "proof",
+        "proves": [
+          "AC2"
+        ],
+        "next": "ac2-cap"
+      },
+      "ac2-cap": {
+        "action": "ui.set_input",
+        "intent": "Require a market fill with no adverse price movement",
+        "test_id": "order-form-max-slippage",
+        "value": "0",
+        "proves": [
+          "AC2"
+        ],
+        "next": "setup-slippage-adverse-side"
+      },
+      "ac2-cap-submit": {
+        "action": "ui.press",
+        "intent": "Attempt a market order beyond the zero cap",
+        "proves": [
+          "AC2"
+        ],
+        "next": "ac2-rejection",
+        "selector": "form:has([data-testid=\"order-form-slippage-estimate\"][data-over-slippage-limit=\"true\"]) button[data-testid=\"order-form-submit\"]:not(:disabled)"
+      },
+      "ac2-rejection": {
+        "action": "ui.wait_for",
+        "intent": "Confirm the form explains the slippage rejection",
+        "test_id": "order-form-error",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC2"
+        ],
+        "next": "ac2-no-position",
+        "text": "Estimated slippage exceeds your max slippage. Reduce the amount or increase the limit."
+      },
+      "ac2-no-position": {
+        "action": "metamask.perps.assert_positions",
+        "intent": "Read the resulting Hyperliquid positions",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "none",
+        "expect_count": 0,
+        "timeout_ms": 45000,
+        "next": "ac2-no-position-assert",
+        "proves": [
+          "AC2"
+        ]
+      },
+      "ac2-no-position-assert": {
+        "action": "assert_output",
+        "intent": "Assert the venue read matches the order just submitted",
+        "source": "ac2-no-position",
+        "proves": [
+          "AC2"
+        ],
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 0
+        },
+        "next": "ac3-click-bid"
+      },
+      "ac3-click-bid": {
+        "action": "ui.press",
+        "intent": "Fill the limit input from a bid price",
+        "selector": "button[aria-label^=\"Bid at \"]",
+        "proves": [
+          "AC3"
+        ],
+        "next": "ac3-bid-limit"
+      },
+      "ac3-bid-limit": {
+        "action": "ui.wait_for",
+        "intent": "Confirm clicking a price selects the Limit form",
+        "test_id": "order-form-limit-price",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC3"
+        ],
+        "next": "ac3-bid-read"
+      },
+      "ac3-bid-read": {
+        "action": "ui.set_input",
+        "intent": "Retain the filled price while temporarily replacing it with a valid positive value",
+        "test_id": "order-form-limit-price",
+        "value": "1",
+        "proves": [
+          "AC3"
+        ],
+        "next": "ac3-bid-match"
+      },
+      "ac3-bid-match": {
+        "action": "ui.wait_for",
+        "intent": "Compare the clicked row price with the populated input",
+        "selector": "button[aria-label^=\"Bid at \"][data-price=\"{{outputs.ac3-bid-read.previousValue}}\"]",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC3"
+        ],
+        "next": "setup-restore-bid"
+      },
+      "setup-restore-bid": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-limit-price",
+        "value": "{{outputs.ac3-bid-read.previousValue}}",
+        "next": "ac3-click-ask"
+      },
+      "ac3-click-ask": {
+        "action": "ui.press",
+        "intent": "Fill the limit input from a ask price",
+        "selector": "button[aria-label^=\"Ask at \"]",
+        "proves": [
+          "AC3"
+        ],
+        "next": "ac3-ask-limit"
+      },
+      "ac3-ask-limit": {
+        "action": "ui.wait_for",
+        "intent": "Confirm clicking a price selects the Limit form",
+        "test_id": "order-form-limit-price",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC3"
+        ],
+        "next": "ac3-ask-read"
+      },
+      "ac3-ask-read": {
+        "action": "ui.set_input",
+        "intent": "Retain the filled price while temporarily replacing it with a valid positive value",
+        "test_id": "order-form-limit-price",
+        "value": "1",
+        "proves": [
+          "AC3"
+        ],
+        "next": "ac3-ask-match"
+      },
+      "ac3-ask-match": {
+        "action": "ui.wait_for",
+        "intent": "Compare the clicked row price with the populated input",
+        "selector": "button[aria-label^=\"Ask at \"][data-price=\"{{outputs.ac3-ask-read.previousValue}}\"]",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC3"
+        ],
+        "next": "setup-restore-ask"
+      },
+      "setup-restore-ask": {
+        "action": "ui.set_input",
+        "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+        "test_id": "order-form-limit-price",
+        "value": "{{outputs.ac3-ask-read.previousValue}}",
+        "next": "gate-console"
+      },
+      "gate-console": {
+        "action": "call",
+        "intent": "Check the app raised no unexplained errors",
+        "ref": "terminal.perps.assert-clean-console",
+        "params": {},
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      },
+      "teardown-owned": {
+        "action": "assert_output",
+        "source": "setup-flat",
+        "assert": {
+          "path": "$.status",
+          "operator": "eq",
+          "value": "pass"
+        },
+        "intent": "Clean only the market this run took ownership of",
+        "next": "teardown-capture"
+      },
+      "teardown-clean": {
+        "action": "call",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "account": "dev1",
+          "market": "ETH",
+          "exclusive_testnet_market": true
+        },
+        "intent": "Restore the reserved market after a failed or successful run",
+        "next": "teardown-done"
+      },
+      "teardown-done": {
+        "action": "end",
+        "status": "pass"
+      },
+      "teardown-twap-expiry-0": {
+        "action": "wait",
+        "duration_ms": 55000,
+        "intent": "Let any native schedule finish before restoring the reserved testnet market",
+        "next": "teardown-twap-expiry-1"
+      },
+      "teardown-twap-expiry-1": {
+        "action": "wait",
+        "duration_ms": 55000,
+        "intent": "Let any native schedule finish before restoring the reserved testnet market",
+        "next": "teardown-twap-expiry-2"
+      },
+      "teardown-twap-expiry-2": {
+        "action": "wait",
+        "duration_ms": 55000,
+        "intent": "Let any native schedule finish before restoring the reserved testnet market",
+        "next": "teardown-twap-expiry-3"
+      },
+      "teardown-twap-expiry-3": {
+        "action": "wait",
+        "duration_ms": 55000,
+        "intent": "Let any native schedule finish before restoring the reserved testnet market",
+        "next": "teardown-twap-expiry-4"
+      },
+      "teardown-twap-expiry-4": {
+        "action": "wait",
+        "duration_ms": 55000,
+        "intent": "Let any native schedule finish before restoring the reserved testnet market",
+        "next": "teardown-twap-expiry-5"
+      },
+      "teardown-twap-expiry-5": {
+        "action": "wait",
+        "duration_ms": 55000,
+        "intent": "Let any native schedule finish before restoring the reserved testnet market",
+        "next": "teardown-clean"
+      },
+      "setup-slippage-short": {
+        "action": "ui.press",
+        "test_id": "order-form-direction-short",
+        "intent": "Estimate selling into bids before enforcing a zero adverse-price cap",
+        "next": "ac2-ready"
+      },
+      "setup-market-long": {
+        "action": "ui.press",
+        "test_id": "order-form-direction-long",
+        "intent": "Open a long position for the reduce-only proof",
+        "next": "setup-market-notional"
+      },
+      "setup-market-notional": {
+        "action": "ui.set_input",
+        "test_id": "order-form-amount",
+        "value": "$25",
+        "intent": "Commit a small testnet market notional",
+        "next": "ac1-market-estimate-ready"
+      },
+      "ac1-market-estimate-ready": {
+        "action": "ui.wait_for",
+        "test_id": "order-form-slippage-estimate",
+        "timeout_ms": 45000,
+        "intent": "Require a live liquidity estimate before the trader submits a Market order",
+        "proves": [
+          "AC1",
+          "AC2"
+        ],
+        "next": "ac1-market-enabled"
+      },
+      "ac1-market-enabled": {
+        "action": "ui.wait_for",
+        "selector": "button[data-testid=\"order-form-submit\"]:not(:disabled)",
+        "timeout_ms": 45000,
+        "intent": "Confirm the trader can submit once its quote is ready",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-market-submit"
+      },
+      "ac1-market-submit": {
+        "action": "ui.press",
+        "test_id": "order-form-submit",
+        "intent": "Place the existing Market order with live depth available",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-market-position"
+      },
+      "ac1-market-position": {
+        "action": "metamask.perps.assert_positions",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "state": "open",
+        "side": "long",
+        "expect_count": 1,
+        "timeout_ms": 45000,
+        "intent": "Prove the market order filled into a real long position",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-market-position-assert"
+      },
+      "ac1-market-position-assert": {
+        "action": "assert_output",
+        "source": "ac1-market-position",
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "intent": "Bind the Market proof to the real venue position",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-reduce-only-place"
+      },
+      "teardown-capture": {
+        "action": "ui.screenshot",
+        "path": "teardown-final-state.png",
+        "category": "proof",
+        "intent": "Keep the form state that led to completion or failure",
+        "next": "teardown-twap-expiry-0"
+      },
+      "ac2-ready": {
+        "action": "ui.wait_for",
+        "selector": "button[data-testid=\"order-form-submit\"]:not(:disabled)",
+        "timeout_ms": 45000,
+        "intent": "Require live depth before testing the maximum slippage control",
+        "proves": [
+          "AC2"
+        ],
+        "next": "ac2-estimate"
+      },
+      "setup-chase-short": {
+        "action": "ui.press",
+        "test_id": "order-form-direction-short",
+        "intent": "Quote a post-only sell at the current ask for the Chase proof",
+        "next": "setup-chase-chase-duration"
+      },
+      "gate-chase-settle-1": {
+        "action": "wait",
+        "duration_ms": 1000,
+        "intent": "Let the signed Chase request reach its completed form state",
+        "next": "gate-chase-enabled-1"
+      },
+      "gate-chase-enabled-1": {
+        "action": "ui.wait_for",
+        "selector": "button[data-testid=\"order-form-submit\"]:not(:disabled)",
+        "timeout_ms": 45000,
+        "intent": "Require the Chase request to settle before inspecting venue exposure",
+        "next": "gate-chase-orders-1"
+      },
+      "gate-chase-orders-1": {
+        "action": "metamask.perps.read_orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "order_kind": "limit",
+        "side": "short",
+        "intent": "Read any resting sell produced by this Chase request",
+        "next": "gate-chase-orders-branch-1"
+      },
+      "gate-chase-orders-branch-1": {
+        "action": "switch",
+        "value": "orders-{{outputs.gate-chase-orders-1.matchingCount}}",
+        "equals": "orders-0",
+        "cases": {
+          "match": "gate-chase-positions-1"
+        },
+        "default": "ac1-chase-venue",
+        "intent": "Prove the resting order, or look for a completed fill when none rests"
+      },
+      "gate-chase-positions-1": {
+        "action": "metamask.perps.read_positions",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "side": "short",
+        "intent": "Look for a short position filled by the Chase",
+        "next": "gate-chase-position-branch-1"
+      },
+      "gate-chase-position-branch-1": {
+        "action": "switch",
+        "value": "positions-{{outputs.gate-chase-positions-1.matchingCount}}",
+        "equals": "positions-0",
+        "cases": {
+          "match": "gate-chase-rejected-1"
+        },
+        "default": "ac1-chase-filled",
+        "intent": "Verify a real fill, or retry only a refused request with no exposure"
+      },
+      "gate-chase-rejected-1": {
+        "action": "ui.wait_for",
+        "test_id": "order-form-error",
+        "text": "Post only order would have immediately matched",
+        "timeout_ms": 10000,
+        "intent": "Require the venue-specific post-only refusal before repeating the order",
+        "next": "ac1-chase-retry-1"
+      },
+      "ac1-chase-retry-1": {
+        "action": "ui.press",
+        "test_id": "order-form-submit",
+        "intent": "Requote the refused Chase after confirming there is no venue exposure",
+        "proves": [
+          "AC1"
+        ],
+        "next": "gate-chase-settle-2"
+      },
+      "gate-chase-settle-2": {
+        "action": "wait",
+        "duration_ms": 1000,
+        "intent": "Let the signed Chase request reach its completed form state",
+        "next": "gate-chase-enabled-2"
+      },
+      "gate-chase-enabled-2": {
+        "action": "ui.wait_for",
+        "selector": "button[data-testid=\"order-form-submit\"]:not(:disabled)",
+        "timeout_ms": 45000,
+        "intent": "Require the Chase request to settle before inspecting venue exposure",
+        "next": "gate-chase-orders-2"
+      },
+      "gate-chase-orders-2": {
+        "action": "metamask.perps.read_orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "order_kind": "limit",
+        "side": "short",
+        "intent": "Read any resting sell produced by this Chase request",
+        "next": "gate-chase-orders-branch-2"
+      },
+      "gate-chase-orders-branch-2": {
+        "action": "switch",
+        "value": "orders-{{outputs.gate-chase-orders-2.matchingCount}}",
+        "equals": "orders-0",
+        "cases": {
+          "match": "gate-chase-positions-2"
+        },
+        "default": "ac1-chase-venue",
+        "intent": "Prove the resting order, or look for a completed fill when none rests"
+      },
+      "gate-chase-positions-2": {
+        "action": "metamask.perps.read_positions",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "side": "short",
+        "intent": "Look for a short position filled by the Chase",
+        "next": "gate-chase-position-branch-2"
+      },
+      "gate-chase-position-branch-2": {
+        "action": "switch",
+        "value": "positions-{{outputs.gate-chase-positions-2.matchingCount}}",
+        "equals": "positions-0",
+        "cases": {
+          "match": "gate-chase-rejected-2"
+        },
+        "default": "ac1-chase-filled",
+        "intent": "Verify a real fill, or retry only a refused request with no exposure"
+      },
+      "gate-chase-rejected-2": {
+        "action": "ui.wait_for",
+        "test_id": "order-form-error",
+        "text": "Post only order would have immediately matched",
+        "timeout_ms": 10000,
+        "intent": "Require the venue-specific post-only refusal before repeating the order",
+        "next": "ac1-chase-retry-2"
+      },
+      "ac1-chase-retry-2": {
+        "action": "ui.press",
+        "test_id": "order-form-submit",
+        "intent": "Requote the refused Chase after confirming there is no venue exposure",
+        "proves": [
+          "AC1"
+        ],
+        "next": "gate-chase-settle-3"
+      },
+      "gate-chase-settle-3": {
+        "action": "wait",
+        "duration_ms": 1000,
+        "intent": "Let the signed Chase request reach its completed form state",
+        "next": "gate-chase-enabled-3"
+      },
+      "gate-chase-enabled-3": {
+        "action": "ui.wait_for",
+        "selector": "button[data-testid=\"order-form-submit\"]:not(:disabled)",
+        "timeout_ms": 45000,
+        "intent": "Require the Chase request to settle before inspecting venue exposure",
+        "next": "gate-chase-orders-3"
+      },
+      "gate-chase-orders-3": {
+        "action": "metamask.perps.read_orders",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "order_kind": "limit",
+        "side": "short",
+        "intent": "Read any resting sell produced by this Chase request",
+        "next": "gate-chase-orders-branch-3"
+      },
+      "gate-chase-orders-branch-3": {
+        "action": "switch",
+        "value": "orders-{{outputs.gate-chase-orders-3.matchingCount}}",
+        "equals": "orders-0",
+        "cases": {
+          "match": "gate-chase-positions-3"
+        },
+        "default": "ac1-chase-venue",
+        "intent": "Prove the resting order, or look for a completed fill when none rests"
+      },
+      "gate-chase-positions-3": {
+        "action": "metamask.perps.read_positions",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "side": "short",
+        "intent": "Look for a short position filled by the Chase",
+        "next": "gate-chase-position-branch-3"
+      },
+      "gate-chase-position-branch-3": {
+        "action": "switch",
+        "value": "positions-{{outputs.gate-chase-positions-3.matchingCount}}",
+        "equals": "positions-0",
+        "cases": {
+          "match": "ac1-chase-venue"
+        },
+        "default": "ac1-chase-filled",
+        "intent": "Verify a real fill, or retry only a refused request with no exposure"
+      },
+      "ac1-chase-filled": {
+        "action": "metamask.perps.assert_positions",
+        "account": "dev1",
+        "market": "ETH",
+        "network": "testnet",
+        "side": "short",
+        "state": "open",
+        "expect_count": 1,
+        "timeout_ms": 45000,
+        "intent": "Prove the Chase placed a real order that filled into a short position",
+        "proves": [
+          "AC1"
+        ],
+        "next": "ac1-chase-filled-assert"
+      },
+      "ac1-chase-filled-assert": {
+        "action": "assert_output",
+        "source": "ac1-chase-filled",
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "intent": "Bind Chase placement to its real short fill",
+        "proves": [
+          "AC1"
+        ],
+        "next": "teardown-chase"
+      },
+      "setup-twap-reduce-off": {
+        "action": "ui.press",
+        "text": "Reduce only",
+        "intent": "Clear the previous reduce-only preference before scheduling a new position",
+        "next": "gate-twap-flags"
+      },
+      "gate-twap-flags": {
+        "action": "ui.wait_for",
+        "selector": "label:has(input[type=\"checkbox\"]:checked)",
+        "expected": "absent",
+        "timeout_ms": 10000,
+        "intent": "Require a new-position TWAP without a retained reduce-only flag",
+        "next": "ac1-twap-select"
+      },
+      "setup-slippage-adverse-side": {
+        "action": "ui.press",
+        "selector": "form:has([data-over-slippage-limit=\"false\"]) [data-testid=\"order-form-direction-long\"], form:has([data-over-slippage-limit=\"true\"]) [data-testid=\"order-form-max-slippage\"]",
+        "intent": "Use the adverse execution side when a zero cap is currently acceptable on the short side",
+        "next": "ac2-exceeds-cap"
+      },
+      "ac2-exceeds-cap": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"order-form-slippage-estimate\"][data-over-slippage-limit=\"true\"]",
+        "timeout_ms": 45000,
+        "intent": "Require a displayed adverse estimate above the configured cap before testing rejection",
+        "proves": [
+          "AC2"
+        ],
+        "next": "ac2-cap-submit"
+      }
+    },
+    "teardown": "teardown-owned"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "verdict": "pass",
+  "compact": {
+    "verdict": "PASS",
+    "reasons": [
+      "Baseline passed the existing Limit guard and failed at the first new Stop control.",
+      "Every user-visible target is covered by passing recipe assertions and authentic testnet venue reads.",
+      "Screenshots show their claimed fields; final cleanup independently confirms the reserved market is flat.",
+      "Video is unsupported; the checklist permits the inspected screenshot fallback."
+    ],
+    "better_version_guidance": []
+  },
+  "dimensions": {},
+  "structural_findings": [],
+  "contextual_findings": [],
+  "suggested_recipe_delta": [],
+  "training_fields": {
+    "proof_mode": "mixed",
+    "project": "va-mmcx-terminal-farm",
+    "flow_type": "dev"
+  },
+  "meta": {
+    "producer": "worker",
+    "fallback_used": false,
+    "legacy_task": false,
+    "artifact_required": true,
+    "source_signals": [
+      "recipe-quality.json"
+    ]
+  }
+}

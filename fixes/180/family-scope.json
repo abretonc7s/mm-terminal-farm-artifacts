@@ -1,0 +1,6 @@
+{
+  "originalFamilyScopeSummary": "Add pro order types (Stop, Take, Scale, Chase, TWAP, reduce-only) and order-book click-to-fill with slippage controls",
+  "currentTriggerSummary": "pr-complete: feat: ship pro order types and order-book click-to-fill",
+  "scopeVerdict": "full-scope-addressed",
+  "notes": "Inherited report, recipe coverage and evidence manifest document the full feature and passing testnet proof. This follow-up fixes the effective slippage cap in display, warning and submission using the existing controller conversion. It adds both-direction boundary tests and accurately names advanced-draft persistence behavior. All three actionable review comments are addressed; replies are reserved for the lead. Mainnet and extension confirmation remain untested, as documented by the inherited proof."
+}

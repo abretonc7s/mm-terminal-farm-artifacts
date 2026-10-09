@@ -1,0 +1,12 @@
+09:39:06.973 [dapp:page:BTC] [reconnect] target detached; will re-attach
+09:39:09.131 [dapp:page:BTC] [attached]
+09:39:08.837 [dapp:page:BTC] INFO  %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold  (at info http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+09:39:08.876 [dapp:page:BTC] LOG  [HMR] connected  (at log http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+09:39:08.896 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT  (at https://api.hyperliquid.xyz/info?[REDACTED_QUERY]
+09:39:08.902 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: net::ERR_NAME_NOT_RESOLVED  (at https://api.hyperliquid.xyz:444/info?[REDACTED_QUERY]
+09:39:08.904 [dapp:page:BTC] [browser:network] ERROR  WebSocket connection to 'wss://api.hyperliquid.xyz/ws?mm-harness-probe=1' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED
+09:39:09.646 [dapp:page:BTC] WARNING  2026-10-09T09:39:09.645Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9342/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)
+09:39:10.405 [dapp:page:BTC] INFO  %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold  (at info http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+09:39:10.424 [dapp:page:BTC] LOG  [HMR] connected  (at log http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+09:39:11.004 [dapp:page:BTC] WARNING  2026-10-09T09:39:11.004Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9342/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)
+09:39:15.256 [dapp:page:BTC] INFO  [mm-harness-capture-control] c1809f71-343f-48eb-a2f0-99213a5144c8  (at info http://localhost:9342/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "adapter": "terminal",
+  "repository": "va-mmcx-terminal-2",
+  "git_ref": "ac13a96e35f7bd385460cd96a8935e5ec86e8a7b",
+  "branch": "TAT-4034-feat-add-pro-order-types-click-fill",
+  "dirty": true
+}
