@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "recipeDigest": "sha256:c4bd1e947ac2ca028d733171b8099c821ac5fa99d15e8b18dcf92c97c1584df1",
+  "startedAt": "2026-10-09T10:38:49.457Z",
+  "params": {
+    "account": "Trading",
+    "market": "SOL",
+    "notional": "25"
+  },
+  "redactedPaths": []
+}

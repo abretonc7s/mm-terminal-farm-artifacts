@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "preferred_mode": "screenshots",
+  "summary": "Inherited before/after feature evidence, plus this follow-up testnet smoke on the merged and fixed branch. The new smoke passed 47/47 without trade mutations.",
+  "before_after_pairs": [
+    {
+      "label": "AC1: order form column, base commit (no account panel) vs branch (account summary panel)",
+      "covers": [
+        "AC1"
+      ],
+      "before": "artifacts/recipe-runs/inherited-b9774071-c7ff-4ca0-8dfe-fa1003167648/before-ac1-order-form-no-account-panel.png",
+      "after": "artifacts/recipe-runs/inherited-b9774071-c7ff-4ca0-8dfe-fa1003167648/after-ac1-account-summary-panel.png",
+      "note": "Inherited family evidence. Before: main 79374ac, recipe-before.json node ac1-screenshot (artifacts/recipe-before-run). After: branch, recipe.json node ac1-screenshot (artifacts/recipe-run), flat account: Equity $538.45, uPnL/maintenance/usage/ratio zero. Same account, market and window size."
+    },
+    {
+      "label": "AC2: order summary, base commit (no fee tier line) vs branch (Fee tier: Tier 0, 0.1432%)",
+      "covers": [
+        "AC2"
+      ],
+      "before": "artifacts/recipe-runs/inherited-b9774071-c7ff-4ca0-8dfe-fa1003167648/before-ac2-order-summary-no-fee-tier.png",
+      "after": "artifacts/recipe-runs/inherited-b9774071-c7ff-4ca0-8dfe-fa1003167648/after-ac2-order-summary-fee-tier.png",
+      "note": "Inherited family evidence. Before: main 79374ac, node ac2-screenshot; the summary ends at Fees. After: branch, node ac2-screenshot; adds 'Fee tier \u00b7 Tier 0 \u00b7 0.1432%' (0.045% x (1 - 4% referral) + 0.100% MetaMask fee)."
+    },
+    {
+      "label": "AC3: top nav account menu, base commit vs branch (unchanged: active account, Add an account, Disconnect)",
+      "covers": [
+        "AC3"
+      ],
+      "before": "artifacts/recipe-runs/inherited-b9774071-c7ff-4ca0-8dfe-fa1003167648/before-ac3-top-nav-account-menu.png",
+      "after": "artifacts/recipe-runs/inherited-b9774071-c7ff-4ca0-8dfe-fa1003167648/after-ac3-top-nav-account-menu.png",
+      "note": "Inherited family evidence. Regression guard. Both from node ac3-screenshot with the menu open; same menu items before and after. Disconnect/reconnect and the Settings link are asserted by the ac3-* nodes in both runs."
+    }
+  ],
+  "standalone": [
+    {
+      "label": "AC1 live update: account panel with an open $25 testnet ETH long (no reload after the order)",
+      "file": "artifacts/recipe-runs/inherited-b9774071-c7ff-4ca0-8dfe-fa1003167648/after-ac1-account-summary-open-position.png",
+      "note": "Inherited family evidence. Branch, node ac1-live-screenshot after ac1-live-maintenance/upnl/upnl-tone/margin-usage passed: Equity $538.42 (was $538.45 flat), maintenance margin $0.50, margin usage 1.55%, uPnL non-zero (gain color, under one cent so it shows $0.00). Cross margin ratio 0.00%: isolated position."
+    },
+    {
+      "label": "Current account summary",
+      "covers": [
+        "AC1"
+      ],
+      "file": "artifacts/runtime/screenshots/evidence-ac1-account-summary.png",
+      "note": "Current follow-up smoke on Trading/SOL, testnet; runtime/summary.json PASS 47/47. No trade mutations."
+    },
+    {
+      "label": "Current fee tier and rate",
+      "covers": [
+        "AC2"
+      ],
+      "file": "artifacts/runtime/screenshots/evidence-ac2-fee-tier.png",
+      "note": "Current follow-up smoke on Trading/SOL, testnet; runtime/summary.json PASS 47/47. No trade mutations."
+    },
+    {
+      "label": "Current account menu",
+      "covers": [
+        "AC3"
+      ],
+      "file": "artifacts/runtime/screenshots/evidence-ac3-top-nav-account-menu.png",
+      "note": "Current follow-up smoke on Trading/SOL, testnet; runtime/summary.json PASS 47/47. No trade mutations."
+    }
+  ],
+  "videos": {
+    "preferred": false,
+    "note": "BLOCKED: --record-video is not implemented for the terminal adapter. Screenshots come from the recipes' own ui.screenshot nodes (artifacts/recipe-before-run/screenshots, artifacts/recipe-run/screenshots)."
+  }
+}

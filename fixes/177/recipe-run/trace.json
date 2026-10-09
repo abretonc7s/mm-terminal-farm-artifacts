@@ -1,0 +1,1398 @@
+{
+  "metadata": {
+    "runner": {
+      "source": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness",
+      "git_ref": "unknown",
+      "name": "@metamask/recipe-runner"
+    }
+  },
+  "entries": [
+    {
+      "nodeId": "setup-connect/session/launch",
+      "action": "metamask.app.launch",
+      "intent": "Start the slot browser with a fresh profile and the reserved fixture account in the requested wallet",
+      "startedAt": "2026-10-09T10:38:49.478Z",
+      "endedAt": "2026-10-09T10:38:54.829Z",
+      "durationMs": 5351,
+      "ok": true,
+      "next": "open_window",
+      "output": {
+        "action": "metamask.app.launch",
+        "status": "ready",
+        "reused": false,
+        "signer": "injected",
+        "network": "testnet",
+        "account": {
+          "name": "Trading",
+          "address": "0x316BDE155acd07609872a56Bc32CcfB0B13201fA"
+        },
+        "cdpPort": 9542,
+        "appOrigin": "http://localhost:9342",
+        "browser": {
+          "bin": "/Users/deeeed/Library/Caches/ms-playwright/chromium-1217/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+          "version": "Google Chrome for Testing 147.0.7727.15",
+          "source": "chrome-for-testing",
+          "headless": false,
+          "launchMethod": "launch-services"
+        },
+        "window": {
+          "x": 1028,
+          "y": 40,
+          "width": 1028,
+          "height": 1289,
+          "source": "main-screen",
+          "zoom": 0.7
+        },
+        "slowMoMs": 0,
+        "extension": null,
+        "freshProfile": true,
+        "proofPath": "terminal-browser-launch",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/launch.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/open_window",
+      "action": "metamask.wallet.read_signatures",
+      "intent": "Start counting what the app asks the main wallet from this point",
+      "startedAt": "2026-10-09T10:38:54.839Z",
+      "endedAt": "2026-10-09T10:38:54.910Z",
+      "durationMs": 71,
+      "ok": true,
+      "next": "open_market",
+      "output": {
+        "action": "metamask.wallet.read_signatures",
+        "source": "terminal-wallet-request-log",
+        "reset": true,
+        "cursor": 201,
+        "previousEntries": 201,
+        "proofPath": "terminal-wallet-request-log",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/read_signatures.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/open_market",
+      "action": "ui.navigate",
+      "intent": "Open the reserved market's order page on the slot dev server",
+      "startedAt": "2026-10-09T10:38:54.914Z",
+      "endedAt": "2026-10-09T10:38:55.377Z",
+      "durationMs": 463,
+      "ok": true,
+      "next": "choose_connect",
+      "output": {
+        "action": "ui.navigate",
+        "url": "http://localhost:9342/order/SOL",
+        "page": "order",
+        "market": "SOL",
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/BTC",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/choose_connect",
+      "action": "switch",
+      "intent": "Connect the wallet only when the caller needs a connected session",
+      "startedAt": "2026-10-09T10:38:55.381Z",
+      "endedAt": "2026-10-09T10:38:55.388Z",
+      "durationMs": 7,
+      "ok": true,
+      "next": "connect_visible",
+      "case": "match",
+      "output": {
+        "matched": true,
+        "value": "connect-true",
+        "expected": "connect-true"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/connect_visible",
+      "action": "ui.wait_for",
+      "intent": "Confirm the trader sees the Connect wallet button",
+      "startedAt": "2026-10-09T10:38:55.392Z",
+      "endedAt": "2026-10-09T10:38:56.254Z",
+      "durationMs": 862,
+      "ok": true,
+      "next": "connect",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/connect",
+      "action": "ui.press",
+      "intent": "Ask to connect a wallet as the trader",
+      "startedAt": "2026-10-09T10:38:56.259Z",
+      "endedAt": "2026-10-09T10:38:57.228Z",
+      "durationMs": 969,
+      "ok": true,
+      "next": "approve_connect",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"header-connect-wallet\"], [data-test-id=\"header-connect-wallet\"], [data-test=\"header-connect-wallet\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/approve_connect/choose",
+      "action": "switch",
+      "intent": "Only the MetaMask extension shows a confirmation; the injected wallet answers in the harness",
+      "startedAt": "2026-10-09T10:38:57.300Z",
+      "endedAt": "2026-10-09T10:38:57.306Z",
+      "durationMs": 6,
+      "ok": true,
+      "next": "injected_done",
+      "output": {
+        "matched": false,
+        "value": "injected",
+        "expected": "extension"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/approve_connect/injected_done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:38:57.313Z",
+      "endedAt": "2026-10-09T10:38:57.313Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-connect/session/approve_connect",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.confirm-wallet-request",
+        "digest": "sha256:57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/confirm-wallet-request.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Let MetaMask connect the reserved account to the Web Terminal",
+      "startedAt": "2026-10-09T10:38:57.295Z",
+      "endedAt": "2026-10-09T10:38:57.313Z",
+      "durationMs": 18,
+      "ok": true,
+      "next": "connected",
+      "output": {
+        "ref": "terminal.perps.confirm-wallet-request",
+        "status": "pass",
+        "outputs": {
+          "choose": {
+            "matched": false,
+            "value": "injected",
+            "expected": "extension"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/connected",
+      "action": "ui.wait_for",
+      "intent": "Confirm the header now shows the connected account",
+      "startedAt": "2026-10-09T10:38:57.321Z",
+      "endedAt": "2026-10-09T10:38:57.993Z",
+      "durationMs": 672,
+      "ok": true,
+      "next": "capture_connected",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/capture_connected",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the connected order page",
+      "artifacts": [
+        {
+          "path": "setup-connect/session/capture_connected.png",
+          "type": "screenshot",
+          "nodeId": "setup-connect/session/capture_connected",
+          "label": "session-connected",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:38:57.999Z",
+      "endedAt": "2026-10-09T10:38:58.108Z",
+      "durationMs": 109,
+      "ok": true,
+      "next": "session_signatures",
+      "output": {
+        "captured": true,
+        "path": "setup-connect/session/capture_connected.png",
+        "artifact": {
+          "path": "setup-connect/session/capture_connected.png",
+          "type": "screenshot",
+          "nodeId": "setup-connect/session/capture_connected",
+          "label": "session-connected",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/session_signatures",
+      "action": "metamask.wallet.assert_signatures",
+      "intent": "Prove connecting asked for one account permission and no signature",
+      "artifacts": [
+        {
+          "path": "terminal-wallet/setup-connect__session__session_signatures-signature-log.json",
+          "type": "report",
+          "nodeId": "setup-connect/session/session_signatures"
+        }
+      ],
+      "startedAt": "2026-10-09T10:38:58.112Z",
+      "endedAt": "2026-10-09T10:38:58.197Z",
+      "durationMs": 85,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.wallet.assert_signatures",
+        "source": "terminal-wallet-request-log",
+        "cursor": 201,
+        "count": 2,
+        "summary": {
+          "requests": 2,
+          "typedDataRequests": 0,
+          "l1Requests": 0,
+          "confirmationsShown": 0,
+          "blockedMainnet": 0,
+          "refusedMainnet": 0,
+          "unattributed": 0,
+          "outsideAppFrame": 0,
+          "byPrimaryType": {},
+          "byMethod": {
+            "wallet_requestPermissions": 1,
+            "eth_requestAccounts": 1
+          }
+        },
+        "entries": [
+          {
+            "seq": 201,
+            "signer": "injected",
+            "kind": "request",
+            "method": "wallet_requestPermissions",
+            "t": 1791542336286,
+            "url": "/order/SOL",
+            "source": "injected-strict-wallet",
+            "activeChainId": 42161,
+            "outcome": "approved",
+            "durationMs": 0
+          },
+          {
+            "seq": 202,
+            "signer": "injected",
+            "kind": "request",
+            "method": "eth_requestAccounts",
+            "t": 1791542336291,
+            "url": "/order/SOL",
+            "source": "injected-strict-wallet",
+            "activeChainId": 42161,
+            "outcome": "approved",
+            "durationMs": 1
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "terminal-wallet/setup-connect__session__session_signatures-signature-log.json",
+            "type": "report",
+            "nodeId": "setup-connect/session/session_signatures"
+          }
+        ],
+        "proofPath": "terminal-wallet-request-log",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/assert_signatures.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-connect/session/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:38:58.199Z",
+      "endedAt": "2026-10-09T10:38:58.199Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-connect/session",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.ensure-session",
+        "digest": "sha256:84f2bd0983c0b5a6b9258e9e4ca43ae33c09959ba2ff12fcb5c0b886c471b24e",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/ensure-session.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Start a fresh slot browser and connect the reserved account to the Web Terminal",
+      "startedAt": "2026-10-09T10:38:49.473Z",
+      "endedAt": "2026-10-09T10:38:58.199Z",
+      "durationMs": 8726,
+      "ok": true,
+      "next": "assert_connected",
+      "output": {
+        "ref": "terminal.perps.ensure-session",
+        "status": "pass",
+        "outputs": {
+          "launch": {
+            "action": "metamask.app.launch",
+            "status": "ready",
+            "reused": false,
+            "signer": "injected",
+            "network": "testnet",
+            "account": {
+              "name": "Trading",
+              "address": "0x316BDE155acd07609872a56Bc32CcfB0B13201fA"
+            },
+            "cdpPort": 9542,
+            "appOrigin": "http://localhost:9342",
+            "browser": {
+              "bin": "/Users/deeeed/Library/Caches/ms-playwright/chromium-1217/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+              "version": "Google Chrome for Testing 147.0.7727.15",
+              "source": "chrome-for-testing",
+              "headless": false,
+              "launchMethod": "launch-services"
+            },
+            "window": {
+              "x": 1028,
+              "y": 40,
+              "width": 1028,
+              "height": 1289,
+              "source": "main-screen",
+              "zoom": 0.7
+            },
+            "slowMoMs": 0,
+            "extension": null,
+            "freshProfile": true,
+            "proofPath": "terminal-browser-launch",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/launch.mjs"
+          },
+          "open_window": {
+            "action": "metamask.wallet.read_signatures",
+            "source": "terminal-wallet-request-log",
+            "reset": true,
+            "cursor": 201,
+            "previousEntries": 201,
+            "proofPath": "terminal-wallet-request-log",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/read_signatures.mjs"
+          },
+          "open_market": {
+            "action": "ui.navigate",
+            "url": "http://localhost:9342/order/SOL",
+            "page": "order",
+            "market": "SOL",
+            "surface": "app",
+            "cdpPort": 9542,
+            "targetUrl": "http://localhost:9342/order/BTC",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+          },
+          "choose_connect": {
+            "matched": true,
+            "value": "connect-true",
+            "expected": "connect-true"
+          },
+          "connect_visible": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9542,
+            "targetUrl": "http://localhost:9342/order/SOL"
+          },
+          "connect": {
+            "clicked": true,
+            "selector": "[data-testid=\"header-connect-wallet\"], [data-test-id=\"header-connect-wallet\"], [data-test=\"header-connect-wallet\"]",
+            "tagName": "BUTTON",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9542,
+            "targetUrl": "http://localhost:9342/order/SOL"
+          },
+          "approve_connect": {
+            "ref": "terminal.perps.confirm-wallet-request",
+            "status": "pass",
+            "outputs": {
+              "choose": {
+                "matched": false,
+                "value": "injected",
+                "expected": "extension"
+              }
+            }
+          },
+          "connected": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9542,
+            "targetUrl": "http://localhost:9342/order/SOL"
+          },
+          "capture_connected": {
+            "captured": true,
+            "path": "setup-connect/session/capture_connected.png",
+            "artifact": {
+              "path": "setup-connect/session/capture_connected.png",
+              "type": "screenshot",
+              "nodeId": "setup-connect/session/capture_connected",
+              "label": "session-connected",
+              "category": "proof",
+              "mimeType": "image/png"
+            }
+          },
+          "session_signatures": {
+            "action": "metamask.wallet.assert_signatures",
+            "source": "terminal-wallet-request-log",
+            "cursor": 201,
+            "count": 2,
+            "summary": {
+              "requests": 2,
+              "typedDataRequests": 0,
+              "l1Requests": 0,
+              "confirmationsShown": 0,
+              "blockedMainnet": 0,
+              "refusedMainnet": 0,
+              "unattributed": 0,
+              "outsideAppFrame": 0,
+              "byPrimaryType": {},
+              "byMethod": {
+                "wallet_requestPermissions": 1,
+                "eth_requestAccounts": 1
+              }
+            },
+            "entries": [
+              {
+                "seq": 201,
+                "signer": "injected",
+                "kind": "request",
+                "method": "wallet_requestPermissions",
+                "t": 1791542336286,
+                "url": "/order/SOL",
+                "source": "injected-strict-wallet",
+                "activeChainId": 42161,
+                "outcome": "approved",
+                "durationMs": 0
+              },
+              {
+                "seq": 202,
+                "signer": "injected",
+                "kind": "request",
+                "method": "eth_requestAccounts",
+                "t": 1791542336291,
+                "url": "/order/SOL",
+                "source": "injected-strict-wallet",
+                "activeChainId": 42161,
+                "outcome": "approved",
+                "durationMs": 1
+              }
+            ],
+            "artifacts": [
+              {
+                "path": "terminal-wallet/setup-connect__session__session_signatures-signature-log.json",
+                "type": "report",
+                "nodeId": "setup-connect/session/session_signatures"
+              }
+            ],
+            "proofPath": "terminal-wallet-request-log",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/assert_signatures.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "setup-connect/assert_connected",
+      "action": "metamask.wallet.assert_connected",
+      "intent": "Prove the Web Terminal is connected to the reserved account, as its own provider and header report",
+      "startedAt": "2026-10-09T10:38:58.202Z",
+      "endedAt": "2026-10-09T10:38:58.340Z",
+      "durationMs": 138,
+      "ok": true,
+      "next": "capture",
+      "output": {
+        "action": "metamask.wallet.assert_connected",
+        "connected": true,
+        "account": "0x316BDE155acd07609872a56Bc32CcfB0B13201fA",
+        "accountName": "Trading",
+        "signer": "injected",
+        "dappAccounts": [
+          "0x316BDE155acd07609872a56Bc32CcfB0B13201fA"
+        ],
+        "headerLabel": "0x316...01fa",
+        "url": "http://localhost:9342/order/SOL",
+        "proofPath": "dapp-connected-account",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/wallet/assert_connected.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-connect/capture",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the header showing the connected account",
+      "artifacts": [
+        {
+          "path": "setup-connect/capture.png",
+          "type": "screenshot",
+          "nodeId": "setup-connect/capture",
+          "label": "connected-Trading",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:38:58.343Z",
+      "endedAt": "2026-10-09T10:38:58.463Z",
+      "durationMs": 120,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "captured": true,
+        "path": "setup-connect/capture.png",
+        "artifact": {
+          "path": "setup-connect/capture.png",
+          "type": "screenshot",
+          "nodeId": "setup-connect/capture",
+          "label": "connected-Trading",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-connect/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:38:58.466Z",
+      "endedAt": "2026-10-09T10:38:58.466Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-connect",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.ensure-connected",
+        "digest": "sha256:48e1457e8c00735a2c5170adb372f11e1ef7e3436ddf4e4e7a25ced41be479f7",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/ensure-connected.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Start a fresh slot browser on the reserved market and connect the reserved account through the header",
+      "startedAt": "2026-10-09T10:38:49.462Z",
+      "endedAt": "2026-10-09T10:38:58.466Z",
+      "durationMs": 9004,
+      "ok": true,
+      "next": "gate-order-form",
+      "output": {
+        "ref": "terminal.perps.ensure-connected",
+        "status": "pass",
+        "outputs": {
+          "session": {
+            "ref": "terminal.perps.ensure-session",
+            "status": "pass",
+            "outputs": {
+              "launch": {
+                "action": "metamask.app.launch",
+                "status": "ready",
+                "reused": false,
+                "signer": "injected",
+                "network": "testnet",
+                "account": {
+                  "name": "Trading",
+                  "address": "0x316BDE155acd07609872a56Bc32CcfB0B13201fA"
+                },
+                "cdpPort": 9542,
+                "appOrigin": "http://localhost:9342",
+                "browser": {
+                  "bin": "/Users/deeeed/Library/Caches/ms-playwright/chromium-1217/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+                  "version": "Google Chrome for Testing 147.0.7727.15",
+                  "source": "chrome-for-testing",
+                  "headless": false,
+                  "launchMethod": "launch-services"
+                },
+                "window": {
+                  "x": 1028,
+                  "y": 40,
+                  "width": 1028,
+                  "height": 1289,
+                  "source": "main-screen",
+                  "zoom": 0.7
+                },
+                "slowMoMs": 0,
+                "extension": null,
+                "freshProfile": true,
+                "proofPath": "terminal-browser-launch",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/launch.mjs"
+              },
+              "open_window": {
+                "action": "metamask.wallet.read_signatures",
+                "source": "terminal-wallet-request-log",
+                "reset": true,
+                "cursor": 201,
+                "previousEntries": 201,
+                "proofPath": "terminal-wallet-request-log",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/read_signatures.mjs"
+              },
+              "open_market": {
+                "action": "ui.navigate",
+                "url": "http://localhost:9342/order/SOL",
+                "page": "order",
+                "market": "SOL",
+                "surface": "app",
+                "cdpPort": 9542,
+                "targetUrl": "http://localhost:9342/order/BTC",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+              },
+              "choose_connect": {
+                "matched": true,
+                "value": "connect-true",
+                "expected": "connect-true"
+              },
+              "connect_visible": {
+                "matched": true,
+                "surface": "app",
+                "cdpPort": 9542,
+                "targetUrl": "http://localhost:9342/order/SOL"
+              },
+              "connect": {
+                "clicked": true,
+                "selector": "[data-testid=\"header-connect-wallet\"], [data-test-id=\"header-connect-wallet\"], [data-test=\"header-connect-wallet\"]",
+                "tagName": "BUTTON",
+                "partiallyCovered": false,
+                "surface": "app",
+                "cdpPort": 9542,
+                "targetUrl": "http://localhost:9342/order/SOL"
+              },
+              "approve_connect": {
+                "ref": "terminal.perps.confirm-wallet-request",
+                "status": "pass",
+                "outputs": {
+                  "choose": {
+                    "matched": false,
+                    "value": "injected",
+                    "expected": "extension"
+                  }
+                }
+              },
+              "connected": {
+                "matched": true,
+                "surface": "app",
+                "cdpPort": 9542,
+                "targetUrl": "http://localhost:9342/order/SOL"
+              },
+              "capture_connected": {
+                "captured": true,
+                "path": "setup-connect/session/capture_connected.png",
+                "artifact": {
+                  "path": "setup-connect/session/capture_connected.png",
+                  "type": "screenshot",
+                  "nodeId": "setup-connect/session/capture_connected",
+                  "label": "session-connected",
+                  "category": "proof",
+                  "mimeType": "image/png"
+                }
+              },
+              "session_signatures": {
+                "action": "metamask.wallet.assert_signatures",
+                "source": "terminal-wallet-request-log",
+                "cursor": 201,
+                "count": 2,
+                "summary": {
+                  "requests": 2,
+                  "typedDataRequests": 0,
+                  "l1Requests": 0,
+                  "confirmationsShown": 0,
+                  "blockedMainnet": 0,
+                  "refusedMainnet": 0,
+                  "unattributed": 0,
+                  "outsideAppFrame": 0,
+                  "byPrimaryType": {},
+                  "byMethod": {
+                    "wallet_requestPermissions": 1,
+                    "eth_requestAccounts": 1
+                  }
+                },
+                "entries": [
+                  {
+                    "seq": 201,
+                    "signer": "injected",
+                    "kind": "request",
+                    "method": "wallet_requestPermissions",
+                    "t": 1791542336286,
+                    "url": "/order/SOL",
+                    "source": "injected-strict-wallet",
+                    "activeChainId": 42161,
+                    "outcome": "approved",
+                    "durationMs": 0
+                  },
+                  {
+                    "seq": 202,
+                    "signer": "injected",
+                    "kind": "request",
+                    "method": "eth_requestAccounts",
+                    "t": 1791542336291,
+                    "url": "/order/SOL",
+                    "source": "injected-strict-wallet",
+                    "activeChainId": 42161,
+                    "outcome": "approved",
+                    "durationMs": 1
+                  }
+                ],
+                "artifacts": [
+                  {
+                    "path": "terminal-wallet/setup-connect__session__session_signatures-signature-log.json",
+                    "type": "report",
+                    "nodeId": "setup-connect/session/session_signatures"
+                  }
+                ],
+                "proofPath": "terminal-wallet-request-log",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/assert_signatures.mjs"
+              }
+            }
+          },
+          "assert_connected": {
+            "action": "metamask.wallet.assert_connected",
+            "connected": true,
+            "account": "0x316BDE155acd07609872a56Bc32CcfB0B13201fA",
+            "accountName": "Trading",
+            "signer": "injected",
+            "dappAccounts": [
+              "0x316BDE155acd07609872a56Bc32CcfB0B13201fA"
+            ],
+            "headerLabel": "0x316...01fa",
+            "url": "http://localhost:9342/order/SOL",
+            "proofPath": "dapp-connected-account",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/wallet/assert_connected.mjs"
+          },
+          "capture": {
+            "captured": true,
+            "path": "setup-connect/capture.png",
+            "artifact": {
+              "path": "setup-connect/capture.png",
+              "type": "screenshot",
+              "nodeId": "setup-connect/capture",
+              "label": "connected-Trading",
+              "category": "proof",
+              "mimeType": "image/png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "gate-order-form",
+      "action": "ui.wait_for",
+      "intent": "Make sure the connected trader sees the order form before checking the header",
+      "startedAt": "2026-10-09T10:38:58.468Z",
+      "endedAt": "2026-10-09T10:38:58.803Z",
+      "durationMs": 335,
+      "ok": true,
+      "next": "ac3-settings-link",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac3-settings-link",
+      "action": "ui.wait_for",
+      "intent": "Confirm the top nav links to Settings",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:38:58.810Z",
+      "endedAt": "2026-10-09T10:38:59.149Z",
+      "durationMs": 339,
+      "ok": true,
+      "next": "ac3-open-account-menu",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac3-open-account-menu",
+      "action": "ui.press",
+      "intent": "Open the account menu from the top nav as the trader",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:38:59.153Z",
+      "endedAt": "2026-10-09T10:38:59.735Z",
+      "durationMs": 582,
+      "ok": true,
+      "next": "ac3-menu-active-account",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"header-account-button\"], [data-test-id=\"header-account-button\"], [data-test=\"header-account-button\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac3-menu-active-account",
+      "action": "ui.wait_for",
+      "intent": "Confirm the menu lists the connected account marked active (the account switcher)",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:38:59.739Z",
+      "endedAt": "2026-10-09T10:39:00.091Z",
+      "durationMs": 352,
+      "ok": true,
+      "next": "ac3-menu-add-account",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac3-menu-add-account",
+      "action": "ui.wait_for",
+      "intent": "Confirm the menu offers adding (switching to) another account",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:39:00.094Z",
+      "endedAt": "2026-10-09T10:39:00.740Z",
+      "durationMs": 646,
+      "ok": true,
+      "next": "ac3-screenshot",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac3-screenshot",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the top nav account menu with switch and disconnect options",
+      "artifacts": [
+        {
+          "path": "screenshots/evidence-ac3-top-nav-account-menu.png",
+          "type": "screenshot",
+          "nodeId": "ac3-screenshot",
+          "label": "evidence-ac3-top-nav-account-menu",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:39:00.745Z",
+      "endedAt": "2026-10-09T10:39:00.861Z",
+      "durationMs": 116,
+      "ok": true,
+      "next": "ac3-menu-disconnect",
+      "output": {
+        "captured": true,
+        "path": "screenshots/evidence-ac3-top-nav-account-menu.png",
+        "artifact": {
+          "path": "screenshots/evidence-ac3-top-nav-account-menu.png",
+          "type": "screenshot",
+          "nodeId": "ac3-screenshot",
+          "label": "evidence-ac3-top-nav-account-menu",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "ac3-menu-disconnect",
+      "action": "ui.press",
+      "intent": "Disconnect the wallet from the top nav menu",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:39:00.864Z",
+      "endedAt": "2026-10-09T10:39:01.316Z",
+      "durationMs": 452,
+      "ok": true,
+      "next": "ac3-disconnected",
+      "output": {
+        "clicked": true,
+        "selector": "[role=\"menu\"][aria-label=\"Connected accounts\"] [role=\"menuitem\"][data-key=\"disconnect\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac3-disconnected",
+      "action": "ui.wait_for",
+      "intent": "Confirm the top nav is back to the Connect wallet button",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:39:01.319Z",
+      "endedAt": "2026-10-09T10:39:01.736Z",
+      "durationMs": 417,
+      "ok": true,
+      "next": "ac3-connect",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac3-connect",
+      "action": "ui.press",
+      "intent": "Connect the wallet again from the top nav",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:39:01.739Z",
+      "endedAt": "2026-10-09T10:39:02.389Z",
+      "durationMs": 650,
+      "ok": true,
+      "next": "ac3-approve-connect",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"header-connect-wallet\"], [data-test-id=\"header-connect-wallet\"], [data-test=\"header-connect-wallet\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac3-approve-connect/choose",
+      "action": "switch",
+      "intent": "Only the MetaMask extension shows a confirmation; the injected wallet answers in the harness",
+      "startedAt": "2026-10-09T10:39:02.396Z",
+      "endedAt": "2026-10-09T10:39:02.400Z",
+      "durationMs": 4,
+      "ok": true,
+      "next": "injected_done",
+      "output": {
+        "matched": false,
+        "value": "injected",
+        "expected": "extension"
+      }
+    },
+    {
+      "nodeId": "ac3-approve-connect/injected_done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:39:02.402Z",
+      "endedAt": "2026-10-09T10:39:02.402Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "ac3-approve-connect",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.confirm-wallet-request",
+        "digest": "sha256:57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/confirm-wallet-request.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Let the wallet approve the reconnection",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:39:02.393Z",
+      "endedAt": "2026-10-09T10:39:02.402Z",
+      "durationMs": 9,
+      "ok": true,
+      "next": "ac3-reconnected",
+      "output": {
+        "ref": "terminal.perps.confirm-wallet-request",
+        "status": "pass",
+        "outputs": {
+          "choose": {
+            "matched": false,
+            "value": "injected",
+            "expected": "extension"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac3-reconnected",
+      "action": "ui.wait_for",
+      "intent": "Confirm the top nav shows the connected account again",
+      "proves": [
+        "AC3"
+      ],
+      "startedAt": "2026-10-09T10:39:02.405Z",
+      "endedAt": "2026-10-09T10:39:02.741Z",
+      "durationMs": 336,
+      "ok": true,
+      "next": "ac1-panel-visible",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac1-panel-visible",
+      "action": "ui.wait_for",
+      "intent": "Confirm the order form shows the account summary panel for the connected trader",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:39:02.745Z",
+      "endedAt": "2026-10-09T10:39:03.090Z",
+      "durationMs": 345,
+      "ok": true,
+      "next": "ac1-equity",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac1-equity",
+      "action": "ui.wait_for",
+      "intent": "Confirm equity shows a live USD value",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:39:03.093Z",
+      "endedAt": "2026-10-09T10:39:03.424Z",
+      "durationMs": 331,
+      "ok": true,
+      "next": "ac1-upnl",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac1-upnl",
+      "action": "ui.wait_for",
+      "intent": "Confirm unrealized PnL shows a live USD value",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:39:03.428Z",
+      "endedAt": "2026-10-09T10:39:03.774Z",
+      "durationMs": 346,
+      "ok": true,
+      "next": "ac1-maintenance",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac1-maintenance",
+      "action": "ui.wait_for",
+      "intent": "Confirm maintenance margin shows a USD value",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:39:03.777Z",
+      "endedAt": "2026-10-09T10:39:04.124Z",
+      "durationMs": 347,
+      "ok": true,
+      "next": "ac1-margin-usage",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac1-margin-usage",
+      "action": "ui.wait_for",
+      "intent": "Confirm margin usage shows a percentage",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:39:04.130Z",
+      "endedAt": "2026-10-09T10:39:04.745Z",
+      "durationMs": 615,
+      "ok": true,
+      "next": "ac1-margin-ratio",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac1-margin-ratio",
+      "action": "ui.wait_for",
+      "intent": "Confirm cross margin ratio shows a percentage",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:39:04.749Z",
+      "endedAt": "2026-10-09T10:39:05.091Z",
+      "durationMs": 342,
+      "ok": true,
+      "next": "ac1-wait-claimed",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac1-wait-claimed",
+      "action": "ui.wait_for",
+      "intent": "Hold on the account summary panel before capturing it",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:39:05.095Z",
+      "endedAt": "2026-10-09T10:39:05.742Z",
+      "durationMs": 647,
+      "ok": true,
+      "next": "ac1-screenshot",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac1-screenshot",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the account summary panel with equity, uPnL, maintenance margin, margin usage and ratio",
+      "artifacts": [
+        {
+          "path": "screenshots/evidence-ac1-account-summary.png",
+          "type": "screenshot",
+          "nodeId": "ac1-screenshot",
+          "label": "evidence-ac1-account-summary",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:39:05.747Z",
+      "endedAt": "2026-10-09T10:39:05.866Z",
+      "durationMs": 119,
+      "ok": true,
+      "next": "ac2-fee-tier",
+      "output": {
+        "captured": true,
+        "path": "screenshots/evidence-ac1-account-summary.png",
+        "artifact": {
+          "path": "screenshots/evidence-ac1-account-summary.png",
+          "type": "screenshot",
+          "nodeId": "ac1-screenshot",
+          "label": "evidence-ac1-account-summary",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "ac2-fee-tier",
+      "action": "ui.wait_for",
+      "intent": "Confirm the order form summary shows the trader's fee tier",
+      "proves": [
+        "AC2"
+      ],
+      "startedAt": "2026-10-09T10:39:05.869Z",
+      "endedAt": "2026-10-09T10:39:06.215Z",
+      "durationMs": 346,
+      "ok": true,
+      "next": "ac2-fee-rate",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac2-fee-rate",
+      "action": "ui.wait_for",
+      "intent": "Confirm the order form summary shows the post-discount fee rate",
+      "proves": [
+        "AC2"
+      ],
+      "startedAt": "2026-10-09T10:39:06.218Z",
+      "endedAt": "2026-10-09T10:39:06.741Z",
+      "durationMs": 523,
+      "ok": true,
+      "next": "ac2-wait-claimed",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac2-wait-claimed",
+      "action": "ui.wait_for",
+      "intent": "Hold on the fee tier line before capturing it",
+      "proves": [
+        "AC2"
+      ],
+      "startedAt": "2026-10-09T10:39:06.744Z",
+      "endedAt": "2026-10-09T10:39:07.092Z",
+      "durationMs": 348,
+      "ok": true,
+      "next": "ac2-screenshot",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9542,
+        "targetUrl": "http://localhost:9342/order/SOL"
+      }
+    },
+    {
+      "nodeId": "ac2-screenshot",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the order summary with the fee tier and post-discount fee",
+      "artifacts": [
+        {
+          "path": "screenshots/evidence-ac2-fee-tier.png",
+          "type": "screenshot",
+          "nodeId": "ac2-screenshot",
+          "label": "evidence-ac2-fee-tier",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:39:07.096Z",
+      "endedAt": "2026-10-09T10:39:07.197Z",
+      "durationMs": 101,
+      "ok": true,
+      "next": "teardown-console",
+      "output": {
+        "captured": true,
+        "path": "screenshots/evidence-ac2-fee-tier.png",
+        "artifact": {
+          "path": "screenshots/evidence-ac2-fee-tier.png",
+          "type": "screenshot",
+          "nodeId": "ac2-screenshot",
+          "label": "evidence-ac2-fee-tier",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-console/console",
+      "action": "metamask.app.assert_no_console_errors",
+      "intent": "Prove the trader's session raised no unexplained page error or exception",
+      "startedAt": "2026-10-09T10:39:07.204Z",
+      "endedAt": "2026-10-09T10:39:07.361Z",
+      "durationMs": 157,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.app.assert_no_console_errors",
+        "sources": [
+          "page",
+          "browser"
+        ],
+        "levels": [
+          "error",
+          "exception"
+        ],
+        "findings": [],
+        "allowlisted": [],
+        "allowlistProblems": [],
+        "capture": {
+          "collector": "console collector pid 35358 on CDP 9542",
+          "control": {
+            "page": "control line from the http://localhost:9342 page reached app-console.log"
+          }
+        },
+        "offsetResets": [],
+        "proofPath": "terminal-console-capture",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/assert_no_console_errors.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-console/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:39:07.364Z",
+      "endedAt": "2026-10-09T10:39:07.364Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-console",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.assert-clean-console",
+        "digest": "sha256:960ccc20f75f9d253cce3086c3c8d98b5f09d6c469d083e1bb42fe1cb15b5924",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/assert-clean-console.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Prove the session raised no unexplained console error",
+      "startedAt": "2026-10-09T10:39:07.200Z",
+      "endedAt": "2026-10-09T10:39:07.364Z",
+      "durationMs": 164,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "ref": "terminal.perps.assert-clean-console",
+        "status": "pass",
+        "outputs": {
+          "console": {
+            "action": "metamask.app.assert_no_console_errors",
+            "sources": [
+              "page",
+              "browser"
+            ],
+            "levels": [
+              "error",
+              "exception"
+            ],
+            "findings": [],
+            "allowlisted": [],
+            "allowlistProblems": [],
+            "capture": {
+              "collector": "console collector pid 35358 on CDP 9542",
+              "control": {
+                "page": "control line from the http://localhost:9342 page reached app-console.log"
+              }
+            },
+            "offsetResets": [],
+            "proofPath": "terminal-console-capture",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/assert_no_console_errors.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:39:07.368Z",
+      "endedAt": "2026-10-09T10:39:07.368Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "verdict": "warn",
+  "compact": {
+    "verdict": "WARN",
+    "reasons": [
+      "Every AC has viewport-visible assertions on the real order page plus a screenshot; the baseline run fails at the first new-behavior node (ac1-panel-visible) and AC3 regression nodes pass in both runs.",
+      "The testnet account has no open position, so AC1's non-zero values and live ticks are proven by Vitest, not end to end.",
+      "No video: --record-video is not implemented for the terminal adapter."
+    ],
+    "better_version_guidance": [
+      "Open a small testnet position (terminal.perps.place-market-order) before the AC1 nodes and assert uPnL/maintenance margin change, then close it in teardown."
+    ]
+  },
+  "dimensions": {},
+  "structural_findings": [],
+  "contextual_findings": [],
+  "suggested_recipe_delta": [],
+  "training_fields": {
+    "proof_mode": "unknown"
+  },
+  "meta": {
+    "producer": "worker",
+    "fallback_used": false,
+    "legacy_task": false,
+    "artifact_required": true,
+    "source_signals": [
+      "recipe-quality.json"
+    ]
+  }
+}

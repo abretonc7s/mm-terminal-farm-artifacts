@@ -1,0 +1,457 @@
+{
+  "schemaVersion": 1,
+  "id": "run-network",
+  "status": "unavailable",
+  "startedAtEpochMs": 1791542328809,
+  "endedAtEpochMs": 1791542347876,
+  "maxDurationMs": 3600000,
+  "reconnects": 0,
+  "droppedRequests": 0,
+  "unavailableReasons": [
+    "Extension hebhblbkkdabgoldnojllkipeoacjioc has no attachable CDP targets (service worker stopped and no extension page open?)."
+  ],
+  "coverageGapReasons": [],
+  "uninspectableBodyRequests": 0,
+  "projectedBodyFields": [
+    "type"
+  ],
+  "totalRequests": 0,
+  "requestsByMethod": {},
+  "requestsByHost": {},
+  "requestsByType": {},
+  "requests": [],
+  "nodeEvents": [
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 675,
+      "nodeId": "setup-connect/session/launch",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 6020,
+      "nodeId": "setup-connect/session/launch",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.read_signatures",
+      "elapsedMs": 6035,
+      "nodeId": "setup-connect/session/open_window",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.read_signatures",
+      "elapsedMs": 6101,
+      "nodeId": "setup-connect/session/open_window",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 6110,
+      "nodeId": "setup-connect/session/open_market",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 6568,
+      "nodeId": "setup-connect/session/open_market",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 6579,
+      "nodeId": "setup-connect/session/choose_connect",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 6579,
+      "nodeId": "setup-connect/session/choose_connect",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 6591,
+      "nodeId": "setup-connect/session/connect_visible",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7445,
+      "nodeId": "setup-connect/session/connect_visible",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 7459,
+      "nodeId": "setup-connect/session/connect",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 8419,
+      "nodeId": "setup-connect/session/connect",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 8497,
+      "nodeId": "setup-connect/session/approve_connect/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 8497,
+      "nodeId": "setup-connect/session/approve_connect/choose",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 8523,
+      "nodeId": "setup-connect/session/connected",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 9184,
+      "nodeId": "setup-connect/session/connected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9195,
+      "nodeId": "setup-connect/session/capture_connected",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9299,
+      "nodeId": "setup-connect/session/capture_connected",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 9308,
+      "nodeId": "setup-connect/session/session_signatures",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 9387,
+      "nodeId": "setup-connect/session/session_signatures",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_connected",
+      "elapsedMs": 9396,
+      "nodeId": "setup-connect/assert_connected",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_connected",
+      "elapsedMs": 9531,
+      "nodeId": "setup-connect/assert_connected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9543,
+      "nodeId": "setup-connect/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9654,
+      "nodeId": "setup-connect/capture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 9663,
+      "nodeId": "gate-order-form",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 9994,
+      "nodeId": "gate-order-form",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 10006,
+      "nodeId": "ac3-settings-link",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 10340,
+      "nodeId": "ac3-settings-link",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 10350,
+      "nodeId": "ac3-open-account-menu",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 10926,
+      "nodeId": "ac3-open-account-menu",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 10938,
+      "nodeId": "ac3-menu-active-account",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 11282,
+      "nodeId": "ac3-menu-active-account",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 11292,
+      "nodeId": "ac3-menu-add-account",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 11931,
+      "nodeId": "ac3-menu-add-account",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 11941,
+      "nodeId": "ac3-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 12052,
+      "nodeId": "ac3-screenshot",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 12060,
+      "nodeId": "ac3-menu-disconnect",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 12507,
+      "nodeId": "ac3-menu-disconnect",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 12513,
+      "nodeId": "ac3-disconnected",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 12927,
+      "nodeId": "ac3-disconnected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 12941,
+      "nodeId": "ac3-connect",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 13580,
+      "nodeId": "ac3-connect",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 13591,
+      "nodeId": "ac3-approve-connect/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 13591,
+      "nodeId": "ac3-approve-connect/choose",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 13600,
+      "nodeId": "ac3-reconnected",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 13932,
+      "nodeId": "ac3-reconnected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 13946,
+      "nodeId": "ac1-panel-visible",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 14281,
+      "nodeId": "ac1-panel-visible",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 14289,
+      "nodeId": "ac1-equity",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 14615,
+      "nodeId": "ac1-equity",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 14625,
+      "nodeId": "ac1-upnl",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 14965,
+      "nodeId": "ac1-upnl",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 14975,
+      "nodeId": "ac1-maintenance",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 15315,
+      "nodeId": "ac1-maintenance",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 15328,
+      "nodeId": "ac1-margin-usage",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 15936,
+      "nodeId": "ac1-margin-usage",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 15947,
+      "nodeId": "ac1-margin-ratio",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 16282,
+      "nodeId": "ac1-margin-ratio",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 16290,
+      "nodeId": "ac1-wait-claimed",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 16933,
+      "nodeId": "ac1-wait-claimed",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 16944,
+      "nodeId": "ac1-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 17057,
+      "nodeId": "ac1-screenshot",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 17070,
+      "nodeId": "ac2-fee-tier",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 17406,
+      "nodeId": "ac2-fee-tier",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 17416,
+      "nodeId": "ac2-fee-rate",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 17932,
+      "nodeId": "ac2-fee-rate",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 17941,
+      "nodeId": "ac2-wait-claimed",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 18283,
+      "nodeId": "ac2-wait-claimed",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 18290,
+      "nodeId": "ac2-screenshot",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 18388,
+      "nodeId": "ac2-screenshot",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.app.assert_no_console_errors",
+      "elapsedMs": 18399,
+      "nodeId": "teardown-console/console",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.assert_no_console_errors",
+      "elapsedMs": 18552,
+      "nodeId": "teardown-console/console",
+      "status": "passed"
+    }
+  ]
+}

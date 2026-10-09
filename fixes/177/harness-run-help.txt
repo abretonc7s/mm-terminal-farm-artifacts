@@ -1,0 +1,44 @@
+mm-harness run <recipe|recipe.json> [key=value ...] [flags]
+
+  Validate and execute a complete proof, then write summary, trace, diagnostics,
+  and artifacts. Inside a checkout, the adapter, target, ports, and artifact
+  directory are normally detected automatically.
+
+Discovery:
+  --list                             List complete recipes accepted by run for this adapter; no <recipe> needed
+  --domain <name>                    With --list: filter by recipe domain, e.g. perps or swap-bridge
+  --source <name>                    With --list: filter by library origin, e.g. metamask or perps
+  --sort <domain|name|library>       With --list: grouping/order (default: domain; JSON: name)
+  --describe                         Show one recipe's parameters, composed actions/recipes, and runnable command
+  --plan                             Validate + print execution plan, touching nothing. Exit 5 if invalid.
+  --proof                            Preflight behavioral proof bindings before planning/execution; runtime evidence is still required.
+
+Common overrides:
+  --device <udid|serial|name>        Mobile only: target this device (sets IOS_SIMULATOR / ADB_SERIAL and updates agentic-runtime.json). Without it, >1 connected mobile device fails fast and lists them. Do not shut down other devices to force selection.
+  --adapter <mobile|extension|core|web-dapp|terminal>  Target adapter (auto-detected inside a checkout)
+  --platform <ios|android>           Mobile platform preference; use --adapter for the product adapter
+  --target <path>                    Checkout path (default: cwd)
+  --artifacts-dir <dir>              Override evidence output (default: active task/artifacts, otherwise a checkout-local temp/recipe/runs/<run>)
+  --funding-request <absolute-file>  Original consented mutation request for external-mutation actions
+  --funding-preflight <absolute-file> Eligible funding preflight bound to the request bytes
+  --funding-release-proof <absolute-file> Exact release proof independently bound to funding eligibility
+  --funding-balance-proof <absolute-file> Exact balance proof and contained visible evidence chain
+  --library <name=path>              Add/override a recipe-library source (repeatable)
+  --heal <off|infra-only|auto>       Healing policy (default: infra-only); auto-ensures the overlay
+  --json                             Machine-readable output
+  --json-stream                      Line-flushed JSONL progress + terminal event
+  --record-video=full-run            Record a video of the run
+  --hud <show|hide>                  Recipe HUD: each node's intent drawn over the app on every adapter, headless included (default: show)
+
+Advanced integrations:
+  runtime: --cdp-port, --watcher-port, --runtime-dir, --slot,
+           --validation-runtime-dir, --launch-existing-dist
+  managed trust boundary (not needed for normal runs; Farmslot supplies it):
+           --source-trust, --source-kind, --source-name, --source-digest,
+           --approve-plan (binds approval to the exact reviewed plan)
+  schema:  --action-manifest
+
+Example:
+  mm-harness run wallet.smoke --describe
+  mm-harness run perps.release-market-search query=Bitcoin --plan --adapter mobile
+  mm-harness run recipe.json market=ETH --adapter extension

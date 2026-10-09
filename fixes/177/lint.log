@@ -1,0 +1,8 @@
+lint-changed: typecheck (whole project)
+
+> terminal@0.1.0 typecheck
+> tsc --noEmit
+
+lint-changed: Biome on files changed since a0c70d313b0b14786b9738dec5a9ccba8653d1bf, plus untracked files
+Checked 25 files in 26ms. No fixes applied.
+lint-changed: PASS

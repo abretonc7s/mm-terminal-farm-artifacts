@@ -1,0 +1,491 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "TAT-4035 account equity panel, fee tier and top nav",
+  "description": "Web Terminal on Hyperliquid testnet (slot mmt-3, account dev1, market ETH, injected signer): connect the reserved account, prove the header still connects/switches/disconnects and links to Settings, then prove the order form shows the live account panel (equity, unrealized PnL, maintenance margin, margin usage, cross margin ratio) and the fee tier with the post-discount fee rate. Then open a small testnet long on the reserved market and prove, without a page reload, that uPnL, maintenance margin and margin usage go non-zero and return to zero after the close. Teardown converges the reserved market back to flat.",
+  "proofTargets": [
+    {
+      "id": "AC1",
+      "claim": "Equity, uPnL, maintenance margin, and margin usage/ratio are all visible and update live off the WS-driven data already flowing through live-positions-query.ts/live-user-info-query.ts."
+    },
+    {
+      "id": "AC2",
+      "claim": "Fee tier and post-discount fee display correctly in the order form."
+    },
+    {
+      "id": "AC3",
+      "claim": "Top nav supports connect/switch/disconnect and links to settings."
+    }
+  ],
+  "workflow": {
+    "entry": "setup-connect",
+    "nodes": {
+      "setup-connect": {
+        "action": "call",
+        "ref": "terminal.perps.ensure-connected",
+        "params": {
+          "signer": "injected",
+          "account": "{{params.account}}",
+          "market": "{{params.market}}"
+        },
+        "intent": "Start a fresh slot browser on the reserved market and connect the reserved account through the header",
+        "next": "gate-order-form"
+      },
+      "gate-order-form": {
+        "action": "ui.wait_for",
+        "test_id": "order-form-tab-market",
+        "timeout_ms": 120000,
+        "intent": "Make sure the connected trader sees the order form before checking the header",
+        "next": "ac3-settings-link"
+      },
+      "ac3-settings-link": {
+        "action": "ui.wait_for",
+        "selector": "nav[aria-label=\"Main navigation\"] a[aria-label=\"Settings\"][href=\"/settings\"]",
+        "expected": "visible",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Confirm the top nav links to Settings",
+        "next": "ac3-open-account-menu"
+      },
+      "ac3-open-account-menu": {
+        "action": "ui.press",
+        "test_id": "header-account-button",
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Open the account menu from the top nav as the trader",
+        "next": "ac3-menu-active-account"
+      },
+      "ac3-menu-active-account": {
+        "action": "ui.wait_for",
+        "selector": "[role=\"menu\"][aria-label=\"Connected accounts\"] [role=\"menuitem\"]",
+        "text": "· Active",
+        "text_match": "contains",
+        "expected": "visible",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Confirm the menu lists the connected account marked active (the account switcher)",
+        "next": "ac3-menu-add-account"
+      },
+      "ac3-menu-add-account": {
+        "action": "ui.wait_for",
+        "selector": "[role=\"menu\"][aria-label=\"Connected accounts\"] [role=\"menuitem\"][data-key=\"add\"]",
+        "text": "Add an account",
+        "text_match": "exact",
+        "expected": "visible",
+        "timeout_ms": 15000,
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Confirm the menu offers adding (switching to) another account",
+        "next": "ac3-screenshot"
+      },
+      "ac3-screenshot": {
+        "action": "ui.screenshot",
+        "path": "screenshots/evidence-ac3-top-nav-account-menu.png",
+        "label": "evidence-ac3-top-nav-account-menu",
+        "category": "proof",
+        "intent": "Keep a picture of the top nav account menu with switch and disconnect options",
+        "next": "ac3-menu-disconnect"
+      },
+      "ac3-menu-disconnect": {
+        "action": "ui.press",
+        "selector": "[role=\"menu\"][aria-label=\"Connected accounts\"] [role=\"menuitem\"][data-key=\"disconnect\"]",
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Disconnect the wallet from the top nav menu",
+        "next": "ac3-disconnected"
+      },
+      "ac3-disconnected": {
+        "action": "ui.wait_for",
+        "test_id": "header-connect-wallet",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Confirm the top nav is back to the Connect wallet button",
+        "next": "ac3-connect"
+      },
+      "ac3-connect": {
+        "action": "ui.press",
+        "test_id": "header-connect-wallet",
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Connect the wallet again from the top nav",
+        "next": "ac3-approve-connect"
+      },
+      "ac3-approve-connect": {
+        "action": "call",
+        "ref": "terminal.perps.confirm-wallet-request",
+        "params": {
+          "signer": "injected",
+          "kind": "connect"
+        },
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Let the wallet approve the reconnection",
+        "next": "ac3-reconnected"
+      },
+      "ac3-reconnected": {
+        "action": "ui.wait_for",
+        "test_id": "header-account-button",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC3"
+        ],
+        "intent": "Confirm the top nav shows the connected account again",
+        "next": "setup-flat"
+      },
+      "ac1-panel-visible": {
+        "action": "ui.wait_for",
+        "selector": "section[aria-label=\"Account summary\"]",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm the order form shows the account summary panel for the connected trader",
+        "next": "ac1-equity"
+      },
+      "ac1-equity": {
+        "action": "ui.wait_for",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm equity shows a live USD value",
+        "next": "ac1-upnl",
+        "selector": "[data-testid=\"account-summary-equity\"][data-value]"
+      },
+      "ac1-upnl": {
+        "action": "ui.wait_for",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm unrealized PnL shows a live USD value",
+        "next": "ac1-maintenance",
+        "selector": "[data-testid=\"account-summary-unrealized-pnl\"][data-value]"
+      },
+      "ac1-maintenance": {
+        "action": "ui.wait_for",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm maintenance margin shows a USD value",
+        "next": "ac1-margin-usage",
+        "selector": "[data-testid=\"account-summary-maintenance-margin\"][data-value]"
+      },
+      "ac1-margin-usage": {
+        "action": "ui.wait_for",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm margin usage shows a percentage",
+        "next": "ac1-margin-ratio",
+        "selector": "[data-testid=\"account-summary-margin-usage\"][data-value]"
+      },
+      "ac1-margin-ratio": {
+        "action": "ui.wait_for",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm cross margin ratio shows a percentage",
+        "next": "ac1-flat-maintenance",
+        "selector": "[data-testid=\"account-summary-margin-ratio\"][data-value]"
+      },
+      "ac1-wait-claimed": {
+        "action": "ui.wait_for",
+        "selector": "section[aria-label=\"Account summary\"]",
+        "expected": "visible",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Hold on the account summary panel before capturing it",
+        "next": "ac1-screenshot"
+      },
+      "ac1-screenshot": {
+        "action": "ui.screenshot",
+        "path": "screenshots/evidence-ac1-account-summary.png",
+        "label": "evidence-ac1-account-summary",
+        "category": "proof",
+        "intent": "Keep a picture of the account summary panel with equity, uPnL, maintenance margin, margin usage and ratio",
+        "next": "ac2-fee-tier"
+      },
+      "ac2-fee-tier": {
+        "action": "ui.wait_for",
+        "test_id": "order-summary-fee-tier",
+        "text": "Tier ",
+        "text_match": "contains",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Confirm the order form summary shows the trader's fee tier",
+        "next": "ac2-fee-rate"
+      },
+      "ac2-fee-rate": {
+        "action": "ui.wait_for",
+        "test_id": "order-summary-fee-rate",
+        "text": "%",
+        "text_match": "contains",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Confirm the order form summary shows the post-discount fee rate",
+        "next": "ac2-wait-claimed"
+      },
+      "ac2-wait-claimed": {
+        "action": "ui.wait_for",
+        "test_id": "order-summary-fee-tier",
+        "expected": "visible",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC2"
+        ],
+        "intent": "Hold on the fee tier line before capturing it",
+        "next": "ac2-screenshot"
+      },
+      "ac2-screenshot": {
+        "action": "ui.screenshot",
+        "path": "screenshots/evidence-ac2-fee-tier.png",
+        "label": "evidence-ac2-fee-tier",
+        "category": "proof",
+        "intent": "Keep a picture of the order summary with the fee tier and post-discount fee",
+        "next": "ac1-open-position"
+      },
+      "teardown-console": {
+        "action": "call",
+        "ref": "terminal.perps.assert-clean-console",
+        "intent": "Prove the session raised no unexplained console error",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      },
+      "setup-flat": {
+        "action": "call",
+        "ref": "terminal.perps.ensure-flat-market",
+        "params": {
+          "account": "{{params.account}}",
+          "market": "{{params.market}}",
+          "exclusive_testnet_market": true
+        },
+        "intent": "Start from a flat reserved testnet market so the panel's zero and non-zero states are this run's own",
+        "next": "ac1-panel-visible"
+      },
+      "ac1-flat-maintenance": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"account-summary-maintenance-margin\"][data-value=\"0\"]",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm the flat account shows zero maintenance margin before the order",
+        "next": "ac1-flat-upnl"
+      },
+      "ac1-flat-upnl": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"account-summary-unrealized-pnl\"][data-value=\"0\"]",
+        "expected": "visible",
+        "timeout_ms": 30000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm the flat account shows zero unrealized PnL before the order",
+        "next": "ac1-wait-claimed"
+      },
+      "ac1-open-position": {
+        "action": "call",
+        "ref": "terminal.perps.place-market-order",
+        "params": {
+          "signer": "injected",
+          "account": "{{params.account}}",
+          "market": "{{params.market}}",
+          "side": "long",
+          "notional": "{{params.notional}}",
+          "approve_agent": true
+        },
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Open a small long at market from the order form (the first write approves the trading agent); the page is not reloaded after the submit",
+        "next": "ac1-live-maintenance"
+      },
+      "ac1-live-maintenance": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"account-summary-maintenance-margin\"]:not([data-value=\"0\"])[data-value]",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm maintenance margin turns non-zero from the live positions stream once the position opens",
+        "next": "ac1-live-upnl"
+      },
+      "ac1-live-upnl": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"account-summary-unrealized-pnl\"]:not([data-value=\"0\"])[data-value]",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm unrealized PnL turns non-zero from the live account stream",
+        "next": "ac1-live-upnl-tone"
+      },
+      "ac1-live-upnl-tone": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"account-summary-unrealized-pnl\"]:is(.text-positive, .text-negative)",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm the non-zero uPnL is shown in its gain or loss color",
+        "next": "ac1-live-margin-usage"
+      },
+      "ac1-live-margin-usage": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"account-summary-margin-usage\"]:not([data-value=\"0\"])[data-value]",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm margin usage turns non-zero once the position holds margin",
+        "next": "ac1-live-wait-claimed"
+      },
+      "ac1-live-wait-claimed": {
+        "action": "ui.wait_for",
+        "selector": "section[aria-label=\"Account summary\"]",
+        "expected": "visible",
+        "timeout_ms": 10000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Hold on the account summary panel with the open position before capturing it",
+        "next": "ac1-live-screenshot"
+      },
+      "ac1-live-screenshot": {
+        "action": "ui.screenshot",
+        "path": "screenshots/evidence-ac1-account-summary-open-position.png",
+        "label": "evidence-ac1-account-summary-open-position",
+        "category": "proof",
+        "intent": "Keep a picture of the account summary with non-zero uPnL, maintenance margin and margin usage (equity differs from the flat capture)",
+        "next": "ac1-close-position"
+      },
+      "ac1-close-position": {
+        "action": "call",
+        "ref": "terminal.perps.close-position",
+        "params": {
+          "account": "{{params.account}}",
+          "market": "{{params.market}}",
+          "side": "long",
+          "percent": 100
+        },
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Close the whole position from its row without reloading the page",
+        "next": "ac1-closed-maintenance"
+      },
+      "ac1-closed-maintenance": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"account-summary-maintenance-margin\"][data-value=\"0\"]",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm maintenance margin returns to zero live after the close",
+        "next": "ac1-closed-upnl"
+      },
+      "ac1-closed-upnl": {
+        "action": "ui.wait_for",
+        "selector": "[data-testid=\"account-summary-unrealized-pnl\"][data-value=\"0\"]",
+        "expected": "visible",
+        "timeout_ms": 60000,
+        "proves": [
+          "AC1"
+        ],
+        "intent": "Confirm unrealized PnL returns to zero live after the close",
+        "next": "teardown-console"
+      },
+      "require_flat_start": {
+        "action": "assert_output",
+        "source": "setup-flat",
+        "assert": {
+          "path": "$.status",
+          "operator": "eq",
+          "value": "pass"
+        },
+        "intent": "Clean up only when this run took ownership of the reserved market by converging it flat",
+        "next": "teardown_clean"
+      },
+      "teardown_clean": {
+        "action": "call",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "market": "{{params.market}}",
+          "account": "{{params.account}}",
+          "exclusive_testnet_market": true
+        },
+        "intent": "Restore the reserved testnet market to flat after success or failure",
+        "next": "teardown_done"
+      },
+      "teardown_done": {
+        "action": "end",
+        "status": "pass"
+      }
+    },
+    "teardown": "require_flat_start"
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "account": {
+        "type": "string",
+        "default": "dev1",
+        "description": "Wallet fixture account reserved for slot mmt-3."
+      },
+      "market": {
+        "type": "string",
+        "default": "ETH",
+        "description": "Testnet market reserved for slot mmt-3."
+      },
+      "notional": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "default": "25",
+        "description": "Order amount in USD for the testnet position; at least the venue minimum."
+      }
+    }
+  }
+}

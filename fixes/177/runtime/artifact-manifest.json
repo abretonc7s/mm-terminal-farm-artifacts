@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "runStatus": "pass",
+  "provenance": {
+    "runner": {
+      "source": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness",
+      "git_ref": "unknown",
+      "name": "@metamask/recipe-runner"
+    }
+  },
+  "artifacts": [
+    {
+      "path": "recipe.json",
+      "type": "recipe",
+      "label": "Executed recipe",
+      "category": "system"
+    },
+    {
+      "path": "recipe-invocation.json",
+      "type": "json",
+      "label": "Executed recipe parameters",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/48e1457e8c00735a2c5170adb372f11e1ef7e3436ddf4e4e7a25ced41be479f7.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/84f2bd0983c0b5a6b9258e9e4ca43ae33c09959ba2ff12fcb5c0b886c471b24e.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/960ccc20f75f9d253cce3086c3c8d98b5f09d6c469d083e1bb42fe1cb15b5924.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "recipe-resolution.json",
+      "type": "json",
+      "label": "Resolved recipe dependency graph",
+      "category": "system"
+    },
+    {
+      "path": "setup-connect/session/capture_connected.png",
+      "type": "screenshot",
+      "nodeId": "setup-connect/session/capture_connected",
+      "label": "session-connected",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "terminal-wallet/setup-connect__session__session_signatures-signature-log.json",
+      "type": "report",
+      "nodeId": "setup-connect/session/session_signatures"
+    },
+    {
+      "path": "setup-connect/capture.png",
+      "type": "screenshot",
+      "nodeId": "setup-connect/capture",
+      "label": "connected-Trading",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "screenshots/evidence-ac3-top-nav-account-menu.png",
+      "type": "screenshot",
+      "nodeId": "ac3-screenshot",
+      "label": "evidence-ac3-top-nav-account-menu",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "screenshots/evidence-ac1-account-summary.png",
+      "type": "screenshot",
+      "nodeId": "ac1-screenshot",
+      "label": "evidence-ac1-account-summary",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "screenshots/evidence-ac2-fee-tier.png",
+      "type": "screenshot",
+      "nodeId": "ac2-screenshot",
+      "label": "evidence-ac2-fee-tier",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "summary.json",
+      "type": "summary",
+      "label": "Run summary",
+      "category": "system"
+    },
+    {
+      "path": "trace.json",
+      "type": "trace",
+      "label": "Execution trace",
+      "category": "system"
+    },
+    {
+      "path": "execution-provenance.json",
+      "type": "json",
+      "label": "Execution provenance",
+      "category": "system",
+      "metadata": {
+        "valid": true,
+        "errorCode": null
+      }
+    },
+    {
+      "path": "diagnostics.json",
+      "type": "json",
+      "label": "Run-scoped application diagnostics",
+      "category": "diagnostic"
+    },
+    {
+      "path": "diagnostics-app-log.txt",
+      "type": "log",
+      "label": "Redacted run-scoped application log slice",
+      "category": "diagnostic"
+    },
+    {
+      "path": "network/run-summary.json",
+      "type": "report",
+      "label": "Automatic network observation",
+      "category": "diagnostic"
+    },
+    {
+      "path": "product-provenance.json",
+      "type": "json",
+      "label": "Product checkout provenance",
+      "category": "system",
+      "metadata": {
+        "adapter": "terminal",
+        "git_ref": "8b88c2724d022dd476e128274f8199a6d616f5d8",
+        "branch": "TAT-4035-feat-tat-4035-task-setup",
+        "dirty": true
+      }
+    },
+    {
+      "path": "report.md",
+      "type": "report",
+      "label": "Human run report",
+      "category": "system"
+    }
+  ],
+  "recovered": [],
+  "mutations": []
+}

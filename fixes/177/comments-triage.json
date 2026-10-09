@@ -1,0 +1,42 @@
+[
+  {
+    "comment_id": 4228583446,
+    "author_login": "aganglada",
+    "source_kind": "review_comment",
+    "path": "src/lib/hyperliquid/fee-tier.ts",
+    "line": 41,
+    "triage": "REAL",
+    "action": "Derive VIP tier from venue cutoffs and the previous 14 completed UTC days. Ignore discounted-rate schedule matches. Added unsorted/gapped/date-boundary and discounted-tier regressions. No GitHub reply per user instruction.",
+    "fixed_in_commit": "cbf83035d3274748d76aadd5e782289a04fd9083"
+  },
+  {
+    "comment_id": 4228583449,
+    "author_login": "aganglada",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/order/utils/deriveOrderMetrics.ts",
+    "line": 79,
+    "triage": "REAL",
+    "action": "Use feeQuote.totalRate for fee amount and percentage, preserving zero and fallback. Added divergent-component and zero-total regressions. No GitHub reply per user instruction.",
+    "fixed_in_commit": "cbf83035d3274748d76aadd5e782289a04fd9083"
+  },
+  {
+    "comment_id": 4228650220,
+    "author_login": "cursor[bot]",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/order/components/OrderForm/AccountSummaryPanel/AccountSummaryPanel.tsx",
+    "line": 71,
+    "triage": "REAL",
+    "action": "Keep maintenance margin and cross margin ratio pending on position loading/error. Added loading, failure, recovery and confirmed-flat regressions. Replied inline: https://github.com/consensys-vertical-apps/va-mmcx-terminal/pull/177#discussion_r4229226198",
+    "fixed_in_commit": "cbf83035d3274748d76aadd5e782289a04fd9083"
+  },
+  {
+    "comment_id": 6071617998,
+    "author_login": "vercel[bot]",
+    "source_kind": "issue_comment",
+    "path": null,
+    "line": null,
+    "triage": "OUT OF SCOPE",
+    "action": "Skipped status-only missing Preview Deployment permission. No comment posted.",
+    "fixed_in_commit": null
+  }
+]

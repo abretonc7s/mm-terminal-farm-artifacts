@@ -1,0 +1,55 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries src/features/perpetuals/infra/perps-controller/ControllerPerpsProvider.test.ts src/features/perpetuals/infra/perps-controller/mappers.test.ts src/features/perpetuals/order/components/OrderForm/AccountSummaryPanel src/features/perpetuals/order/components/OrderForm/OrderFormSummary src/features/perpetuals/order/utils/deriveAccountSummary.test.ts src/features/perpetuals/order/utils/deriveOrderMetrics.test.ts src/lib/hyperliquid/fee-tier.test.ts src/features/charting/services/providers/HyperliquidTradingDataProvider.test.ts
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+ ✓ src/features/perpetuals/infra/perps-controller/mappers.test.ts (19 tests) 5ms
+ ✓ src/features/perpetuals/order/utils/deriveOrderMetrics.test.ts (5 tests) 3ms
+ ✓ src/features/perpetuals/queries/live-trading-cache.test.ts (7 tests) 4ms
+(node:77765) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 723ms
+ ✓ src/features/perpetuals/order/utils/deriveAccountSummary.test.ts (5 tests) 3ms
+(node:77777) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:77774) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:77779) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:77778) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:77767) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:77772) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:77773) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:77768) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/modify-order-mutation.test.tsx (4 tests) 37ms
+ ✓ src/lib/hyperliquid/fee-tier.test.ts (7 tests) 4ms
+ ✓ src/features/perpetuals/queries/live-prices-query.test.tsx (11 tests) 75ms
+(node:77771) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:77769) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/perps-controller/ControllerPerpsProvider.test.ts (70 tests) 258ms
+ ✓ src/features/perpetuals/queries/cancel-order-mutation.test.tsx (11 tests) 160ms
+ ✓ src/features/perpetuals/queries/live-orderbook-query.test.tsx (14 tests) 60ms
+ ✓ src/features/perpetuals/queries/close-position-mutation.test.tsx (16 tests) 182ms
+ ✓ src/features/perpetuals/queries/submit-order-mutation.test.tsx (26 tests) 185ms
+ ✓ src/features/perpetuals/queries/live-trades-query.test.tsx (19 tests) 74ms
+ ✓ src/features/perpetuals/queries/live-positions-query.test.tsx (14 tests) 346ms
+(node:78088) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderForm/AccountSummaryPanel/AccountSummaryPanel.test.tsx (9 tests) 123ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormSummary/OrderFormSummary.test.tsx (21 tests) 219ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormSummary/MMPointsTooltipContent.test.tsx (1 test) 30ms
+
+ Test Files  18 passed (18)
+      Tests  282 passed (282)
+   Start at  18:37:42
+   Duration  4.35s (transform 1.75s, setup 8.23s, collect 22.49s, tests 2.49s, environment 11.70s, prepare 1.56s)
+

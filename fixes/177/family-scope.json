@@ -1,0 +1,6 @@
+{
+  "originalFamilyScopeSummary": "Implement missing task description and requirements",
+  "currentTriggerSummary": "pr-complete: feat(perps): show account health and fee tier in the order form",
+  "scopeVerdict": "full-scope-addressed",
+  "notes": "All three executable acceptance criteria remain addressed by the PR and inherited evidence. This follow-up merged main, addressed all three review findings and the specifically requested CI test, passed 282 affected tests and a 47-step testnet smoke. Position loading/error/recovery and discounted VIP/date cases have behavioral tests; lifecycle proof remains in inputs/inherited/recipe.json and inherited evidence. Deposit/withdraw entry points and Portfolio/chatbot placeholders have no acceptance criteria and remain excluded as documented. No new venue mutations; existing positions were preserved."
+}

@@ -1,0 +1,14 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 760ms
+
+ Test Files  1 passed (1)
+      Tests  23 passed (23)
+   Start at  18:33:56
+   Duration  1.88s (transform 124ms, setup 242ms, collect 167ms, tests 760ms, environment 392ms, prepare 45ms)
+

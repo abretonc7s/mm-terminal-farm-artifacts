@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "root": {
+    "ref": "$root:sha256:c4bd1e947ac2ca028d733171b8099c821ac5fa99d15e8b18dcf92c97c1584df1",
+    "digest": "sha256:c4bd1e947ac2ca028d733171b8099c821ac5fa99d15e8b18dcf92c97c1584df1"
+  },
+  "dependencies": [
+    {
+      "ref": "terminal.perps.assert-clean-console",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/assert-clean-console.recipe.json",
+      "digest": "sha256:960ccc20f75f9d253cce3086c3c8d98b5f09d6c469d083e1bb42fe1cb15b5924",
+      "artifact": "resolved-recipes/960ccc20f75f9d253cce3086c3c8d98b5f09d6c469d083e1bb42fe1cb15b5924.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.confirm-wallet-request",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/confirm-wallet-request.recipe.json",
+      "digest": "sha256:57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a",
+      "artifact": "resolved-recipes/57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.ensure-connected",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/ensure-connected.recipe.json",
+      "digest": "sha256:48e1457e8c00735a2c5170adb372f11e1ef7e3436ddf4e4e7a25ced41be479f7",
+      "artifact": "resolved-recipes/48e1457e8c00735a2c5170adb372f11e1ef7e3436ddf4e4e7a25ced41be479f7.recipe.json",
+      "adapter": "terminal"
+    },
+    {
+      "ref": "terminal.perps.ensure-session",
+      "source": "terminal",
+      "file": "recipes/terminal/perps/ensure-session.recipe.json",
+      "digest": "sha256:84f2bd0983c0b5a6b9258e9e4ca43ae33c09959ba2ff12fcb5c0b886c471b24e",
+      "artifact": "resolved-recipes/84f2bd0983c0b5a6b9258e9e4ca43ae33c09959ba2ff12fcb5c0b886c471b24e.recipe.json",
+      "adapter": "terminal"
+    }
+  ],
+  "edges": [
+    {
+      "from": "$root:sha256:c4bd1e947ac2ca028d733171b8099c821ac5fa99d15e8b18dcf92c97c1584df1",
+      "to": "terminal.perps.assert-clean-console"
+    },
+    {
+      "from": "$root:sha256:c4bd1e947ac2ca028d733171b8099c821ac5fa99d15e8b18dcf92c97c1584df1",
+      "to": "terminal.perps.confirm-wallet-request"
+    },
+    {
+      "from": "$root:sha256:c4bd1e947ac2ca028d733171b8099c821ac5fa99d15e8b18dcf92c97c1584df1",
+      "to": "terminal.perps.ensure-connected"
+    },
+    {
+      "from": "terminal.perps.ensure-connected",
+      "to": "terminal.perps.ensure-session"
+    },
+    {
+      "from": "terminal.perps.ensure-session",
+      "to": "terminal.perps.confirm-wallet-request"
+    }
+  ]
+}

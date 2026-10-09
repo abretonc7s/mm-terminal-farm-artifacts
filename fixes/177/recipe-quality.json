@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "verdict": "warn",
+  "compact": {
+    "verdict": "WARN",
+    "reasons": [
+      "Current root recipe.json is the follow-up smoke, identical to recipe-run/recipe.json. The unchanged runtime evidence package is copied to recipe-run/ for contract validation and passes 47/47. Original feature lifecycle and before/after evidence remain archived separately.",
+      "Current smoke checks all account rows, fee row, account menu, disconnect/reconnect and Settings link; it makes no trade mutations and preserves existing positions.",
+      "Position loading/error/recovery, discounted VIP tiers, UTC boundaries and controller totalRate differences are proven by behavioral unit tests, not the live low-volume account.",
+      "No fresh baseline or trade lifecycle run was performed in this review-only follow-up. Original lifecycle proof is inherited. Terminal video recording is unsupported."
+    ],
+    "better_version_guidance": [
+      "Use a dedicated discounted VIP fixture for live tier proof when available. Keep position-feed failure scenarios in behavioral tests unless the harness supports deterministic feed failures."
+    ]
+  },
+  "dimensions": {},
+  "structural_findings": [],
+  "contextual_findings": [],
+  "suggested_recipe_delta": [],
+  "training_fields": {
+    "proof_mode": "mixed"
+  },
+  "meta": {
+    "producer": "worker",
+    "fallback_used": false,
+    "legacy_task": false,
+    "artifact_required": true,
+    "source_signals": [
+      "recipe-quality.json"
+    ]
+  }
+}

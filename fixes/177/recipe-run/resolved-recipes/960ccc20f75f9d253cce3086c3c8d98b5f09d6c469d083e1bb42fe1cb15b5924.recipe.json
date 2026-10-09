@@ -1,0 +1,27 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Assert the Web Terminal logged no unexplained console errors",
+  "description": "Web Terminal block: fail when the terminal page logged an error or uncaught exception since the slot browser launched that the library console allowlist (diagnostics/console-allowlist.json) does not explain.",
+  "workflow": {
+    "entry": "console",
+    "nodes": {
+      "console": {
+        "action": "metamask.app.assert_no_console_errors",
+        "since": "launch",
+        "timeout_ms": 15000,
+        "intent": "Prove the trader's session raised no unexplained page error or exception",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {}
+  }
+}

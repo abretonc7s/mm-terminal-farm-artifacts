@@ -1,0 +1,5 @@
+- The Farmslot task input had an empty description. Jira (read-only REST with the env credentials) held the real ACs; check it before scoping.
+- `ui.press` with `selector` + `text` clicks the first selector match and ignores `text`. For React Aria menu items, target `[role="menuitem"][data-key="<id>"]` instead.
+- The terminal adapter refuses `--record-video` with error code `RECORDING_UNSUPPORTED` in the JSON stdout. The message is not on stderr as the checklist describes.
+- `biome check --write` on a feature folder reformats many unrelated files. Pass only the changed file list.
+- The controller already streams equity, uPnL and margin used in `AccountState`; the terminal mapper dropped them. Check the controller's types before adding a new data source.

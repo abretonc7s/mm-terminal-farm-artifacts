@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "adapter": "terminal",
+  "repository": "va-mmcx-terminal-2",
+  "git_ref": "8b88c2724d022dd476e128274f8199a6d616f5d8",
+  "branch": "TAT-4035-feat-tat-4035-task-setup",
+  "dirty": true
+}

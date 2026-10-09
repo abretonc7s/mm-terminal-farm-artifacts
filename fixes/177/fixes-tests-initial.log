@@ -1,0 +1,18 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/queries/live-orders-query.test.tsx src/features/perpetuals/order/components/OrderForm/AccountSummaryPanel/AccountSummaryPanel.test.tsx src/features/perpetuals/order/utils/deriveOrderMetrics.test.ts
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-2
+
+ ✓ src/features/perpetuals/order/utils/deriveOrderMetrics.test.ts (5 tests) 3ms
+(node:40757) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/live-orders-query.test.tsx (23 tests) 711ms
+ ✓ src/features/perpetuals/order/components/OrderForm/AccountSummaryPanel/AccountSummaryPanel.test.tsx (9 tests) 122ms
+
+ Test Files  3 passed (3)
+      Tests  37 passed (37)
+   Start at  18:35:37
+   Duration  2.90s (transform 323ms, setup 929ms, collect 1.85s, tests 835ms, environment 1.31s, prepare 330ms)
+
