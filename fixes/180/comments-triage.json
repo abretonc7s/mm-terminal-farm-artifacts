@@ -6,9 +6,8 @@
     "path": "src/features/perpetuals/infra/perps-controller/mappers.ts",
     "line": 185,
     "triage": "REAL",
-    "action": "Form displays and compares the cap from toSlippageBps, the same conversion used by the controller.",
-    "fixed_in_commit": "19b75633c2a62823a4db80520a3ffc078128bb4a",
-    "reply_status": "delegated_to_lead"
+    "action": "Verified existing floored cap gate, displayed maximum and long/short regression coverage.",
+    "fixed_in_commit": "19b75633c2a62823a4db80520a3ffc078128bb4a"
   },
   {
     "comment_id": 4228582827,
@@ -17,9 +16,8 @@
     "path": "src/features/perpetuals/queries/submit-order-mutation.ts",
     "line": 158,
     "triage": "REAL",
-    "action": "Market submission compares the depth estimate against toSlippageBps(values.slippage) / 10000; long/short boundary tests cover rejection and allowed submission.",
-    "fixed_in_commit": "19b75633c2a62823a4db80520a3ffc078128bb4a",
-    "reply_status": "delegated_to_lead"
+    "action": "Verified existing toSlippageBps comparison and matching displayed cap.",
+    "fixed_in_commit": "19b75633c2a62823a4db80520a3ffc078128bb4a"
   },
   {
     "comment_id": 4228582839,
@@ -28,30 +26,17 @@
     "path": "src/features/perpetuals/order/utils/persist-order-draft.test.ts",
     "line": 70,
     "triage": "REAL",
-    "action": "Renamed the test to does not persist advanced order types, as offered by the reviewer. Production persistence behavior is unchanged.",
-    "fixed_in_commit": "19b75633c2a62823a4db80520a3ffc078128bb4a",
-    "reply_status": "delegated_to_lead"
+    "action": "Named refresh fallback explicitly and parameterized all advanced types, as permitted by the review.",
+    "fixed_in_commit": "2afee509639e92fa177b13b48099e3dc4aa07d4f"
   },
   {
-    "comment_id": 6076429293,
-    "author_login": "vercel[bot]",
-    "source_kind": "issue_comment",
-    "path": null,
-    "line": null,
-    "triage": "OUT OF SCOPE",
-    "action": "Skipped status-only automation. Vercel permissions and Wiz summary without a source finding provide no actionable source change.",
-    "fixed_in_commit": null,
-    "reply_status": "not_required"
-  },
-  {
-    "comment_id": 6076437294,
-    "author_login": "wiz-beddf0b55a[bot]",
-    "source_kind": "issue_comment",
-    "path": null,
-    "line": null,
-    "triage": "OUT OF SCOPE",
-    "action": "Skipped status-only automation. Vercel permissions and Wiz summary without a source finding provide no actionable source change.",
-    "fixed_in_commit": null,
-    "reply_status": "not_required"
+    "comment_id": 4228845952,
+    "author_login": "cursor[bot]",
+    "source_kind": "review_comment",
+    "path": "src/features/perpetuals/queries/submit-order-mutation.ts",
+    "line": 80,
+    "triage": "REAL",
+    "action": "Disabled Electron Scale/Chase tabs with guidance and guarded direct selections; added behavioral coverage.",
+    "fixed_in_commit": "2afee509639e92fa177b13b48099e3dc4aa07d4f"
   }
 ]

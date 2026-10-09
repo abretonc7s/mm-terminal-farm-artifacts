@@ -1,0 +1,62 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Open a Web Terminal order page",
+  "description": "Web Terminal block: load /order/<market> on the slot dev server (a full document load, which also re-reads persisted browser state) and wait until the header, the order form and the price chart are ready. No mutation.",
+  "workflow": {
+    "entry": "navigate",
+    "nodes": {
+      "navigate": {
+        "action": "ui.navigate",
+        "page": "order",
+        "market": "{{params.market}}",
+        "timeout_ms": 180000,
+        "intent": "Open the market's order page as a trader typing its address",
+        "next": "header"
+      },
+      "header": {
+        "action": "ui.wait_for",
+        "selector": "[aria-label=\"Switch market, current {{params.market}}\"]",
+        "timeout_ms": 60000,
+        "intent": "Confirm the order header names the requested market",
+        "next": "form"
+      },
+      "form": {
+        "action": "ui.wait_for",
+        "test_id": "order-form-tab-market",
+        "timeout_ms": 60000,
+        "intent": "Confirm the order form is on screen",
+        "next": "chart"
+      },
+      "chart": {
+        "action": "ui.wait_for",
+        "test_id": "trading-view-chart-ready",
+        "timeout_ms": 90000,
+        "intent": "Confirm the price chart loaded the market's data",
+        "next": "capture"
+      },
+      "capture": {
+        "action": "ui.screenshot",
+        "label": "order-page-{{params.market}}",
+        "category": "proof",
+        "intent": "Keep a picture of the loaded order page",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "market": {
+        "type": "string",
+        "default": "ETH",
+        "description": "Testnet market reserved for this run."
+      }
+    }
+  }
+}

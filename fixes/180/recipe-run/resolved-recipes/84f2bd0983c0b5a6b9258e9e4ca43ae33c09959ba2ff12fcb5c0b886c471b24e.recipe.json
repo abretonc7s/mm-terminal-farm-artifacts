@@ -1,0 +1,144 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Connect the Web Terminal to a wallet",
+  "description": "Web Terminal block: start a fresh slot browser (MetaMask extension or injected strict wallet) with the reserved fixture account and open the market's order page. With connect=true (default) connect through the header and, in extension mode, approve the connection in MetaMask; proves one account-permission request and zero signatures. With connect=false it stops at the loaded order page (for surfaces that need no wallet). Selects the account through the fixture; does not trade.",
+  "workflow": {
+    "entry": "launch",
+    "nodes": {
+      "launch": {
+        "action": "metamask.app.launch",
+        "signer": "{{params.signer}}",
+        "account": "{{params.account}}",
+        "fresh_profile": true,
+        "timeout_ms": 300000,
+        "intent": "Start the slot browser with a fresh profile and the reserved fixture account in the requested wallet",
+        "next": "open_window"
+      },
+      "open_window": {
+        "action": "metamask.wallet.read_signatures",
+        "reset": true,
+        "intent": "Start counting what the app asks the main wallet from this point",
+        "next": "open_market"
+      },
+      "open_market": {
+        "action": "ui.navigate",
+        "page": "order",
+        "market": "{{params.market}}",
+        "timeout_ms": 180000,
+        "intent": "Open the reserved market's order page on the slot dev server",
+        "next": "choose_connect"
+      },
+      "choose_connect": {
+        "action": "switch",
+        "value": "connect-{{params.connect}}",
+        "equals": "connect-true",
+        "cases": {
+          "match": "connect_visible"
+        },
+        "default": "page_ready",
+        "intent": "Connect the wallet only when the caller needs a connected session"
+      },
+      "page_ready": {
+        "action": "ui.wait_for",
+        "test_id": "order-form-tab-market",
+        "timeout_ms": 120000,
+        "intent": "Confirm the order page rendered its order form for a visitor with no wallet connected",
+        "next": "capture_page"
+      },
+      "capture_page": {
+        "action": "ui.screenshot",
+        "label": "session-order-page",
+        "category": "proof",
+        "intent": "Keep a picture of the order page before any wallet connects",
+        "next": "page_done"
+      },
+      "page_done": {
+        "action": "end",
+        "status": "pass"
+      },
+      "connect_visible": {
+        "action": "ui.wait_for",
+        "test_id": "header-connect-wallet",
+        "timeout_ms": 60000,
+        "intent": "Confirm the trader sees the Connect wallet button",
+        "next": "connect"
+      },
+      "connect": {
+        "action": "ui.press",
+        "test_id": "header-connect-wallet",
+        "intent": "Ask to connect a wallet as the trader",
+        "next": "approve_connect"
+      },
+      "approve_connect": {
+        "action": "call",
+        "ref": "terminal.perps.confirm-wallet-request",
+        "params": {
+          "signer": "{{params.signer}}",
+          "kind": "connect"
+        },
+        "intent": "Let MetaMask connect the reserved account to the Web Terminal",
+        "next": "connected"
+      },
+      "connected": {
+        "action": "ui.wait_for",
+        "test_id": "header-account-button",
+        "timeout_ms": 60000,
+        "intent": "Confirm the header now shows the connected account",
+        "next": "capture_connected"
+      },
+      "capture_connected": {
+        "action": "ui.screenshot",
+        "label": "session-connected",
+        "category": "proof",
+        "intent": "Keep a picture of the connected order page",
+        "next": "session_signatures"
+      },
+      "session_signatures": {
+        "action": "metamask.wallet.assert_signatures",
+        "methods": {
+          "wallet_requestPermissions": 1
+        },
+        "max_typed_data_requests": 0,
+        "max_l1_requests": 0,
+        "timeout_ms": 5000,
+        "intent": "Prove connecting asked for one account permission and no signature",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "signer": {
+        "type": "string",
+        "enum": [
+          "extension",
+          "injected"
+        ],
+        "default": "extension",
+        "description": "extension: the real MetaMask extension confirms every wallet request (acceptance mode). injected: the strict test wallet signs in the harness (fast mode)."
+      },
+      "account": {
+        "type": "string",
+        "default": "dev1",
+        "description": "Wallet fixture account reserved for this slot (dev1 on mmt-1, Trading on mmt-2)."
+      },
+      "market": {
+        "type": "string",
+        "default": "ETH",
+        "description": "Testnet market reserved for this run."
+      },
+      "connect": {
+        "type": "boolean",
+        "default": true,
+        "description": "true: connect the wallet through the header. false: stop at the loaded order page with no wallet connected."
+      }
+    }
+  }
+}

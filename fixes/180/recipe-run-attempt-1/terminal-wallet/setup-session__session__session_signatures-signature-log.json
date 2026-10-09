@@ -1,0 +1,58 @@
+{
+  "cursor": 78,
+  "total": 80,
+  "expectations": {
+    "action": "metamask.wallet.assert_signatures",
+    "methods": {
+      "wallet_requestPermissions": 1
+    },
+    "max_typed_data_requests": 0,
+    "max_l1_requests": 0,
+    "timeout_ms": 5000,
+    "intent": "Prove connecting asked for one account permission and no signature",
+    "next": "done"
+  },
+  "ok": true,
+  "failures": [],
+  "summary": {
+    "requests": 2,
+    "typedDataRequests": 0,
+    "l1Requests": 0,
+    "confirmationsShown": 0,
+    "blockedMainnet": 0,
+    "refusedMainnet": 0,
+    "unattributed": 0,
+    "outsideAppFrame": 0,
+    "byPrimaryType": {},
+    "byMethod": {
+      "wallet_requestPermissions": 1,
+      "eth_requestAccounts": 1
+    }
+  },
+  "entries": [
+    {
+      "seq": 78,
+      "signer": "injected",
+      "kind": "request",
+      "method": "wallet_requestPermissions",
+      "t": 1791542437173,
+      "url": "/order/ETH",
+      "source": "injected-strict-wallet",
+      "activeChainId": 42161,
+      "outcome": "approved",
+      "durationMs": 1
+    },
+    {
+      "seq": 79,
+      "signer": "injected",
+      "kind": "request",
+      "method": "eth_requestAccounts",
+      "t": 1791542437177,
+      "url": "/order/ETH",
+      "source": "injected-strict-wallet",
+      "activeChainId": 42161,
+      "outcome": "approved",
+      "durationMs": 1
+    }
+  ]
+}

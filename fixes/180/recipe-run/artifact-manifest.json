@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "runStatus": "pass",
+  "runStatus": "fail",
   "provenance": {
     "runner": {
       "source": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness",
@@ -22,15 +22,130 @@
       "category": "system"
     },
     {
+      "path": "resolved-recipes/48e1457e8c00735a2c5170adb372f11e1ef7e3436ddf4e4e7a25ced41be479f7.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/84f2bd0983c0b5a6b9258e9e4ca43ae33c09959ba2ff12fcb5c0b886c471b24e.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/50a127fb8dce7d03c20a15bd3ef29f52d818dd8830075d53db013bec0fbe7c6a.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/ef6b93d1616d75c72d548bb3a4630bf9deba98697063ef14e63218da9da418e2.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/228d76a5ea394289943fc06ca4c0723844864961d5009057a153741c6e347e2d.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/43f8f411c0adf1d3a323a471ae94c6f7bc5335421c86d1ff7a209a76460f4ac0.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
+      "path": "resolved-recipes/960ccc20f75f9d253cce3086c3c8d98b5f09d6c469d083e1bb42fe1cb15b5924.recipe.json",
+      "type": "recipe",
+      "label": "Resolved recipe dependency",
+      "category": "system"
+    },
+    {
       "path": "recipe-resolution.json",
       "type": "json",
       "label": "Resolved recipe dependency graph",
       "category": "system"
     },
     {
-      "path": "effective-slippage-cap.png",
+      "path": "setup-session/session/capture_connected.png",
       "type": "screenshot",
-      "nodeId": "capture",
+      "nodeId": "setup-session/session/capture_connected",
+      "label": "session-connected",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "terminal-wallet/setup-session__session__session_signatures-signature-log.json",
+      "type": "report",
+      "nodeId": "setup-session/session/session_signatures"
+    },
+    {
+      "path": "setup-session/capture.png",
+      "type": "screenshot",
+      "nodeId": "setup-session/capture",
+      "label": "connected-dev1",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "evidence-ac1-stop-fields.png",
+      "type": "screenshot",
+      "nodeId": "ac1-stop-fields",
+      "label": "UI screenshot",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "evidence-ac1-take_profit_market-picture.png",
+      "type": "screenshot",
+      "nodeId": "ac1-take_profit_market-picture",
+      "label": "UI screenshot",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "evidence-ac1-stop_limit-picture.png",
+      "type": "screenshot",
+      "nodeId": "ac1-stop_limit-picture",
+      "label": "UI screenshot",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "evidence-ac1-take_profit_limit-picture.png",
+      "type": "screenshot",
+      "nodeId": "ac1-take_profit_limit-picture",
+      "label": "UI screenshot",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "evidence-ac1-scale-picture.png",
+      "type": "screenshot",
+      "nodeId": "ac1-scale-picture",
+      "label": "UI screenshot",
+      "category": "proof",
+      "mimeType": "image/png"
+    },
+    {
+      "path": "teardown-final-state.png",
+      "type": "screenshot",
+      "nodeId": "teardown-capture",
       "label": "UI screenshot",
       "category": "proof",
       "mimeType": "image/png"
@@ -82,16 +197,10 @@
       "category": "system",
       "metadata": {
         "adapter": "terminal",
-        "git_ref": "ac13a96e35f7bd385460cd96a8935e5ec86e8a7b",
+        "git_ref": "2afee509639e92fa177b13b48099e3dc4aa07d4f",
         "branch": "TAT-4034-feat-add-pro-order-types-click-fill",
-        "dirty": true
+        "dirty": false
       }
-    },
-    {
-      "path": "report.md",
-      "type": "report",
-      "label": "Human run report",
-      "category": "system"
     }
   ],
   "recovered": [],

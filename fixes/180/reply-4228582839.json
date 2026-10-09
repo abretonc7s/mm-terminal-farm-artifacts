@@ -1,0 +1,1 @@
+{"body": "Clarified in 2afee50 using the test-naming option you suggested. The test now explicitly says refresh restores Market instead of persisting the advanced type and covers every Stop/Take, TWAP, Scale and Chase type. Preferences storage intentionally retains basic types only; advanced order fields are not persisted. The persistence tests pass."}

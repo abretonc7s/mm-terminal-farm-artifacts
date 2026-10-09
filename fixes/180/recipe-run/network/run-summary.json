@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "run-network",
   "status": "unavailable",
-  "startedAtEpochMs": 1791538744954,
-  "endedAtEpochMs": 1791538755262,
+  "startedAtEpochMs": 1791544395687,
+  "endedAtEpochMs": 1791544886420,
   "maxDurationMs": 3600000,
   "reconnects": 0,
   "droppedRequests": 0,
@@ -23,110 +23,1058 @@
   "nodeEvents": [
     {
       "action": "metamask.app.launch",
-      "elapsedMs": 529,
-      "nodeId": "launch",
+      "elapsedMs": 338,
+      "nodeId": "setup-session/session/launch",
       "status": "running"
     },
     {
       "action": "metamask.app.launch",
-      "elapsedMs": 5102,
-      "nodeId": "launch",
+      "elapsedMs": 109805,
+      "nodeId": "setup-session/session/launch",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.read_signatures",
+      "elapsedMs": 109826,
+      "nodeId": "setup-session/session/open_window",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.read_signatures",
+      "elapsedMs": 109954,
+      "nodeId": "setup-session/session/open_window",
       "status": "passed"
     },
     {
       "action": "ui.navigate",
-      "elapsedMs": 5123,
-      "nodeId": "open",
+      "elapsedMs": 110004,
+      "nodeId": "setup-session/session/open_market",
       "status": "running"
     },
     {
       "action": "ui.navigate",
-      "elapsedMs": 5604,
-      "nodeId": "open",
+      "elapsedMs": 110643,
+      "nodeId": "setup-session/session/open_market",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 110655,
+      "nodeId": "setup-session/session/choose_connect",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 110655,
+      "nodeId": "setup-session/session/choose_connect",
       "status": "passed"
     },
     {
       "action": "ui.wait_for",
-      "elapsedMs": 5611,
-      "nodeId": "ready",
+      "elapsedMs": 110666,
+      "nodeId": "setup-session/session/connect_visible",
       "status": "running"
     },
     {
       "action": "ui.wait_for",
-      "elapsedMs": 7325,
-      "nodeId": "ready",
+      "elapsedMs": 111214,
+      "nodeId": "setup-session/session/connect_visible",
       "status": "passed"
     },
     {
-      "action": "ui.set_input",
-      "elapsedMs": 7336,
-      "nodeId": "fractional-cap",
+      "action": "ui.press",
+      "elapsedMs": 111229,
+      "nodeId": "setup-session/session/connect",
       "status": "running"
     },
     {
-      "action": "ui.set_input",
-      "elapsedMs": 7765,
-      "nodeId": "fractional-cap",
+      "action": "ui.press",
+      "elapsedMs": 112156,
+      "nodeId": "setup-session/session/connect",
       "status": "passed"
     },
     {
-      "action": "ui.key_press",
-      "elapsedMs": 7775,
-      "nodeId": "fractional-digit",
+      "action": "switch",
+      "elapsedMs": 112167,
+      "nodeId": "setup-session/session/approve_connect/choose",
       "status": "running"
     },
     {
-      "action": "ui.key_press",
-      "elapsedMs": 8138,
-      "nodeId": "fractional-digit",
-      "status": "passed"
-    },
-    {
-      "action": "ui.wait_for",
-      "elapsedMs": 8146,
-      "nodeId": "effective-cap",
-      "status": "running"
-    },
-    {
-      "action": "ui.wait_for",
-      "elapsedMs": 8686,
-      "nodeId": "effective-cap",
-      "status": "passed"
-    },
-    {
-      "action": "ui.set_input",
-      "elapsedMs": 8697,
-      "nodeId": "amount",
-      "status": "running"
-    },
-    {
-      "action": "ui.set_input",
-      "elapsedMs": 9142,
-      "nodeId": "amount",
+      "action": "switch",
+      "elapsedMs": 112167,
+      "nodeId": "setup-session/session/approve_connect/choose",
       "status": "passed"
     },
     {
       "action": "ui.wait_for",
-      "elapsedMs": 9158,
-      "nodeId": "estimate",
+      "elapsedMs": 112177,
+      "nodeId": "setup-session/session/connected",
       "status": "running"
     },
     {
       "action": "ui.wait_for",
-      "elapsedMs": 9761,
-      "nodeId": "estimate",
+      "elapsedMs": 112525,
+      "nodeId": "setup-session/session/connected",
       "status": "passed"
     },
     {
       "action": "ui.screenshot",
-      "elapsedMs": 9775,
-      "nodeId": "capture",
+      "elapsedMs": 112536,
+      "nodeId": "setup-session/session/capture_connected",
       "status": "running"
     },
     {
       "action": "ui.screenshot",
-      "elapsedMs": 9857,
-      "nodeId": "capture",
+      "elapsedMs": 112655,
+      "nodeId": "setup-session/session/capture_connected",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 112663,
+      "nodeId": "setup-session/session/session_signatures",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 112726,
+      "nodeId": "setup-session/session/session_signatures",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_connected",
+      "elapsedMs": 112737,
+      "nodeId": "setup-session/assert_connected",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_connected",
+      "elapsedMs": 112920,
+      "nodeId": "setup-session/assert_connected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 112930,
+      "nodeId": "setup-session/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 113045,
+      "nodeId": "setup-session/capture",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.read_snapshot",
+      "elapsedMs": 113056,
+      "nodeId": "setup-flat/before_snapshot",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.read_snapshot",
+      "elapsedMs": 113476,
+      "nodeId": "setup-flat/before_snapshot",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 113493,
+      "nodeId": "setup-flat/converge/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 114167,
+      "nodeId": "setup-flat/converge/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 114181,
+      "nodeId": "setup-flat/converge/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 114595,
+      "nodeId": "setup-flat/converge/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 114610,
+      "nodeId": "setup-flat/converge/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 115014,
+      "nodeId": "setup-flat/converge/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 115037,
+      "nodeId": "ac1-regression-limit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 115672,
+      "nodeId": "ac1-regression-limit",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 115690,
+      "nodeId": "ac1-regression-limit-field",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 116244,
+      "nodeId": "ac1-regression-limit-field",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 116254,
+      "nodeId": "setup-market",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 116642,
+      "nodeId": "setup-market",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 116652,
+      "nodeId": "ac1-stop-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 117044,
+      "nodeId": "ac1-stop-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 117059,
+      "nodeId": "ac1-stop-field",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 117400,
+      "nodeId": "ac1-stop-field",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 117410,
+      "nodeId": "ac1-stop-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 117529,
+      "nodeId": "ac1-stop-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 117537,
+      "nodeId": "setup-stop-trigger",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 118001,
+      "nodeId": "setup-stop-trigger",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 118031,
+      "nodeId": "setup-stop-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 118391,
+      "nodeId": "setup-stop-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 118407,
+      "nodeId": "ac1-stop-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 119005,
+      "nodeId": "ac1-stop-submit",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 119024,
+      "nodeId": "setup-approve/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 119024,
+      "nodeId": "setup-approve/choose",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 119039,
+      "nodeId": "ac1-stop-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 122978,
+      "nodeId": "ac1-stop-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 122990,
+      "nodeId": "ac1-stop-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 122990,
+      "nodeId": "ac1-stop-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 122999,
+      "nodeId": "teardown-stop/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 124805,
+      "nodeId": "teardown-stop/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 124812,
+      "nodeId": "teardown-stop/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 125285,
+      "nodeId": "teardown-stop/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 125296,
+      "nodeId": "teardown-stop/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 125728,
+      "nodeId": "teardown-stop/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 125748,
+      "nodeId": "ac1-take_profit_market-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 126380,
+      "nodeId": "ac1-take_profit_market-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 126399,
+      "nodeId": "setup-take_profit_market-trigger-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 127002,
+      "nodeId": "setup-take_profit_market-trigger-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 127029,
+      "nodeId": "ac1-take_profit_market-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 127373,
+      "nodeId": "ac1-take_profit_market-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 127386,
+      "nodeId": "ac1-take_profit_market-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 127506,
+      "nodeId": "ac1-take_profit_market-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 127514,
+      "nodeId": "setup-take_profit_market-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 128043,
+      "nodeId": "setup-take_profit_market-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 128084,
+      "nodeId": "ac1-take_profit_market-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 128452,
+      "nodeId": "ac1-take_profit_market-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 128461,
+      "nodeId": "ac1-take_profit_market-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 130639,
+      "nodeId": "ac1-take_profit_market-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 130648,
+      "nodeId": "ac1-take_profit_market-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 130648,
+      "nodeId": "ac1-take_profit_market-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 130657,
+      "nodeId": "teardown-take_profit_market/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 132436,
+      "nodeId": "teardown-take_profit_market/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 132443,
+      "nodeId": "teardown-take_profit_market/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 132853,
+      "nodeId": "teardown-take_profit_market/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 132866,
+      "nodeId": "teardown-take_profit_market/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 133289,
+      "nodeId": "teardown-take_profit_market/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 133310,
+      "nodeId": "ac1-stop_limit-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 134002,
+      "nodeId": "ac1-stop_limit-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 134022,
+      "nodeId": "setup-stop_limit-trigger-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 134396,
+      "nodeId": "setup-stop_limit-trigger-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 134424,
+      "nodeId": "setup-stop_limit-limit-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 135270,
+      "nodeId": "setup-stop_limit-limit-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 135287,
+      "nodeId": "ac1-stop_limit-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 135628,
+      "nodeId": "ac1-stop_limit-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 135639,
+      "nodeId": "ac1-stop_limit-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 135757,
+      "nodeId": "ac1-stop_limit-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 135770,
+      "nodeId": "setup-stop_limit-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 136402,
+      "nodeId": "setup-stop_limit-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 136428,
+      "nodeId": "ac1-stop_limit-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 137008,
+      "nodeId": "ac1-stop_limit-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 137023,
+      "nodeId": "ac1-stop_limit-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 139223,
+      "nodeId": "ac1-stop_limit-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 139237,
+      "nodeId": "ac1-stop_limit-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 139237,
+      "nodeId": "ac1-stop_limit-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 139251,
+      "nodeId": "teardown-stop_limit/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 141004,
+      "nodeId": "teardown-stop_limit/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 141017,
+      "nodeId": "teardown-stop_limit/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 141436,
+      "nodeId": "teardown-stop_limit/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 141448,
+      "nodeId": "teardown-stop_limit/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 141865,
+      "nodeId": "teardown-stop_limit/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 141880,
+      "nodeId": "ac1-take_profit_limit-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 142266,
+      "nodeId": "ac1-take_profit_limit-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 142277,
+      "nodeId": "setup-take_profit_limit-trigger-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 142635,
+      "nodeId": "setup-take_profit_limit-trigger-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 142649,
+      "nodeId": "setup-take_profit_limit-limit-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 143511,
+      "nodeId": "setup-take_profit_limit-limit-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 143522,
+      "nodeId": "ac1-take_profit_limit-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 144000,
+      "nodeId": "ac1-take_profit_limit-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 144010,
+      "nodeId": "ac1-take_profit_limit-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 144127,
+      "nodeId": "ac1-take_profit_limit-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 144137,
+      "nodeId": "setup-take_profit_limit-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 144610,
+      "nodeId": "setup-take_profit_limit-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 144622,
+      "nodeId": "ac1-take_profit_limit-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 145002,
+      "nodeId": "ac1-take_profit_limit-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 145013,
+      "nodeId": "ac1-take_profit_limit-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 147193,
+      "nodeId": "ac1-take_profit_limit-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 147203,
+      "nodeId": "ac1-take_profit_limit-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 147203,
+      "nodeId": "ac1-take_profit_limit-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 147219,
+      "nodeId": "teardown-take_profit_limit/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 149010,
+      "nodeId": "teardown-take_profit_limit/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 149023,
+      "nodeId": "teardown-take_profit_limit/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 149461,
+      "nodeId": "teardown-take_profit_limit/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 149471,
+      "nodeId": "teardown-take_profit_limit/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 149897,
+      "nodeId": "teardown-take_profit_limit/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 149910,
+      "nodeId": "ac1-scale-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 150300,
+      "nodeId": "ac1-scale-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 150315,
+      "nodeId": "setup-scale-scale-min-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 151109,
+      "nodeId": "setup-scale-scale-min-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 151155,
+      "nodeId": "setup-scale-scale-max-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 151493,
+      "nodeId": "setup-scale-scale-max-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 151504,
+      "nodeId": "setup-scale-scale-num-orders",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 152006,
+      "nodeId": "setup-scale-scale-num-orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 152037,
+      "nodeId": "ac1-scale-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 152385,
+      "nodeId": "ac1-scale-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 152411,
+      "nodeId": "ac1-scale-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 152523,
+      "nodeId": "ac1-scale-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 152530,
+      "nodeId": "setup-scale-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 152999,
+      "nodeId": "setup-scale-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 153028,
+      "nodeId": "ac1-scale-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 153403,
+      "nodeId": "ac1-scale-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 153429,
+      "nodeId": "ac1-scale-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 156494,
+      "nodeId": "ac1-scale-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 156520,
+      "nodeId": "ac1-scale-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 156520,
+      "nodeId": "ac1-scale-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 156539,
+      "nodeId": "teardown-scale/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 156944,
+      "nodeId": "teardown-scale/clean_market",
+      "status": "failed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 156961,
+      "nodeId": "teardown-owned",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 156961,
+      "nodeId": "teardown-owned",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 156967,
+      "nodeId": "teardown-capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 157088,
+      "nodeId": "teardown-capture",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 157096,
+      "nodeId": "teardown-twap-expiry-0",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 212098,
+      "nodeId": "teardown-twap-expiry-0",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 212113,
+      "nodeId": "teardown-twap-expiry-1",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 267114,
+      "nodeId": "teardown-twap-expiry-1",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 267128,
+      "nodeId": "teardown-twap-expiry-2",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 322129,
+      "nodeId": "teardown-twap-expiry-2",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 322141,
+      "nodeId": "teardown-twap-expiry-3",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 377143,
+      "nodeId": "teardown-twap-expiry-3",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 377156,
+      "nodeId": "teardown-twap-expiry-4",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 432158,
+      "nodeId": "teardown-twap-expiry-4",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 432173,
+      "nodeId": "teardown-twap-expiry-5",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 487174,
+      "nodeId": "teardown-twap-expiry-5",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 487192,
+      "nodeId": "teardown-clean/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 489073,
+      "nodeId": "teardown-clean/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 489081,
+      "nodeId": "teardown-clean/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 489513,
+      "nodeId": "teardown-clean/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 489524,
+      "nodeId": "teardown-clean/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 489944,
+      "nodeId": "teardown-clean/assert_no_orders",
       "status": "passed"
     }
   ]

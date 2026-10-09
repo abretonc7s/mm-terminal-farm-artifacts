@@ -1,0 +1,101 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Confirm a Web Terminal request in MetaMask",
+  "description": "Terminal helper: with signer=extension, wait for MetaMask's side panel/notification to show the dapp request, capture it, check the typed-data primary type for signatures, and approve it as the user. With signer=injected it does nothing (the strict wallet answers in the harness).",
+  "workflow": {
+    "entry": "choose",
+    "nodes": {
+      "choose": {
+        "action": "switch",
+        "value": "{{params.signer}}",
+        "equals": "extension",
+        "cases": {
+          "match": "metamask_prompt"
+        },
+        "default": "injected_done",
+        "intent": "Only the MetaMask extension shows a confirmation; the injected wallet answers in the harness"
+      },
+      "metamask_prompt": {
+        "action": "ui.wait_for",
+        "surface": "wallet",
+        "selector": "[data-testid=confirm-btn], [data-testid=confirm-footer-button]",
+        "timeout_ms": 60000,
+        "wallet_timeout_ms": 60000,
+        "intent": "Hold until MetaMask presents the dapp's ask to the user",
+        "next": "capture_request"
+      },
+      "capture_request": {
+        "action": "ui.screenshot",
+        "surface": "wallet",
+        "intent": "Keep a picture of what MetaMask asked the user to approve",
+        "next": "choose_kind"
+      },
+      "choose_kind": {
+        "action": "switch",
+        "value": "{{params.kind}}",
+        "equals": "signature",
+        "cases": {
+          "match": "assert_primary_type"
+        },
+        "default": "approve",
+        "intent": "Check the signed message type only for signature requests"
+      },
+      "assert_primary_type": {
+        "action": "ui.wait_for",
+        "surface": "wallet",
+        "test_id": "confirmation__message-primary-type",
+        "text": "{{params.primary_type}}",
+        "timeout_ms": 15000,
+        "intent": "Confirm MetaMask shows the expected typed-data message before the user signs",
+        "next": "approve"
+      },
+      "approve": {
+        "action": "ui.press",
+        "surface": "wallet",
+        "selector": "[data-testid=confirm-btn], [data-testid=confirm-footer-button]",
+        "intent": "Approve the request in MetaMask as the user",
+        "next": "approved"
+      },
+      "approved": {
+        "action": "end",
+        "status": "pass"
+      },
+      "injected_done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "signer",
+      "kind"
+    ],
+    "properties": {
+      "signer": {
+        "type": "string",
+        "enum": [
+          "extension",
+          "injected"
+        ],
+        "default": "extension",
+        "description": "extension: the real MetaMask extension confirms every wallet request (acceptance mode). injected: the strict test wallet signs in the harness (fast mode)."
+      },
+      "kind": {
+        "type": "string",
+        "enum": [
+          "connect",
+          "signature"
+        ],
+        "description": "connect: account permission; signature: typed-data signature."
+      },
+      "primary_type": {
+        "type": "string",
+        "default": "HyperliquidTransaction:ApproveAgent",
+        "description": "Expected EIP-712 primary type shown for signature requests."
+      }
+    }
+  }
+}

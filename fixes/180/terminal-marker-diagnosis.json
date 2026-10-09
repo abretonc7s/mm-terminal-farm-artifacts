@@ -1,0 +1,9 @@
+{
+  "dispatchAttemptId": "cba941b6-140b-47a0-9c9d-5d3c357f2cc6",
+  "previousSignalAttemptId": "b84fbb35-abc8-4903-ab6d-51eff1cb59b8",
+  "previousStatus": "blocked",
+  "finding": "Marker bootstrap generated an independent UUID because FARMSLOT_SIGNAL_ATTEMPT_ID was absent from this execution environment.",
+  "action": "Use the official marker with FARMSLOT_SIGNAL_ATTEMPT_ID set to the task dispatch ID; preserve blocked outcome and checklist history.",
+  "runtimeOutcomeChanged": false,
+  "resumeCauseConfirmed": false
+}

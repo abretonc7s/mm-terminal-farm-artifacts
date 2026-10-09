@@ -1,3 +1,0 @@
-event: message
-data: {"result":{"content":[{"type":"text","text":"{\"sessions\":[{\"url\":\"/order/SOL\",\"routerType\":\"app\",\"segments\":[{\"path\":\"app/layout.tsx\",\"type\":\"layout\",\"isBoundary\":false,\"isBuiltin\":false},{\"path\":\"app/order/layout.tsx\",\"type\":\"layout\",\"isBoundary\":false,\"isBuiltin\":false},{\"path\":\"global-error.js\",\"type\":\"boundary:global-error\",\"isBoundary\":true,\"isBuiltin\":true},{\"path\":\"not-found.js\",\"type\":\"boundary:not-found\",\"isBoundary\":true,\"isBuiltin\":true},{\"path\":\"app/order/[symbol]/page.tsx\",\"type\":\"page\",\"isBoundary\":false,\"isBuiltin\":false}]}]}"}]},"jsonrpc":"2.0","id":3}
-

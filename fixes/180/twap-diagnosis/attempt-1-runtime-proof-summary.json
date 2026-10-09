@@ -1,0 +1,202 @@
+{
+  "status": "fail",
+  "passed": 192,
+  "failed": 1,
+  "total": 193,
+  "results": {
+    "ac1-stop-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62251189306"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-take_profit_market-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62251196661"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_market-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-stop_limit-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62251204808"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop_limit-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-take_profit_limit-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62251213307"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_limit-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-scale-venue": {
+      "ok": true,
+      "matchingCount": 2,
+      "orderIds": [
+        "62251220971",
+        "62251220970"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-scale-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 2,
+        "actual": 2
+      },
+      "error": null
+    },
+    "ac1-chase-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62251229291"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-chase-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-market-position": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-market-position-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-reduce-only-place/resting": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62251250446"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-reduce-only-place/resting_proof": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-twap-venue": {
+      "ok": false,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": "Live adapter /Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs exited 1: [terminal] metamask.perps.assert_positions failed: Error: Expected exactly 1 matching venue position(s), found 0: []\n    at assertPositions (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:482:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async runAdapter (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:322:20)\n"
+    },
+    "teardown-clean/assert_no_positions": {
+      "ok": true,
+      "matchingCount": 0,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "teardown-clean/assert_no_orders": {
+      "ok": true,
+      "matchingCount": 0,
+      "orderIds": [],
+      "assertion": null,
+      "error": null
+    }
+  },
+  "finalEthOrders": 0,
+  "finalEthPositions": 0,
+  "twapSubmissionError": "PROVIDER_NOT_AVAILABLE",
+  "failureNode": "ac1-twap-venue",
+  "runnerFailureClassification": "APP_LOGIC_FAILURE",
+  "retryable": false
+}

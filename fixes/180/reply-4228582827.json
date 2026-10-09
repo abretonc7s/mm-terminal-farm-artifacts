@@ -1,0 +1,1 @@
+{"body": "Addressed in 19b7563 and retained in 2afee50. Submission compares against toSlippageBps(values.slippage) / 10_000, matching the controller cap and displayed maximum. Both directions have regression coverage for fractional-bps inputs. Node 22 lint/typecheck and affected tests pass."}

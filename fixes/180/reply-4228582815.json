@@ -1,0 +1,1 @@
+{"body": "Addressed in 19b7563 and retained in 2afee50. The estimate gate uses toSlippageBps(values.slippage) / 10_000, and the Max slippage field displays the same whole-bps cap. Regression tests reject a 1.2 bps estimate against the floored 1 bps cap from a raw 1.5 bps input, for both long and short. Node 22 lint/typecheck and 314 affected tests pass."}

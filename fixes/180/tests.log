@@ -1,0 +1,67 @@
+
+> terminal@0.1.0 test
+> vitest run src/features/perpetuals/domain/Order/validation.test.ts src/features/perpetuals/domain/Order/slippage.test.ts src/features/perpetuals/domain/Order/helpers/OrderBuilder.test.ts src/features/perpetuals/queries/submit-order-mutation.test.tsx src/features/perpetuals/infra/perps-controller/mappers.test.ts src/features/perpetuals/order/components/OrderForm/OrderFormTabs/OrderFormTabs.test.tsx src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx src/features/perpetuals/order/components/OrderForm/OrderFormInner/OrderFormInner.test.tsx src/features/perpetuals/order/components/OrderForm/OrderFormWrapper/OrderFormWrapper.test.tsx src/features/perpetuals/order/components/OrderForm/OrderFormSubmitButton/OrderFormSubmitButton.test.tsx src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx src/features/perpetuals/order/components/OrderBook/OrderBookRow.test.tsx src/features/perpetuals/order/utils/persist-order-draft.test.ts src/features/perpetuals/infra/perps-controller/ControllerPerpsProvider.test.ts
+
+
+ RUN  v3.2.7 /Users/deeeed/dev/metamask/va-mmcx-terminal-3
+
+ ✓ src/features/perpetuals/domain/Order/helpers/OrderBuilder.test.ts (6 tests) 4ms
+ ✓ src/features/perpetuals/domain/Order/slippage.test.ts (9 tests) 3ms
+ ✓ src/features/perpetuals/domain/Order/validation.test.ts (22 tests) 3ms
+ ✓ src/features/perpetuals/infra/perps-controller/mappers.test.ts (20 tests) 5ms
+ ✓ src/features/perpetuals/order/utils/persist-order-draft.test.ts (11 tests) 4ms
+(node:54340) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:54342) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:54337) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:54345) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:54341) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:54344) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:54338) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/infra/perps-controller/ControllerPerpsProvider.test.ts (71 tests) 611ms
+(node:54339) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/queries/submit-order-mutation.test.tsx (49 tests) 211ms
+(node:54343) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormWrapper/OrderFormWrapper.test.tsx (7 tests) 157ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormSubmitButton/OrderFormSubmitButton.test.tsx (14 tests) 368ms
+ ✓ src/features/perpetuals/order/components/OrderBook/OrderBookRow.test.tsx (16 tests) 378ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormInner/OrderFormInner.test.tsx (21 tests) 374ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormTabs/OrderFormTabs.test.tsx (14 tests) 482ms
+ ✓ src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx (34 tests) 705ms
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPage > renders the header data when the symbol is present in the API response
+Received `true` for a non-boolean attribute `unoptimized`.
+
+If you want to write it to the DOM, pass a string instead: unoptimized="true" or unoptimized={value.toString()}.
+
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPageLayout - Tab Synchronization > syncs largePanelTab from smallViewportTab when transitioning from small to large viewport
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET wss://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+stderr | src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx > OrderPageLayout - Tab Synchronization > syncs largePanelTab from smallViewportTab when transitioning from small to large viewport
+[MSW] Warning: intercepted a request without a matching request handler:
+
+  • GET https://api.hyperliquid.xyz/ws
+
+If you still wish to intercept this unhandled request, please create a request handler for it.
+Read more: https://mswjs.io/docs/http/intercepting-requests
+
+ ✓ src/features/perpetuals/order/components/OrderPage/OrderPage.test.tsx (20 tests) 1539ms
+   ✓ OrderPage > opens the markets drawer from the header market selector  524ms
+
+ Test Files  14 passed (14)
+      Tests  314 passed (314)
+   Start at  18:36:06
+   Duration  8.22s (transform 2.29s, setup 7.93s, collect 24.76s, tests 4.84s, environment 15.56s, prepare 1.99s)
+

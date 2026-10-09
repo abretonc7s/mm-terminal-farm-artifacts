@@ -1,0 +1,125 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Set or clear the order form TP/SL",
+  "description": "Web Terminal block: open the order form's TP/SL editor and either enter both prices or reset both (one price alone fails), then prove the form shows the result. The form keeps TP/SL per market in this browser profile, so order blocks call this before every submit. Needs the TP/SL control (hidden while Reduce only or TWAP is ticked).",
+  "workflow": {
+    "entry": "open_editor",
+    "nodes": {
+      "open_editor": {
+        "action": "ui.press",
+        "test_id": "order-form-tpsl",
+        "intent": "Open the take-profit / stop-loss editor for the next order",
+        "next": "choose"
+      },
+      "choose": {
+        "action": "switch",
+        "value": "tp-{{params.take_profit}}-sl-{{params.stop_loss}}",
+        "equals": "tp--sl-",
+        "cases": {
+          "match": "reset"
+        },
+        "default": "tp_given",
+        "intent": "Clear the triggers unless the caller priced them"
+      },
+      "tp_given": {
+        "action": "switch",
+        "value": "tp-{{params.take_profit}}",
+        "equals": "tp-",
+        "cases": {
+          "match": "one_price"
+        },
+        "default": "sl_given",
+        "intent": "Refuse a stop loss without a take profit"
+      },
+      "sl_given": {
+        "action": "switch",
+        "value": "sl-{{params.stop_loss}}",
+        "equals": "sl-",
+        "cases": {
+          "match": "one_price"
+        },
+        "default": "enter_tp",
+        "intent": "Refuse a take profit without a stop loss"
+      },
+      "one_price": {
+        "action": "end",
+        "status": "fail"
+      },
+      "reset": {
+        "action": "ui.press",
+        "selector": "[data-testid=\"tpsl-set\"] + button",
+        "intent": "Reset both triggers",
+        "next": "set_off"
+      },
+      "set_off": {
+        "action": "ui.press",
+        "test_id": "tpsl-set",
+        "intent": "Apply the cleared TP/SL",
+        "next": "shown_off"
+      },
+      "shown_off": {
+        "action": "ui.wait_for",
+        "test_id": "order-form-tpsl",
+        "text": "TP off, SL off",
+        "timeout_ms": 10000,
+        "intent": "Confirm the next order carries no TP or SL",
+        "next": "done"
+      },
+      "enter_tp": {
+        "action": "ui.set_input",
+        "test_id": "tpsl-take-profit-price",
+        "value": "{{params.take_profit}}",
+        "intent": "Enter the take-profit trigger price",
+        "next": "enter_sl"
+      },
+      "enter_sl": {
+        "action": "ui.set_input",
+        "test_id": "tpsl-stop-loss-price",
+        "value": "{{params.stop_loss}}",
+        "intent": "Enter the stop-loss trigger price",
+        "next": "set_on"
+      },
+      "set_on": {
+        "action": "ui.press",
+        "test_id": "tpsl-set",
+        "intent": "Attach the TP/SL to the next order",
+        "next": "editor_closed"
+      },
+      "editor_closed": {
+        "action": "ui.wait_for",
+        "test_id": "tpsl-set",
+        "expected": "absent",
+        "timeout_ms": 10000,
+        "intent": "Confirm the TP/SL editor closed with the prices applied",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [],
+    "properties": {
+      "take_profit": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "default": "",
+        "description": "Take-profit trigger price; empty clears both. Set together with stop_loss."
+      },
+      "stop_loss": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "default": "",
+        "description": "Stop-loss trigger price; empty clears both. Set together with take_profit."
+      }
+    }
+  }
+}

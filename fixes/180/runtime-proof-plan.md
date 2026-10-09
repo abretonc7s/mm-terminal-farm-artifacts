@@ -1,10 +1,12 @@
-# Follow-up proof plan
+# Current runtime proof plan
 
-| Criterion | Proof | Follow-up check |
+No runtime providers are configured. Use the prepared macwork-mmt-3 testnet resource through the Terminal harness under the mmt-3 slot lock. The supplied inherited recipe is unchanged.
+
+| AC | Mode | Proof |
 | --- | --- | --- |
-| AC1 advanced orders | mixed | Inherited recipe and screenshots remain the implementation evidence; this cap fix does not change order-type routing. |
-| AC2 estimate and enforced cap | mixed | Real-depth form/submission regressions for fractional-bps caps, followed by a focused farm recipe showing the effective cap and live estimate. No trade is needed. |
-| AC3 click-to-fill | state | Inherited bid/ask recipe assertions; unchanged by feedback fixes. |
-| AC4 validation coverage | state | Affected Vitest tests plus the two tests updated by the main merge. |
+| AC1 | mixed | Select pro controls, capture fields, place and read actual testnet trigger/Scale/Chase/Market/reduce-only/TWAP orders, finish flat |
+| AC2 | mixed | Read/capture live estimate, enforce cap, assert refusal and absent position |
+| AC3 | state | Click both book sides and compare Limit input to row price |
+| AC4 | state | Node 22 Vitest, 314 passing tests including Electron controls and validation |
 
-Prepared slot macwork-mmt-2 is the authorized runtime. No capability providers are configured. Use the farm recipe runner for browser evidence. Next MCP checks are runtime diagnostics.
+Current runtime run is required by the completion contract because the inherited recipe was copied into the root artifact directory without its executable trace package. Preserve original family indexes separately before recording new proof. Attempt full-run video, with screenshot fallback if the adapter still reports RECORDING_UNSUPPORTED. No mainnet actions.

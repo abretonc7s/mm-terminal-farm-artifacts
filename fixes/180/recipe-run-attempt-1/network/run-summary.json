@@ -1,0 +1,1921 @@
+{
+  "schemaVersion": 1,
+  "id": "run-network",
+  "status": "unavailable",
+  "startedAtEpochMs": 1791542429520,
+  "endedAtEpochMs": 1791543225754,
+  "maxDurationMs": 3600000,
+  "reconnects": 0,
+  "droppedRequests": 0,
+  "unavailableReasons": [
+    "Extension hebhblbkkdabgoldnojllkipeoacjioc has no attachable CDP targets (service worker stopped and no extension page open?)."
+  ],
+  "coverageGapReasons": [],
+  "uninspectableBodyRequests": 0,
+  "projectedBodyFields": [
+    "type"
+  ],
+  "totalRequests": 0,
+  "requestsByMethod": {},
+  "requestsByHost": {},
+  "requestsByType": {},
+  "requests": [],
+  "nodeEvents": [
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 344,
+      "nodeId": "setup-session/session/launch",
+      "status": "running"
+    },
+    {
+      "action": "metamask.app.launch",
+      "elapsedMs": 6215,
+      "nodeId": "setup-session/session/launch",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.read_signatures",
+      "elapsedMs": 6227,
+      "nodeId": "setup-session/session/open_window",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.read_signatures",
+      "elapsedMs": 6301,
+      "nodeId": "setup-session/session/open_window",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 6311,
+      "nodeId": "setup-session/session/open_market",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 6814,
+      "nodeId": "setup-session/session/open_market",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 6825,
+      "nodeId": "setup-session/session/choose_connect",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 6825,
+      "nodeId": "setup-session/session/choose_connect",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 6873,
+      "nodeId": "setup-session/session/connect_visible",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 7601,
+      "nodeId": "setup-session/session/connect_visible",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 7614,
+      "nodeId": "setup-session/session/connect",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 8389,
+      "nodeId": "setup-session/session/connect",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 8408,
+      "nodeId": "setup-session/session/approve_connect/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 8409,
+      "nodeId": "setup-session/session/approve_connect/choose",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 8421,
+      "nodeId": "setup-session/session/connected",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 8754,
+      "nodeId": "setup-session/session/connected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 8766,
+      "nodeId": "setup-session/session/capture_connected",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 8888,
+      "nodeId": "setup-session/session/capture_connected",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 8901,
+      "nodeId": "setup-session/session/session_signatures",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_signatures",
+      "elapsedMs": 8969,
+      "nodeId": "setup-session/session/session_signatures",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.wallet.assert_connected",
+      "elapsedMs": 8985,
+      "nodeId": "setup-session/assert_connected",
+      "status": "running"
+    },
+    {
+      "action": "metamask.wallet.assert_connected",
+      "elapsedMs": 9139,
+      "nodeId": "setup-session/assert_connected",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9148,
+      "nodeId": "setup-session/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 9246,
+      "nodeId": "setup-session/capture",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.read_snapshot",
+      "elapsedMs": 9258,
+      "nodeId": "setup-flat/before_snapshot",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.read_snapshot",
+      "elapsedMs": 9704,
+      "nodeId": "setup-flat/before_snapshot",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 9717,
+      "nodeId": "setup-flat/converge/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 10317,
+      "nodeId": "setup-flat/converge/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 10333,
+      "nodeId": "setup-flat/converge/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 10733,
+      "nodeId": "setup-flat/converge/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 10745,
+      "nodeId": "setup-flat/converge/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 11155,
+      "nodeId": "setup-flat/converge/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 11171,
+      "nodeId": "ac1-regression-limit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 11556,
+      "nodeId": "ac1-regression-limit",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 11568,
+      "nodeId": "ac1-regression-limit-field",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 12182,
+      "nodeId": "ac1-regression-limit-field",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 12214,
+      "nodeId": "setup-market",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 12614,
+      "nodeId": "setup-market",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 12641,
+      "nodeId": "ac1-stop-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 13402,
+      "nodeId": "ac1-stop-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 13414,
+      "nodeId": "ac1-stop-field",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 14179,
+      "nodeId": "ac1-stop-field",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 14207,
+      "nodeId": "ac1-stop-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 14306,
+      "nodeId": "ac1-stop-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 14313,
+      "nodeId": "setup-stop-trigger",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 14663,
+      "nodeId": "setup-stop-trigger",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 14679,
+      "nodeId": "setup-stop-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 15496,
+      "nodeId": "setup-stop-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 15506,
+      "nodeId": "ac1-stop-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 15870,
+      "nodeId": "ac1-stop-submit",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 15892,
+      "nodeId": "setup-approve/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 15892,
+      "nodeId": "setup-approve/choose",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 15907,
+      "nodeId": "ac1-stop-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 19831,
+      "nodeId": "ac1-stop-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 19840,
+      "nodeId": "ac1-stop-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 19840,
+      "nodeId": "ac1-stop-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 19862,
+      "nodeId": "teardown-stop/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 21630,
+      "nodeId": "teardown-stop/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 21643,
+      "nodeId": "teardown-stop/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 22080,
+      "nodeId": "teardown-stop/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 22093,
+      "nodeId": "teardown-stop/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 22541,
+      "nodeId": "teardown-stop/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 22553,
+      "nodeId": "ac1-take_profit_market-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 23179,
+      "nodeId": "ac1-take_profit_market-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 23191,
+      "nodeId": "setup-take_profit_market-trigger-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 23546,
+      "nodeId": "setup-take_profit_market-trigger-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 23557,
+      "nodeId": "ac1-take_profit_market-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 24181,
+      "nodeId": "ac1-take_profit_market-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 24197,
+      "nodeId": "ac1-take_profit_market-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 24321,
+      "nodeId": "ac1-take_profit_market-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 24329,
+      "nodeId": "setup-take_profit_market-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 24670,
+      "nodeId": "setup-take_profit_market-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 24681,
+      "nodeId": "ac1-take_profit_market-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 25247,
+      "nodeId": "ac1-take_profit_market-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 25281,
+      "nodeId": "ac1-take_profit_market-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 27464,
+      "nodeId": "ac1-take_profit_market-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 27474,
+      "nodeId": "ac1-take_profit_market-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 27474,
+      "nodeId": "ac1-take_profit_market-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 27483,
+      "nodeId": "teardown-take_profit_market/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 29344,
+      "nodeId": "teardown-take_profit_market/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 29359,
+      "nodeId": "teardown-take_profit_market/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 29773,
+      "nodeId": "teardown-take_profit_market/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 29783,
+      "nodeId": "teardown-take_profit_market/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 30196,
+      "nodeId": "teardown-take_profit_market/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 30210,
+      "nodeId": "ac1-stop_limit-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 30590,
+      "nodeId": "ac1-stop_limit-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 30600,
+      "nodeId": "setup-stop_limit-trigger-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 31410,
+      "nodeId": "setup-stop_limit-trigger-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 31424,
+      "nodeId": "setup-stop_limit-limit-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 31771,
+      "nodeId": "setup-stop_limit-limit-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 31791,
+      "nodeId": "ac1-stop_limit-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 32243,
+      "nodeId": "ac1-stop_limit-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 32254,
+      "nodeId": "ac1-stop_limit-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 32360,
+      "nodeId": "ac1-stop_limit-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 32366,
+      "nodeId": "setup-stop_limit-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 32701,
+      "nodeId": "setup-stop_limit-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 32711,
+      "nodeId": "ac1-stop_limit-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 33198,
+      "nodeId": "ac1-stop_limit-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 33208,
+      "nodeId": "ac1-stop_limit-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 35373,
+      "nodeId": "ac1-stop_limit-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 35384,
+      "nodeId": "ac1-stop_limit-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 35384,
+      "nodeId": "ac1-stop_limit-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 35394,
+      "nodeId": "teardown-stop_limit/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 37159,
+      "nodeId": "teardown-stop_limit/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 37172,
+      "nodeId": "teardown-stop_limit/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 37581,
+      "nodeId": "teardown-stop_limit/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 37587,
+      "nodeId": "teardown-stop_limit/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 38002,
+      "nodeId": "teardown-stop_limit/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 38018,
+      "nodeId": "ac1-take_profit_limit-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 38404,
+      "nodeId": "ac1-take_profit_limit-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 38416,
+      "nodeId": "setup-take_profit_limit-trigger-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 38765,
+      "nodeId": "setup-take_profit_limit-trigger-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 38796,
+      "nodeId": "setup-take_profit_limit-limit-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 39423,
+      "nodeId": "setup-take_profit_limit-limit-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 39432,
+      "nodeId": "ac1-take_profit_limit-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 39771,
+      "nodeId": "ac1-take_profit_limit-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 39782,
+      "nodeId": "ac1-take_profit_limit-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 39879,
+      "nodeId": "ac1-take_profit_limit-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 39887,
+      "nodeId": "setup-take_profit_limit-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 40328,
+      "nodeId": "setup-take_profit_limit-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 40339,
+      "nodeId": "ac1-take_profit_limit-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 40872,
+      "nodeId": "ac1-take_profit_limit-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 40883,
+      "nodeId": "ac1-take_profit_limit-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 43023,
+      "nodeId": "ac1-take_profit_limit-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 43033,
+      "nodeId": "ac1-take_profit_limit-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 43033,
+      "nodeId": "ac1-take_profit_limit-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 43043,
+      "nodeId": "teardown-take_profit_limit/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 44736,
+      "nodeId": "teardown-take_profit_limit/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 44749,
+      "nodeId": "teardown-take_profit_limit/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 45174,
+      "nodeId": "teardown-take_profit_limit/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 45188,
+      "nodeId": "teardown-take_profit_limit/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 45605,
+      "nodeId": "teardown-take_profit_limit/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 45620,
+      "nodeId": "ac1-scale-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 46197,
+      "nodeId": "ac1-scale-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 46215,
+      "nodeId": "setup-scale-scale-min-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 46579,
+      "nodeId": "setup-scale-scale-min-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 46588,
+      "nodeId": "setup-scale-scale-max-price",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 47181,
+      "nodeId": "setup-scale-scale-max-price",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 47202,
+      "nodeId": "setup-scale-scale-num-orders",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 47546,
+      "nodeId": "setup-scale-scale-num-orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 47557,
+      "nodeId": "ac1-scale-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 48181,
+      "nodeId": "ac1-scale-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 48192,
+      "nodeId": "ac1-scale-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 48299,
+      "nodeId": "ac1-scale-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 48306,
+      "nodeId": "setup-scale-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 48642,
+      "nodeId": "setup-scale-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 48652,
+      "nodeId": "ac1-scale-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 49290,
+      "nodeId": "ac1-scale-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 49306,
+      "nodeId": "ac1-scale-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 51461,
+      "nodeId": "ac1-scale-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 51469,
+      "nodeId": "ac1-scale-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 51469,
+      "nodeId": "ac1-scale-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 51482,
+      "nodeId": "teardown-scale/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 53243,
+      "nodeId": "teardown-scale/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 53255,
+      "nodeId": "teardown-scale/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 53658,
+      "nodeId": "teardown-scale/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 53684,
+      "nodeId": "teardown-scale/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 54104,
+      "nodeId": "teardown-scale/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 54117,
+      "nodeId": "ac1-chase-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 54495,
+      "nodeId": "ac1-chase-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 54505,
+      "nodeId": "setup-chase-short",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 54863,
+      "nodeId": "setup-chase-short",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 54884,
+      "nodeId": "setup-chase-chase-duration",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 55521,
+      "nodeId": "setup-chase-chase-duration",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 55536,
+      "nodeId": "setup-chase-chase-distance",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 56182,
+      "nodeId": "setup-chase-chase-distance",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 56205,
+      "nodeId": "ac1-chase-fields",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 56793,
+      "nodeId": "ac1-chase-fields",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 56803,
+      "nodeId": "ac1-chase-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 56907,
+      "nodeId": "ac1-chase-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 56915,
+      "nodeId": "setup-chase-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 57254,
+      "nodeId": "setup-chase-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 57267,
+      "nodeId": "ac1-chase-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 57621,
+      "nodeId": "ac1-chase-submit",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 57634,
+      "nodeId": "gate-chase-settle-1",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 58635,
+      "nodeId": "gate-chase-settle-1",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 58644,
+      "nodeId": "gate-chase-enabled-1",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 59831,
+      "nodeId": "gate-chase-enabled-1",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.read_orders",
+      "elapsedMs": 59841,
+      "nodeId": "gate-chase-orders-1",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.read_orders",
+      "elapsedMs": 60257,
+      "nodeId": "gate-chase-orders-1",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 60272,
+      "nodeId": "gate-chase-orders-branch-1",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 60272,
+      "nodeId": "gate-chase-orders-branch-1",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 60278,
+      "nodeId": "ac1-chase-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 60690,
+      "nodeId": "ac1-chase-venue",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 60700,
+      "nodeId": "ac1-chase-venue-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 60700,
+      "nodeId": "ac1-chase-venue-assert",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 60714,
+      "nodeId": "teardown-chase/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 62436,
+      "nodeId": "teardown-chase/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 62449,
+      "nodeId": "teardown-chase/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 62867,
+      "nodeId": "teardown-chase/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 62878,
+      "nodeId": "teardown-chase/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 63276,
+      "nodeId": "teardown-chase/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 63291,
+      "nodeId": "ac1-market-place",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 63800,
+      "nodeId": "ac1-market-place",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 63822,
+      "nodeId": "setup-market-long",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 64505,
+      "nodeId": "setup-market-long",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 64521,
+      "nodeId": "setup-market-notional",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 64864,
+      "nodeId": "setup-market-notional",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 64891,
+      "nodeId": "ac1-market-estimate-ready",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 65224,
+      "nodeId": "ac1-market-estimate-ready",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 65236,
+      "nodeId": "ac1-market-enabled",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 65563,
+      "nodeId": "ac1-market-enabled",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 65573,
+      "nodeId": "ac1-market-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 66200,
+      "nodeId": "ac1-market-submit",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 66213,
+      "nodeId": "ac1-market-position",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 68363,
+      "nodeId": "ac1-market-position",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 68373,
+      "nodeId": "ac1-market-position-assert",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 68374,
+      "nodeId": "ac1-market-position-assert",
+      "status": "passed"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 68390,
+      "nodeId": "ac1-reduce-only-place/fresh_page/navigate",
+      "status": "running"
+    },
+    {
+      "action": "ui.navigate",
+      "elapsedMs": 68957,
+      "nodeId": "ac1-reduce-only-place/fresh_page/navigate",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 68969,
+      "nodeId": "ac1-reduce-only-place/fresh_page/header",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 69624,
+      "nodeId": "ac1-reduce-only-place/fresh_page/header",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 69648,
+      "nodeId": "ac1-reduce-only-place/fresh_page/form",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 70810,
+      "nodeId": "ac1-reduce-only-place/fresh_page/form",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 70822,
+      "nodeId": "ac1-reduce-only-place/fresh_page/chart",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 71316,
+      "nodeId": "ac1-reduce-only-place/fresh_page/chart",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 71346,
+      "nodeId": "ac1-reduce-only-place/fresh_page/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 71482,
+      "nodeId": "ac1-reduce-only-place/fresh_page/capture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 71492,
+      "nodeId": "ac1-reduce-only-place/tab_limit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 71880,
+      "nodeId": "ac1-reduce-only-place/tab_limit",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 71890,
+      "nodeId": "ac1-reduce-only-place/direction",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 72556,
+      "nodeId": "ac1-reduce-only-place/direction",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 72575,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/open_editor",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 72935,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/open_editor",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 72947,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/choose",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 72947,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/choose",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 72954,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/reset",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 73321,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/reset",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 73331,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/set_off",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 73708,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/set_off",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 73731,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/shown_off",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 74408,
+      "nodeId": "ac1-reduce-only-place/no_tpsl/shown_off",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 74427,
+      "nodeId": "ac1-reduce-only-place/enter_limit",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 74784,
+      "nodeId": "ac1-reduce-only-place/enter_limit",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 74806,
+      "nodeId": "ac1-reduce-only-place/enter_size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 75317,
+      "nodeId": "ac1-reduce-only-place/enter_size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 75340,
+      "nodeId": "ac1-reduce-only-place/reduce_only_off",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 75677,
+      "nodeId": "ac1-reduce-only-place/reduce_only_off",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 75702,
+      "nodeId": "ac1-reduce-only-place/choose_reduce_only",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 75702,
+      "nodeId": "ac1-reduce-only-place/choose_reduce_only",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 75711,
+      "nodeId": "ac1-reduce-only-place/reduce_only",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 76315,
+      "nodeId": "ac1-reduce-only-place/reduce_only",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 76325,
+      "nodeId": "ac1-reduce-only-place/reduce_only_on",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 76666,
+      "nodeId": "ac1-reduce-only-place/reduce_only_on",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 76677,
+      "nodeId": "ac1-reduce-only-place/submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 77321,
+      "nodeId": "ac1-reduce-only-place/submit",
+      "status": "passed"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 77366,
+      "nodeId": "ac1-reduce-only-place/choose_approve",
+      "status": "running"
+    },
+    {
+      "action": "switch",
+      "elapsedMs": 77366,
+      "nodeId": "ac1-reduce-only-place/choose_approve",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 77380,
+      "nodeId": "ac1-reduce-only-place/resting",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 79566,
+      "nodeId": "ac1-reduce-only-place/resting",
+      "status": "passed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 79577,
+      "nodeId": "ac1-reduce-only-place/resting_proof",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 79577,
+      "nodeId": "ac1-reduce-only-place/resting_proof",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 79589,
+      "nodeId": "ac1-reduce-only-place/capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 79693,
+      "nodeId": "ac1-reduce-only-place/capture",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 79706,
+      "nodeId": "teardown-market/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 82273,
+      "nodeId": "teardown-market/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 82283,
+      "nodeId": "teardown-market/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 82763,
+      "nodeId": "teardown-market/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 82775,
+      "nodeId": "teardown-market/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 83263,
+      "nodeId": "teardown-market/assert_no_orders",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 83277,
+      "nodeId": "setup-twap-market",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 83659,
+      "nodeId": "setup-twap-market",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 83671,
+      "nodeId": "setup-twap-long",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 84806,
+      "nodeId": "setup-twap-long",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 84820,
+      "nodeId": "setup-twap-reduce-off",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 85314,
+      "nodeId": "setup-twap-reduce-off",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 85325,
+      "nodeId": "gate-twap-flags",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 85666,
+      "nodeId": "gate-twap-flags",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 85679,
+      "nodeId": "ac1-twap-select",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 86321,
+      "nodeId": "ac1-twap-select",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 86334,
+      "nodeId": "setup-twap-duration",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 86980,
+      "nodeId": "setup-twap-duration",
+      "status": "passed"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 86990,
+      "nodeId": "setup-twap-size",
+      "status": "running"
+    },
+    {
+      "action": "ui.set_input",
+      "elapsedMs": 87337,
+      "nodeId": "setup-twap-size",
+      "status": "passed"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 87347,
+      "nodeId": "ac1-twap-field",
+      "status": "running"
+    },
+    {
+      "action": "ui.wait_for",
+      "elapsedMs": 87671,
+      "nodeId": "ac1-twap-field",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 87682,
+      "nodeId": "ac1-twap-picture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 87780,
+      "nodeId": "ac1-twap-picture",
+      "status": "passed"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 87786,
+      "nodeId": "ac1-twap-submit",
+      "status": "running"
+    },
+    {
+      "action": "ui.press",
+      "elapsedMs": 88563,
+      "nodeId": "ac1-twap-submit",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 88573,
+      "nodeId": "gate-twap-elapsed-0",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 143574,
+      "nodeId": "gate-twap-elapsed-0",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 143585,
+      "nodeId": "gate-twap-elapsed-1",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 198587,
+      "nodeId": "gate-twap-elapsed-1",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 198622,
+      "nodeId": "gate-twap-elapsed-2",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 253623,
+      "nodeId": "gate-twap-elapsed-2",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 253633,
+      "nodeId": "gate-twap-elapsed-3",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 308633,
+      "nodeId": "gate-twap-elapsed-3",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 308644,
+      "nodeId": "gate-twap-elapsed-4",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 363646,
+      "nodeId": "gate-twap-elapsed-4",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 363657,
+      "nodeId": "gate-twap-elapsed-5",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 418658,
+      "nodeId": "gate-twap-elapsed-5",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 418680,
+      "nodeId": "ac1-twap-venue",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 463966,
+      "nodeId": "ac1-twap-venue",
+      "status": "failed"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 463978,
+      "nodeId": "teardown-owned",
+      "status": "running"
+    },
+    {
+      "action": "assert_output",
+      "elapsedMs": 463978,
+      "nodeId": "teardown-owned",
+      "status": "passed"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 463985,
+      "nodeId": "teardown-capture",
+      "status": "running"
+    },
+    {
+      "action": "ui.screenshot",
+      "elapsedMs": 464094,
+      "nodeId": "teardown-capture",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 464101,
+      "nodeId": "teardown-twap-expiry-0",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 519102,
+      "nodeId": "teardown-twap-expiry-0",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 519113,
+      "nodeId": "teardown-twap-expiry-1",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 574114,
+      "nodeId": "teardown-twap-expiry-1",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 574127,
+      "nodeId": "teardown-twap-expiry-2",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 629129,
+      "nodeId": "teardown-twap-expiry-2",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 629139,
+      "nodeId": "teardown-twap-expiry-3",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 684141,
+      "nodeId": "teardown-twap-expiry-3",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 684156,
+      "nodeId": "teardown-twap-expiry-4",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 739157,
+      "nodeId": "teardown-twap-expiry-4",
+      "status": "passed"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 739170,
+      "nodeId": "teardown-twap-expiry-5",
+      "status": "running"
+    },
+    {
+      "action": "wait",
+      "elapsedMs": 794171,
+      "nodeId": "teardown-twap-expiry-5",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 794190,
+      "nodeId": "teardown-clean/clean_market",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.teardown_state",
+      "elapsedMs": 794829,
+      "nodeId": "teardown-clean/clean_market",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 794838,
+      "nodeId": "teardown-clean/assert_no_positions",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_positions",
+      "elapsedMs": 795225,
+      "nodeId": "teardown-clean/assert_no_positions",
+      "status": "passed"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 795239,
+      "nodeId": "teardown-clean/assert_no_orders",
+      "status": "running"
+    },
+    {
+      "action": "metamask.perps.assert_orders",
+      "elapsedMs": 795678,
+      "nodeId": "teardown-clean/assert_no_orders",
+      "status": "passed"
+    }
+  ]
+}

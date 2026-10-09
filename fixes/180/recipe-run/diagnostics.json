@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
   "scope": "recipe-run-application",
-  "status": "clean",
+  "status": "review",
   "nonBlocking": true,
-  "note": "No application warnings or errors were emitted during the recipe run.",
+  "note": "Observed 1 distinct application warning/error event(s) during the recipe run; showing 2 preview(s) and omitting 0. Relation to the task is not determined.",
   "source": {
     "label": "app-console",
-    "path": "/Users/deeeed/dev/metamask/va-mmcx-terminal-2/temp/recipe/runtime/terminal/app-console.log",
-    "startOffset": 626880,
-    "endOffset": 628988,
-    "inode": 852521068,
-    "bytesRead": 2108,
+    "path": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/recipe/runtime/terminal/app-console.log",
+    "startOffset": 229853,
+    "endOffset": 285900,
+    "inode": 896398160,
+    "bytesRead": 56047,
     "truncated": false,
     "inAppBuffer": "n/a",
     "rawArtifact": "diagnostics-app-log.txt",
     "redacted": true
   },
   "counts": {
-    "total": 0,
+    "total": 1,
     "warning": 0,
-    "error": 0,
+    "error": 1,
     "exception": 0,
     "info": 1
   },
@@ -30,18 +30,27 @@
   },
   "capture": {
     "verified": true,
-    "detail": "console collector pid 35358 on CDP 9542; control line from the http://localhost:9342 page reached app-console.log"
+    "detail": "console collector pid 35191 on CDP 9543; control line from the http://localhost:9343 page reached app-console.log"
   },
-  "displayedFindingCount": 1,
+  "displayedFindingCount": 2,
   "omittedFindingCount": 0,
   "findings": [
     {
+      "level": "error",
+      "fingerprint": "e35d85ee5e40",
+      "preview": "11:15:54.564 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)",
+      "source": "browser",
+      "signature": "Failed to load resource: the server responded with a status of 429 (Too Many Requests)",
+      "firstFrame": "https://api.hyperliquid-testnet.xyz/info",
+      "count": 12
+    },
+    {
       "level": "info",
       "fingerprint": "698b0e49edce",
-      "preview": "09:39:09.646 [dapp:page:BTC] WARNING  2026-10-09T09:39:09.645Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9342/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)",
+      "preview": "11:15:03.648 [dapp:page:BTC] WARNING  2026-10-09T11:15:03.647Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9343/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)",
       "source": "page",
       "signature": "<time>:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.",
-      "firstFrame": "w http://localhost:9342/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23",
+      "firstFrame": "w http://localhost:9343/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23",
       "allowlisted": {
         "reason": "TradingView warns that the terminal's theme override paneProperties.border_around_the_chart is not a property of this library version. pre-existing on base 5fc00243 (org main 4b1d5bbc, same tree), seen in base recipe runs (they stop at connect on base) and a connected base flow; not in the perps-controller PR's code paths. Suggested upstream fix: drop that override from tradingViewTheme.ts.",
         "entry": 4,

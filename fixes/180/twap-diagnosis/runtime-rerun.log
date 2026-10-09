@@ -1,0 +1,56 @@
+Recipe libraries: perps=/Users/deeeed/dev/metamask/experimental-metamask-recipe-perps (5 recipes), terminal=/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal (34 recipes), metamask=/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library (16 recipes)
+Recipe libraries: perps=/Users/deeeed/dev/metamask/experimental-metamask-recipe-perps (5 recipes), terminal=/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal (34 recipes), metamask=/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library (16 recipes)
+{
+  "schemaVersion": 1,
+  "command": "run",
+  "context": {
+    "adapter": {
+      "value": "terminal",
+      "source": "flag",
+      "detail": "--adapter"
+    },
+    "target": {
+      "value": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3",
+      "source": "flag",
+      "detail": "--target"
+    },
+    "slot": {
+      "value": "macwork-mmt-3",
+      "source": "slot",
+      "detail": "slot-config",
+      "session": "mmt-3",
+      "poolFile": "/Users/deeeed/dev/farmslot/pool/macwork.json",
+      "ports": {
+        "port": 9343,
+        "metro_port": 9443,
+        "cdp_port": 9543
+      }
+    },
+    "ports": {
+      "cdp": {
+        "value": 9543,
+        "source": "flag"
+      },
+      "watcher": {
+        "value": 9343,
+        "source": "flag"
+      }
+    }
+  },
+  "status": "fail",
+  "recoverable": false,
+  "recovered": [],
+  "mutations": [],
+  "attemptedRecoveries": [],
+  "summaryPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/180-1009-183037/artifacts/recipe-run/summary.json",
+  "tracePath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/180-1009-183037/artifacts/recipe-run/trace.json",
+  "artifactManifestPath": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/180-1009-183037/artifacts/recipe-run/artifact-manifest.json",
+  "exitCode": 1,
+  "error": {
+    "code": "APP_LOGIC_FAILURE",
+    "message": "failure looks like app-logic — healing cannot help; surface verbatim.",
+    "retryable": false,
+    "userAction": "inspect /Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/180-1009-183037/artifacts/recipe-run/summary.json and /Users/deeeed/dev/metamask/va-mmcx-terminal-3/temp/tasks/fix/180-1009-183037/artifacts/recipe-run/trace.json; fix the application or recipe failure before retrying",
+    "originalError": "Live adapter /Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs exited 1: [terminal] metamask.perps.teardown_state failed: Error: Hyperliquid testnet info extraAgents returned HTTP 429.\n    at info (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:354:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Promise.all (index 2)\n    at async readVenueState (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:402:47)\n    at async teardownState (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:510:18)\n    at async runAdapter (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:311:20)\n\nRecipe terminal.perps.clean-market-testnet finished with status fail."
+  }
+}

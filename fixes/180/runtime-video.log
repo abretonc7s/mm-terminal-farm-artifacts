@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "command": "run",
+  "context": {
+    "adapter": {
+      "value": "terminal",
+      "source": "flag",
+      "detail": "--adapter"
+    },
+    "target": {
+      "value": "/Users/deeeed/dev/metamask/va-mmcx-terminal-3",
+      "source": "flag",
+      "detail": "--target"
+    },
+    "slot": {
+      "value": "macwork-mmt-3",
+      "source": "slot",
+      "detail": "slot-config",
+      "session": "mmt-3",
+      "poolFile": "/Users/deeeed/dev/farmslot/pool/macwork.json",
+      "ports": {
+        "port": 9343,
+        "metro_port": 9443,
+        "cdp_port": 9543
+      }
+    },
+    "ports": {
+      "cdp": {
+        "value": 9543,
+        "source": "flag"
+      },
+      "watcher": {
+        "value": 9343,
+        "source": "flag"
+      }
+    }
+  },
+  "adapter": "terminal",
+  "status": "fail",
+  "exitCode": 2,
+  "recipe": "temp/tasks/fix/180-1009-183037/artifacts/recipe.json",
+  "error": {
+    "code": "RECORDING_UNSUPPORTED",
+    "message": "--record-video is not implemented for the terminal adapter.",
+    "userAction": "rerun without --record-video; for visual evidence use the adapter's own screenshot action where its manifest has one, or an adapter that records: mobile, extension"
+  }
+}

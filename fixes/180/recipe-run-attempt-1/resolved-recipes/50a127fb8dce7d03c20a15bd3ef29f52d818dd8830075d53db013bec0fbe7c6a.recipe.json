@@ -1,0 +1,59 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Start from a flat reserved testnet market",
+  "description": "Web Terminal block: record the reserved account/market venue state, then converge it to flat on testnet (cancel its open orders, close its position, signed in the harness by the fixture account) and assert both absent. Ownership comes from exclusive_testnet_market and the slot reservation; it never touches another market. Journeys guard their teardown cleanup on this call having passed.",
+  "workflow": {
+    "entry": "before_snapshot",
+    "nodes": {
+      "before_snapshot": {
+        "action": "metamask.perps.read_snapshot",
+        "market": "{{params.market}}",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "intent": "Record what the reserved market held before this run converged it",
+        "next": "converge"
+      },
+      "converge": {
+        "action": "call",
+        "ref": "terminal.perps.clean-market-testnet",
+        "params": {
+          "market": "{{params.market}}",
+          "account": "{{params.account}}",
+          "exclusive_testnet_market": "{{params.exclusive_testnet_market}}"
+        },
+        "intent": "Make the reserved testnet market flat and prove no position or order remains",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "exclusive_testnet_market"
+    ],
+    "properties": {
+      "account": {
+        "type": "string",
+        "default": "dev1",
+        "description": "Wallet fixture account reserved for this slot (dev1 on mmt-1, Trading on mmt-2)."
+      },
+      "market": {
+        "type": "string",
+        "default": "ETH",
+        "description": "Testnet market reserved for this run."
+      },
+      "exclusive_testnet_market": {
+        "type": "boolean",
+        "enum": [
+          true
+        ],
+        "description": "Confirm exclusive task ownership of the account/market on testnet. It does not reserve it."
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Clean a Web Terminal testnet market",
+  "description": "Web Terminal variant: on testnet only, cancel the open orders and close the position of one explicitly reserved account/market, signed in the harness by the fixture account (outside the UI and the wallet log), then independently assert both absent. Refuses mainnet and account-wide cleanup; caller confirmation does not reserve the market.",
+  "workflow": {
+    "entry": "clean_market",
+    "nodes": {
+      "clean_market": {
+        "action": "metamask.perps.teardown_state",
+        "market": "{{params.market}}",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "positions": {
+          "state": "none"
+        },
+        "orders": {
+          "state": "none"
+        },
+        "timeout_ms": 45000,
+        "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+        "next": "assert_no_positions"
+      },
+      "assert_no_positions": {
+        "action": "metamask.perps.assert_positions",
+        "market": "{{params.market}}",
+        "state": "none",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 20000,
+        "intent": "Independently assert no position remains in the reserved market",
+        "next": "assert_no_orders"
+      },
+      "assert_no_orders": {
+        "action": "metamask.perps.assert_orders",
+        "market": "{{params.market}}",
+        "state": "none",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 20000,
+        "intent": "Independently assert no open order remains in the reserved market",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "account",
+      "market",
+      "exclusive_testnet_market"
+    ],
+    "properties": {
+      "market": {
+        "type": "string",
+        "description": "Perps market symbol to clean."
+      },
+      "account": {
+        "type": "string",
+        "description": "Wallet fixture account reserved for this task."
+      },
+      "exclusive_testnet_market": {
+        "type": "boolean",
+        "enum": [
+          true
+        ],
+        "description": "Confirm exclusive task ownership of the account/market on testnet. It does not reserve it."
+      }
+    }
+  }
+}

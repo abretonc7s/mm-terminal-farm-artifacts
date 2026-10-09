@@ -1,0 +1,5529 @@
+{
+  "metadata": {
+    "runner": {
+      "source": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness",
+      "git_ref": "unknown",
+      "name": "@metamask/recipe-runner"
+    }
+  },
+  "entries": [
+    {
+      "nodeId": "setup-session/session/launch",
+      "action": "metamask.app.launch",
+      "intent": "Start the slot browser with a fresh profile and the reserved fixture account in the requested wallet",
+      "startedAt": "2026-10-09T10:40:29.860Z",
+      "endedAt": "2026-10-09T10:40:35.735Z",
+      "durationMs": 5875,
+      "ok": true,
+      "next": "open_window",
+      "output": {
+        "action": "metamask.app.launch",
+        "status": "ready",
+        "reused": false,
+        "signer": "injected",
+        "network": "testnet",
+        "account": {
+          "name": "dev1",
+          "address": "0x8Dc623E964475D4d669da601Fd15ea9125469003"
+        },
+        "cdpPort": 9543,
+        "appOrigin": "http://localhost:9343",
+        "browser": {
+          "bin": "/Users/deeeed/Library/Caches/ms-playwright/chromium-1217/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+          "version": "Google Chrome for Testing 147.0.7727.15",
+          "source": "chrome-for-testing",
+          "headless": false,
+          "launchMethod": "launch-services"
+        },
+        "window": {
+          "x": 0,
+          "y": 40,
+          "width": 1028,
+          "height": 1289,
+          "source": "main-screen",
+          "zoom": 0.7
+        },
+        "slowMoMs": 0,
+        "extension": null,
+        "freshProfile": true,
+        "proofPath": "terminal-browser-launch",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/launch.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/open_window",
+      "action": "metamask.wallet.read_signatures",
+      "intent": "Start counting what the app asks the main wallet from this point",
+      "startedAt": "2026-10-09T10:40:35.740Z",
+      "endedAt": "2026-10-09T10:40:35.821Z",
+      "durationMs": 81,
+      "ok": true,
+      "next": "open_market",
+      "output": {
+        "action": "metamask.wallet.read_signatures",
+        "source": "terminal-wallet-request-log",
+        "reset": true,
+        "cursor": 78,
+        "previousEntries": 78,
+        "proofPath": "terminal-wallet-request-log",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/read_signatures.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/open_market",
+      "action": "ui.navigate",
+      "intent": "Open the reserved market's order page on the slot dev server",
+      "startedAt": "2026-10-09T10:40:35.825Z",
+      "endedAt": "2026-10-09T10:40:36.334Z",
+      "durationMs": 509,
+      "ok": true,
+      "next": "choose_connect",
+      "output": {
+        "action": "ui.navigate",
+        "url": "http://localhost:9343/order/ETH",
+        "page": "order",
+        "market": "ETH",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/BTC",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/choose_connect",
+      "action": "switch",
+      "intent": "Connect the wallet only when the caller needs a connected session",
+      "startedAt": "2026-10-09T10:40:36.339Z",
+      "endedAt": "2026-10-09T10:40:36.345Z",
+      "durationMs": 6,
+      "ok": true,
+      "next": "connect_visible",
+      "case": "match",
+      "output": {
+        "matched": true,
+        "value": "connect-true",
+        "expected": "connect-true"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/connect_visible",
+      "action": "ui.wait_for",
+      "intent": "Confirm the trader sees the Connect wallet button",
+      "startedAt": "2026-10-09T10:40:36.350Z",
+      "endedAt": "2026-10-09T10:40:37.121Z",
+      "durationMs": 771,
+      "ok": true,
+      "next": "connect",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/connect",
+      "action": "ui.press",
+      "intent": "Ask to connect a wallet as the trader",
+      "startedAt": "2026-10-09T10:40:37.128Z",
+      "endedAt": "2026-10-09T10:40:37.909Z",
+      "durationMs": 781,
+      "ok": true,
+      "next": "approve_connect",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"header-connect-wallet\"], [data-test-id=\"header-connect-wallet\"], [data-test=\"header-connect-wallet\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/approve_connect/choose",
+      "action": "switch",
+      "intent": "Only the MetaMask extension shows a confirmation; the injected wallet answers in the harness",
+      "startedAt": "2026-10-09T10:40:37.920Z",
+      "endedAt": "2026-10-09T10:40:37.929Z",
+      "durationMs": 9,
+      "ok": true,
+      "next": "injected_done",
+      "output": {
+        "matched": false,
+        "value": "injected",
+        "expected": "extension"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/approve_connect/injected_done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:40:37.934Z",
+      "endedAt": "2026-10-09T10:40:37.934Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-session/session/approve_connect",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.confirm-wallet-request",
+        "digest": "sha256:57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/confirm-wallet-request.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Let MetaMask connect the reserved account to the Web Terminal",
+      "startedAt": "2026-10-09T10:40:37.914Z",
+      "endedAt": "2026-10-09T10:40:37.934Z",
+      "durationMs": 20,
+      "ok": true,
+      "next": "connected",
+      "output": {
+        "ref": "terminal.perps.confirm-wallet-request",
+        "status": "pass",
+        "outputs": {
+          "choose": {
+            "matched": false,
+            "value": "injected",
+            "expected": "extension"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "setup-session/session/connected",
+      "action": "ui.wait_for",
+      "intent": "Confirm the header now shows the connected account",
+      "startedAt": "2026-10-09T10:40:37.937Z",
+      "endedAt": "2026-10-09T10:40:38.274Z",
+      "durationMs": 337,
+      "ok": true,
+      "next": "capture_connected",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/capture_connected",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the connected order page",
+      "artifacts": [
+        {
+          "path": "setup-session/session/capture_connected.png",
+          "type": "screenshot",
+          "nodeId": "setup-session/session/capture_connected",
+          "label": "session-connected",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:40:38.278Z",
+      "endedAt": "2026-10-09T10:40:38.408Z",
+      "durationMs": 130,
+      "ok": true,
+      "next": "session_signatures",
+      "output": {
+        "captured": true,
+        "path": "setup-session/session/capture_connected.png",
+        "artifact": {
+          "path": "setup-session/session/capture_connected.png",
+          "type": "screenshot",
+          "nodeId": "setup-session/session/capture_connected",
+          "label": "session-connected",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-session/session/session_signatures",
+      "action": "metamask.wallet.assert_signatures",
+      "intent": "Prove connecting asked for one account permission and no signature",
+      "artifacts": [
+        {
+          "path": "terminal-wallet/setup-session__session__session_signatures-signature-log.json",
+          "type": "report",
+          "nodeId": "setup-session/session/session_signatures"
+        }
+      ],
+      "startedAt": "2026-10-09T10:40:38.411Z",
+      "endedAt": "2026-10-09T10:40:38.489Z",
+      "durationMs": 78,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.wallet.assert_signatures",
+        "source": "terminal-wallet-request-log",
+        "cursor": 78,
+        "count": 2,
+        "summary": {
+          "requests": 2,
+          "typedDataRequests": 0,
+          "l1Requests": 0,
+          "confirmationsShown": 0,
+          "blockedMainnet": 0,
+          "refusedMainnet": 0,
+          "unattributed": 0,
+          "outsideAppFrame": 0,
+          "byPrimaryType": {},
+          "byMethod": {
+            "wallet_requestPermissions": 1,
+            "eth_requestAccounts": 1
+          }
+        },
+        "entries": [
+          {
+            "seq": 78,
+            "signer": "injected",
+            "kind": "request",
+            "method": "wallet_requestPermissions",
+            "t": 1791542437173,
+            "url": "/order/ETH",
+            "source": "injected-strict-wallet",
+            "activeChainId": 42161,
+            "outcome": "approved",
+            "durationMs": 1
+          },
+          {
+            "seq": 79,
+            "signer": "injected",
+            "kind": "request",
+            "method": "eth_requestAccounts",
+            "t": 1791542437177,
+            "url": "/order/ETH",
+            "source": "injected-strict-wallet",
+            "activeChainId": 42161,
+            "outcome": "approved",
+            "durationMs": 1
+          }
+        ],
+        "artifacts": [
+          {
+            "path": "terminal-wallet/setup-session__session__session_signatures-signature-log.json",
+            "type": "report",
+            "nodeId": "setup-session/session/session_signatures"
+          }
+        ],
+        "proofPath": "terminal-wallet-request-log",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/assert_signatures.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-session/session/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:40:38.492Z",
+      "endedAt": "2026-10-09T10:40:38.492Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-session/session",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.ensure-session",
+        "digest": "sha256:84f2bd0983c0b5a6b9258e9e4ca43ae33c09959ba2ff12fcb5c0b886c471b24e",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/ensure-session.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Start a fresh slot browser and connect the reserved account to the Web Terminal",
+      "startedAt": "2026-10-09T10:40:29.856Z",
+      "endedAt": "2026-10-09T10:40:38.492Z",
+      "durationMs": 8636,
+      "ok": true,
+      "next": "assert_connected",
+      "output": {
+        "ref": "terminal.perps.ensure-session",
+        "status": "pass",
+        "outputs": {
+          "launch": {
+            "action": "metamask.app.launch",
+            "status": "ready",
+            "reused": false,
+            "signer": "injected",
+            "network": "testnet",
+            "account": {
+              "name": "dev1",
+              "address": "0x8Dc623E964475D4d669da601Fd15ea9125469003"
+            },
+            "cdpPort": 9543,
+            "appOrigin": "http://localhost:9343",
+            "browser": {
+              "bin": "/Users/deeeed/Library/Caches/ms-playwright/chromium-1217/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+              "version": "Google Chrome for Testing 147.0.7727.15",
+              "source": "chrome-for-testing",
+              "headless": false,
+              "launchMethod": "launch-services"
+            },
+            "window": {
+              "x": 0,
+              "y": 40,
+              "width": 1028,
+              "height": 1289,
+              "source": "main-screen",
+              "zoom": 0.7
+            },
+            "slowMoMs": 0,
+            "extension": null,
+            "freshProfile": true,
+            "proofPath": "terminal-browser-launch",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/launch.mjs"
+          },
+          "open_window": {
+            "action": "metamask.wallet.read_signatures",
+            "source": "terminal-wallet-request-log",
+            "reset": true,
+            "cursor": 78,
+            "previousEntries": 78,
+            "proofPath": "terminal-wallet-request-log",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/read_signatures.mjs"
+          },
+          "open_market": {
+            "action": "ui.navigate",
+            "url": "http://localhost:9343/order/ETH",
+            "page": "order",
+            "market": "ETH",
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/BTC",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+          },
+          "choose_connect": {
+            "matched": true,
+            "value": "connect-true",
+            "expected": "connect-true"
+          },
+          "connect_visible": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "connect": {
+            "clicked": true,
+            "selector": "[data-testid=\"header-connect-wallet\"], [data-test-id=\"header-connect-wallet\"], [data-test=\"header-connect-wallet\"]",
+            "tagName": "BUTTON",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "approve_connect": {
+            "ref": "terminal.perps.confirm-wallet-request",
+            "status": "pass",
+            "outputs": {
+              "choose": {
+                "matched": false,
+                "value": "injected",
+                "expected": "extension"
+              }
+            }
+          },
+          "connected": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "capture_connected": {
+            "captured": true,
+            "path": "setup-session/session/capture_connected.png",
+            "artifact": {
+              "path": "setup-session/session/capture_connected.png",
+              "type": "screenshot",
+              "nodeId": "setup-session/session/capture_connected",
+              "label": "session-connected",
+              "category": "proof",
+              "mimeType": "image/png"
+            }
+          },
+          "session_signatures": {
+            "action": "metamask.wallet.assert_signatures",
+            "source": "terminal-wallet-request-log",
+            "cursor": 78,
+            "count": 2,
+            "summary": {
+              "requests": 2,
+              "typedDataRequests": 0,
+              "l1Requests": 0,
+              "confirmationsShown": 0,
+              "blockedMainnet": 0,
+              "refusedMainnet": 0,
+              "unattributed": 0,
+              "outsideAppFrame": 0,
+              "byPrimaryType": {},
+              "byMethod": {
+                "wallet_requestPermissions": 1,
+                "eth_requestAccounts": 1
+              }
+            },
+            "entries": [
+              {
+                "seq": 78,
+                "signer": "injected",
+                "kind": "request",
+                "method": "wallet_requestPermissions",
+                "t": 1791542437173,
+                "url": "/order/ETH",
+                "source": "injected-strict-wallet",
+                "activeChainId": 42161,
+                "outcome": "approved",
+                "durationMs": 1
+              },
+              {
+                "seq": 79,
+                "signer": "injected",
+                "kind": "request",
+                "method": "eth_requestAccounts",
+                "t": 1791542437177,
+                "url": "/order/ETH",
+                "source": "injected-strict-wallet",
+                "activeChainId": 42161,
+                "outcome": "approved",
+                "durationMs": 1
+              }
+            ],
+            "artifacts": [
+              {
+                "path": "terminal-wallet/setup-session__session__session_signatures-signature-log.json",
+                "type": "report",
+                "nodeId": "setup-session/session/session_signatures"
+              }
+            ],
+            "proofPath": "terminal-wallet-request-log",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/assert_signatures.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "setup-session/assert_connected",
+      "action": "metamask.wallet.assert_connected",
+      "intent": "Prove the Web Terminal is connected to the reserved account, as its own provider and header report",
+      "startedAt": "2026-10-09T10:40:38.495Z",
+      "endedAt": "2026-10-09T10:40:38.659Z",
+      "durationMs": 164,
+      "ok": true,
+      "next": "capture",
+      "output": {
+        "action": "metamask.wallet.assert_connected",
+        "connected": true,
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "signer": "injected",
+        "dappAccounts": [
+          "0x8Dc623E964475D4d669da601Fd15ea9125469003"
+        ],
+        "headerLabel": "0x8dc...9003",
+        "url": "http://localhost:9343/order/ETH",
+        "proofPath": "dapp-connected-account",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/wallet/assert_connected.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-session/capture",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the header showing the connected account",
+      "artifacts": [
+        {
+          "path": "setup-session/capture.png",
+          "type": "screenshot",
+          "nodeId": "setup-session/capture",
+          "label": "connected-dev1",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:40:38.662Z",
+      "endedAt": "2026-10-09T10:40:38.766Z",
+      "durationMs": 104,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "captured": true,
+        "path": "setup-session/capture.png",
+        "artifact": {
+          "path": "setup-session/capture.png",
+          "type": "screenshot",
+          "nodeId": "setup-session/capture",
+          "label": "connected-dev1",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-session/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:40:38.769Z",
+      "endedAt": "2026-10-09T10:40:38.769Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-session",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.ensure-connected",
+        "digest": "sha256:48e1457e8c00735a2c5170adb372f11e1ef7e3436ddf4e4e7a25ced41be479f7",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/ensure-connected.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Open the slot and connect its reserved testnet wallet",
+      "startedAt": "2026-10-09T10:40:29.846Z",
+      "endedAt": "2026-10-09T10:40:38.769Z",
+      "durationMs": 8923,
+      "ok": true,
+      "next": "setup-flat",
+      "output": {
+        "ref": "terminal.perps.ensure-connected",
+        "status": "pass",
+        "outputs": {
+          "session": {
+            "ref": "terminal.perps.ensure-session",
+            "status": "pass",
+            "outputs": {
+              "launch": {
+                "action": "metamask.app.launch",
+                "status": "ready",
+                "reused": false,
+                "signer": "injected",
+                "network": "testnet",
+                "account": {
+                  "name": "dev1",
+                  "address": "0x8Dc623E964475D4d669da601Fd15ea9125469003"
+                },
+                "cdpPort": 9543,
+                "appOrigin": "http://localhost:9343",
+                "browser": {
+                  "bin": "/Users/deeeed/Library/Caches/ms-playwright/chromium-1217/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+                  "version": "Google Chrome for Testing 147.0.7727.15",
+                  "source": "chrome-for-testing",
+                  "headless": false,
+                  "launchMethod": "launch-services"
+                },
+                "window": {
+                  "x": 0,
+                  "y": 40,
+                  "width": 1028,
+                  "height": 1289,
+                  "source": "main-screen",
+                  "zoom": 0.7
+                },
+                "slowMoMs": 0,
+                "extension": null,
+                "freshProfile": true,
+                "proofPath": "terminal-browser-launch",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/app/launch.mjs"
+              },
+              "open_window": {
+                "action": "metamask.wallet.read_signatures",
+                "source": "terminal-wallet-request-log",
+                "reset": true,
+                "cursor": 78,
+                "previousEntries": 78,
+                "proofPath": "terminal-wallet-request-log",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/read_signatures.mjs"
+              },
+              "open_market": {
+                "action": "ui.navigate",
+                "url": "http://localhost:9343/order/ETH",
+                "page": "order",
+                "market": "ETH",
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/BTC",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+              },
+              "choose_connect": {
+                "matched": true,
+                "value": "connect-true",
+                "expected": "connect-true"
+              },
+              "connect_visible": {
+                "matched": true,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "connect": {
+                "clicked": true,
+                "selector": "[data-testid=\"header-connect-wallet\"], [data-test-id=\"header-connect-wallet\"], [data-test=\"header-connect-wallet\"]",
+                "tagName": "BUTTON",
+                "partiallyCovered": false,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "approve_connect": {
+                "ref": "terminal.perps.confirm-wallet-request",
+                "status": "pass",
+                "outputs": {
+                  "choose": {
+                    "matched": false,
+                    "value": "injected",
+                    "expected": "extension"
+                  }
+                }
+              },
+              "connected": {
+                "matched": true,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "capture_connected": {
+                "captured": true,
+                "path": "setup-session/session/capture_connected.png",
+                "artifact": {
+                  "path": "setup-session/session/capture_connected.png",
+                  "type": "screenshot",
+                  "nodeId": "setup-session/session/capture_connected",
+                  "label": "session-connected",
+                  "category": "proof",
+                  "mimeType": "image/png"
+                }
+              },
+              "session_signatures": {
+                "action": "metamask.wallet.assert_signatures",
+                "source": "terminal-wallet-request-log",
+                "cursor": 78,
+                "count": 2,
+                "summary": {
+                  "requests": 2,
+                  "typedDataRequests": 0,
+                  "l1Requests": 0,
+                  "confirmationsShown": 0,
+                  "blockedMainnet": 0,
+                  "refusedMainnet": 0,
+                  "unattributed": 0,
+                  "outsideAppFrame": 0,
+                  "byPrimaryType": {},
+                  "byMethod": {
+                    "wallet_requestPermissions": 1,
+                    "eth_requestAccounts": 1
+                  }
+                },
+                "entries": [
+                  {
+                    "seq": 78,
+                    "signer": "injected",
+                    "kind": "request",
+                    "method": "wallet_requestPermissions",
+                    "t": 1791542437173,
+                    "url": "/order/ETH",
+                    "source": "injected-strict-wallet",
+                    "activeChainId": 42161,
+                    "outcome": "approved",
+                    "durationMs": 1
+                  },
+                  {
+                    "seq": 79,
+                    "signer": "injected",
+                    "kind": "request",
+                    "method": "eth_requestAccounts",
+                    "t": 1791542437177,
+                    "url": "/order/ETH",
+                    "source": "injected-strict-wallet",
+                    "activeChainId": 42161,
+                    "outcome": "approved",
+                    "durationMs": 1
+                  }
+                ],
+                "artifacts": [
+                  {
+                    "path": "terminal-wallet/setup-session__session__session_signatures-signature-log.json",
+                    "type": "report",
+                    "nodeId": "setup-session/session/session_signatures"
+                  }
+                ],
+                "proofPath": "terminal-wallet-request-log",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/wallet/assert_signatures.mjs"
+              }
+            }
+          },
+          "assert_connected": {
+            "action": "metamask.wallet.assert_connected",
+            "connected": true,
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "signer": "injected",
+            "dappAccounts": [
+              "0x8Dc623E964475D4d669da601Fd15ea9125469003"
+            ],
+            "headerLabel": "0x8dc...9003",
+            "url": "http://localhost:9343/order/ETH",
+            "proofPath": "dapp-connected-account",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/wallet/assert_connected.mjs"
+          },
+          "capture": {
+            "captured": true,
+            "path": "setup-session/capture.png",
+            "artifact": {
+              "path": "setup-session/capture.png",
+              "type": "screenshot",
+              "nodeId": "setup-session/capture",
+              "label": "connected-dev1",
+              "category": "proof",
+              "mimeType": "image/png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "setup-flat/before_snapshot",
+      "action": "metamask.perps.read_snapshot",
+      "intent": "Record what the reserved market held before this run converged it",
+      "startedAt": "2026-10-09T10:40:38.774Z",
+      "endedAt": "2026-10-09T10:40:39.224Z",
+      "durationMs": 450,
+      "ok": true,
+      "next": "converge",
+      "output": {
+        "action": "metamask.perps.read_snapshot",
+        "source": "hyperliquid-info",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "at": "2026-10-09T10:40:39.194Z",
+        "positions": [],
+        "orders": [],
+        "agents": [
+          {
+            "name": "mm-terminal",
+            "address": "0x2f29d27a5baea4872bf2804604f034de5a485552",
+            "validUntil": 1792145514445
+          }
+        ],
+        "accountValue": "12.00979",
+        "withdrawable": "0.0",
+        "proofPath": "venue-snapshot",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/read_snapshot.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-flat/converge/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:40:39.233Z",
+      "endedAt": "2026-10-09T10:40:39.837Z",
+      "durationMs": 604,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [],
+        "closedPositions": [],
+        "responses": [],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-flat/converge/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:40:39.845Z",
+      "endedAt": "2026-10-09T10:40:40.253Z",
+      "durationMs": 408,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-flat/converge/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:40:40.257Z",
+      "endedAt": "2026-10-09T10:40:40.675Z",
+      "durationMs": 418,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "setup-flat/converge/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:40:40.678Z",
+      "endedAt": "2026-10-09T10:40:40.678Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-flat/converge",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Make the reserved testnet market flat and prove no position or order remains",
+      "startedAt": "2026-10-09T10:40:39.227Z",
+      "endedAt": "2026-10-09T10:40:40.678Z",
+      "durationMs": 1451,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [],
+            "closedPositions": [],
+            "responses": [],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "setup-flat/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:40:40.683Z",
+      "endedAt": "2026-10-09T10:40:40.683Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-flat",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.ensure-flat-market",
+        "digest": "sha256:50a127fb8dce7d03c20a15bd3ef29f52d818dd8830075d53db013bec0fbe7c6a",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/ensure-flat-market.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Converge the reserved testnet market to a flat starting state",
+      "startedAt": "2026-10-09T10:40:38.771Z",
+      "endedAt": "2026-10-09T10:40:40.683Z",
+      "durationMs": 1912,
+      "ok": true,
+      "next": "ac1-regression-limit",
+      "output": {
+        "ref": "terminal.perps.ensure-flat-market",
+        "status": "pass",
+        "outputs": {
+          "before_snapshot": {
+            "action": "metamask.perps.read_snapshot",
+            "source": "hyperliquid-info",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "at": "2026-10-09T10:40:39.194Z",
+            "positions": [],
+            "orders": [],
+            "agents": [
+              {
+                "name": "mm-terminal",
+                "address": "0x2f29d27a5baea4872bf2804604f034de5a485552",
+                "validUntil": 1792145514445
+              }
+            ],
+            "accountValue": "12.00979",
+            "withdrawable": "0.0",
+            "proofPath": "venue-snapshot",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/read_snapshot.mjs"
+          },
+          "converge": {
+            "ref": "terminal.perps.clean-market-testnet",
+            "status": "pass",
+            "outputs": {
+              "clean_market": {
+                "action": "metamask.perps.teardown_state",
+                "source": "hyperliquid-exchange-fixture-signer",
+                "network": "testnet",
+                "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+                "accountName": "dev1",
+                "markets": [
+                  "ETH"
+                ],
+                "canceledOrderIds": [],
+                "closedPositions": [],
+                "responses": [],
+                "remaining": {
+                  "orders": [],
+                  "positions": []
+                },
+                "proofPath": "venue-cleanup",
+                "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+              },
+              "assert_no_positions": {
+                "action": "metamask.perps.assert_positions",
+                "source": "hyperliquid-info-clearinghouseState",
+                "network": "testnet",
+                "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+                "accountName": "dev1",
+                "expectedOpen": false,
+                "matchingCount": 0,
+                "expectedCount": null,
+                "positions": [],
+                "proofPath": "venue-clearinghouseState",
+                "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+              },
+              "assert_no_orders": {
+                "action": "metamask.perps.assert_orders",
+                "source": "hyperliquid-info-frontendOpenOrders",
+                "network": "testnet",
+                "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+                "accountName": "dev1",
+                "expectedOpen": false,
+                "matchingCount": 0,
+                "expectedCount": null,
+                "orders": [],
+                "orderIds": [],
+                "proofPath": "venue-frontendOpenOrders",
+                "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-regression-limit",
+      "action": "ui.press",
+      "intent": "Select the existing Limit order",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:40.686Z",
+      "endedAt": "2026-10-09T10:40:41.076Z",
+      "durationMs": 390,
+      "ok": true,
+      "next": "ac1-regression-limit-field",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-limit\"], [data-test-id=\"order-form-tab-limit\"], [data-test=\"order-form-tab-limit\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-regression-limit-field",
+      "action": "ui.wait_for",
+      "intent": "Confirm the existing limit-price input renders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:41.083Z",
+      "endedAt": "2026-10-09T10:40:41.702Z",
+      "durationMs": 619,
+      "ok": true,
+      "next": "setup-market",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-market",
+      "action": "ui.press",
+      "intent": "Return to Market before the new order controls",
+      "startedAt": "2026-10-09T10:40:41.726Z",
+      "endedAt": "2026-10-09T10:40:42.134Z",
+      "durationMs": 408,
+      "ok": true,
+      "next": "ac1-stop-select",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-market\"], [data-test-id=\"order-form-tab-market\"], [data-test=\"order-form-tab-market\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-stop-select",
+      "action": "ui.press",
+      "intent": "Select the new Stop order",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:42.144Z",
+      "endedAt": "2026-10-09T10:40:42.922Z",
+      "durationMs": 778,
+      "ok": true,
+      "next": "ac1-stop-field",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-stop_market\"], [data-test-id=\"order-form-tab-stop_market\"], [data-test=\"order-form-tab-stop_market\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-stop-field",
+      "action": "ui.wait_for",
+      "intent": "Confirm Stop exposes its trigger price",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:42.926Z",
+      "endedAt": "2026-10-09T10:40:43.699Z",
+      "durationMs": 773,
+      "ok": true,
+      "next": "ac1-stop-fields",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-stop-fields",
+      "action": "ui.screenshot",
+      "intent": "Keep visual proof of the prices and risk controls available to this trader",
+      "proves": [
+        "AC1"
+      ],
+      "artifacts": [
+        {
+          "path": "evidence-ac1-stop-fields.png",
+          "type": "screenshot",
+          "nodeId": "ac1-stop-fields",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:40:43.717Z",
+      "endedAt": "2026-10-09T10:40:43.826Z",
+      "durationMs": 109,
+      "ok": true,
+      "next": "setup-stop-trigger",
+      "output": {
+        "captured": true,
+        "path": "evidence-ac1-stop-fields.png",
+        "artifact": {
+          "path": "evidence-ac1-stop-fields.png",
+          "type": "screenshot",
+          "nodeId": "ac1-stop-fields",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-stop-trigger",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:40:43.828Z",
+      "endedAt": "2026-10-09T10:40:44.183Z",
+      "durationMs": 355,
+      "ok": true,
+      "next": "setup-stop-size",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-trigger-price\"], [data-test-id=\"order-form-trigger-price\"], [data-test=\"order-form-trigger-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "",
+        "value": "5000.5",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-stop-size",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:40:44.191Z",
+      "endedAt": "2026-10-09T10:40:45.016Z",
+      "durationMs": 825,
+      "ok": true,
+      "next": "ac1-stop-submit",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$0",
+        "value": "$25",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-stop-submit",
+      "action": "ui.press",
+      "intent": "Place the Stop order",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:45.019Z",
+      "endedAt": "2026-10-09T10:40:45.390Z",
+      "durationMs": 371,
+      "ok": true,
+      "next": "setup-approve",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-approve/choose",
+      "action": "switch",
+      "intent": "Only the MetaMask extension shows a confirmation; the injected wallet answers in the harness",
+      "startedAt": "2026-10-09T10:40:45.405Z",
+      "endedAt": "2026-10-09T10:40:45.412Z",
+      "durationMs": 7,
+      "ok": true,
+      "next": "injected_done",
+      "output": {
+        "matched": false,
+        "value": "injected",
+        "expected": "extension"
+      }
+    },
+    {
+      "nodeId": "setup-approve/injected_done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:40:45.417Z",
+      "endedAt": "2026-10-09T10:40:45.417Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "setup-approve",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.confirm-wallet-request",
+        "digest": "sha256:57d0dae5a3b20430597d12224097ab0d4651927f6e8ef0bc81c3657de34ad02a",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/confirm-wallet-request.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Approve the trading agent for this testnet session",
+      "startedAt": "2026-10-09T10:40:45.396Z",
+      "endedAt": "2026-10-09T10:40:45.417Z",
+      "durationMs": 21,
+      "ok": true,
+      "next": "ac1-stop-venue",
+      "output": {
+        "ref": "terminal.perps.confirm-wallet-request",
+        "status": "pass",
+        "outputs": {
+          "choose": {
+            "matched": false,
+            "value": "injected",
+            "expected": "extension"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-stop-venue",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Read the resulting Hyperliquid orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:45.421Z",
+      "endedAt": "2026-10-09T10:40:49.352Z",
+      "durationMs": 3931,
+      "ok": true,
+      "next": "ac1-stop-venue-assert",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": true,
+        "matchingCount": 1,
+        "expectedCount": 1,
+        "orders": [
+          {
+            "orderId": "62251189306",
+            "market": "ETH",
+            "side": "buy",
+            "price": "5050.5",
+            "size": "0.0101",
+            "orderType": "Stop Market",
+            "triggerType": "stop_market",
+            "isTrigger": true,
+            "triggerPrice": "5000.5",
+            "reduceOnly": false,
+            "isPositionTpsl": false,
+            "timestamp": 1791542448737
+          }
+        ],
+        "orderIds": [
+          "62251189306"
+        ],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-stop-venue-assert",
+      "action": "assert_output",
+      "intent": "Assert the venue read matches the order just submitted",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:49.355Z",
+      "endedAt": "2026-10-09T10:40:49.360Z",
+      "durationMs": 5,
+      "ok": true,
+      "next": "teardown-stop",
+      "output": {
+        "source": "ac1-stop-venue",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1,
+          "actual": 1
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-stop/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:40:49.372Z",
+      "endedAt": "2026-10-09T10:40:51.150Z",
+      "durationMs": 1778,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [
+          "62251189306"
+        ],
+        "closedPositions": [],
+        "responses": [
+          {
+            "cancel": {
+              "statuses": [
+                "success"
+              ]
+            }
+          }
+        ],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-stop/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:40:51.155Z",
+      "endedAt": "2026-10-09T10:40:51.600Z",
+      "durationMs": 445,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-stop/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:40:51.607Z",
+      "endedAt": "2026-10-09T10:40:52.061Z",
+      "durationMs": 454,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-stop/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:40:52.065Z",
+      "endedAt": "2026-10-09T10:40:52.065Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-stop",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Cancel the stop before testing the next order",
+      "startedAt": "2026-10-09T10:40:49.362Z",
+      "endedAt": "2026-10-09T10:40:52.065Z",
+      "durationMs": 2703,
+      "ok": true,
+      "next": "ac1-take_profit_market-select",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [
+              "62251189306"
+            ],
+            "closedPositions": [],
+            "responses": [
+              {
+                "cancel": {
+                  "statuses": [
+                    "success"
+                  ]
+                }
+              }
+            ],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_market-select",
+      "action": "ui.press",
+      "intent": "Select take profit market orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:52.068Z",
+      "endedAt": "2026-10-09T10:40:52.699Z",
+      "durationMs": 631,
+      "ok": true,
+      "next": "setup-take_profit_market-trigger-price",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-take_profit_market\"], [data-test-id=\"order-form-tab-take_profit_market\"], [data-test=\"order-form-tab-take_profit_market\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-take_profit_market-trigger-price",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:40:52.704Z",
+      "endedAt": "2026-10-09T10:40:53.066Z",
+      "durationMs": 362,
+      "ok": true,
+      "next": "ac1-take_profit_market-fields",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-trigger-price\"], [data-test-id=\"order-form-trigger-price\"], [data-test=\"order-form-trigger-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "5000.5",
+        "value": "1000.5",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_market-fields",
+      "action": "ui.wait_for",
+      "intent": "Confirm the selected order exposes its fields",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:53.069Z",
+      "endedAt": "2026-10-09T10:40:53.701Z",
+      "durationMs": 632,
+      "ok": true,
+      "next": "ac1-take_profit_market-picture",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_market-picture",
+      "action": "ui.screenshot",
+      "intent": "Keep visual proof of the prices and risk controls available to this trader",
+      "proves": [
+        "AC1"
+      ],
+      "artifacts": [
+        {
+          "path": "evidence-ac1-take_profit_market-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-take_profit_market-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:40:53.704Z",
+      "endedAt": "2026-10-09T10:40:53.841Z",
+      "durationMs": 137,
+      "ok": true,
+      "next": "setup-take_profit_market-size",
+      "output": {
+        "captured": true,
+        "path": "evidence-ac1-take_profit_market-picture.png",
+        "artifact": {
+          "path": "evidence-ac1-take_profit_market-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-take_profit_market-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-take_profit_market-size",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:40:53.843Z",
+      "endedAt": "2026-10-09T10:40:54.190Z",
+      "durationMs": 347,
+      "ok": true,
+      "next": "ac1-take_profit_market-submit",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$25",
+        "value": "$50",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_market-submit",
+      "action": "ui.press",
+      "intent": "Place the take profit market order",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:54.193Z",
+      "endedAt": "2026-10-09T10:40:54.767Z",
+      "durationMs": 574,
+      "ok": true,
+      "next": "ac1-take_profit_market-venue",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_market-venue",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Read the resulting Hyperliquid orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:54.788Z",
+      "endedAt": "2026-10-09T10:40:56.984Z",
+      "durationMs": 2196,
+      "ok": true,
+      "next": "ac1-take_profit_market-venue-assert",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": true,
+        "matchingCount": 1,
+        "expectedCount": 1,
+        "orders": [
+          {
+            "orderId": "62251196661",
+            "market": "ETH",
+            "side": "buy",
+            "price": "1010.5",
+            "size": "0.0201",
+            "orderType": "Take Profit Market",
+            "triggerType": "take_profit_market",
+            "isTrigger": true,
+            "triggerPrice": "1000.5",
+            "reduceOnly": false,
+            "isPositionTpsl": false,
+            "timestamp": 1791542456252
+          }
+        ],
+        "orderIds": [
+          "62251196661"
+        ],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_market-venue-assert",
+      "action": "assert_output",
+      "intent": "Assert the venue read matches the order just submitted",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:56.988Z",
+      "endedAt": "2026-10-09T10:40:56.994Z",
+      "durationMs": 6,
+      "ok": true,
+      "next": "teardown-take_profit_market",
+      "output": {
+        "source": "ac1-take_profit_market-venue",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1,
+          "actual": 1
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-take_profit_market/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:40:57.000Z",
+      "endedAt": "2026-10-09T10:40:58.864Z",
+      "durationMs": 1864,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [
+          "62251196661"
+        ],
+        "closedPositions": [],
+        "responses": [
+          {
+            "cancel": {
+              "statuses": [
+                "success"
+              ]
+            }
+          }
+        ],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-take_profit_market/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:40:58.869Z",
+      "endedAt": "2026-10-09T10:40:59.293Z",
+      "durationMs": 424,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-take_profit_market/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:40:59.297Z",
+      "endedAt": "2026-10-09T10:40:59.716Z",
+      "durationMs": 419,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-take_profit_market/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:40:59.721Z",
+      "endedAt": "2026-10-09T10:40:59.721Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-take_profit_market",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Cancel this strategy before the next order",
+      "startedAt": "2026-10-09T10:40:56.998Z",
+      "endedAt": "2026-10-09T10:40:59.721Z",
+      "durationMs": 2723,
+      "ok": true,
+      "next": "ac1-stop_limit-select",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [
+              "62251196661"
+            ],
+            "closedPositions": [],
+            "responses": [
+              {
+                "cancel": {
+                  "statuses": [
+                    "success"
+                  ]
+                }
+              }
+            ],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-stop_limit-select",
+      "action": "ui.press",
+      "intent": "Select stop limit orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:40:59.726Z",
+      "endedAt": "2026-10-09T10:41:00.110Z",
+      "durationMs": 384,
+      "ok": true,
+      "next": "setup-stop_limit-trigger-price",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-stop_limit\"], [data-test-id=\"order-form-tab-stop_limit\"], [data-test=\"order-form-tab-stop_limit\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-stop_limit-trigger-price",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:00.113Z",
+      "endedAt": "2026-10-09T10:41:00.930Z",
+      "durationMs": 817,
+      "ok": true,
+      "next": "setup-stop_limit-limit-price",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-trigger-price\"], [data-test-id=\"order-form-trigger-price\"], [data-test=\"order-form-trigger-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "1000.5",
+        "value": "5000.5",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-stop_limit-limit-price",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:00.935Z",
+      "endedAt": "2026-10-09T10:41:01.291Z",
+      "durationMs": 356,
+      "ok": true,
+      "next": "ac1-stop_limit-fields",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-limit-price\"], [data-test-id=\"order-form-limit-price\"], [data-test=\"order-form-limit-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "2482.8",
+        "value": "5001.5",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-stop_limit-fields",
+      "action": "ui.wait_for",
+      "intent": "Confirm the selected order exposes its fields",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:01.297Z",
+      "endedAt": "2026-10-09T10:41:01.763Z",
+      "durationMs": 466,
+      "ok": true,
+      "next": "ac1-stop_limit-picture",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-stop_limit-picture",
+      "action": "ui.screenshot",
+      "intent": "Keep visual proof of the prices and risk controls available to this trader",
+      "proves": [
+        "AC1"
+      ],
+      "artifacts": [
+        {
+          "path": "evidence-ac1-stop_limit-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-stop_limit-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:41:01.767Z",
+      "endedAt": "2026-10-09T10:41:01.880Z",
+      "durationMs": 113,
+      "ok": true,
+      "next": "setup-stop_limit-size",
+      "output": {
+        "captured": true,
+        "path": "evidence-ac1-stop_limit-picture.png",
+        "artifact": {
+          "path": "evidence-ac1-stop_limit-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-stop_limit-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-stop_limit-size",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:01.882Z",
+      "endedAt": "2026-10-09T10:41:02.221Z",
+      "durationMs": 339,
+      "ok": true,
+      "next": "ac1-stop_limit-submit",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$50",
+        "value": "$50",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-stop_limit-submit",
+      "action": "ui.press",
+      "intent": "Place the stop limit order",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:02.226Z",
+      "endedAt": "2026-10-09T10:41:02.718Z",
+      "durationMs": 492,
+      "ok": true,
+      "next": "ac1-stop_limit-venue",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-stop_limit-venue",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Read the resulting Hyperliquid orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:02.722Z",
+      "endedAt": "2026-10-09T10:41:04.893Z",
+      "durationMs": 2171,
+      "ok": true,
+      "next": "ac1-stop_limit-venue-assert",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": true,
+        "matchingCount": 1,
+        "expectedCount": 1,
+        "orders": [
+          {
+            "orderId": "62251204808",
+            "market": "ETH",
+            "side": "buy",
+            "price": "5001.5",
+            "size": "0.0201",
+            "orderType": "Stop Limit",
+            "triggerType": "stop_limit",
+            "isTrigger": true,
+            "triggerPrice": "5000.5",
+            "reduceOnly": false,
+            "isPositionTpsl": false,
+            "timestamp": 1791542464313
+          }
+        ],
+        "orderIds": [
+          "62251204808"
+        ],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-stop_limit-venue-assert",
+      "action": "assert_output",
+      "intent": "Assert the venue read matches the order just submitted",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:04.897Z",
+      "endedAt": "2026-10-09T10:41:04.904Z",
+      "durationMs": 7,
+      "ok": true,
+      "next": "teardown-stop_limit",
+      "output": {
+        "source": "ac1-stop_limit-venue",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1,
+          "actual": 1
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-stop_limit/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:41:04.910Z",
+      "endedAt": "2026-10-09T10:41:06.679Z",
+      "durationMs": 1769,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [
+          "62251204808"
+        ],
+        "closedPositions": [],
+        "responses": [
+          {
+            "cancel": {
+              "statuses": [
+                "success"
+              ]
+            }
+          }
+        ],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-stop_limit/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:06.684Z",
+      "endedAt": "2026-10-09T10:41:07.101Z",
+      "durationMs": 417,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-stop_limit/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:07.104Z",
+      "endedAt": "2026-10-09T10:41:07.522Z",
+      "durationMs": 418,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-stop_limit/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:41:07.526Z",
+      "endedAt": "2026-10-09T10:41:07.526Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-stop_limit",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Cancel this strategy before the next order",
+      "startedAt": "2026-10-09T10:41:04.906Z",
+      "endedAt": "2026-10-09T10:41:07.527Z",
+      "durationMs": 2621,
+      "ok": true,
+      "next": "ac1-take_profit_limit-select",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [
+              "62251204808"
+            ],
+            "closedPositions": [],
+            "responses": [
+              {
+                "cancel": {
+                  "statuses": [
+                    "success"
+                  ]
+                }
+              }
+            ],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_limit-select",
+      "action": "ui.press",
+      "intent": "Select take profit limit orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:07.535Z",
+      "endedAt": "2026-10-09T10:41:07.924Z",
+      "durationMs": 389,
+      "ok": true,
+      "next": "setup-take_profit_limit-trigger-price",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-take_profit_limit\"], [data-test-id=\"order-form-tab-take_profit_limit\"], [data-test=\"order-form-tab-take_profit_limit\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-take_profit_limit-trigger-price",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:07.929Z",
+      "endedAt": "2026-10-09T10:41:08.285Z",
+      "durationMs": 356,
+      "ok": true,
+      "next": "setup-take_profit_limit-limit-price",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-trigger-price\"], [data-test-id=\"order-form-trigger-price\"], [data-test=\"order-form-trigger-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "5000.5",
+        "value": "1000.5",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-take_profit_limit-limit-price",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:08.303Z",
+      "endedAt": "2026-10-09T10:41:08.943Z",
+      "durationMs": 640,
+      "ok": true,
+      "next": "ac1-take_profit_limit-fields",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-limit-price\"], [data-test-id=\"order-form-limit-price\"], [data-test=\"order-form-limit-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "5001.5",
+        "value": "1000.7",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_limit-fields",
+      "action": "ui.wait_for",
+      "intent": "Confirm the selected order exposes its fields",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:08.946Z",
+      "endedAt": "2026-10-09T10:41:09.291Z",
+      "durationMs": 345,
+      "ok": true,
+      "next": "ac1-take_profit_limit-picture",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_limit-picture",
+      "action": "ui.screenshot",
+      "intent": "Keep visual proof of the prices and risk controls available to this trader",
+      "proves": [
+        "AC1"
+      ],
+      "artifacts": [
+        {
+          "path": "evidence-ac1-take_profit_limit-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-take_profit_limit-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:41:09.294Z",
+      "endedAt": "2026-10-09T10:41:09.399Z",
+      "durationMs": 105,
+      "ok": true,
+      "next": "setup-take_profit_limit-size",
+      "output": {
+        "captured": true,
+        "path": "evidence-ac1-take_profit_limit-picture.png",
+        "artifact": {
+          "path": "evidence-ac1-take_profit_limit-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-take_profit_limit-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-take_profit_limit-size",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:09.402Z",
+      "endedAt": "2026-10-09T10:41:09.848Z",
+      "durationMs": 446,
+      "ok": true,
+      "next": "ac1-take_profit_limit-submit",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$50",
+        "value": "$50",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_limit-submit",
+      "action": "ui.press",
+      "intent": "Place the take profit limit order",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:09.851Z",
+      "endedAt": "2026-10-09T10:41:10.392Z",
+      "durationMs": 541,
+      "ok": true,
+      "next": "ac1-take_profit_limit-venue",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_limit-venue",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Read the resulting Hyperliquid orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:10.396Z",
+      "endedAt": "2026-10-09T10:41:12.543Z",
+      "durationMs": 2147,
+      "ok": true,
+      "next": "ac1-take_profit_limit-venue-assert",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": true,
+        "matchingCount": 1,
+        "expectedCount": 1,
+        "orders": [
+          {
+            "orderId": "62251213307",
+            "market": "ETH",
+            "side": "buy",
+            "price": "1000.7",
+            "size": "0.0201",
+            "orderType": "Take Profit Limit",
+            "triggerType": "take_profit_limit",
+            "isTrigger": true,
+            "triggerPrice": "1000.5",
+            "reduceOnly": false,
+            "isPositionTpsl": false,
+            "timestamp": 1791542471944
+          }
+        ],
+        "orderIds": [
+          "62251213307"
+        ],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-take_profit_limit-venue-assert",
+      "action": "assert_output",
+      "intent": "Assert the venue read matches the order just submitted",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:12.547Z",
+      "endedAt": "2026-10-09T10:41:12.553Z",
+      "durationMs": 6,
+      "ok": true,
+      "next": "teardown-take_profit_limit",
+      "output": {
+        "source": "ac1-take_profit_limit-venue",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1,
+          "actual": 1
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-take_profit_limit/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:41:12.560Z",
+      "endedAt": "2026-10-09T10:41:14.256Z",
+      "durationMs": 1696,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [
+          "62251213307"
+        ],
+        "closedPositions": [],
+        "responses": [
+          {
+            "cancel": {
+              "statuses": [
+                "success"
+              ]
+            }
+          }
+        ],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-take_profit_limit/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:14.261Z",
+      "endedAt": "2026-10-09T10:41:14.694Z",
+      "durationMs": 433,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-take_profit_limit/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:14.700Z",
+      "endedAt": "2026-10-09T10:41:15.125Z",
+      "durationMs": 425,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-take_profit_limit/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:41:15.129Z",
+      "endedAt": "2026-10-09T10:41:15.129Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-take_profit_limit",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Cancel this strategy before the next order",
+      "startedAt": "2026-10-09T10:41:12.556Z",
+      "endedAt": "2026-10-09T10:41:15.129Z",
+      "durationMs": 2573,
+      "ok": true,
+      "next": "ac1-scale-select",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [
+              "62251213307"
+            ],
+            "closedPositions": [],
+            "responses": [
+              {
+                "cancel": {
+                  "statuses": [
+                    "success"
+                  ]
+                }
+              }
+            ],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-scale-select",
+      "action": "ui.press",
+      "intent": "Select scale orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:15.136Z",
+      "endedAt": "2026-10-09T10:41:15.717Z",
+      "durationMs": 581,
+      "ok": true,
+      "next": "setup-scale-scale-min-price",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-scale\"], [data-test-id=\"order-form-tab-scale\"], [data-test=\"order-form-tab-scale\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-scale-scale-min-price",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:15.724Z",
+      "endedAt": "2026-10-09T10:41:16.099Z",
+      "durationMs": 375,
+      "ok": true,
+      "next": "setup-scale-scale-max-price",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-scale-min-price\"], [data-test-id=\"order-form-scale-min-price\"], [data-test=\"order-form-scale-min-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "",
+        "value": "1000",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-scale-scale-max-price",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:16.102Z",
+      "endedAt": "2026-10-09T10:41:16.701Z",
+      "durationMs": 599,
+      "ok": true,
+      "next": "setup-scale-scale-num-orders",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-scale-max-price\"], [data-test-id=\"order-form-scale-max-price\"], [data-test=\"order-form-scale-max-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "",
+        "value": "1100",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-scale-scale-num-orders",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:16.710Z",
+      "endedAt": "2026-10-09T10:41:17.066Z",
+      "durationMs": 356,
+      "ok": true,
+      "next": "ac1-scale-fields",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-scale-num-orders\"], [data-test-id=\"order-form-scale-num-orders\"], [data-test=\"order-form-scale-num-orders\"]",
+        "tagName": "INPUT",
+        "previousValue": "2",
+        "value": "2",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-scale-fields",
+      "action": "ui.wait_for",
+      "intent": "Confirm the selected order exposes its fields",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:17.070Z",
+      "endedAt": "2026-10-09T10:41:17.701Z",
+      "durationMs": 631,
+      "ok": true,
+      "next": "ac1-scale-picture",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-scale-picture",
+      "action": "ui.screenshot",
+      "intent": "Keep visual proof of the prices and risk controls available to this trader",
+      "proves": [
+        "AC1"
+      ],
+      "artifacts": [
+        {
+          "path": "evidence-ac1-scale-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-scale-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:41:17.707Z",
+      "endedAt": "2026-10-09T10:41:17.819Z",
+      "durationMs": 112,
+      "ok": true,
+      "next": "setup-scale-size",
+      "output": {
+        "captured": true,
+        "path": "evidence-ac1-scale-picture.png",
+        "artifact": {
+          "path": "evidence-ac1-scale-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-scale-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-scale-size",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:17.822Z",
+      "endedAt": "2026-10-09T10:41:18.162Z",
+      "durationMs": 340,
+      "ok": true,
+      "next": "ac1-scale-submit",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$50",
+        "value": "$50",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-scale-submit",
+      "action": "ui.press",
+      "intent": "Place the scale order",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:18.167Z",
+      "endedAt": "2026-10-09T10:41:18.810Z",
+      "durationMs": 643,
+      "ok": true,
+      "next": "ac1-scale-venue",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-scale-venue",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Read the resulting Hyperliquid orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:18.820Z",
+      "endedAt": "2026-10-09T10:41:20.981Z",
+      "durationMs": 2161,
+      "ok": true,
+      "next": "ac1-scale-venue-assert",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": true,
+        "matchingCount": 2,
+        "expectedCount": 2,
+        "orders": [
+          {
+            "orderId": "62251220971",
+            "market": "ETH",
+            "side": "buy",
+            "price": "1100.0",
+            "size": "0.01",
+            "orderType": "Limit",
+            "triggerType": null,
+            "isTrigger": false,
+            "triggerPrice": null,
+            "reduceOnly": false,
+            "isPositionTpsl": false,
+            "timestamp": 1791542480395
+          },
+          {
+            "orderId": "62251220970",
+            "market": "ETH",
+            "side": "buy",
+            "price": "1000.0",
+            "size": "0.0101",
+            "orderType": "Limit",
+            "triggerType": null,
+            "isTrigger": false,
+            "triggerPrice": null,
+            "reduceOnly": false,
+            "isPositionTpsl": false,
+            "timestamp": 1791542480395
+          }
+        ],
+        "orderIds": [
+          "62251220971",
+          "62251220970"
+        ],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-scale-venue-assert",
+      "action": "assert_output",
+      "intent": "Assert the venue read matches the order just submitted",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:20.984Z",
+      "endedAt": "2026-10-09T10:41:20.989Z",
+      "durationMs": 5,
+      "ok": true,
+      "next": "teardown-scale",
+      "output": {
+        "source": "ac1-scale-venue",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 2,
+          "actual": 2
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-scale/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:41:20.997Z",
+      "endedAt": "2026-10-09T10:41:22.764Z",
+      "durationMs": 1767,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [
+          "62251220971",
+          "62251220970"
+        ],
+        "closedPositions": [],
+        "responses": [
+          {
+            "cancel": {
+              "statuses": [
+                "success",
+                "success"
+              ]
+            }
+          }
+        ],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-scale/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:22.769Z",
+      "endedAt": "2026-10-09T10:41:23.178Z",
+      "durationMs": 409,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-scale/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:23.183Z",
+      "endedAt": "2026-10-09T10:41:23.624Z",
+      "durationMs": 441,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-scale/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:41:23.628Z",
+      "endedAt": "2026-10-09T10:41:23.628Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-scale",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Cancel this strategy before the next order",
+      "startedAt": "2026-10-09T10:41:20.993Z",
+      "endedAt": "2026-10-09T10:41:23.628Z",
+      "durationMs": 2635,
+      "ok": true,
+      "next": "ac1-chase-select",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [
+              "62251220971",
+              "62251220970"
+            ],
+            "closedPositions": [],
+            "responses": [
+              {
+                "cancel": {
+                  "statuses": [
+                    "success",
+                    "success"
+                  ]
+                }
+              }
+            ],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-chase-select",
+      "action": "ui.press",
+      "intent": "Select chase orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:23.631Z",
+      "endedAt": "2026-10-09T10:41:24.015Z",
+      "durationMs": 384,
+      "ok": true,
+      "next": "setup-chase-short",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-chase\"], [data-test-id=\"order-form-tab-chase\"], [data-test=\"order-form-tab-chase\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-chase-short",
+      "action": "ui.press",
+      "intent": "Quote a post-only sell at the current ask for the Chase proof",
+      "startedAt": "2026-10-09T10:41:24.019Z",
+      "endedAt": "2026-10-09T10:41:24.383Z",
+      "durationMs": 364,
+      "ok": true,
+      "next": "setup-chase-chase-duration",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-direction-short\"], [data-test-id=\"order-form-direction-short\"], [data-test=\"order-form-direction-short\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-chase-chase-duration",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:24.386Z",
+      "endedAt": "2026-10-09T10:41:25.041Z",
+      "durationMs": 655,
+      "ok": true,
+      "next": "setup-chase-chase-distance",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-chase-duration\"], [data-test-id=\"order-form-chase-duration\"], [data-test=\"order-form-chase-duration\"]",
+        "tagName": "INPUT",
+        "previousValue": "5",
+        "value": "5",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-chase-chase-distance",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:25.047Z",
+      "endedAt": "2026-10-09T10:41:25.702Z",
+      "durationMs": 655,
+      "ok": true,
+      "next": "ac1-chase-fields",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-chase-distance\"], [data-test-id=\"order-form-chase-distance\"], [data-test=\"order-form-chase-distance\"]",
+        "tagName": "INPUT",
+        "previousValue": "1",
+        "value": "1",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-chase-fields",
+      "action": "ui.wait_for",
+      "intent": "Confirm the selected order exposes its fields",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:25.709Z",
+      "endedAt": "2026-10-09T10:41:26.313Z",
+      "durationMs": 604,
+      "ok": true,
+      "next": "ac1-chase-picture",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-chase-picture",
+      "action": "ui.screenshot",
+      "intent": "Keep visual proof of the prices and risk controls available to this trader",
+      "proves": [
+        "AC1"
+      ],
+      "artifacts": [
+        {
+          "path": "evidence-ac1-chase-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-chase-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:41:26.317Z",
+      "endedAt": "2026-10-09T10:41:26.427Z",
+      "durationMs": 110,
+      "ok": true,
+      "next": "setup-chase-size",
+      "output": {
+        "captured": true,
+        "path": "evidence-ac1-chase-picture.png",
+        "artifact": {
+          "path": "evidence-ac1-chase-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-chase-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "setup-chase-size",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:26.430Z",
+      "endedAt": "2026-10-09T10:41:26.774Z",
+      "durationMs": 344,
+      "ok": true,
+      "next": "ac1-chase-submit",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$50",
+        "value": "$50",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-chase-submit",
+      "action": "ui.press",
+      "intent": "Place the chase order",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:26.779Z",
+      "endedAt": "2026-10-09T10:41:27.141Z",
+      "durationMs": 362,
+      "ok": true,
+      "next": "gate-chase-settle-1",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "gate-chase-settle-1",
+      "action": "wait",
+      "intent": "Let the signed Chase request reach its completed form state",
+      "startedAt": "2026-10-09T10:41:27.145Z",
+      "endedAt": "2026-10-09T10:41:28.155Z",
+      "durationMs": 1010,
+      "ok": true,
+      "next": "gate-chase-enabled-1",
+      "output": {
+        "durationMs": 1000
+      }
+    },
+    {
+      "nodeId": "gate-chase-enabled-1",
+      "action": "ui.wait_for",
+      "intent": "Require the Chase request to settle before inspecting venue exposure",
+      "startedAt": "2026-10-09T10:41:28.159Z",
+      "endedAt": "2026-10-09T10:41:29.351Z",
+      "durationMs": 1192,
+      "ok": true,
+      "next": "gate-chase-orders-1",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "gate-chase-orders-1",
+      "action": "metamask.perps.read_orders",
+      "intent": "Read any resting sell produced by this Chase request",
+      "startedAt": "2026-10-09T10:41:29.355Z",
+      "endedAt": "2026-10-09T10:41:29.777Z",
+      "durationMs": 422,
+      "ok": true,
+      "next": "gate-chase-orders-branch-1",
+      "output": {
+        "action": "metamask.perps.read_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "count": 1,
+        "matchingCount": 1,
+        "orders": [
+          {
+            "orderId": "62251229291",
+            "market": "ETH",
+            "side": "sell",
+            "price": "2482.9",
+            "size": "0.0201",
+            "orderType": "Limit",
+            "triggerType": null,
+            "isTrigger": false,
+            "triggerPrice": null,
+            "reduceOnly": false,
+            "isPositionTpsl": false,
+            "timestamp": 1791542488693
+          }
+        ],
+        "orderIds": [
+          "62251229291"
+        ],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/read_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "gate-chase-orders-branch-1",
+      "action": "switch",
+      "intent": "Prove the resting order, or look for a completed fill when none rests",
+      "startedAt": "2026-10-09T10:41:29.787Z",
+      "endedAt": "2026-10-09T10:41:29.792Z",
+      "durationMs": 5,
+      "ok": true,
+      "next": "ac1-chase-venue",
+      "output": {
+        "matched": false,
+        "value": "orders-1",
+        "expected": "orders-0"
+      }
+    },
+    {
+      "nodeId": "ac1-chase-venue",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Read the resulting Hyperliquid orders",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:29.794Z",
+      "endedAt": "2026-10-09T10:41:30.210Z",
+      "durationMs": 416,
+      "ok": true,
+      "next": "ac1-chase-venue-assert",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": true,
+        "matchingCount": 1,
+        "expectedCount": 1,
+        "orders": [
+          {
+            "orderId": "62251229291",
+            "market": "ETH",
+            "side": "sell",
+            "price": "2482.9",
+            "size": "0.0201",
+            "orderType": "Limit",
+            "triggerType": null,
+            "isTrigger": false,
+            "triggerPrice": null,
+            "reduceOnly": false,
+            "isPositionTpsl": false,
+            "timestamp": 1791542488693
+          }
+        ],
+        "orderIds": [
+          "62251229291"
+        ],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-chase-venue-assert",
+      "action": "assert_output",
+      "intent": "Assert the venue read matches the order just submitted",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:30.214Z",
+      "endedAt": "2026-10-09T10:41:30.220Z",
+      "durationMs": 6,
+      "ok": true,
+      "next": "teardown-chase",
+      "output": {
+        "source": "ac1-chase-venue",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1,
+          "actual": 1
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-chase/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:41:30.230Z",
+      "endedAt": "2026-10-09T10:41:31.956Z",
+      "durationMs": 1726,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [
+          "62251229291"
+        ],
+        "closedPositions": [],
+        "responses": [
+          {
+            "cancel": {
+              "statuses": [
+                "success"
+              ]
+            }
+          }
+        ],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-chase/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:31.959Z",
+      "endedAt": "2026-10-09T10:41:32.387Z",
+      "durationMs": 428,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-chase/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:32.391Z",
+      "endedAt": "2026-10-09T10:41:32.796Z",
+      "durationMs": 405,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-chase/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:41:32.799Z",
+      "endedAt": "2026-10-09T10:41:32.799Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-chase",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Cancel this strategy before the next order",
+      "startedAt": "2026-10-09T10:41:30.227Z",
+      "endedAt": "2026-10-09T10:41:32.799Z",
+      "durationMs": 2572,
+      "ok": true,
+      "next": "ac1-market-place",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [
+              "62251229291"
+            ],
+            "closedPositions": [],
+            "responses": [
+              {
+                "cancel": {
+                  "statuses": [
+                    "success"
+                  ]
+                }
+              }
+            ],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-market-place",
+      "action": "ui.press",
+      "intent": "Select the existing Market order after the strategy checks",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:32.802Z",
+      "endedAt": "2026-10-09T10:41:33.320Z",
+      "durationMs": 518,
+      "ok": true,
+      "next": "setup-market-long",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-market\"], [data-test-id=\"order-form-tab-market\"], [data-test=\"order-form-tab-market\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-market-long",
+      "action": "ui.press",
+      "intent": "Open a long position for the reduce-only proof",
+      "startedAt": "2026-10-09T10:41:33.329Z",
+      "endedAt": "2026-10-09T10:41:34.026Z",
+      "durationMs": 697,
+      "ok": true,
+      "next": "setup-market-notional",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-direction-long\"], [data-test-id=\"order-form-direction-long\"], [data-test=\"order-form-direction-long\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-market-notional",
+      "action": "ui.set_input",
+      "intent": "Commit a small testnet market notional",
+      "startedAt": "2026-10-09T10:41:34.030Z",
+      "endedAt": "2026-10-09T10:41:34.384Z",
+      "durationMs": 354,
+      "ok": true,
+      "next": "ac1-market-estimate-ready",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$50",
+        "value": "$25",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-market-estimate-ready",
+      "action": "ui.wait_for",
+      "intent": "Require a live liquidity estimate before the trader submits a Market order",
+      "proves": [
+        "AC1",
+        "AC2"
+      ],
+      "startedAt": "2026-10-09T10:41:34.390Z",
+      "endedAt": "2026-10-09T10:41:34.744Z",
+      "durationMs": 354,
+      "ok": true,
+      "next": "ac1-market-enabled",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-market-enabled",
+      "action": "ui.wait_for",
+      "intent": "Confirm the trader can submit once its quote is ready",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:34.750Z",
+      "endedAt": "2026-10-09T10:41:35.083Z",
+      "durationMs": 333,
+      "ok": true,
+      "next": "ac1-market-submit",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-market-submit",
+      "action": "ui.press",
+      "intent": "Place the existing Market order with live depth available",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:35.087Z",
+      "endedAt": "2026-10-09T10:41:35.720Z",
+      "durationMs": 633,
+      "ok": true,
+      "next": "ac1-market-position",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-market-position",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Prove the market order filled into a real long position",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:35.725Z",
+      "endedAt": "2026-10-09T10:41:37.883Z",
+      "durationMs": 2158,
+      "ok": true,
+      "next": "ac1-market-position-assert",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": true,
+        "matchingCount": 1,
+        "expectedCount": 1,
+        "positions": [
+          {
+            "market": "ETH",
+            "side": "long",
+            "size": "0.0101",
+            "entryPrice": "2482.9",
+            "notional": 25.08,
+            "leverage": 3,
+            "marginMode": "isolated",
+            "liquidationPrice": "1692.6755910285"
+          }
+        ],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-market-position-assert",
+      "action": "assert_output",
+      "intent": "Bind the Market proof to the real venue position",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:37.887Z",
+      "endedAt": "2026-10-09T10:41:37.894Z",
+      "durationMs": 7,
+      "ok": true,
+      "next": "ac1-reduce-only-place",
+      "output": {
+        "source": "ac1-market-position",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1,
+          "actual": 1
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/fresh_page/navigate",
+      "action": "ui.navigate",
+      "intent": "Open the market's order page as a trader typing its address",
+      "startedAt": "2026-10-09T10:41:37.906Z",
+      "endedAt": "2026-10-09T10:41:38.477Z",
+      "durationMs": 571,
+      "ok": true,
+      "next": "header",
+      "output": {
+        "action": "ui.navigate",
+        "url": "http://localhost:9343/order/ETH",
+        "page": "order",
+        "market": "ETH",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH",
+        "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/fresh_page/header",
+      "action": "ui.wait_for",
+      "intent": "Confirm the order header names the requested market",
+      "startedAt": "2026-10-09T10:41:38.482Z",
+      "endedAt": "2026-10-09T10:41:39.144Z",
+      "durationMs": 662,
+      "ok": true,
+      "next": "form",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/fresh_page/form",
+      "action": "ui.wait_for",
+      "intent": "Confirm the order form is on screen",
+      "startedAt": "2026-10-09T10:41:39.158Z",
+      "endedAt": "2026-10-09T10:41:40.330Z",
+      "durationMs": 1172,
+      "ok": true,
+      "next": "chart",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/fresh_page/chart",
+      "action": "ui.wait_for",
+      "intent": "Confirm the price chart loaded the market's data",
+      "startedAt": "2026-10-09T10:41:40.334Z",
+      "endedAt": "2026-10-09T10:41:40.836Z",
+      "durationMs": 502,
+      "ok": true,
+      "next": "capture",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/fresh_page/capture",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the loaded order page",
+      "artifacts": [
+        {
+          "path": "ac1-reduce-only-place/fresh_page/capture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-reduce-only-place/fresh_page/capture",
+          "label": "order-page-ETH",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:41:40.857Z",
+      "endedAt": "2026-10-09T10:41:41.002Z",
+      "durationMs": 145,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "captured": true,
+        "path": "ac1-reduce-only-place/fresh_page/capture.png",
+        "artifact": {
+          "path": "ac1-reduce-only-place/fresh_page/capture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-reduce-only-place/fresh_page/capture",
+          "label": "order-page-ETH",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/fresh_page/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:41:41.005Z",
+      "endedAt": "2026-10-09T10:41:41.005Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/fresh_page",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.open-order-page",
+        "digest": "sha256:228d76a5ea394289943fc06ca4c0723844864961d5009057a153741c6e347e2d",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/open-order-page.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Start from a freshly loaded order form on the requested market",
+      "startedAt": "2026-10-09T10:41:37.903Z",
+      "endedAt": "2026-10-09T10:41:41.005Z",
+      "durationMs": 3102,
+      "ok": true,
+      "next": "tab_limit",
+      "output": {
+        "ref": "terminal.perps.open-order-page",
+        "status": "pass",
+        "outputs": {
+          "navigate": {
+            "action": "ui.navigate",
+            "url": "http://localhost:9343/order/ETH",
+            "page": "order",
+            "market": "ETH",
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH",
+            "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+          },
+          "header": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "form": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "chart": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "capture": {
+            "captured": true,
+            "path": "ac1-reduce-only-place/fresh_page/capture.png",
+            "artifact": {
+              "path": "ac1-reduce-only-place/fresh_page/capture.png",
+              "type": "screenshot",
+              "nodeId": "ac1-reduce-only-place/fresh_page/capture",
+              "label": "order-page-ETH",
+              "category": "proof",
+              "mimeType": "image/png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/tab_limit",
+      "action": "ui.press",
+      "intent": "Switch the order form to a limit order",
+      "startedAt": "2026-10-09T10:41:41.008Z",
+      "endedAt": "2026-10-09T10:41:41.400Z",
+      "durationMs": 392,
+      "ok": true,
+      "next": "direction",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-limit\"], [data-test-id=\"order-form-tab-limit\"], [data-test=\"order-form-tab-limit\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/direction",
+      "action": "ui.press",
+      "intent": "Choose the order direction",
+      "startedAt": "2026-10-09T10:41:41.403Z",
+      "endedAt": "2026-10-09T10:41:42.076Z",
+      "durationMs": 673,
+      "ok": true,
+      "next": "no_tpsl",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-direction-short\"], [data-test-id=\"order-form-direction-short\"], [data-test=\"order-form-direction-short\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/no_tpsl/open_editor",
+      "action": "ui.press",
+      "intent": "Open the take-profit / stop-loss editor for the next order",
+      "startedAt": "2026-10-09T10:41:42.090Z",
+      "endedAt": "2026-10-09T10:41:42.455Z",
+      "durationMs": 365,
+      "ok": true,
+      "next": "choose",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tpsl\"], [data-test-id=\"order-form-tpsl\"], [data-test=\"order-form-tpsl\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/no_tpsl/choose",
+      "action": "switch",
+      "intent": "Clear the triggers unless the caller priced them",
+      "startedAt": "2026-10-09T10:41:42.458Z",
+      "endedAt": "2026-10-09T10:41:42.467Z",
+      "durationMs": 9,
+      "ok": true,
+      "next": "reset",
+      "case": "match",
+      "output": {
+        "matched": true,
+        "value": "tp--sl-",
+        "expected": "tp--sl-"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/no_tpsl/reset",
+      "action": "ui.press",
+      "intent": "Reset both triggers",
+      "startedAt": "2026-10-09T10:41:42.470Z",
+      "endedAt": "2026-10-09T10:41:42.841Z",
+      "durationMs": 371,
+      "ok": true,
+      "next": "set_off",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"tpsl-set\"] + button",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/no_tpsl/set_off",
+      "action": "ui.press",
+      "intent": "Apply the cleared TP/SL",
+      "startedAt": "2026-10-09T10:41:42.845Z",
+      "endedAt": "2026-10-09T10:41:43.229Z",
+      "durationMs": 384,
+      "ok": true,
+      "next": "shown_off",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"tpsl-set\"], [data-test-id=\"tpsl-set\"], [data-test=\"tpsl-set\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/no_tpsl/shown_off",
+      "action": "ui.wait_for",
+      "intent": "Confirm the next order carries no TP or SL",
+      "startedAt": "2026-10-09T10:41:43.237Z",
+      "endedAt": "2026-10-09T10:41:43.928Z",
+      "durationMs": 691,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/no_tpsl/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:41:43.936Z",
+      "endedAt": "2026-10-09T10:41:43.936Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/no_tpsl",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.set-order-tpsl",
+        "digest": "sha256:43f8f411c0adf1d3a323a471ae94c6f7bc5335421c86d1ff7a209a76460f4ac0",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/set-order-tpsl.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Make sure the limit order carries no TP/SL kept from an earlier order",
+      "startedAt": "2026-10-09T10:41:42.079Z",
+      "endedAt": "2026-10-09T10:41:43.936Z",
+      "durationMs": 1857,
+      "ok": true,
+      "next": "enter_limit",
+      "output": {
+        "ref": "terminal.perps.set-order-tpsl",
+        "status": "pass",
+        "outputs": {
+          "open_editor": {
+            "clicked": true,
+            "selector": "[data-testid=\"order-form-tpsl\"], [data-test-id=\"order-form-tpsl\"], [data-test=\"order-form-tpsl\"]",
+            "tagName": "BUTTON",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "choose": {
+            "matched": true,
+            "value": "tp--sl-",
+            "expected": "tp--sl-"
+          },
+          "reset": {
+            "clicked": true,
+            "selector": "[data-testid=\"tpsl-set\"] + button",
+            "tagName": "BUTTON",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "set_off": {
+            "clicked": true,
+            "selector": "[data-testid=\"tpsl-set\"], [data-test-id=\"tpsl-set\"], [data-test=\"tpsl-set\"]",
+            "tagName": "BUTTON",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "shown_off": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/enter_limit",
+      "action": "ui.set_input",
+      "intent": "Enter the trader's limit level in the order form",
+      "startedAt": "2026-10-09T10:41:43.941Z",
+      "endedAt": "2026-10-09T10:41:44.304Z",
+      "durationMs": 363,
+      "ok": true,
+      "next": "enter_size",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-limit-price\"], [data-test-id=\"order-form-limit-price\"], [data-test=\"order-form-limit-price\"]",
+        "tagName": "INPUT",
+        "previousValue": "2482.9",
+        "value": "10000",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/enter_size",
+      "action": "ui.set_input",
+      "intent": "Enter how many dollars the trader commits",
+      "startedAt": "2026-10-09T10:41:44.318Z",
+      "endedAt": "2026-10-09T10:41:44.837Z",
+      "durationMs": 519,
+      "ok": true,
+      "next": "reduce_only_off",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$25",
+        "value": "$25",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/reduce_only_off",
+      "action": "ui.wait_for",
+      "intent": "Confirm Reduce only starts unticked",
+      "startedAt": "2026-10-09T10:41:44.843Z",
+      "endedAt": "2026-10-09T10:41:45.197Z",
+      "durationMs": 354,
+      "ok": true,
+      "next": "choose_reduce_only",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/choose_reduce_only",
+      "action": "switch",
+      "intent": "Mark the order reduce-only only when requested",
+      "startedAt": "2026-10-09T10:41:45.204Z",
+      "endedAt": "2026-10-09T10:41:45.222Z",
+      "durationMs": 18,
+      "ok": true,
+      "next": "reduce_only",
+      "case": "match",
+      "output": {
+        "matched": true,
+        "value": "reduce-only-true",
+        "expected": "reduce-only-true"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/reduce_only",
+      "action": "ui.press",
+      "intent": "Make the order only reduce the open position",
+      "startedAt": "2026-10-09T10:41:45.227Z",
+      "endedAt": "2026-10-09T10:41:45.835Z",
+      "durationMs": 608,
+      "ok": true,
+      "next": "reduce_only_on",
+      "output": {
+        "clicked": true,
+        "selector": "label:has(input[type=\"checkbox\"])",
+        "tagName": "LABEL",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/reduce_only_on",
+      "action": "ui.wait_for",
+      "intent": "Confirm the reduce-only box is ticked",
+      "startedAt": "2026-10-09T10:41:45.838Z",
+      "endedAt": "2026-10-09T10:41:46.186Z",
+      "durationMs": 348,
+      "ok": true,
+      "next": "submit",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/submit",
+      "action": "ui.press",
+      "intent": "Place the limit order",
+      "startedAt": "2026-10-09T10:41:46.190Z",
+      "endedAt": "2026-10-09T10:41:46.841Z",
+      "durationMs": 651,
+      "ok": true,
+      "next": "choose_approve",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/choose_approve",
+      "action": "switch",
+      "intent": "Confirm the agent approval only on the session's first write",
+      "startedAt": "2026-10-09T10:41:46.856Z",
+      "endedAt": "2026-10-09T10:41:46.886Z",
+      "durationMs": 30,
+      "ok": true,
+      "next": "resting",
+      "output": {
+        "matched": false,
+        "value": "approve-false",
+        "expected": "approve-true"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/resting",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Prove the agent-signed limit order rests on the venue at the trader's price",
+      "startedAt": "2026-10-09T10:41:46.895Z",
+      "endedAt": "2026-10-09T10:41:49.086Z",
+      "durationMs": 2191,
+      "ok": true,
+      "next": "resting_proof",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": true,
+        "matchingCount": 1,
+        "expectedCount": 1,
+        "orders": [
+          {
+            "orderId": "62251250446",
+            "market": "ETH",
+            "side": "sell",
+            "price": "10000.0",
+            "size": "0.01",
+            "orderType": "Limit",
+            "triggerType": null,
+            "isTrigger": false,
+            "triggerPrice": null,
+            "reduceOnly": true,
+            "isPositionTpsl": false,
+            "timestamp": 1791542508399
+          }
+        ],
+        "orderIds": [
+          "62251250446"
+        ],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/resting_proof",
+      "action": "assert_output",
+      "intent": "Bind the proof to the venue read: exactly one matching limit order rests",
+      "startedAt": "2026-10-09T10:41:49.090Z",
+      "endedAt": "2026-10-09T10:41:49.097Z",
+      "durationMs": 7,
+      "ok": true,
+      "next": "capture",
+      "output": {
+        "source": "resting",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1,
+          "actual": 1
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/capture",
+      "action": "ui.screenshot",
+      "intent": "Keep a picture of the order page with the resting order",
+      "artifacts": [
+        {
+          "path": "ac1-reduce-only-place/capture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-reduce-only-place/capture",
+          "label": "order-limit-short",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:41:49.103Z",
+      "endedAt": "2026-10-09T10:41:49.213Z",
+      "durationMs": 110,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "captured": true,
+        "path": "ac1-reduce-only-place/capture.png",
+        "artifact": {
+          "path": "ac1-reduce-only-place/capture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-reduce-only-place/capture",
+          "label": "order-limit-short",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-reduce-only-place/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:41:49.216Z",
+      "endedAt": "2026-10-09T10:41:49.216Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "ac1-reduce-only-place",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.place-limit-order",
+        "digest": "sha256:ef6b93d1616d75c72d548bb3a4630bf9deba98697063ef14e63218da9da418e2",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/place-limit-order.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Place a reduce-only sell limit against the position",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:37.897Z",
+      "endedAt": "2026-10-09T10:41:49.216Z",
+      "durationMs": 11319,
+      "ok": true,
+      "next": "teardown-market",
+      "output": {
+        "ref": "terminal.perps.place-limit-order",
+        "status": "pass",
+        "outputs": {
+          "fresh_page": {
+            "ref": "terminal.perps.open-order-page",
+            "status": "pass",
+            "outputs": {
+              "navigate": {
+                "action": "ui.navigate",
+                "url": "http://localhost:9343/order/ETH",
+                "page": "order",
+                "market": "ETH",
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH",
+                "liveAdapter": "/Users/deeeed/.npm-global/lib/node_modules/@deeeed/metamask-harness/library/actions/web-dapp/ui/navigate.mjs"
+              },
+              "header": {
+                "matched": true,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "form": {
+                "matched": true,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "chart": {
+                "matched": true,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "capture": {
+                "captured": true,
+                "path": "ac1-reduce-only-place/fresh_page/capture.png",
+                "artifact": {
+                  "path": "ac1-reduce-only-place/fresh_page/capture.png",
+                  "type": "screenshot",
+                  "nodeId": "ac1-reduce-only-place/fresh_page/capture",
+                  "label": "order-page-ETH",
+                  "category": "proof",
+                  "mimeType": "image/png"
+                }
+              }
+            }
+          },
+          "tab_limit": {
+            "clicked": true,
+            "selector": "[data-testid=\"order-form-tab-limit\"], [data-test-id=\"order-form-tab-limit\"], [data-test=\"order-form-tab-limit\"]",
+            "tagName": "DIV",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "direction": {
+            "clicked": true,
+            "selector": "[data-testid=\"order-form-direction-short\"], [data-test-id=\"order-form-direction-short\"], [data-test=\"order-form-direction-short\"]",
+            "tagName": "BUTTON",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "no_tpsl": {
+            "ref": "terminal.perps.set-order-tpsl",
+            "status": "pass",
+            "outputs": {
+              "open_editor": {
+                "clicked": true,
+                "selector": "[data-testid=\"order-form-tpsl\"], [data-test-id=\"order-form-tpsl\"], [data-test=\"order-form-tpsl\"]",
+                "tagName": "BUTTON",
+                "partiallyCovered": false,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "choose": {
+                "matched": true,
+                "value": "tp--sl-",
+                "expected": "tp--sl-"
+              },
+              "reset": {
+                "clicked": true,
+                "selector": "[data-testid=\"tpsl-set\"] + button",
+                "tagName": "BUTTON",
+                "partiallyCovered": false,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "set_off": {
+                "clicked": true,
+                "selector": "[data-testid=\"tpsl-set\"], [data-test-id=\"tpsl-set\"], [data-test=\"tpsl-set\"]",
+                "tagName": "BUTTON",
+                "partiallyCovered": false,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              },
+              "shown_off": {
+                "matched": true,
+                "surface": "app",
+                "cdpPort": 9543,
+                "targetUrl": "http://localhost:9343/order/ETH"
+              }
+            }
+          },
+          "enter_limit": {
+            "set": true,
+            "selector": "[data-testid=\"order-form-limit-price\"], [data-test-id=\"order-form-limit-price\"], [data-test=\"order-form-limit-price\"]",
+            "tagName": "INPUT",
+            "previousValue": "2482.9",
+            "value": "10000",
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "enter_size": {
+            "set": true,
+            "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+            "tagName": "INPUT",
+            "previousValue": "$25",
+            "value": "$25",
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "reduce_only_off": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "choose_reduce_only": {
+            "matched": true,
+            "value": "reduce-only-true",
+            "expected": "reduce-only-true"
+          },
+          "reduce_only": {
+            "clicked": true,
+            "selector": "label:has(input[type=\"checkbox\"])",
+            "tagName": "LABEL",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "reduce_only_on": {
+            "matched": true,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "submit": {
+            "clicked": true,
+            "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+            "tagName": "BUTTON",
+            "partiallyCovered": false,
+            "surface": "app",
+            "cdpPort": 9543,
+            "targetUrl": "http://localhost:9343/order/ETH"
+          },
+          "choose_approve": {
+            "matched": false,
+            "value": "approve-false",
+            "expected": "approve-true"
+          },
+          "resting": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": true,
+            "matchingCount": 1,
+            "expectedCount": 1,
+            "orders": [
+              {
+                "orderId": "62251250446",
+                "market": "ETH",
+                "side": "sell",
+                "price": "10000.0",
+                "size": "0.01",
+                "orderType": "Limit",
+                "triggerType": null,
+                "isTrigger": false,
+                "triggerPrice": null,
+                "reduceOnly": true,
+                "isPositionTpsl": false,
+                "timestamp": 1791542508399
+              }
+            ],
+            "orderIds": [
+              "62251250446"
+            ],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          },
+          "resting_proof": {
+            "source": "resting",
+            "stream": "stdout",
+            "assertion": {
+              "path": "$.matchingCount",
+              "operator": "eq",
+              "value": 1,
+              "actual": 1
+            }
+          },
+          "capture": {
+            "captured": true,
+            "path": "ac1-reduce-only-place/capture.png",
+            "artifact": {
+              "path": "ac1-reduce-only-place/capture.png",
+              "type": "screenshot",
+              "nodeId": "ac1-reduce-only-place/capture",
+              "label": "order-limit-short",
+              "category": "proof",
+              "mimeType": "image/png"
+            }
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-market/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:41:49.222Z",
+      "endedAt": "2026-10-09T10:41:51.793Z",
+      "durationMs": 2571,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [
+          "62251250446"
+        ],
+        "closedPositions": [
+          {
+            "market": "ETH",
+            "side": "long",
+            "size": "0.0101"
+          }
+        ],
+        "responses": [
+          {
+            "cancel": {
+              "statuses": [
+                "success"
+              ]
+            }
+          },
+          {
+            "close": {
+              "statuses": [
+                {
+                  "filled": {
+                    "totalSz": "0.0101",
+                    "avgPx": "2482.1",
+                    "oid": 62251253243
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-market/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:51.797Z",
+      "endedAt": "2026-10-09T10:41:52.283Z",
+      "durationMs": 486,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-market/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:41:52.288Z",
+      "endedAt": "2026-10-09T10:41:52.783Z",
+      "durationMs": 495,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-market/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:41:52.787Z",
+      "endedAt": "2026-10-09T10:41:52.787Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-market",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Clear the market before proving native TWAP",
+      "startedAt": "2026-10-09T10:41:49.219Z",
+      "endedAt": "2026-10-09T10:41:52.787Z",
+      "durationMs": 3568,
+      "ok": true,
+      "next": "setup-twap-market",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [
+              "62251250446"
+            ],
+            "closedPositions": [
+              {
+                "market": "ETH",
+                "side": "long",
+                "size": "0.0101"
+              }
+            ],
+            "responses": [
+              {
+                "cancel": {
+                  "statuses": [
+                    "success"
+                  ]
+                }
+              },
+              {
+                "close": {
+                  "statuses": [
+                    {
+                      "filled": {
+                        "totalSz": "0.0101",
+                        "avgPx": "2482.1",
+                        "oid": 62251253243
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "setup-twap-market",
+      "action": "ui.press",
+      "intent": "Choose the buy side for TWAP",
+      "startedAt": "2026-10-09T10:41:52.791Z",
+      "endedAt": "2026-10-09T10:41:53.179Z",
+      "durationMs": 388,
+      "ok": true,
+      "next": "setup-twap-long",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-market\"], [data-test-id=\"order-form-tab-market\"], [data-test=\"order-form-tab-market\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-twap-long",
+      "action": "ui.press",
+      "intent": "Choose a long TWAP",
+      "startedAt": "2026-10-09T10:41:53.184Z",
+      "endedAt": "2026-10-09T10:41:54.326Z",
+      "durationMs": 1142,
+      "ok": true,
+      "next": "setup-twap-reduce-off",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-direction-long\"], [data-test-id=\"order-form-direction-long\"], [data-test=\"order-form-direction-long\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-twap-reduce-off",
+      "action": "ui.press",
+      "intent": "Clear the previous reduce-only preference before scheduling a new position",
+      "startedAt": "2026-10-09T10:41:54.333Z",
+      "endedAt": "2026-10-09T10:41:54.834Z",
+      "durationMs": 501,
+      "ok": true,
+      "next": "gate-twap-flags",
+      "output": {
+        "clicked": true,
+        "text": "Reduce only",
+        "tagName": "LABEL",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "gate-twap-flags",
+      "action": "ui.wait_for",
+      "intent": "Require a new-position TWAP without a retained reduce-only flag",
+      "startedAt": "2026-10-09T10:41:54.838Z",
+      "endedAt": "2026-10-09T10:41:55.186Z",
+      "durationMs": 348,
+      "ok": true,
+      "next": "ac1-twap-select",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-twap-select",
+      "action": "ui.press",
+      "intent": "Select native TWAP",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:55.191Z",
+      "endedAt": "2026-10-09T10:41:55.841Z",
+      "durationMs": 650,
+      "ok": true,
+      "next": "setup-twap-duration",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-tab-twap\"], [data-test-id=\"order-form-tab-twap\"], [data-test=\"order-form-tab-twap\"]",
+        "tagName": "DIV",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-twap-duration",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:55.845Z",
+      "endedAt": "2026-10-09T10:41:56.500Z",
+      "durationMs": 655,
+      "ok": true,
+      "next": "setup-twap-size",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-twap-duration\"], [data-test-id=\"order-form-twap-duration\"], [data-test=\"order-form-twap-duration\"]",
+        "tagName": "INPUT",
+        "previousValue": "60",
+        "value": "5",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "setup-twap-size",
+      "action": "ui.set_input",
+      "intent": "Configure a valid testnet placement that stays outside the market until its venue read",
+      "startedAt": "2026-10-09T10:41:56.504Z",
+      "endedAt": "2026-10-09T10:41:56.857Z",
+      "durationMs": 353,
+      "ok": true,
+      "next": "ac1-twap-field",
+      "output": {
+        "set": true,
+        "selector": "[data-testid=\"order-form-amount\"], [data-test-id=\"order-form-amount\"], [data-test=\"order-form-amount\"]",
+        "tagName": "INPUT",
+        "previousValue": "$25",
+        "value": "$110",
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-twap-field",
+      "action": "ui.wait_for",
+      "intent": "Confirm TWAP duration is visible",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:56.861Z",
+      "endedAt": "2026-10-09T10:41:57.191Z",
+      "durationMs": 330,
+      "ok": true,
+      "next": "ac1-twap-picture",
+      "output": {
+        "matched": true,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "ac1-twap-picture",
+      "action": "ui.screenshot",
+      "intent": "Keep visual proof of the prices and risk controls available to this trader",
+      "proves": [
+        "AC1"
+      ],
+      "artifacts": [
+        {
+          "path": "evidence-ac1-twap-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-twap-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:41:57.195Z",
+      "endedAt": "2026-10-09T10:41:57.300Z",
+      "durationMs": 105,
+      "ok": true,
+      "next": "ac1-twap-submit",
+      "output": {
+        "captured": true,
+        "path": "evidence-ac1-twap-picture.png",
+        "artifact": {
+          "path": "evidence-ac1-twap-picture.png",
+          "type": "screenshot",
+          "nodeId": "ac1-twap-picture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "ac1-twap-submit",
+      "action": "ui.press",
+      "intent": "Start the native TWAP",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:41:57.303Z",
+      "endedAt": "2026-10-09T10:41:58.083Z",
+      "durationMs": 780,
+      "ok": true,
+      "next": "gate-twap-elapsed-0",
+      "output": {
+        "clicked": true,
+        "selector": "[data-testid=\"order-form-submit\"], [data-test-id=\"order-form-submit\"], [data-test=\"order-form-submit\"]",
+        "tagName": "BUTTON",
+        "partiallyCovered": false,
+        "surface": "app",
+        "cdpPort": 9543,
+        "targetUrl": "http://localhost:9343/order/ETH"
+      }
+    },
+    {
+      "nodeId": "gate-twap-elapsed-0",
+      "action": "wait",
+      "intent": "Allow native TWAP slices to finish before cleanup",
+      "startedAt": "2026-10-09T10:41:58.086Z",
+      "endedAt": "2026-10-09T10:42:53.094Z",
+      "durationMs": 55008,
+      "ok": true,
+      "next": "gate-twap-elapsed-1",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "gate-twap-elapsed-1",
+      "action": "wait",
+      "intent": "Allow native TWAP slices to finish before cleanup",
+      "startedAt": "2026-10-09T10:42:53.099Z",
+      "endedAt": "2026-10-09T10:43:48.107Z",
+      "durationMs": 55008,
+      "ok": true,
+      "next": "gate-twap-elapsed-2",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "gate-twap-elapsed-2",
+      "action": "wait",
+      "intent": "Allow native TWAP slices to finish before cleanup",
+      "startedAt": "2026-10-09T10:43:48.131Z",
+      "endedAt": "2026-10-09T10:44:43.143Z",
+      "durationMs": 55012,
+      "ok": true,
+      "next": "gate-twap-elapsed-3",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "gate-twap-elapsed-3",
+      "action": "wait",
+      "intent": "Allow native TWAP slices to finish before cleanup",
+      "startedAt": "2026-10-09T10:44:43.147Z",
+      "endedAt": "2026-10-09T10:45:38.153Z",
+      "durationMs": 55006,
+      "ok": true,
+      "next": "gate-twap-elapsed-4",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "gate-twap-elapsed-4",
+      "action": "wait",
+      "intent": "Allow native TWAP slices to finish before cleanup",
+      "startedAt": "2026-10-09T10:45:38.157Z",
+      "endedAt": "2026-10-09T10:46:33.166Z",
+      "durationMs": 55009,
+      "ok": true,
+      "next": "gate-twap-elapsed-5",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "gate-twap-elapsed-5",
+      "action": "wait",
+      "intent": "Allow native TWAP slices to finish before cleanup",
+      "startedAt": "2026-10-09T10:46:33.171Z",
+      "endedAt": "2026-10-09T10:47:28.178Z",
+      "durationMs": 55007,
+      "ok": true,
+      "next": "ac1-twap-venue",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "ac1-twap-venue",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Read the resulting Hyperliquid positions",
+      "proves": [
+        "AC1"
+      ],
+      "startedAt": "2026-10-09T10:47:28.191Z",
+      "endedAt": "2026-10-09T10:48:13.491Z",
+      "durationMs": 45300,
+      "ok": false,
+      "cause_class": "unknown",
+      "error": "Live adapter /Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs exited 1: [terminal] metamask.perps.assert_positions failed: Error: Expected exactly 1 matching venue position(s), found 0: []\n    at assertPositions (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:482:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async runAdapter (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:322:20)\n"
+    },
+    {
+      "nodeId": "teardown-owned",
+      "action": "assert_output",
+      "intent": "Clean only the market this run took ownership of",
+      "startedAt": "2026-10-09T10:48:13.491Z",
+      "endedAt": "2026-10-09T10:48:13.498Z",
+      "durationMs": 7,
+      "ok": true,
+      "next": "teardown-capture",
+      "output": {
+        "source": "setup-flat",
+        "stream": "stdout",
+        "assertion": {
+          "path": "$.status",
+          "operator": "eq",
+          "value": "pass",
+          "actual": "pass"
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-capture",
+      "action": "ui.screenshot",
+      "intent": "Keep the form state that led to completion or failure",
+      "artifacts": [
+        {
+          "path": "teardown-final-state.png",
+          "type": "screenshot",
+          "nodeId": "teardown-capture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      ],
+      "startedAt": "2026-10-09T10:48:13.501Z",
+      "endedAt": "2026-10-09T10:48:13.614Z",
+      "durationMs": 113,
+      "ok": true,
+      "next": "teardown-twap-expiry-0",
+      "output": {
+        "captured": true,
+        "path": "teardown-final-state.png",
+        "artifact": {
+          "path": "teardown-final-state.png",
+          "type": "screenshot",
+          "nodeId": "teardown-capture",
+          "label": "UI screenshot",
+          "category": "proof",
+          "mimeType": "image/png"
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-twap-expiry-0",
+      "action": "wait",
+      "intent": "Let any native schedule finish before restoring the reserved testnet market",
+      "startedAt": "2026-10-09T10:48:13.617Z",
+      "endedAt": "2026-10-09T10:49:08.622Z",
+      "durationMs": 55005,
+      "ok": true,
+      "next": "teardown-twap-expiry-1",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "teardown-twap-expiry-1",
+      "action": "wait",
+      "intent": "Let any native schedule finish before restoring the reserved testnet market",
+      "startedAt": "2026-10-09T10:49:08.626Z",
+      "endedAt": "2026-10-09T10:50:03.634Z",
+      "durationMs": 55008,
+      "ok": true,
+      "next": "teardown-twap-expiry-2",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "teardown-twap-expiry-2",
+      "action": "wait",
+      "intent": "Let any native schedule finish before restoring the reserved testnet market",
+      "startedAt": "2026-10-09T10:50:03.638Z",
+      "endedAt": "2026-10-09T10:50:58.649Z",
+      "durationMs": 55011,
+      "ok": true,
+      "next": "teardown-twap-expiry-3",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "teardown-twap-expiry-3",
+      "action": "wait",
+      "intent": "Let any native schedule finish before restoring the reserved testnet market",
+      "startedAt": "2026-10-09T10:50:58.653Z",
+      "endedAt": "2026-10-09T10:51:53.661Z",
+      "durationMs": 55008,
+      "ok": true,
+      "next": "teardown-twap-expiry-4",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "teardown-twap-expiry-4",
+      "action": "wait",
+      "intent": "Let any native schedule finish before restoring the reserved testnet market",
+      "startedAt": "2026-10-09T10:51:53.666Z",
+      "endedAt": "2026-10-09T10:52:48.677Z",
+      "durationMs": 55011,
+      "ok": true,
+      "next": "teardown-twap-expiry-5",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "teardown-twap-expiry-5",
+      "action": "wait",
+      "intent": "Let any native schedule finish before restoring the reserved testnet market",
+      "startedAt": "2026-10-09T10:52:48.681Z",
+      "endedAt": "2026-10-09T10:53:43.691Z",
+      "durationMs": 55010,
+      "ok": true,
+      "next": "teardown-clean",
+      "output": {
+        "durationMs": 55000
+      }
+    },
+    {
+      "nodeId": "teardown-clean/clean_market",
+      "action": "metamask.perps.teardown_state",
+      "intent": "Cancel the reserved market's open orders and close its position on testnet with the fixture signer",
+      "startedAt": "2026-10-09T10:53:43.700Z",
+      "endedAt": "2026-10-09T10:53:44.349Z",
+      "durationMs": 649,
+      "ok": true,
+      "next": "assert_no_positions",
+      "output": {
+        "action": "metamask.perps.teardown_state",
+        "source": "hyperliquid-exchange-fixture-signer",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "markets": [
+          "ETH"
+        ],
+        "canceledOrderIds": [],
+        "closedPositions": [],
+        "responses": [],
+        "remaining": {
+          "orders": [],
+          "positions": []
+        },
+        "proofPath": "venue-cleanup",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-clean/assert_no_positions",
+      "action": "metamask.perps.assert_positions",
+      "intent": "Independently assert no position remains in the reserved market",
+      "startedAt": "2026-10-09T10:53:44.353Z",
+      "endedAt": "2026-10-09T10:53:44.745Z",
+      "durationMs": 392,
+      "ok": true,
+      "next": "assert_no_orders",
+      "output": {
+        "action": "metamask.perps.assert_positions",
+        "source": "hyperliquid-info-clearinghouseState",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "positions": [],
+        "proofPath": "venue-clearinghouseState",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-clean/assert_no_orders",
+      "action": "metamask.perps.assert_orders",
+      "intent": "Independently assert no open order remains in the reserved market",
+      "startedAt": "2026-10-09T10:53:44.750Z",
+      "endedAt": "2026-10-09T10:53:45.198Z",
+      "durationMs": 448,
+      "ok": true,
+      "next": "done",
+      "output": {
+        "action": "metamask.perps.assert_orders",
+        "source": "hyperliquid-info-frontendOpenOrders",
+        "network": "testnet",
+        "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+        "accountName": "dev1",
+        "expectedOpen": false,
+        "matchingCount": 0,
+        "expectedCount": null,
+        "orders": [],
+        "orderIds": [],
+        "proofPath": "venue-frontendOpenOrders",
+        "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+      }
+    },
+    {
+      "nodeId": "teardown-clean/done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:53:45.202Z",
+      "endedAt": "2026-10-09T10:53:45.202Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    },
+    {
+      "nodeId": "teardown-clean",
+      "action": "call",
+      "recipe": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "digest": "sha256:a863ca23f842f509f4f4afb6629e635e7caf00f5301f77a43a7be0237efd0a51",
+        "source": "terminal",
+        "file": "recipes/terminal/perps/clean-market-testnet.recipe.json",
+        "adapter": "terminal"
+      },
+      "intent": "Restore the reserved market after a failed or successful run",
+      "startedAt": "2026-10-09T10:53:43.696Z",
+      "endedAt": "2026-10-09T10:53:45.202Z",
+      "durationMs": 1506,
+      "ok": true,
+      "next": "teardown-done",
+      "output": {
+        "ref": "terminal.perps.clean-market-testnet",
+        "status": "pass",
+        "outputs": {
+          "clean_market": {
+            "action": "metamask.perps.teardown_state",
+            "source": "hyperliquid-exchange-fixture-signer",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "markets": [
+              "ETH"
+            ],
+            "canceledOrderIds": [],
+            "closedPositions": [],
+            "responses": [],
+            "remaining": {
+              "orders": [],
+              "positions": []
+            },
+            "proofPath": "venue-cleanup",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs"
+          },
+          "assert_no_positions": {
+            "action": "metamask.perps.assert_positions",
+            "source": "hyperliquid-info-clearinghouseState",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "positions": [],
+            "proofPath": "venue-clearinghouseState",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_positions.mjs"
+          },
+          "assert_no_orders": {
+            "action": "metamask.perps.assert_orders",
+            "source": "hyperliquid-info-frontendOpenOrders",
+            "network": "testnet",
+            "account": "0x8Dc623E964475D4d669da601Fd15ea9125469003",
+            "accountName": "dev1",
+            "expectedOpen": false,
+            "matchingCount": 0,
+            "expectedCount": null,
+            "orders": [],
+            "orderIds": [],
+            "proofPath": "venue-frontendOpenOrders",
+            "liveAdapter": "/Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/assert_orders.mjs"
+          }
+        }
+      }
+    },
+    {
+      "nodeId": "teardown-done",
+      "action": "end",
+      "startedAt": "2026-10-09T10:53:45.209Z",
+      "endedAt": "2026-10-09T10:53:45.209Z",
+      "durationMs": 0,
+      "ok": true,
+      "status": "pass"
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "status": "fail",
+  "passed": 110,
+  "failed": 2,
+  "total": 112,
+  "startedAt": "2026-10-09T11:13:15.999Z",
+  "endedAt": "2026-10-09T11:21:25.640Z",
+  "invocationDigest": "sha256:df55c378376d6ee667c287b82042cc3db119b76d571b75044ebbcfb101765165",
+  "attempt": 2,
+  "browserVisible": true,
+  "network": "testnet",
+  "results": {
+    "ac1-regression-limit": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-regression-limit-field": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop-select": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop-field": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop-fields": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop-submit": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62253126750"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-take_profit_market-select": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_market-fields": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_market-picture": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_market-submit": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_market-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62253133403"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_market-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-stop_limit-select": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop_limit-fields": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop_limit-picture": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop_limit-submit": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop_limit-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62253142525"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-stop_limit-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-take_profit_limit-select": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_limit-fields": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_limit-picture": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_limit-submit": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_limit-venue": {
+      "ok": true,
+      "matchingCount": 1,
+      "orderIds": [
+        "62253152254"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-take_profit_limit-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 1,
+        "actual": 1
+      },
+      "error": null
+    },
+    "ac1-scale-select": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-scale-fields": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-scale-picture": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-scale-submit": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "ac1-scale-venue": {
+      "ok": true,
+      "matchingCount": 2,
+      "orderIds": [
+        "62253159016",
+        "62253159015"
+      ],
+      "assertion": null,
+      "error": null
+    },
+    "ac1-scale-venue-assert": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": {
+        "path": "$.matchingCount",
+        "operator": "eq",
+        "value": 2,
+        "actual": 2
+      },
+      "error": null
+    },
+    "teardown-scale/clean_market": {
+      "ok": false,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": "Live adapter /Users/deeeed/dev/metamask/experimental-metamask-recipe-terminal/actions/terminal/perps/teardown_state.mjs exited 1: [terminal] metamask.perps.teardown_state failed: Error: Hyperliquid testnet info extraAgents returned HTTP 429.\n    at info (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:354:11)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n    at async Promise.all (index 2)\n    at async readVenueState (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:402:47)\n    at async teardownState (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:510:18)\n    at async runAdapter (file:///Users/deeeed/dev/metamask/va-mmcx-terminal-3/[eval1]:311:20)\n"
+    },
+    "teardown-scale": {
+      "ok": false,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": "Recipe terminal.perps.clean-market-testnet finished with status fail."
+    },
+    "teardown-clean/clean_market": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "teardown-clean/assert_no_positions": {
+      "ok": true,
+      "matchingCount": 0,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    },
+    "teardown-clean/assert_no_orders": {
+      "ok": true,
+      "matchingCount": 0,
+      "orderIds": [],
+      "assertion": null,
+      "error": null
+    },
+    "teardown-clean/done": {
+      "ok": true,
+      "matchingCount": null,
+      "orderIds": null,
+      "assertion": null,
+      "error": null
+    }
+  },
+  "finalEthOrders": 0,
+  "finalEthPositions": 0,
+  "canceledOrderIds": [
+    "62253159016",
+    "62253159015"
+  ],
+  "failureNode": "teardown-scale/clean_market",
+  "failureError": "Hyperliquid testnet info extraAgents returned HTTP 429",
+  "runnerCauseCounts": {
+    "subject": 0,
+    "harness": 0,
+    "environment": 0,
+    "unknown": 2
+  },
+  "workerDiagnosis": "Testnet HTTP rate limiting during recipe cleanup; not a Scale submission failure.",
+  "twapReached": false,
+  "twapSubmissionError": null,
+  "twapRetryVerdict": "inconclusive",
+  "previousAttemptPackage": "artifacts/recipe-run-attempt-1/",
+  "diagnosticObserverLog": "artifacts/twap-diagnosis/provider-network.jsonl"
+}

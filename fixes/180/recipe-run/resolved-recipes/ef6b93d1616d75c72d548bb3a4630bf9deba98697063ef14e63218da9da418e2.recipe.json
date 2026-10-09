@@ -1,0 +1,212 @@
+{
+  "$schema": "https://farmslot.io/schemas/recipe-v1.schema.json",
+  "title": "Place a resting limit order",
+  "description": "Web Terminal block (testnet): reload the order page (Reduce only is not kept across a reload; the market is checked), clear any TP/SL the form kept, place one limit order on the requested side at the caller's price (optionally reduce-only), confirm the agent approval when it is the first write, and prove exactly one matching limit order rests on the venue at that price with the requested reduce-only flag. Leaves the order resting; the caller cancels or cleans.",
+  "workflow": {
+    "entry": "fresh_page",
+    "nodes": {
+      "fresh_page": {
+        "action": "call",
+        "ref": "terminal.perps.open-order-page",
+        "params": {
+          "market": "{{params.market}}"
+        },
+        "intent": "Start from a freshly loaded order form on the requested market",
+        "next": "tab_limit"
+      },
+      "tab_limit": {
+        "action": "ui.press",
+        "test_id": "order-form-tab-limit",
+        "intent": "Switch the order form to a limit order",
+        "next": "direction"
+      },
+      "direction": {
+        "action": "ui.press",
+        "test_id": "order-form-direction-{{params.side}}",
+        "intent": "Choose the order direction",
+        "next": "no_tpsl"
+      },
+      "no_tpsl": {
+        "action": "call",
+        "ref": "terminal.perps.set-order-tpsl",
+        "params": {
+          "take_profit": "",
+          "stop_loss": ""
+        },
+        "intent": "Make sure the limit order carries no TP/SL kept from an earlier order",
+        "next": "enter_limit"
+      },
+      "enter_limit": {
+        "action": "ui.set_input",
+        "test_id": "order-form-limit-price",
+        "value": "{{params.limit_price}}",
+        "intent": "Enter the trader's limit level in the order form",
+        "next": "enter_size"
+      },
+      "enter_size": {
+        "action": "ui.set_input",
+        "test_id": "order-form-amount",
+        "value": "${{params.notional}}",
+        "intent": "Enter how many dollars the trader commits",
+        "next": "reduce_only_off"
+      },
+      "reduce_only_off": {
+        "action": "ui.wait_for",
+        "selector": "label:has(input[type=\"checkbox\"]:checked)",
+        "expected": "absent",
+        "timeout_ms": 5000,
+        "intent": "Confirm Reduce only starts unticked",
+        "next": "choose_reduce_only"
+      },
+      "choose_reduce_only": {
+        "action": "switch",
+        "value": "reduce-only-{{params.reduce_only}}",
+        "equals": "reduce-only-true",
+        "cases": {
+          "match": "reduce_only"
+        },
+        "default": "submit",
+        "intent": "Mark the order reduce-only only when requested"
+      },
+      "reduce_only": {
+        "action": "ui.press",
+        "selector": "label:has(input[type=\"checkbox\"])",
+        "intent": "Make the order only reduce the open position",
+        "next": "reduce_only_on"
+      },
+      "reduce_only_on": {
+        "action": "ui.wait_for",
+        "selector": "label:has(input[type=\"checkbox\"]:checked)",
+        "timeout_ms": 5000,
+        "intent": "Confirm the reduce-only box is ticked",
+        "next": "submit"
+      },
+      "submit": {
+        "action": "ui.press",
+        "test_id": "order-form-submit",
+        "intent": "Place the limit order",
+        "next": "choose_approve"
+      },
+      "choose_approve": {
+        "action": "switch",
+        "value": "approve-{{params.approve_agent}}",
+        "equals": "approve-true",
+        "cases": {
+          "match": "approve"
+        },
+        "default": "resting",
+        "intent": "Confirm the agent approval only on the session's first write"
+      },
+      "approve": {
+        "action": "call",
+        "ref": "terminal.perps.confirm-wallet-request",
+        "params": {
+          "signer": "{{params.signer}}",
+          "kind": "signature",
+          "primary_type": "HyperliquidTransaction:ApproveAgent"
+        },
+        "intent": "Approve the trading agent in MetaMask the first time the trader writes to the venue",
+        "next": "resting"
+      },
+      "resting": {
+        "action": "metamask.perps.assert_orders",
+        "market": "{{params.market}}",
+        "side": "{{params.side}}",
+        "state": "open",
+        "order_kind": "limit",
+        "expect_count": 1,
+        "expect_limit_price": "{{params.limit_price}}",
+        "expect_reduce_only": "{{params.reduce_only}}",
+        "account": "{{params.account}}",
+        "network": "testnet",
+        "timeout_ms": 45000,
+        "intent": "Prove the agent-signed limit order rests on the venue at the trader's price",
+        "next": "resting_proof"
+      },
+      "resting_proof": {
+        "action": "assert_output",
+        "source": "resting",
+        "assert": {
+          "path": "$.matchingCount",
+          "operator": "eq",
+          "value": 1
+        },
+        "intent": "Bind the proof to the venue read: exactly one matching limit order rests",
+        "next": "capture"
+      },
+      "capture": {
+        "action": "ui.screenshot",
+        "label": "order-limit-{{params.side}}",
+        "category": "proof",
+        "intent": "Keep a picture of the order page with the resting order",
+        "next": "done"
+      },
+      "done": {
+        "action": "end",
+        "status": "pass"
+      }
+    }
+  },
+  "paramsSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "limit_price"
+    ],
+    "properties": {
+      "signer": {
+        "type": "string",
+        "enum": [
+          "extension",
+          "injected"
+        ],
+        "default": "extension",
+        "description": "extension: the real MetaMask extension confirms every wallet request (acceptance mode). injected: the strict test wallet signs in the harness (fast mode)."
+      },
+      "account": {
+        "type": "string",
+        "default": "dev1",
+        "description": "Wallet fixture account reserved for this slot (dev1 on mmt-1, Trading on mmt-2)."
+      },
+      "market": {
+        "type": "string",
+        "default": "ETH",
+        "description": "Testnet market reserved for this run."
+      },
+      "side": {
+        "type": "string",
+        "enum": [
+          "long",
+          "short"
+        ],
+        "default": "long",
+        "description": "Order or position direction."
+      },
+      "notional": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "default": "25",
+        "description": "Order amount in USD typed into the order form; at least the venue minimum."
+      },
+      "limit_price": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "description": "Limit price far enough from the mark that the order rests (below for long, above for short)."
+      },
+      "reduce_only": {
+        "type": "boolean",
+        "default": false,
+        "description": "true: tick Reduce only (needs an open position on the opposite side)."
+      },
+      "approve_agent": {
+        "type": "boolean",
+        "default": false,
+        "description": "true when this submit is the session's first write: confirm the one ApproveAgent request (MetaMask in extension mode) before the venue check."
+      }
+    }
+  }
+}

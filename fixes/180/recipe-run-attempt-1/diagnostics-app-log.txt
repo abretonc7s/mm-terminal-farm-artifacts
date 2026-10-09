@@ -1,0 +1,2349 @@
+10:40:31.510 [dapp:page:BTC] [reconnect] target detached; will re-attach
+10:40:33.750 [dapp:page:BTC] [attached]
+10:40:33.502 [dapp:page:BTC] INFO  %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold  (at info http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+10:40:33.541 [dapp:page:BTC] LOG  [HMR] connected  (at log http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+10:40:33.556 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: net::ERR_BLOCKED_BY_CLIENT  (at https://api.hyperliquid.xyz/info?[REDACTED_QUERY]
+10:40:33.558 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: net::ERR_NAME_NOT_RESOLVED  (at https://api.hyperliquid.xyz:444/info?[REDACTED_QUERY]
+10:40:33.559 [dapp:page:BTC] [browser:network] ERROR  WebSocket connection to 'wss://api.hyperliquid.xyz/ws?mm-harness-probe=1' failed: Error in connection establishment: net::ERR_NAME_NOT_RESOLVED
+10:40:33.828 [dapp:page:BTC] LOG  [Fast Refresh] rebuilding  (at log http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+10:40:33.890 [dapp:page:BTC] ERROR  A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:  (at error http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053:32)
+│ 
+│ - A server/client branch `if (typeof window !== 'undefined')`.
+│ - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+│ - Date formatting in a user's locale which doesn't match the server.
+│ - External changing data without sending a snapshot of it along with the HTML.
+│ - Invalid HTML tag nesting.
+│ 
+│ It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+│ 
+│ %s%s https://react.dev/link/hydration-mismatch 
+│ 
+│   ...
+│     <form onSubmit={function} className="bg-alterna...">
+│       <TradingAccountCard>
+│       <OrderFormTabs tradeMode="market" onTradeModeChange={function bound dispatchSetState}>
+│         <Controller name="type" control={{...}} render={function t1}>
+│           <Tabs selectedKey="market" onSelectionChange={function onSelectionChange} className="w-full">
+│             <Tabs selectedKey="market" onSelectionChange={function onSelectionChange} ref={undefined} ...>
+│               <$e1995378a142960e$export$bf788dd355e3a401 content={<TabList>}>
+│                 <$f39a9eba43920ace$export$8dc98ba7eadeaa56>
+│                 <$e1995378a142960e$var$CollectionInner render={function} collection={{keyMap:Map, ...}}>
+│                   <$5e8ad37a45e1c704$var$TabsInner props={{...}} collection={{keyMap:Map, ...}} tabsRef={{current:null}}>
+│                     <div className="flex flex-..." style={undefined} data-rac="" onFocus={function} onBlur={function} ...>
+│                       <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                         <TabList className="flex flex-...">
+│                           <TabList ref={undefined} className={function}>
+│                             <$5e8ad37a45e1c704$var$TabListInner props={{children:[...], ...}} forwardedRef={null}>
+│                               <div
+│ +                               className={"relative items-center border-b border-muted [&[data-orientation=horizonta..."}
+│ -                               className={"relative items-center border-b border-muted [&[data-orientation=horizonta..."}
+│                                 style={undefined}
+│                                 data-rac=""
+│                                 onKeyDownCapture={undefined}
+│                                 onKeyDown={function onKeyDown}
+│                                 onFocus={function onFocus}
+│                                 onBlur={function onBlur}
+│                                 onMouseDown={function onMouseDown}
+│                                 tabIndex={undefined}
+│                                 data-collection="react-aria-_R_jbinebnqbmr9lb_"
+│                                 id="react-aria-_R_jbinebnqbmr9lbH1_"
+│                                 aria-label={undefined}
+│                                 aria-labelledby={undefined}
+│                                 role="tablist"
+│                                 aria-orientation="horizontal"
+│                                 ref={{current:null}}
+│                                 data-orientation="horizontal"
+│                               >
+│       ...
+│ 
+10:40:33.946 [dapp:page:BTC] ERROR  A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:  (at error http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053:32)
+│ 
+│ - A server/client branch `if (typeof window !== 'undefined')`.
+│ - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+│ - Date formatting in a user's locale which doesn't match the server.
+│ - External changing data without sending a snapshot of it along with the HTML.
+│ - Invalid HTML tag nesting.
+│ 
+│ It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+│ 
+│ %s%s https://react.dev/link/hydration-mismatch 
+│ 
+│   ...
+│     <OrderBook symbol="BTC" onOrderClick={function handleOrderClick}>
+│       <div ref={{current:null}} className="flex flex-...">
+│         <OrderBookFilters>
+│         <OrderBookLevelsStackedHeader>
+│         <OrderBookLevelsStacked orderBook={{bids:[...], ...}} onOrderClick={function handleOrderClick} rowHeight={40}>
+│           <div className="flex flex-...">
+│             <OrderBookRow level={{price:82650, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82650}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,650"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1gn7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82644, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82644}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,644"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1h77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82631, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82631}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,631"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1hn7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82626, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82626}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,626"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1i77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82613, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82613}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,613"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1in7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82603, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82603}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,603"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1j77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82573, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82573}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,573"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1jn7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82571, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82571}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,571"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1k77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82562, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82562}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,562"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1kn7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82559, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82559}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,559"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1l77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82530, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82530}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,530"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1ln7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82529, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82529}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,529"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1m77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82528, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82528}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,528"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1mn7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82521, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82521}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,521"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1n77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82510, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82510}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,510"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1nn7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82508, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82508}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,508"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1o77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82497, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82497}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,497"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1on7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82484, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82484}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,484"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1p77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82483, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82483}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,483"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1pn7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82482, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82482}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Ask at 82,482"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1q77inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookSpread>
+│             <OrderBookRow level={{price:82481, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82481}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,481"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1gv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82480, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82480}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,480"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1hf7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82479, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82479}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,479"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1hv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82469, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82469}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,469"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1if7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82467, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82467}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,467"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1iv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82450, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82450}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,450"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1jf7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82447, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82447}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,447"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1jv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82439, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82439}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,439"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1kf7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82436, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82436}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,436"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1kv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82425, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82425}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,425"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1lf7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82420, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82420}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,420"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1lv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82415, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82415}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,415"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1mf7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82400, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82400}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,400"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1mv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82399, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82399}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,399"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1nf7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82397, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82397}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,397"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1nv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82389, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82389}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,389"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1of7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82380, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82380}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,380"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1ov7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82377, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82377}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,377"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1pf7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82372, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82372}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,372"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1pv7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│             <OrderBookRow level={{price:82366, ...}} maxTotal={0.37128} onClick={function handleOrderClick} ...>
+│               <Tooltip content="Set limit ..." placement="right" delay={2000}>
+│                 <$4e3b923658d69c60$export$8c610744efcf8a1d delay={2000} closeDelay={0} isOpen={undefined} ...>
+│                   <$64fa3d84918910a7$export$2881499e37b75b9a values={[...]}>
+│                     <FocusableProvider aria-describedby={undefined} onFocus={function} onBlur={function} ...>
+│                       <TooltipTarget>
+│                         <Button className="relative f..." style={{height:"40px"}} onPress={function t2} ...>
+│                           <button
+│ +                           data-price={82366}
+│ -                           data-price={null}
+│                             onPointerEnter={function}
+│                             onPointerLeave={function}
+│                             onPointerDown={function}
+│                             className="relative flex flex-row gap-2 items-center px-6 text-s-body-sm leading-s-body-sm..."
+│                             style={{height:"40px"}}
+│                             data-rac=""
+│                             type="button"
+│                             disabled={undefined}
+│                             form={undefined}
+│                             formAction={undefined}
+│                             formEncType={undefined}
+│                             formMethod={undefined}
+│                             formNoValidate={undefined}
+│                             formTarget={undefined}
+│                             name={undefined}
+│                             value={undefined}
+│                             onFocus={function}
+│                             onBlur={function}
+│                             onKeyDown={function}
+│                             onKeyUp={undefined}
+│                             tabIndex={0}
+│                             aria-describedby={undefined}
+│                             onClick={function onClick}
+│                             onMouseDown={function}
+│                             onPointerUp={function}
+│                             onDragStart={function}
+│                             data-react-aria-pressable={true}
+│                             aria-label="Bid at 82,366"
+│                             aria-haspopup={undefined}
+│                             aria-expanded={undefined}
+│                             aria-controls={undefined}
+│                             aria-pressed={undefined}
+│                             aria-current={undefined}
+│                             aria-disabled={undefined}
+│                             id="react-aria-_R_1qf7inebnqbmr9lb_"
+│                             ref={{current:null}}
+│                             aria-labelledby={undefined}
+│                             slot={undefined}
+│                             data-disabled={undefined}
+│                             data-pressed={undefined}
+│                             data-hovered={undefined}
+│                             data-focused={undefined}
+│                             data-pending={undefined}
+│                             data-focus-visible={undefined}
+│                           >
+│                       ...
+│ 
+10:40:34.379 [dapp:page:BTC] WARNING  2026-10-09T10:40:34.378Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9343/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)
+10:40:34.911 [dapp:page:BTC] LOG  [Fast Refresh] done in 1188ms  (at log http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+10:40:36.144 [dapp:page:BTC] INFO  %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold  (at info http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+10:40:36.165 [dapp:page:BTC] LOG  [HMR] connected  (at log http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+10:40:36.550 [dapp:page:BTC] WARNING  2026-10-09T10:40:36.550Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9343/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)
+10:41:38.196 [dapp:page:BTC] INFO  %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold  (at info http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+10:41:38.208 [dapp:page:BTC] LOG  [HMR] connected  (at log http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)
+10:41:38.676 [dapp:page:BTC] WARNING  2026-10-09T10:41:38.676Z:Chart.Defaults:Path `paneProperties.border_around_the_chart` does not exist.  (at w http://localhost:9343/charting_library/bundles/library.34b18c357d450582c1a4.js:22308:23)
+10:41:57.445 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:57.564 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:57.683 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:57.686 [dapp:page:BTC] ERROR  [perps-controller] Error: PROVIDER_NOT_AVAILABLE  (at error http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053:32)
+│     at #validateOrderBeforePlacement (http://localhost:9343/_next/static/chunks/node_modules_%40metamask_perps-controller_dist_providers_0ssrmfs._.js:4678:19)
+│     at async #prepareStrategyPlacement (http://localhost:9343/_next/static/chunks/node_modules_%40metamask_perps-controller_dist_providers_0ssrmfs._.js:5425:9)
+│     at async #placeStrategyOrder (http://localhost:9343/_next/static/chunks/node_modules_%40metamask_perps-controller_dist_providers_0ssrmfs._.js:5290:29)
+│     at async HyperLiquidProvider.placeOrder (http://localhost:9343/_next/static/chunks/node_modules_%40metamask_perps-controller_dist_providers_0ssrmfs._.js:5067:24)
+│     at async #withFeeDiscount (http://localhost:9343/_next/static/chunks/node_modules_%40metamask_perps-controller_dist_services_08szoco._.js:9492:20)
+│     at async TradingService.placeOrder (http://localhost:9343/_next/static/chunks/node_modules_%40metamask_perps-controller_dist_services_08szoco._.js:9603:28)
+│     at async PerpsController.placeOrder (http://localhost:9343/_next/static/chunks/node_modules_%40metamask_perps-controller_dist_PerpsController_0nqhjv0.js:2054:24)
+│     at async http://localhost:9343/_next/static/chunks/src_1vb9904._.js:9662:32
+│     at async #runStage (http://localhost:9343/_next/static/chunks/src_1vb9904._.js:9869:24)
+│     at async ControllerPerpsProvider.submitOrder (http://localhost:9343/_next/static/chunks/src_1vb9904._.js:9650:20) Object
+10:41:58.512 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:58.518 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:58.983 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:58.985 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:59.112 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:59.634 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:41:59.634 [dapp:page:BTC] [browser:network] ERROR  Failed to load resource: the server responded with a status of 429 (Too Many Requests)  (at https://api.hyperliquid-testnet.xyz/info)
+10:53:45.739 [dapp:page:BTC] INFO  [mm-harness-capture-control] 4ecb5071-e7b6-4608-ae28-95de77aa0512  (at info http://localhost:9343/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777:28)

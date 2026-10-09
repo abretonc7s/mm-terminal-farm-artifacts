@@ -1,12 +1,16 @@
-# Recipe coverage
+# Current recipe coverage
 
-Root recipe.json is the focused follow-up cap recipe, matching the passing package at artifacts/recipe-run/. The full-feature recipe remains in the inherited package. The inherited package is preserved at artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/. Its report records the passing 226-node feature run, venue reads and final cleanup. This follow-up also preserves the named cap-runtime.recipe.json and a passing 10/10-node run with valid provenance at cap-runtime-run-2/.
+Current run: `artifacts/recipe-run/`, FAIL, 110/112 executed nodes, visible browser on testnet. Scale placement and venue assertions pass. Its cleanup fails with extraAgents HTTP 429; the parent call is the second failed trace entry. TWAP is not reached. `runtime-proof-summary.json` extracts assertions, venue IDs and cleanup.
 
-| AC | Mode | Evidence |
-| --- | --- | --- |
-| AC1 selectable real order types | mixed | Inherited report and coverage list the order-type venue assertions; inherited screenshots are indexed in evidence-manifest.json. No order-type routing changed here. |
-| AC2 estimate and max enforcement | mixed | Current effective-cap and estimate waits, inspected effective-slippage-cap.png, and long/short depth boundary tests in affected-tests.log. Three new assertions fail before the fix in regression-before.log. |
-| AC3 order-book click-to-fill | state | Inherited ac3 bid/ask value assertions documented in the inherited report and coverage. Click handling is unchanged. |
-| AC4 validation tests | state | Current affected-tests.log passes 122 tests across six files, including form, submission, mapper and persistence checks. |
+| AC | Mode | Current result | Evidence |
+| --- | --- | --- | --- |
+| AC1 | mixed | Partial. Trigger types and Scale placement pass; Chase, TWAP, Market and reduce-only not reached | Current trace; inspected teardown screenshot shows successful Scale submission before final cleanup |
+| AC2 | mixed | Runtime nodes not reached; unit checks pass | tests.log; prior-family evidence remains separate |
+| AC3 | state | Runtime nodes not reached | Prior-family evidence remains separate |
+| AC4 | state | PASS, 314 tests across 14 affected files | tests.log, lint.log |
 
-Current recipe places no orders and does not connect a wallet. Video returned RECORDING_UNSUPPORTED; screenshot and trace are retained. Mainnet and extension confirmation remain outside this proof, as documented by inherited evidence. The first cap run's exact-input assertion rejected intentional normalization; the successful run uses a keystroke and explicit effective-value wait.
+Final cleanup PASS. Both Scale orders were canceled and independent reads confirm zero reserved ETH orders/positions. Other pre-existing market exposure was not touched.
+
+First attempt: `artifacts/recipe-run-attempt-1/`, FAIL, 192/193 nodes at TWAP strategy validation with PROVIDER_NOT_AVAILABLE. /info 429s precede that error. Provider code maps failed authoritative state reads to this error. The current rerun confirms initialization and a separate explicit rate-limit failure, but cannot confirm a repeated TWAP failure. See `twap-diagnosis/report.md`.
+
+Video was unavailable in the earlier recording attempt. Current screenshots and trace are partial evidence. Original family reports in `inputs/inherited/` recorded a full-feature pass and must not be labeled current proof.

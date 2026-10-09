@@ -1,93 +1,90 @@
 {
   "version": 1,
   "preferred_mode": "screenshots",
-  "summary": "Inherited full-feature testnet proof plus focused whole-bps cap feedback proof. Current recipe passes 10/10 nodes; screenshot inspected.",
-  "before_after_pairs": [
-    {
-      "label": "AC1 pro order controls",
-      "covers": [
-        "AC1"
-      ],
-      "before": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/recipe-baseline-run/setup-session/session/capture_connected.png",
-      "after": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac1-stop-fields.png"
-    }
-  ],
+  "summary": "Current visible-browser rerun failed at Scale cleanup with HTTP 429. TWAP was not reached. Inspected teardown capture shows successful Scale submission before final cleanup; independent trace reads verify final zero ETH orders/positions.",
+  "before_after_pairs": [],
   "standalone": [
     {
-      "label": "evidence-ac1-chase-picture",
+      "label": "attempt-1-evidence-ac1-stop-fields",
       "covers": [
         "AC1"
       ],
-      "file": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac1-chase-picture.png",
-      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+      "file": "artifacts/recipe-run-attempt-1/evidence-ac1-stop-fields.png",
+      "note": "Preserved first-attempt capture previously inspected. First attempt failed at TWAP; not evidence of the current rerun."
     },
     {
-      "label": "evidence-ac1-scale-picture",
+      "label": "attempt-1-evidence-ac1-stop_limit-picture",
       "covers": [
         "AC1"
       ],
-      "file": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac1-scale-picture.png",
-      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+      "file": "artifacts/recipe-run-attempt-1/evidence-ac1-stop_limit-picture.png",
+      "note": "Preserved first-attempt capture previously inspected. First attempt failed at TWAP; not evidence of the current rerun."
     },
     {
-      "label": "evidence-ac1-stop-fields",
+      "label": "attempt-1-evidence-ac1-take_profit_market-picture",
       "covers": [
         "AC1"
       ],
-      "file": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac1-stop-fields.png",
-      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+      "file": "artifacts/recipe-run-attempt-1/evidence-ac1-take_profit_market-picture.png",
+      "note": "Preserved first-attempt capture previously inspected. First attempt failed at TWAP; not evidence of the current rerun."
     },
     {
-      "label": "evidence-ac1-stop_limit-picture",
+      "label": "attempt-1-evidence-ac1-take_profit_limit-picture",
       "covers": [
         "AC1"
       ],
-      "file": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac1-stop_limit-picture.png",
-      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+      "file": "artifacts/recipe-run-attempt-1/evidence-ac1-take_profit_limit-picture.png",
+      "note": "Preserved first-attempt capture previously inspected. First attempt failed at TWAP; not evidence of the current rerun."
     },
     {
-      "label": "evidence-ac1-take_profit_limit-picture",
+      "label": "attempt-1-evidence-ac1-scale-picture",
       "covers": [
         "AC1"
       ],
-      "file": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac1-take_profit_limit-picture.png",
-      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+      "file": "artifacts/recipe-run-attempt-1/evidence-ac1-scale-picture.png",
+      "note": "Preserved first-attempt capture previously inspected. First attempt failed at TWAP; not evidence of the current rerun."
     },
     {
-      "label": "evidence-ac1-take_profit_market-picture",
+      "label": "attempt-1-evidence-ac1-chase-picture",
       "covers": [
         "AC1"
       ],
-      "file": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac1-take_profit_market-picture.png",
-      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+      "file": "artifacts/recipe-run-attempt-1/evidence-ac1-chase-picture.png",
+      "note": "Preserved first-attempt capture previously inspected. First attempt failed at TWAP; not evidence of the current rerun."
     },
     {
-      "label": "evidence-ac1-twap-picture",
+      "label": "attempt-1-evidence-ac1-twap-picture",
       "covers": [
         "AC1"
       ],
-      "file": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac1-twap-picture.png",
-      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+      "file": "artifacts/recipe-run-attempt-1/evidence-ac1-twap-picture.png",
+      "note": "Preserved first-attempt capture previously inspected. First attempt failed at TWAP; not evidence of the current rerun."
     },
     {
-      "label": "evidence-ac2-estimate-picture",
+      "label": "attempt-1-teardown-final-state",
       "covers": [
-        "AC2"
+        "AC1"
       ],
-      "file": "artifacts/recipe-runs/inherited-42678c0a-ab45-4539-acd4-8fa1af0dbc59/self-review-fix-recipe-run-2/evidence-ac2-estimate-picture.png",
-      "note": "Captured directly after the corresponding UI wait; target visible and unobscured."
+      "file": "artifacts/recipe-run-attempt-1/teardown-final-state.png",
+      "note": "Preserved first-attempt capture previously inspected. First attempt failed at TWAP; not evidence of the current rerun."
     },
     {
-      "label": "Effective whole-bps slippage cap",
+      "label": "attempt-2-scale-before-final-cleanup",
       "covers": [
-        "AC2"
+        "AC1"
       ],
-      "file": "artifacts/cap-runtime-run-2/effective-slippage-cap.png",
-      "note": "Current run after feedback fix. Field shows 0.01% after adding fractional precision; real-depth estimate is red above the cap. No wallet connection or orders."
+      "file": "artifacts/recipe-run/teardown-final-state.png",
+      "note": "Inspected. Scale selected, submission success and two open orders visible before final cleanup. Final zero ETH orders/positions are independently proven by trace, not this screenshot."
     }
   ],
   "videos": {
     "preferred": false,
-    "note": "BLOCKED: --record-video is not implemented for the terminal adapter."
-  }
+    "note": "RECORDING_UNSUPPORTED before execution; runtime-video.log."
+  },
+  "diagnostics": [
+    "artifacts/recipe-run/trace.json",
+    "artifacts/recipe-run/summary.json",
+    "artifacts/twap-diagnosis/provider-network.jsonl",
+    "artifacts/twap-diagnosis/report.md"
+  ]
 }

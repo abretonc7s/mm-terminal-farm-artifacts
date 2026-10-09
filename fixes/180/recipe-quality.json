@@ -1,14 +1,16 @@
 {
   "version": 1,
-  "verdict": "pass",
+  "verdict": "fail",
   "compact": {
-    "verdict": "PASS",
+    "verdict": "FAIL",
     "reasons": [
-      "Inherited full-feature recipe proof and screenshots remain indexed by path; no order routing or click-to-fill code changed in this follow-up.",
-      "Current cap recipe passes all 10 nodes with valid provenance; screenshot was inspected. Deterministic long/short boundary tests reject estimates between raw and floored caps.",
-      "Before the fix, the two submission regressions and form cap-display assertion fail. No orders were placed during the runtime proof."
+      "Visible-browser rerun failed during Scale cleanup with extraAgents HTTP 429; 110/112 nodes passed.",
+      "TWAP not reached; retry remains inconclusive. Full-scope runtime proof unavailable.",
+      "Final cleanup independently verifies zero ETH orders and positions. Existing Node 22 gates and 314 tests pass."
     ],
-    "better_version_guidance": []
+    "better_version_guidance": [
+      "A future authorized run should account for testnet rate limiting while retaining venue assertions and cleanup."
+    ]
   },
   "dimensions": {},
   "structural_findings": [],
@@ -17,7 +19,7 @@
   "training_fields": {
     "proof_mode": "mixed",
     "project": "va-mmcx-terminal-farm",
-    "flow_type": "pr-complete"
+    "flow_type": "dev"
   },
   "meta": {
     "producer": "worker",
@@ -25,7 +27,12 @@
     "legacy_task": false,
     "artifact_required": true,
     "source_signals": [
-      "recipe-quality.json"
-    ]
+      "artifacts/recipe-run/summary.json",
+      "artifacts/recipe-run/trace.json",
+      "artifacts/twap-diagnosis/report.md",
+      "artifacts/tests.log",
+      "artifacts/lint.log"
+    ],
+    "provenance_note": "Canonical package is the failed visible-browser rerun. First failed TWAP package remains in recipe-run-attempt-1; inherited quality remains separate."
   }
 }

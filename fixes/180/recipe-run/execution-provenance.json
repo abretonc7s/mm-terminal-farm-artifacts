@@ -4,12 +4,12 @@
   "snapshots": [
     {
       "phase": "start",
-      "capturedAt": "2026-10-09T09:39:04.661Z",
-      "recipeDigest": "sha256:f35124803958465b1dec89800a25667f2432df9e5e2646f34ab50eb836498d92",
+      "capturedAt": "2026-10-09T11:13:15.531Z",
+      "recipeDigest": "sha256:352ac43b2e65f1c0a473bfc998207826009e5ee8071bb72e5c3ab2298bdee7ef",
       "product": {
-        "head": "ac13a96e35f7bd385460cd96a8935e5ec86e8a7b",
-        "status": " M src/features/perpetuals/infra/perps-controller/mappers.test.ts\n M src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx\n M src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.tsx\n M src/features/perpetuals/order/utils/persist-order-draft.test.ts\n M src/features/perpetuals/queries/submit-order-mutation.test.tsx\n M src/features/perpetuals/queries/submit-order-mutation.ts\n",
-        "sourceFingerprint": "707ea2a36ccebf13dbd6d7659b2caf196966ff322999033e82a6a6691f8c9fa5"
+        "head": "2afee509639e92fa177b13b48099e3dc4aa07d4f",
+        "status": "",
+        "sourceFingerprint": "0045fd7d58be04ac5932384055d441044afdac86f1a61ebb9e2e362175f7337c"
       },
       "runner": {
         "head": null,
@@ -40,12 +40,12 @@
     },
     {
       "phase": "pre-execute",
-      "capturedAt": "2026-10-09T09:39:05.134Z",
-      "recipeDigest": "sha256:f35124803958465b1dec89800a25667f2432df9e5e2646f34ab50eb836498d92",
+      "capturedAt": "2026-10-09T11:13:15.822Z",
+      "recipeDigest": "sha256:352ac43b2e65f1c0a473bfc998207826009e5ee8071bb72e5c3ab2298bdee7ef",
       "product": {
-        "head": "ac13a96e35f7bd385460cd96a8935e5ec86e8a7b",
-        "status": " M src/features/perpetuals/infra/perps-controller/mappers.test.ts\n M src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx\n M src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.tsx\n M src/features/perpetuals/order/utils/persist-order-draft.test.ts\n M src/features/perpetuals/queries/submit-order-mutation.test.tsx\n M src/features/perpetuals/queries/submit-order-mutation.ts\n",
-        "sourceFingerprint": "707ea2a36ccebf13dbd6d7659b2caf196966ff322999033e82a6a6691f8c9fa5"
+        "head": "2afee509639e92fa177b13b48099e3dc4aa07d4f",
+        "status": "",
+        "sourceFingerprint": "0045fd7d58be04ac5932384055d441044afdac86f1a61ebb9e2e362175f7337c"
       },
       "runner": {
         "head": null,
@@ -76,12 +76,12 @@
     },
     {
       "phase": "end",
-      "capturedAt": "2026-10-09T09:39:14.968Z",
-      "recipeDigest": "sha256:f35124803958465b1dec89800a25667f2432df9e5e2646f34ab50eb836498d92",
+      "capturedAt": "2026-10-09T11:21:25.883Z",
+      "recipeDigest": "sha256:352ac43b2e65f1c0a473bfc998207826009e5ee8071bb72e5c3ab2298bdee7ef",
       "product": {
-        "head": "ac13a96e35f7bd385460cd96a8935e5ec86e8a7b",
-        "status": " M src/features/perpetuals/infra/perps-controller/mappers.test.ts\n M src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.test.tsx\n M src/features/perpetuals/order/components/OrderForm/OrderFormManualPanel/OrderFormManualPanel.tsx\n M src/features/perpetuals/order/utils/persist-order-draft.test.ts\n M src/features/perpetuals/queries/submit-order-mutation.test.tsx\n M src/features/perpetuals/queries/submit-order-mutation.ts\n",
-        "sourceFingerprint": "707ea2a36ccebf13dbd6d7659b2caf196966ff322999033e82a6a6691f8c9fa5"
+        "head": "2afee509639e92fa177b13b48099e3dc4aa07d4f",
+        "status": "",
+        "sourceFingerprint": "0045fd7d58be04ac5932384055d441044afdac86f1a61ebb9e2e362175f7337c"
       },
       "runner": {
         "head": null,
