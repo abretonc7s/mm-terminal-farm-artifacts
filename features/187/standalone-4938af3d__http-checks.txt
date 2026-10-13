@@ -1,0 +1,10 @@
+# Standalone server (node .next/standalone/server.js, Dockerfile layout, no public/) on http://localhost:9341, commit 4938af3d
+# Supporting HTTP checks; the recipe run is the proof.
+200 text/html; charset=utf-8 /order/ETH
+200 application/javascript /charting_library/charting_library.js
+200 text/html /charting_library/sameorigin.html
+200 text/javascript /charting_library/bundles/runtime.ddf792da21403fea7e07.js
+200 text/javascript /charting_library/bundles/library.668013b6b41ce2feaa5c.js
+200 text/javascript /charting_library/bundles/en.938.5f20502c9172fdac1c7f.js
+200 text/javascript /charting_library/bundles/8971.352a74bc5eebf8040884.js
+# page script tag:
